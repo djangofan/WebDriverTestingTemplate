@@ -1,0 +1,77 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.6
+projVersion = '1.0.0'
+projMain = 'qa.webdriver.GoogleTest'
+projTitle = 'WebDriver On Gradle'
+
+sourceSets {
+  main {
+    java {
+      srcDir 'src/main/java'
+      exclude 'qa/webdriver/*.xml'
+      exclude 'qa/webdriver/*.csv'
+      exclude 'qa/webdriver/*.properties'
+      output.classesDir   = 'build/classes/main'      
+    }
+    resources {
+      srcDir 'src/main/resources'
+      exclude 'qa/webdriver/*.java'
+      output.resourcesDir = 'build/resources/main'
+    }
+  }
+  test {
+    java {
+      srcDir 'src/test/java'
+      exclude 'qa/webdriver/*.xml'
+      exclude 'qa/webdriver/*.csv'
+      exclude 'qa/webdriver/*.properties'
+      output.classesDir   = 'build/classes/test'
+    }
+    resources {
+      srcDir 'src/test/resources'
+      exclude 'qa/webdriver/*.java'
+      output.resourcesDir = 'build/resources/test'
+    }
+  }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url "http://maven2.javacpp.googlecode.com/git/"
+    }
+    maven {
+        url "http://maven2.javacv.googlecode.com/git/"
+    }
+}
+
+dependencies {
+    // stored at: %HOMEPATH%/.gradle/caches/artifacts-14/filestore
+    compile group: 'org.sikuli', name: 'sikuli-api', version: '1.0.+'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.+'
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
+    compile group: 'junit', name: 'junit', version: '4.+'
+}
+
+test {
+    testLogging {
+        // log results to "build/test-results" directory
+        exceptionFormat "full"
+        events "started", "passed", "skipped", "failed", "standardOut", "standardError"
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': projTitle, 'Implementation-Version': projVersion, 'Main-Class': projMain
+    }
+    // uncomment next 2 lines slows down compile a lot
+    //dependsOn configurations.runtime
+    //from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+
+
+
