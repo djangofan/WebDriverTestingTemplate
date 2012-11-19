@@ -1,10 +1,11 @@
-package qa.webdriver;
+package qa.webdriver.util;
 
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+
 
 public class ExtendedUtilities extends UtilityClass {
 

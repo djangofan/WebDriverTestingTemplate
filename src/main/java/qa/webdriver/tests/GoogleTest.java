@@ -1,4 +1,4 @@
-package qa.webdriver;
+package qa.webdriver.tests;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -12,8 +12,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-
-import static qa.webdriver.ExtendedUtilities.*;
+import qa.webdriver.util.GoogleSearchPage;
+import static qa.webdriver.util.ExtendedUtilities.*;
 
 @RunWith(Parameterized.class)
 public class GoogleTest {

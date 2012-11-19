@@ -3,36 +3,19 @@ apply plugin: 'eclipse'
 
 sourceCompatibility = 1.6
 projVersion = '1.0.0'
-projMain = 'qa.webdriver.GoogleTest'
+projMain = 'qa.webdriver.tests.GoogleTest'
 projTitle = 'WebDriver On Gradle'
 
 sourceSets {
   main {
     java {
       srcDir 'src/main/java'
-      exclude 'qa/webdriver/*.xml'
-      exclude 'qa/webdriver/*.csv'
-      exclude 'qa/webdriver/*.properties'
       output.classesDir   = 'build/classes/main'      
     }
     resources {
       srcDir 'src/main/resources'
-      exclude 'qa/webdriver/*.java'
+      include '*.csv'
       output.resourcesDir = 'build/resources/main'
-    }
-  }
-  test {
-    java {
-      srcDir 'src/test/java'
-      exclude 'qa/webdriver/*.xml'
-      exclude 'qa/webdriver/*.csv'
-      exclude 'qa/webdriver/*.properties'
-      output.classesDir   = 'build/classes/test'
-    }
-    resources {
-      srcDir 'src/test/resources'
-      exclude 'qa/webdriver/*.java'
-      output.resourcesDir = 'build/resources/test'
     }
   }
 }

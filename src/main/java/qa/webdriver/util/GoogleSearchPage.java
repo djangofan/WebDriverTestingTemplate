@@ -1,4 +1,4 @@
-package qa.webdriver;
+package qa.webdriver.util;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.SystemClock;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static qa.webdriver.ExtendedUtilities.*;
+import static qa.webdriver.util.ExtendedUtilities.*;
 
 public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
 	

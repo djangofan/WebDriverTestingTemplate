@@ -1,4 +1,4 @@
-package qa.webdriver;
+package qa.webdriver.util;
 
 import java.io.File;
 import java.text.DecimalFormat;
@@ -17,9 +17,9 @@ import org.openqa.selenium.Keys;
 
 public class UtilityClass {
 
-	static WebDriver driver;
+	public static WebDriver driver;
 	private static JavascriptExecutor js;
-	static String pageLoadStatus = null;
+	private static String pageLoadStatus = null;
 	
 	protected UtilityClass() {
 		throw new AssertionError(); // to prevent instantiation as an object
@@ -37,7 +37,7 @@ public class UtilityClass {
 	
 	public static File loadTestFile( String fileName ) {
 		File gradleFile = new File( fileName );
-		File junitFile = new File("src/test/resources/qa/webdriver/" + fileName );
+		File junitFile = new File("src/main/resources/" + fileName );
 		if ( gradleFile.exists() ) {
 			System.out.println("Loaded '" + gradleFile.getAbsolutePath() + "' from Gradle runtime.");
 			return gradleFile;
@@ -46,7 +46,7 @@ public class UtilityClass {
 			return junitFile;
 		}
 		System.out.println("Problem loading test data input file.  Trying to run from Gradle bin directory...");
-		return new File("bin/qa/webdriver" + fileName);
+		return new File("bin/" + fileName);
 	}
 	
 	public static ExpectedCondition<WebElement> visibilityOfElementLocated(final By locator) {
