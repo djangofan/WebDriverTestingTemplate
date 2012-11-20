@@ -1,13 +1,13 @@
 Selenium WebDriver Testing Template
 ---------------------------
-Features:
+## Features:
 1. For use with JUnit 4.11 or higher
 2. For use with Sikuli 1.0.1 or higher
 3. Unit tests are parameterized
 4. 
 
 ---------------------------
-TODO List:
+## TODO List:
 
 Note: Some of these things might not be possible to implement.
 
@@ -24,7 +24,7 @@ Note: Some of these things might not be possible to implement.
 
  
 ----------------------------
-Configuration Notes:
+## Configuration Notes:
 
 To get it working on a regular Eclipse (Juno), rather than Spring Source Suite, do the following: 
  
