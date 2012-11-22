@@ -1,6 +1,8 @@
 ######TODO (markdown format)
 ------------------------------------
 #Selenium WebDriver Testing Template
+Project README: 
+######<http://github.com/djangofan/WebDriverTestingTemplate/blob/master/README.md>
 ------------------------------------
 ## TODO List:
 
