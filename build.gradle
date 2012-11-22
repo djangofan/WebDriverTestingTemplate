@@ -1,24 +1,10 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
-sourceCompatibility = 1.6
-projVersion = '1.0.0'
-projMain = 'qa.webdriver.tests.GoogleTest'
-projTitle = 'WebDriver On Gradle'
-
-sourceSets {
-  main {
-    java {
-      srcDir 'src/main/java'
-      output.classesDir   = 'build/classes/main'      
-    }
-    resources {
-      srcDir 'src/main/resources'
-      include '*.csv'
-      output.resourcesDir = 'build/resources/main'
-    }
-  }
-}
+ext.sourceCompatibility = 1.6
+ext.projVersion = '1.0.1'
+ext.projMain = 'qa.webdriver.tests.GoogleTest'
+ext.projTitle = 'WebDriver On Gradle'
 
 repositories {
     mavenCentral()
@@ -34,13 +20,13 @@ dependencies {
     // stored at: %HOMEPATH%/.gradle/caches/artifacts-14/filestore
     compile group: 'org.sikuli', name: 'sikuli-api', version: '1.0.+'
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.+'
-    compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.+'
     compile group: 'junit', name: 'junit', version: '4.+'
 }
 
 test {
     testLogging {
-        // log results to "build/test-results" directory
+        // I think this will control log results to "build/test-results" directory
         exceptionFormat "full"
         events "started", "passed", "skipped", "failed", "standardOut", "standardError"
     }
@@ -50,10 +36,29 @@ jar {
     manifest {
         attributes 'Implementation-Title': projTitle, 'Implementation-Version': projVersion, 'Main-Class': projMain
     }
-    // uncomment next 2 lines slows down compile a lot
+    // next 2 lines slows down build a lot but puts dependencies into the compiled .jar
     //dependsOn configurations.runtime
     //from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
 }
+
+task show << {
+    println "-----------------------------------"
+    println "Loading build.gradle configuration..."
+    println "   _____               _ _          "
+    println "  / ____|             | | |         "
+    println " | |  __ _ __ __ _  __| | | ___     "
+    println " | | |_ | '__/ _` |/ _` | |/ _ \\    "
+    println " | |__| | | | (_| | (_| | |  __/    "
+    println "  \\_____|_|  \\__,_|\\__,_|_|\\___|    "
+    println ""
+    println "Build output: " + relativePath(compileJava.destinationDir)
+    println "Resources output: " + relativePath(processResources.destinationDir)
+    println "Version: " + projVersion
+    println "Main class: " + projMain
+    println "Project Name: " + projTitle
+    println "-----------------------------------"
+}
+
 
 
 

@@ -1,11 +1,14 @@
 ######<a href="http://github.com/djangofan/WebDriverTestingTemplate/blob/master/TODO.md">TODO List</a>
 
-# Features
+# Implemented Features
 
-1. For use with JUnit 4.11 or higher
-2. For use with Sikuli 1.0.1 or higher
-3. Unit tests are parameterized
-4. Will log output to build/test-output 
+1. For use with JUnit 4.11 or higher, supporting parameterized tests.
+2. For use with Sikuli 1.0.1 or higher to test native elements that WebDriver can't control.
+3. Unit tests are parameterized.
+4. Will log output to build/test-output directory in project.  This is the Gradle default.
+5. Uses the WebDriver "page object" design pattern.
+6. 
+
 
 # Configuration Notes
 
@@ -21,6 +24,9 @@ http://dist.springsource.com/release/TOOLS/composite/e3.7/bookmarks.xml
 6. Rebuild the dependencies by right clicking on the project and then choose Gradle-->Refresh All Dependencies
 7. Right click on your project and choose "Run As-->Gradle Build".  If you see 2 items called "Gradle Build", choose the second one rather than the first one.  In the dialogue choose "clean" and "build" checkboxes.
 8. Optionally, you can run this project on the command line with "gradle clean build --info" and it will execute the unit tests.  Also, this project provides a .bat batch script that does this.
+9. If parameterized data provider can't find input file, default to a non-parameterized test.
+10.
+
 
 
 # Other

@@ -26,6 +26,8 @@ public class GoogleTest {
 	private String testName, searchString, ddMatch;
 
 	public GoogleTest( String tName, String sString, String dMatch ) {
+		
+		// start: figure out why currentdir is not correct when running with Gradle
 		String current = null;
 		try {
 			current = new File( "." ).getCanonicalPath();
@@ -35,6 +37,8 @@ public class GoogleTest {
         System.out.println("Current dir: " + current);
         String currentDir = System.getProperty("user.dir");
         System.out.println("System dir:  " +currentDir);
+        // end
+        
 		this.testName = tName;
 		this.searchString = sString;
 		this.ddMatch = dMatch;
@@ -89,7 +93,7 @@ public class GoogleTest {
 		selectInGoogleDropdown( ddMatch );  
 		gs.clickSearchButton();
 		waitTimer(3, 1000);
-		clickElementWithJSE( "gbql" ); //click Google logo
+		clickElementWithJSE( "gbqlt" ); //click Google logo
 		System.out.println("Done with test.");
 	}
 	

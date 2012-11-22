@@ -162,7 +162,8 @@ pip-log.txt
 # Mac crap
 .DS_Store
 
-# Git
+# GitHub
 *.bin
 cache.*
+.gradle
 
