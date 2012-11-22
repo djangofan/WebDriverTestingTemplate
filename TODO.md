@@ -1,5 +1,3 @@
-######TODO (markdown format)
-######---------------------------------------------------------------
 #Selenium WebDriver Testing Template
 
 Project README: 
