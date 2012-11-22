@@ -1,5 +1,4 @@
 #Selenium WebDriver Testing Template
-Project TODO list: 
 ######<a href="http://github.com/djangofan/WebDriverTestingTemplate/blob/master/TODO.md">TODO List</a>
 ######---------------------------------------------------------------
 ## Features:
