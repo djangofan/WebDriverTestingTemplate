@@ -11,7 +11,7 @@ Note: Some of these things might not be possible or practical to implement.
 3. Improve WebDriver code that handles waiting for html page elements.
 4. Improve the Page Object design pattern so that it is type safe and with better separation of script from framework.
 5. Improve .bat  batch script to launch tests, compile, and perhaps handle Git events.
-6. Add "TODO" annotations to existing code to mark where code needs improvements
-7. Convert project to a Gradle multi-project and have the .bat file handle running multiple projects independently
-
+6. Add "TODO" comments to existing code to mark where code needs improvements.
+7. Convert project to a Gradle multi-project and have the .bat file handle running multiple projects independently.
+8. 
  

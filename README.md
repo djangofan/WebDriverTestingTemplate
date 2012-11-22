@@ -1,6 +1,8 @@
 ######README (markdown format)
 ------------------------------------
 #Selenium WebDriver Testing Template
+Project TODO list: 
+</djangofan/WebDriverTestingTemplate/blob/master/TODO.md>
 ------------------------------------
 ## Features:
 1. For use with JUnit 4.11 or higher
