@@ -1,3 +1,5 @@
+README (Markdown Format)
+---------------------------
 Selenium WebDriver Testing Template
 ---------------------------
 ## Features:
