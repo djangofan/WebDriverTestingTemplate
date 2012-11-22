@@ -1,14 +1,13 @@
-#Selenium WebDriver Testing Template
 ######<a href="http://github.com/djangofan/WebDriverTestingTemplate/blob/master/TODO.md">TODO List</a>
-######---------------------------------------------------------------
-## Features:
+
+# Features
+
 1. For use with JUnit 4.11 or higher
 2. For use with Sikuli 1.0.1 or higher
 3. Unit tests are parameterized
 4. Will log output to build/test-output 
 
-######---------------------------------------------------------------
-## Configuration Notes:
+# Configuration Notes
 
 To get it working on a regular Eclipse (Juno), rather than Spring Source Suite, do the following: 
  
@@ -23,7 +22,6 @@ http://dist.springsource.com/release/TOOLS/composite/e3.7/bookmarks.xml
 7. Right click on your project and choose "Run As-->Gradle Build".  If you see 2 items called "Gradle Build", choose the second one rather than the first one.  In the dialogue choose "clean" and "build" checkboxes.
 8. Optionally, you can run this project on the command line with "gradle clean build --info" and it will execute the unit tests.  Also, this project provides a .bat batch script that does this.
 
- 
-######---------------------------------------------------------------
-## Other
+
+# Other
 

@@ -1,7 +1,6 @@
-#Selenium WebDriver Testing Template
 ######<a href="http://github.com/djangofan/WebDriverTestingTemplate/blob/master/README.md">README</a>
-######---------------------------------------------------------------
-## TODO List:
+
+# TODO List
 
 Note: Some of these things might not be possible or practical to implement.
 
