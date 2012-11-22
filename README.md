@@ -1,14 +1,14 @@
-README (Markdown Format)
-![Selenium 2](http://seleniumhq.org/images/big-logo.png)
-Selenium WebDriver Testing Template
----------------------------
+######README (Markdown Format)
+------------------------------------
+#Selenium WebDriver Testing Template
+------------------------------------
 ## Features:
 1. For use with JUnit 4.11 or higher
 2. For use with Sikuli 1.0.1 or higher
 3. Unit tests are parameterized
 4. 
 
----------------------------
+------------------------------------
 ## TODO List:
 
 Note: Some of these things might not be possible to implement.
@@ -25,7 +25,7 @@ Note: Some of these things might not be possible to implement.
 10. Convert project to a Gradle multi-project and have the .bat file handle running multiple projects independently
 
  
-----------------------------
+------------------------------------
 ## Configuration Notes:
 
 To get it working on a regular Eclipse (Juno), rather than Spring Source Suite, do the following: 
@@ -42,3 +42,6 @@ Run this project with "gradle clean build --info" and it will execute the unit t
  
 Will log output to build/test-output 
  
+------------------------------------
+## Other
+
