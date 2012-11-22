@@ -1,7 +1,7 @@
 #Selenium WebDriver Testing Template
 
 Project README: 
-######<http://github.com/djangofan/WebDriverTestingTemplate/blob/master/README.md>
+######<README.md>
 ######---------------------------------------------------------------
 ## TODO List:
 

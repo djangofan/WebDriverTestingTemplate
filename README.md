@@ -1,6 +1,6 @@
 #Selenium WebDriver Testing Template
 Project TODO list: 
-######<http://github.com/djangofan/WebDriverTestingTemplate/blob/master/TODO.md>
+######<TODO.md>
 ######---------------------------------------------------------------
 ## Features:
 1. For use with JUnit 4.11 or higher
