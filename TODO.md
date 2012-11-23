@@ -1,4 +1,4 @@
-######<a href="http://github.com/djangofan/WebDriverTestingTemplate/blob/master/README.md">README</a>
+######<a href="http://github.com/djangofan/WebDriverTestingTemplate/blob/master/README.md">Link: README</a>
 
 # TODO List
 
