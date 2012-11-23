@@ -1,10 +1,13 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin:'application'
 
-ext.sourceCompatibility = 1.6
-ext.projVersion = '1.0.1'
-ext.projMain = 'qa.webdriver.tests.GoogleTest'
-ext.projTitle = 'WebDriver On Gradle'
+project.ext.sourceCompatibility = 1.6
+project.ext.projVersion = '1.0.1'
+project.ext.projMain = 'qa.webdriver.tests.AllTests'
+project.ext.projTitle = 'WebDriver On Gradle'
+
+mainClassName = project.projMain
 
 repositories {
     mavenCentral()
@@ -34,7 +37,7 @@ test {
 
 jar {
     manifest {
-        attributes 'Implementation-Title': projTitle, 'Implementation-Version': projVersion, 'Main-Class': projMain
+        attributes 'Implementation-Title': project.projTitle, 'Implementation-Version': project.projVersion, 'Main-Class': project.projMain
     }
     // next 2 lines slows down build a lot but puts dependencies into the compiled .jar
     //dependsOn configurations.runtime
@@ -51,6 +54,7 @@ task show << {
     println " | |__| | | | (_| | (_| | |  __/    "
     println "  \\_____|_|  \\__,_|\\__,_|_|\\___|    "
     println ""
+    println "Using build file '$buildFile.name' in '$buildFile.parentFile.name'."
     println "Build output: " + relativePath(compileJava.destinationDir)
     println "Resources output: " + relativePath(processResources.destinationDir)
     println "Version: " + projVersion

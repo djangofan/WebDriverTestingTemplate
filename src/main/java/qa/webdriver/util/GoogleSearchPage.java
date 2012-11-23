@@ -17,29 +17,20 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
 	
 	private static int timeOutInSeconds = 3;
 
-    public GoogleSearchPage() {
+    @FindBy(id = "gbqfq") private WebElement searchField;
+
+	@FindBy(id = "gbqfb") private WebElement searchButton;
+
+	public GoogleSearchPage() {
         super( new SystemClock(), timeOutInSeconds);
 		System.out.println("Loaded Google Search Page");
 		this.get(); //calls load and isLoaded
 		PageFactory.initElements(driver, this); 
     }
-
-	@Override
-	protected void load() {
-		System.out.println("Calling GoogleSearchPage.load...");
-		Wait<WebDriver> wait = new WebDriverWait(driver, 30); 
-		if ( driver.findElement( By.id("//div[@id='navBar']//div[1]")).getAttribute("onclick") == null )
-		{			
-			WebElement defnav = wait.until( visibilityOfElementLocated( By.id("gbqfq") ) );
-			defnav.click();
-			WebElement adnav = wait.until( visibilityOfElementLocated( By.id("gbqfq") ) );
-			adnav.click();			
-		} else {
-			WebElement adnav = wait.until( visibilityOfElementLocated( By.id("gbqfq") ) );
-			adnav.click();
-		}
+	
+	public void clickSearchButton() {
+		searchButton.click();
 	}
-
 	@Override
 	protected void isLoaded() throws Error {
 		System.out.println("Calling GoogleSearchPage.isLoaded...");
@@ -56,14 +47,23 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
 		} 
 	}
 	
-	@FindBy(id = "gbqfq") private WebElement searchField;
+	@Override
+	protected void load() {
+		System.out.println("Calling GoogleSearchPage.load...");
+		Wait<WebDriver> wait = new WebDriverWait(driver, 30); 
+		if ( driver.findElement( By.id("//div[@id='navBar']//div[1]")).getAttribute("onclick") == null )
+		{			
+			WebElement defnav = wait.until( visibilityOfElementLocated( By.id("gbqfq") ) );
+			defnav.click();
+			WebElement adnav = wait.until( visibilityOfElementLocated( By.id("gbqfq") ) );
+			adnav.click();			
+		} else {
+			WebElement adnav = wait.until( visibilityOfElementLocated( By.id("gbqfq") ) );
+			adnav.click();
+		}
+	}
 	public void setSearchString( String sstr ) {
 		clearAndType( searchField, sstr );
-	}
-	
-	@FindBy(id = "gbqfb") private WebElement searchButton;
-	public void clickSearchButton() {
-		searchButton.click();
 	}
 	
     

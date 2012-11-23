@@ -21,18 +21,35 @@ public class UtilityClass {
 	private static JavascriptExecutor js;
 	private static String pageLoadStatus = null;
 	
-	protected UtilityClass() {
-		throw new AssertionError(); // to prevent instantiation as an object
-	}
-	
 	public static void clearAndSetValue(WebElement field, String text) { 
 		field.clear(); 
 		field.sendKeys(Keys.chord(Keys.CONTROL, "a"), text); 
 	}
-
+	
 	public static void clearAndType(WebElement field, String text) { 
 		field.clear(); 
 		field.sendKeys(text); 
+	}
+
+	public static void clickElementWithJSE( String id ) {
+		//Create the object of JavaScript Executor 
+		//click command through Javascript
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		WebElement element= driver.findElement( By.id( id ) );
+		//Use any locator type using to identify the element
+		js.executeScript( "arguments[0].click();", element );
+		js = null;
+	}
+	
+	public static void initializeBrowser( String type ) {
+		if ( type.equalsIgnoreCase( "firefox" ) ) {
+			driver = new FirefoxDriver();
+		} else if ( type.equalsIgnoreCase( "ie" ) ) {
+			driver = new InternetExplorerDriver();
+		}
+        driver.manage().timeouts().implicitlyWait( 10000, TimeUnit.MILLISECONDS );
+        driver.manage().window().setPosition(new Point(200, 10));
+        driver.manage().window().setSize(new Dimension(1200, 800));
 	}
 	
 	public static File loadTestFile( String fileName ) {
@@ -59,27 +76,6 @@ public class UtilityClass {
 				return null;
 			}
 		};
-	}
-	
-	public static void initializeBrowser( String type ) {
-		if ( type.equalsIgnoreCase( "firefox" ) ) {
-			driver = new FirefoxDriver();
-		} else if ( type.equalsIgnoreCase( "ie" ) ) {
-			driver = new InternetExplorerDriver();
-		}
-        driver.manage().timeouts().implicitlyWait( 10000, TimeUnit.MILLISECONDS );
-        driver.manage().window().setPosition(new Point(200, 10));
-        driver.manage().window().setSize(new Dimension(1200, 800));
-	}
-
-	public static void clickElementWithJSE( String id ) {
-		//Create the object of JavaScript Executor 
-		//click command through Javascript
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		WebElement element= driver.findElement( By.id( id ) );
-		//Use any locator type using to identify the element
-		js.executeScript( "arguments[0].click();", element );
-		js = null;
 	}
 
 	public static void waitForPageToLoad() {
@@ -108,6 +104,10 @@ public class UtilityClass {
 		} catch ( InterruptedException ex ) {
 			ex.printStackTrace();
 		}	
+	}
+
+	protected UtilityClass() {
+		throw new AssertionError(); // to prevent instantiation as an object
 	}
 
 }
