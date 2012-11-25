@@ -21,8 +21,7 @@ IF NOT DEFINED GRADLE_HOME (
 
 SET PATH=%JAVA_HOME%\bin;%GROOVY_HOME%\bin;%GRADLE_HOME%\bin;%PATH%
 
-CALL gradle.bat -q show
-CALL gradle.bat clean build --info
+CALL gradle.bat show clean build run --info
 
 :END
 ECHO Closing gradle_run.bat script
