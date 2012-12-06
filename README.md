@@ -32,6 +32,7 @@ To get it working on a regular Eclipse (Juno), rather than Spring Source Suite, 
 8. Optionally, you can run this project on the command line with "gradle.bat show clean build run --info" and it will execute the unit tests.  Also, this project provides a .bat batch script that does this.
 9. 
 10.
+11.
 
 
 
