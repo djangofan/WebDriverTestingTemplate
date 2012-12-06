@@ -5,7 +5,7 @@
 0: Convert project to a Gradle multi-project and have the .bat file handle running multiple 
     projects independently.
 
-######Note: Some of these things might not be possible or practical to implement.
+####Note: Some of these things might not be possible or practical to implement.
 
 1.  Improve unit test logging. Gradle puts results in 'build/reports/test/index.html' but 
     currently this isn't working when launching tests from Eclipse.  It works when you 
