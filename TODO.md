@@ -2,10 +2,10 @@
 
 # TODO List
 
-Next on List: Convert project to a Gradle multi-project and have the .bat file handle running multiple 
+0: Convert project to a Gradle multi-project and have the .bat file handle running multiple 
     projects independently.
 
-Note: Some of these things might not be possible or practical to implement.
+##Note: Some of these things might not be possible or practical to implement.
 
 1.  Improve unit test logging. Gradle puts results in 'build/reports/test/index.html' but 
     currently this isn't working when launching tests from Eclipse.  It works when you 
@@ -20,4 +20,4 @@ Note: Some of these things might not be possible or practical to implement.
 7.  Convert usage of XPath in WebDriver to using CSS selectors instead.
 8.  Improve test suite so Eclipse provides a stop button during testing.
 9. If parameterized data provider can't find input file, default to a non-parameterized test.
- 
+10. N/A

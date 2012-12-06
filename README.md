@@ -14,8 +14,7 @@ I am very much interested in others forking my code and showing me how it can be
 3. Unit tests are parameterized.
 4. Will log output to build/test-output directory in project.  This is the Gradle default.
 5. Uses the WebDriver "page object" design pattern.
-
-6. 
+6. N/A
 
 
 # Configuration Notes
