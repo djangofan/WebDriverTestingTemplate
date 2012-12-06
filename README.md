@@ -1,5 +1,12 @@
 ######<a href="http://github.com/djangofan/WebDriverTestingTemplate/blob/master/TODO.md">Link: TODO List</a>
 
+# Info
+
+This is a Java project to used as a template for others to start a web browser testing project.
+
+I am very much interested in others forking my code and showing me how it can be improved.
+
+
 # Implemented Features
 
 1. For use with JUnit 4.11 or higher, supporting parameterized tests.
@@ -27,7 +34,5 @@ To get it working on a regular Eclipse (Juno), rather than Spring Source Suite, 
 10.
 
 
-
-# Other
 
 
