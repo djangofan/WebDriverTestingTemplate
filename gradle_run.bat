@@ -23,6 +23,8 @@ SET PATH=%JAVA_HOME%\bin;%GROOVY_HOME%\bin;%GRADLE_HOME%\bin;%PATH%
 
 CALL gradle.bat show clean build run --info
 
+START "%ProgramFiles%\Internet Explorer\iexplore.exe" file:///%CD%/build/reports/tests/index.html
+
 :END
 ECHO Closing gradle_run.bat script
 FOR /l %%a in (10,-1,1) do (TITLE %TITLETEXT% -- closing in %%as&PING.exe -n 2 -w 1 127.0.0.1>nul)
