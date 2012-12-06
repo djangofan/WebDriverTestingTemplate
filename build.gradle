@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin:'application'
 
 project.ext.sourceCompatibility = 1.6
-project.ext.projVersion = '1.0.1'
+project.ext.projVersion = '0.99.2'
 project.ext.projMain = 'qa.webdriver.tests.AllTests'
 project.ext.projTitle = 'WebDriver On Gradle'
 
