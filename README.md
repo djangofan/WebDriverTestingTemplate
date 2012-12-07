@@ -35,6 +35,5 @@ To get it working on a regular Eclipse (Juno), rather than Spring Source Suite, 
 11. N/A
 
 # Screenshot
-<img src="SampleResult.png">
-
+![Result Screenshot](SampleResult.png)
 
