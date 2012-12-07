@@ -35,5 +35,5 @@ To get it working on a regular Eclipse (Juno), rather than Spring Source Suite, 
 11. N/A
 
 # Screenshot
-![Result Screenshot](SampleResult.png)
+![Result Screenshot](https://github.com/djangofan/WebDriverTestingTemplate/blob/master/SampleResult.png)
 
