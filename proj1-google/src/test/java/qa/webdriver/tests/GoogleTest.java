@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import qa.webdriver.util.GoogleSearchPage;
-import static qa.webdriver.util.ExtendedUtilities.*;
+import static qa.webdriver.util.GoogleUtilities.*;
 
 @RunWith(Parameterized.class)
 public class GoogleTest {

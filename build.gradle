@@ -3,50 +3,21 @@ apply plugin: 'eclipse'
 apply plugin:'application'
 
 project.ext.sourceCompatibility = 1.6
-project.ext.projVersion = '0.99.2'
-project.ext.projMain = 'qa.webdriver.tests.AllTests'
 project.ext.projTitle = 'WebDriver On Gradle'
 
-mainClassName = project.projMain
-
-repositories {
-    mavenCentral()
-    maven {
-        url "http://maven2.javacpp.googlecode.com/git/"
-    }
-    maven {
-        url "http://maven2.javacv.googlecode.com/git/"
+allprojects {
+	task hello << {Task task ->
+        println "I am project $task.project.name ."
     }
 }
 
-dependencies {
-    // stored at: %HOMEPATH%/.gradle/caches/artifacts-14/filestore
-    compile group: 'org.sikuli', name: 'sikuli-api', version: '1.0.+'
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.+'
-    compile group: 'commons-collections', name: 'commons-collections', version: '3.+'
-    compile group: 'junit', name: 'junit', version: '4.+'
-}
-
-test {
-    testLogging {
-        // I think this will control log results to "build/test-results" directory
-        exceptionFormat "full"
-        events "started", "passed", "skipped", "failed", "standardOut", "standardError"
-    }
-}
-
-jar {
-    manifest {
-        attributes 'Implementation-Title': project.projTitle, 'Implementation-Version': project.projVersion, 'Main-Class': project.projMain
-    }
-    // next 2 lines slows down build a lot but puts dependencies into the compiled .jar
-    //dependsOn configurations.runtime
-    //from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
+subprojects {
+    hello << {println "I am a sub-project of the root project."}
 }
 
 task show << {
     println "-----------------------------------"
-    println "Loading build.gradle configuration..."
+    println "Loading main build.gradle configuration..."
     println "   _____               _ _          "
     println "  / ____|             | | |         "
     println " | |  __ _ __ __ _  __| | | ___     "
@@ -54,16 +25,7 @@ task show << {
     println " | |__| | | | (_| | (_| | |  __/    "
     println "  \\_____|_|  \\__,_|\\__,_|_|\\___|    "
     println ""
-    println "Using build file '$buildFile.name' in '$buildFile.parentFile.name'."
-    println "Build output: " + relativePath(compileJava.destinationDir)
-    println "Resources output: " + relativePath(processResources.destinationDir)
-    println "Version: " + projVersion
-    println "Main class: " + projMain
-    println "Project Name: " + projTitle
     println "-----------------------------------"
 }
-
-
-
 
 

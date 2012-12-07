@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.SystemClock;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static qa.webdriver.util.ExtendedUtilities.*;
+import static qa.webdriver.util.GoogleUtilities.*;
 
 public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
 	

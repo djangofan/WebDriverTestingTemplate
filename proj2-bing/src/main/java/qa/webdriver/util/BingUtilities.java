@@ -7,13 +7,13 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 
-public class ExtendedUtilities extends UtilityClass {
+public class BingUtilities extends UtilityClass {
 
-	public ExtendedUtilities() {
+	public BingUtilities() {
 		super(); // to prevent instantiation as an object
 	}
 
-	public static void selectInGoogleDropdown( String match )
+	public static void selectInBingDropdown( String match )
 	{
 		WebElement dd = driver.findElement( By.xpath( "//input[@id='gbqfq']" ) );
 		waitTimer(4, 500);

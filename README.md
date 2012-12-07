@@ -14,7 +14,7 @@ I am very much interested in others forking my code and showing me how it can be
 3. Unit tests are parameterized.
 4. Will log output to build/test-output directory in project.  This is the Gradle default.
 5. Uses the WebDriver "page object" design pattern.
-6. N/A
+6. Implemented multiple projects as sub-projects of the root Gradle project.
 
 
 # Configuration Notes
@@ -34,6 +34,7 @@ To get it working on a regular Eclipse (Juno), rather than Spring Source Suite, 
 10. N/A
 11. N/A
 
-
+# Screenshot
+<img src=SampleResult.png">
 
 

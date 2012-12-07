@@ -1,0 +1,58 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin:'application'
+
+project.ext.sourceCompatibility = 1.6
+project.ext.projVersion = '0.99.2'
+project.ext.projTitle = 'WebDriver For Bing'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "http://maven2.javacpp.googlecode.com/git/"
+    }
+    maven {
+        url "http://maven2.javacv.googlecode.com/git/"
+    }
+}
+
+dependencies {
+    // stored at: %HOMEPATH%/.gradle/caches/artifacts-14/filestore
+    compile group: 'org.sikuli', name: 'sikuli-api', version: '1.0.+'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.+'
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.+'
+    compile group: 'junit', name: 'junit', version: '4.+'
+}
+
+test {
+    testLogging {
+        // I think this will control log results to "build/test-results" directory
+        exceptionFormat "full"
+        events "started", "passed", "skipped", "failed", "standardOut", "standardError"
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': project.projTitle, 'Implementation-Version': project.projVersion
+    }
+    // next 2 lines slows down build a lot but puts dependencies into the compiled .jar
+    //dependsOn configurations.runtime
+    //from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+task show << {
+    println ""
+    println "-----------------------------------"
+    println "Using build file '$buildFile.name' in '$buildFile.parentFile.name'."
+    println "Build output: " + relativePath(compileJava.destinationDir)
+    println "Resources output: " + relativePath(processResources.destinationDir)
+    println "Version: " + projVersion
+    println "Project Name: " + projTitle
+    println "-----------------------------------"
+}
+
+
+
+
+

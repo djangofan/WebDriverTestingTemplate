@@ -1,6 +1,8 @@
 package qa.webdriver.util;
 
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileNotFoundException;
 import java.text.DecimalFormat;
 import java.util.concurrent.TimeUnit;
 
@@ -53,17 +55,16 @@ public class UtilityClass {
 	}
 	
 	public static File loadTestFile( String fileName ) {
-		File gradleFile = new File( fileName );
-		File junitFile = new File("src/main/resources/" + fileName );
-		if ( gradleFile.exists() ) {
-			System.out.println("Loaded '" + gradleFile.getAbsolutePath() + "' from Gradle runtime.");
-			return gradleFile;
-		} else if ( junitFile.exists() ) {
-			System.out.println("Loaded '" + junitFile.getAbsolutePath() + "' from JUnit runtime.");
-			return junitFile;
-		}
-		System.out.println("Problem loading test data input file.  Trying to run from Gradle bin directory...");
-		return new File("bin/" + fileName);
+		FileReader toReturn;
+		File junitFile = new File("build/resources/test/" + fileName );
+		try {
+            toReturn = new FileReader(junitFile);
+            System.out.println( "The file '" + junitFile.getAbsolutePath() + "' can be loaded." );
+        } catch( FileNotFoundException ex ) {
+			ex.getLocalizedMessage();
+			System.out.println( "Problem loading test data input file." );
+		}	
+		return junitFile;
 	}
 	
 	public static ExpectedCondition<WebElement> visibilityOfElementLocated(final By locator) {
