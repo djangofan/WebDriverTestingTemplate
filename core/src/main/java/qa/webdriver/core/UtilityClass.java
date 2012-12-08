@@ -1,4 +1,4 @@
-package qa.webdriver.util;
+package qa.webdriver.core;
 
 import java.io.File;
 import java.io.FileReader;

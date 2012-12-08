@@ -1,1 +1,1 @@
-include 'proj1-google', 'proj2-bing'
+include 'core', 'core:google', 'core:bing'

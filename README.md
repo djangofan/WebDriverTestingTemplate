@@ -9,13 +9,14 @@ I am very much interested in others forking my code and showing me how it can be
 
 # Implemented Features
 
-1. For use with JUnit 4.11 or higher, supporting parameterized tests.
+1. For use only with JUnit 4.11 or higher.
 2. For use with Sikuli 1.0.1 or higher to test native elements that WebDriver can't control.
 3. Unit tests are parameterized.
-4. Will log output to build/test-output directory in project.  This is the Gradle default.
+4. Will log output to build/test-output directory in project.
 5. Uses the WebDriver "page object" design pattern.
-6. Implemented multiple projects as sub-projects of the root Gradle project.
-7. 
+6. Implemented multiple project build.  The root project has a subproject called "core" and all subprojects of "core" inherit classes from it.
+7. Will generate reports of JUnit tests results in build/reports/test/index.html
+8. 
 
 
 # Configuration Notes

@@ -1,12 +1,9 @@
 apply plugin: 'java'
 
 project.ext.sourceCompatibility = 1.6
-project.ext.projTitle = 'WebDriver On Gradle'
-project.ext.projVersion = '0.99.0'
 
 task identify << {
     println "-----------------------------------"
-    println "Loading main build.gradle configuration..."
     println "   _____               _ _          "
     println "  / ____|             | | |         "
     println " | |  __ _ __ __ _  __| | | ___     "
@@ -32,6 +29,10 @@ allprojects {
         }
     }
 
+}
+
+subprojects {
+
     dependencies {
         // stored at: %HOMEPATH%/.gradle/caches/artifacts-14/filestore
         compile group: 'org.sikuli', name: 'sikuli-api', version: '1.0.+'
@@ -39,25 +40,13 @@ allprojects {
         compile group: 'commons-collections', name: 'commons-collections', version: '3.+'
         compile group: 'junit', name: 'junit', version: '4.+'
     }
-    
-    jar {
-        manifest {
-            attributes 'Implementation-Title': project.projTitle, 'Implementation-Version': project.projVersion
-        }
-        // next 2 lines slows down build a lot but puts dependencies into the compiled .jar
-        //dependsOn configurations.runtime
-        //from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
-    }
-
-}
-
-subprojects {
 
     task show << {
         println ""
         println "-----------------------------------------------"
         println "Project Name: " + projTitle
         println "Version: " + projVersion
+        println "Home directory: "
         println "Build output: " + relativePath(compileJava.destinationDir)
         println "Resources output: " + relativePath(processResources.destinationDir)
         println "Test output dir: " + relativePath(sourceSets.test.output.classesDir)
@@ -67,21 +56,48 @@ subprojects {
     } 
 
     test {
+        // this enables output in build/test-results directory
         testLogging {
             exceptionFormat "full"
             events "started", "passed", "skipped", "failed", "standardOut", "standardError"
         }
     }
-    
-}
-    
-project(':proj1-google') {
-    project.ext.projVersion = '0.99.2'
-    project.ext.projTitle = 'WebDriver For Google'
+
 }
 
-project(':proj2-bing') {
+project(':core') {
+    project.ext.projTitle = 'WebDriver On Gradle'
+    project.ext.projVersion = '0.99.0'
+    
+    jar {
+        manifest {
+            attributes 'Implementation-Title': project.projTitle, 'Implementation-Version': project.projVersion
+        }
+        // next 2 lines slows down build a lot but puts dependencies into the compiled .jar
+        //dependsOn configurations.runtime
+        //from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
+    }
+}
+    
+project(':core:google') {
+    dependencies {
+        compile project(':core')
+    }
     project.ext.projVersion = '0.99.2'
-    project.ext.projTitle = 'WebDriver For Bing'
+    project.ext.projTitle = 'WebDriver on Google'
+        task packageTests(type: Jar) {
+        from sourceSets.test.output
+    }
+}
+
+project(':core:bing') {
+    dependencies {
+        compile project(':core')
+    }
+    project.ext.projVersion = '0.99.2'
+    project.ext.projTitle = 'WebDriver on Bing'
+    task packageTests(type: Jar) {
+        from sourceSets.test.output
+    }
 }   
 

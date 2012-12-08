@@ -2,7 +2,6 @@
 
 # TODO List
 
-0: Improve subprojects so they inherit dependency of the parent root project.
 
 ####Note: Some of these things might not be possible or practical to implement.
 

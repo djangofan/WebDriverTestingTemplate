@@ -1,19 +1,18 @@
 package qa.webdriver.util;
 
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import qa.webdriver.core.UtilityClass;
 
+public class BingUtilities extends UtilityClass {
 
-public class GoogleUtilities extends UtilityClass {
-
-	public GoogleUtilities() {
+	public BingUtilities() {
 		super(); // to prevent instantiation as an object
 	}
 
-	public static void selectInGoogleDropdown( String match )
+	public static void selectInBingDropdown( String match )
 	{
 		WebElement dd = driver.findElement( By.xpath( "//input[@id='gbqfq']" ) );
 		waitTimer(4, 500);
