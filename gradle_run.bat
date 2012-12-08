@@ -21,11 +21,11 @@ IF NOT DEFINED GRADLE_HOME (
 
 SET PATH=%JAVA_HOME%\bin;%GROOVY_HOME%\bin;%GRADLE_HOME%\bin;%PATH%
 
-CALL gradle.bat hello clean build show proj1-google:hello proj1-google:show proj1-google:clean proj1-google:build --info
+CALL gradle.bat identify clean build proj1-google:show proj1-google:clean proj1-google:build --info
 
-START "%ProgramFiles%\Internet Explorer\iexplore.exe" file:///%CD%/build/reports/tests/index.html
+::START "%ProgramFiles%\Internet Explorer\iexplore.exe" file:///%CD%/build/reports/tests/index.html
 START "%ProgramFiles%\Internet Explorer\iexplore.exe" file:///%CD%/proj1-google/build/reports/tests/index.html
-START "%ProgramFiles%\Internet Explorer\iexplore.exe" file:///%CD%/proj2-bing/build/reports/tests/index.html
+::START "%ProgramFiles%\Internet Explorer\iexplore.exe" file:///%CD%/proj2-bing/build/reports/tests/index.html
 
 :END
 ECHO Closing gradle_run.bat script

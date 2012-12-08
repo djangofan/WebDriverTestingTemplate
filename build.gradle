@@ -1,21 +1,10 @@
 apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin:'application'
 
 project.ext.sourceCompatibility = 1.6
 project.ext.projTitle = 'WebDriver On Gradle'
+project.ext.projVersion = '0.99.0'
 
-allprojects {
-	task hello << {Task task ->
-        println "I am project $task.project.name ."
-    }
-}
-
-subprojects {
-    hello << {println "I am a sub-project of the root project."}
-}
-
-task show << {
+task identify << {
     println "-----------------------------------"
     println "Loading main build.gradle configuration..."
     println "   _____               _ _          "
@@ -26,6 +15,73 @@ task show << {
     println "  \\_____|_|  \\__,_|\\__,_|_|\\___|    "
     println ""
     println "-----------------------------------"
+    println "Using build file '$buildFile.name' in '$buildFile.parentFile.name'."
 }
 
+allprojects {
+
+    apply plugin: 'java'
+    
+    repositories {
+        mavenCentral()
+        maven {
+            url "http://maven2.javacpp.googlecode.com/git/"
+        }
+        maven {
+            url "http://maven2.javacv.googlecode.com/git/"
+        }
+    }
+
+    dependencies {
+        // stored at: %HOMEPATH%/.gradle/caches/artifacts-14/filestore
+        compile group: 'org.sikuli', name: 'sikuli-api', version: '1.0.+'
+        compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.+'
+        compile group: 'commons-collections', name: 'commons-collections', version: '3.+'
+        compile group: 'junit', name: 'junit', version: '4.+'
+    }
+    
+    jar {
+        manifest {
+            attributes 'Implementation-Title': project.projTitle, 'Implementation-Version': project.projVersion
+        }
+        // next 2 lines slows down build a lot but puts dependencies into the compiled .jar
+        //dependsOn configurations.runtime
+        //from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
+    }
+
+}
+
+subprojects {
+
+    task show << {
+        println ""
+        println "-----------------------------------------------"
+        println "Project Name: " + projTitle
+        println "Version: " + projVersion
+        println "Build output: " + relativePath(compileJava.destinationDir)
+        println "Resources output: " + relativePath(processResources.destinationDir)
+        println "Test output dir: " + relativePath(sourceSets.test.output.classesDir)
+        println "Test result dir: " + relativePath(testResultsDir)
+        println "Report dir: " + relativePath(testReportDir)
+        println "-----------------------------------------------"
+    } 
+
+    test {
+        testLogging {
+            exceptionFormat "full"
+            events "started", "passed", "skipped", "failed", "standardOut", "standardError"
+        }
+    }
+    
+}
+    
+project(':proj1-google') {
+    project.ext.projVersion = '0.99.2'
+    project.ext.projTitle = 'WebDriver For Google'
+}
+
+project(':proj2-bing') {
+    project.ext.projVersion = '0.99.2'
+    project.ext.projTitle = 'WebDriver For Bing'
+}   
 

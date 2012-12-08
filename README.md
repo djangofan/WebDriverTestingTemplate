@@ -15,6 +15,7 @@ I am very much interested in others forking my code and showing me how it can be
 4. Will log output to build/test-output directory in project.  This is the Gradle default.
 5. Uses the WebDriver "page object" design pattern.
 6. Implemented multiple projects as sub-projects of the root Gradle project.
+7. 
 
 
 # Configuration Notes
@@ -30,9 +31,9 @@ To get it working on a regular Eclipse (Juno), rather than Spring Source Suite, 
 6. Rebuild the dependencies by right clicking on the project and then choose Gradle-->Refresh All Dependencies
 7. Right click on your project and choose "Run As-->Gradle Build".  If you see 2 items called "Gradle Build", choose the second one rather than the first one.  In the dialogue choose "clean" and "build" checkboxes.
 8. Optionally, you can run this project on the command line with "gradle.bat show clean build run --info" and it will execute the unit tests.  Also, this project provides a .bat batch script that does this.
-9. N/A
-10. N/A
-11. N/A
+9. 
+10. 
+11. 
 
 # Screenshot
 ![Result Screenshot](https://github.com/djangofan/WebDriverTestingTemplate/blob/master/SampleResult.png)

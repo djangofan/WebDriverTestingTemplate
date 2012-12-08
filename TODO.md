@@ -2,8 +2,7 @@
 
 # TODO List
 
-0: Convert project to a Gradle multi-project and have the .bat file handle running multiple 
-    projects independently.
+0: Improve subprojects so they inherit dependency of the parent root project.
 
 ####Note: Some of these things might not be possible or practical to implement.
 
