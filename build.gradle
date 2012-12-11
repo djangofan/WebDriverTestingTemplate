@@ -1,7 +1,5 @@
 apply plugin: 'java'
 
-project.ext.sourceCompatibility = 1.6
-
 task identify << {
     println "-----------------------------------"
     println "   _____               _ _          "
@@ -18,6 +16,8 @@ task identify << {
 allprojects {
 
     apply plugin: 'java'
+    
+    project.ext.sourceCompatibility = 1.6
     
     repositories {
         mavenCentral()
@@ -39,6 +39,8 @@ subprojects {
         compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.+'
         compile group: 'commons-collections', name: 'commons-collections', version: '3.+'
         compile group: 'junit', name: 'junit', version: '4.+'
+        compile group: 'commons-lang', name: 'commons-lang', version: '2.+'
+        compile group: 'commons-io', name: 'commons-io', version: '2.+'
     }
 
     task show << {
@@ -62,21 +64,13 @@ subprojects {
             events "started", "passed", "skipped", "failed", "standardOut", "standardError"
         }
     }
-
+    
 }
 
 project(':core') {
     project.ext.projTitle = 'WebDriver On Gradle'
     project.ext.projVersion = '0.99.0'
-    
-    jar {
-        manifest {
-            attributes 'Implementation-Title': project.projTitle, 'Implementation-Version': project.projVersion
-        }
-        // next 2 lines slows down build a lot but puts dependencies into the compiled .jar
-        //dependsOn configurations.runtime
-        //from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
-    }
+
 }
     
 project(':core:google') {
@@ -85,9 +79,6 @@ project(':core:google') {
     }
     project.ext.projVersion = '0.99.2'
     project.ext.projTitle = 'WebDriver on Google'
-        task packageTests(type: Jar) {
-        from sourceSets.test.output
-    }
 }
 
 project(':core:bing') {
@@ -96,8 +87,5 @@ project(':core:bing') {
     }
     project.ext.projVersion = '0.99.2'
     project.ext.projTitle = 'WebDriver on Bing'
-    task packageTests(type: Jar) {
-        from sourceSets.test.output
-    }
 }   
 
