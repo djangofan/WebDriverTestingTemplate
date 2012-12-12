@@ -11,7 +11,7 @@ I am very much interested in others forking my code and showing me how it can be
 
 1. For use only with JUnit 4.11 or higher.
 2. For use with Sikuli 1.0.1 or higher to test native elements that WebDriver can't control.
-3. Unit tests are parameterized.
+3. Unit tests are parameterized from a csv file.
 4. Will log output to build/test-output directory in project.
 5. Uses the WebDriver "page object" design pattern.
 6. Implemented multiple project build.  The root project has a subproject called "core" and all subprojects of "core" inherit classes from it.
