@@ -1,6 +1,8 @@
 apply plugin: 'java'
+apply plugin: 'groovy'
+group = 'qa.webdriver'
 
-task identify << {
+task identify {
     println "-----------------------------------"
     println "   _____               _ _          "
     println "  / ____|             | | |         "
@@ -11,6 +13,7 @@ task identify << {
     println ""
     println "-----------------------------------"
     println "Using build file '$buildFile.name' in '$buildFile.parentFile.name'."
+    configurations.runtime.each { File f -> println f }
 }
 
 allprojects {
@@ -28,11 +31,7 @@ allprojects {
             url "http://maven2.javacv.googlecode.com/git/"
         }
     }
-
-}
-
-subprojects {
-
+    
     dependencies {
         // stored at: %HOMEPATH%/.gradle/caches/artifacts-14/filestore
         compile group: 'org.sikuli', name: 'sikuli-api', version: '1.0.+'
@@ -42,6 +41,10 @@ subprojects {
         compile group: 'commons-lang', name: 'commons-lang', version: '2.+'
         compile group: 'commons-io', name: 'commons-io', version: '2.+'
     }
+    
+}
+
+subprojects {
 
     task show << {
         println ""
@@ -65,15 +68,44 @@ subprojects {
         }
     }
     
+    task listClasses << {
+        tree = fileTree('build/classes') {
+            include '**/*.class'
+        }
+        tree.each {File file ->
+            println relativePath(file)
+        }
+    }
+    
+    task testJar(type: Jar) {
+        classifier = 'tests'
+        from sourceSets.test.output.classesDir
+    }
+    
+}
+
+subprojects.each { subproject -> evaluationDependsOn( subproject.path ) }
+
+task allJar(type: Jar, dependsOn: subprojects.tasks['classes'] ) {
+    baseName = 'allBuild'
+    subprojects.each { subproject ->
+        from subproject.configurations.archives.allArtifacts.files.collect {
+            zipTree(it)
+        }
+    }
+}
+
+artifacts {
+    archives allJar
 }
 
 project(':core') {
     project.ext.projTitle = 'WebDriver On Gradle'
     project.ext.projVersion = '0.99.0'
-
 }
     
 project(':core:google') {
+    evaluationDependsOn(':core')
     dependencies {
         compile project(':core')
     }
@@ -82,6 +114,7 @@ project(':core:google') {
 }
 
 project(':core:bing') {
+    evaluationDependsOn(':core')
     dependencies {
         compile project(':core')
     }

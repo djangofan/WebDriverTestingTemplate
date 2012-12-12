@@ -87,13 +87,14 @@ public class BingTest {
 
 	@Test
 	public void testWithPageObject() {    	
-		driver.get("http://www.google.com");
-		BingSearchPage gs = new BingSearchPage();
-		gs.setSearchString( searchString );
-		selectInGoogleDropdown( ddMatch );  
-		gs.clickSearchButton();
+		driver.get("http://bing.com");
+		BingSearchPage bs = new BingSearchPage();
+		bs.setSearchString( searchString );
+		selectInBingDropdown( ddMatch );  
+		bs.clickSearchButton();
 		waitTimer(3, 1000);
-		clickElementWithJSE( "gbqlt" ); //click Google logo
+		//clickElementWithJSE( "gbqlt" ); //click Google logo
+		driver.get("http://bing.com");
 		System.out.println("Done with test.");
 	}
 	

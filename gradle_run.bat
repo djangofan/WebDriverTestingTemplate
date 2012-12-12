@@ -36,6 +36,8 @@ IF "%~1"=="" (
   ECHO [2] Run Bing tests
   ECHO [3] List all projects
   ECHO [4] Display Google tasks
+  ECHO [5] Display Bing tasks
+  ECHO [6] Jar all classes into one jar
   ECHO [X] EXIT
   ECHO.
 )
@@ -55,18 +57,24 @@ IF "%CHOICE%"=="x" (
 ::-------------------------------------------------------------------
 
 IF "%CHOICE%"=="1" (
-  CALL gradle.bat identify core:show core:clean core:build core:google:show core:google:clean core:google:build --info
+  CALL gradle.bat identify clean build core:show core:clean core:build core:google:show core:google:clean core:google:build --info
   START "%ProgramFiles%\Internet Explorer\iexplore.exe" file:///%CD%/core/google/build/reports/tests/index.html
   GOTO :END
 ) ELSE IF "%CHOICE%"=="2" (
-  CALL gradle.bat identify core:show core:clean core:build core:bing:show core:bing:clean core:bing:build --info
+  CALL gradle.bat identify clean build core:show core:clean core:build core:bing:show core:bing:clean core:bing:build --info
   START "%ProgramFiles%\Internet Explorer\iexplore.exe" file:///%CD%/core/bing/build/reports/tests/index.html
   GOTO :END
 ) ELSE IF "%CHOICE%"=="3" (
   CALL gradle.bat projects
   GOTO :PICK
 ) ELSE IF "%CHOICE%"=="4" (
-  CALL gradle.bat :core:google:tasks
+  CALL gradle.bat core:google:tasks
+  GOTO :PICK
+) ELSE IF "%CHOICE%"=="5" (
+  CALL gradle.bat core:bing:tasks
+  GOTO :PICK
+) ELSE IF "%CHOICE%"=="6" (
+  CALL gradle.bat allJar
   GOTO :PICK
 ) ELSE (
   ECHO Unknown option. Try again.

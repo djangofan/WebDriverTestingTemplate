@@ -13,17 +13,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static qa.webdriver.util.BingUtilities.*;
 
-public class BingSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
+public class BingSearchPage extends SlowLoadableComponent<BingSearchPage> {
 	
 	private static int timeOutInSeconds = 3;
 
-    @FindBy(id = "gbqfq") private WebElement searchField;
+    @FindBy(id = "sb_form_q") private WebElement searchField;
 
-	@FindBy(id = "gbqfb") private WebElement searchButton;
+	@FindBy(id = "sb_form_go") private WebElement searchButton;
 
 	public BingSearchPage() {
         super( new SystemClock(), timeOutInSeconds);
-		System.out.println("Loaded Google Search Page");
+		System.out.println("Loaded Bing Search Page");
 		this.get(); //calls load and isLoaded
 		PageFactory.initElements(driver, this); 
     }
@@ -31,40 +31,32 @@ public class BingSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
 	public void clickSearchButton() {
 		searchButton.click();
 	}
+	
 	@Override
 	protected void isLoaded() throws Error {
-		System.out.println("Calling GoogleSearchPage.isLoaded...");
+		System.out.println("Calling BingSearchPage.isLoaded...");
 		final WebElement coreField = (new WebDriverWait(driver, 10))
 				.until(new ExpectedCondition<WebElement>(){
 					public WebElement apply(WebDriver d) {
-						return d.findElement( By.id("gbqfq") );
+						return d.findElement( By.id("sb_form_q") );
 					}});
 		if ( coreField.isDisplayed() )
 		{
-			System.out.println("Google search page is loaded.\nWill initialize page object.");
+			System.out.println("Bing search page is loaded.\nWill initialize page object.");
 		} else {
-			System.out.println("Google search page is not yet loaded." );
+			System.out.println("Bing search page is not yet loaded." );
 		} 
 	}
 	
 	@Override
 	protected void load() {
-		System.out.println("Calling GoogleSearchPage.load...");
+		System.out.println("Calling BingSearchPage.load...");
 		Wait<WebDriver> wait = new WebDriverWait(driver, 30); 
-		if ( driver.findElement( By.id("//div[@id='navBar']//div[1]")).getAttribute("onclick") == null )
-		{			
-			WebElement defnav = wait.until( visibilityOfElementLocated( By.id("gbqfq") ) );
-			defnav.click();
-			WebElement adnav = wait.until( visibilityOfElementLocated( By.id("gbqfq") ) );
-			adnav.click();			
-		} else {
-			WebElement adnav = wait.until( visibilityOfElementLocated( By.id("gbqfq") ) );
-			adnav.click();
-		}
-	}
-	public void setSearchString( String sstr ) {
-		clearAndType( searchField, sstr );
+		driver.get("http://bing.com");  // just a hack
 	}
 	
+	public void setSearchString( String sstr ) {
+		clearAndType( searchField, sstr );
+	}	
     
 }

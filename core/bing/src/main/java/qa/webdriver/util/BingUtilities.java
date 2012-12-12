@@ -14,16 +14,16 @@ public class BingUtilities extends UtilityClass {
 
 	public static void selectInBingDropdown( String match )
 	{
-		WebElement dd = driver.findElement( By.xpath( "//input[@id='gbqfq']" ) );
+		WebElement dd = driver.findElement( By.xpath( "//input[@id='sb_form_q']" ) );
 		waitTimer(4, 500);
 		long end = System.currentTimeMillis() + 5000;
 		while ( System.currentTimeMillis() < end ) {
-			WebElement resultsLi = driver.findElement( By.xpath( "//div[@class='gsq_a']" ) );
+			WebElement resultsLi = driver.findElement( By.xpath( "//ul[@class='sa_drw']" ) );
 			if ( resultsLi.isDisplayed() ) break;
 		}
 		int matchedPosition = 0;
 		int optpos = 0;
-		List<WebElement> allSuggestions = driver.findElements( By.xpath( "//div[@class='gsq_a']/table/tbody/tr/td/span" ) );        
+		List<WebElement> allSuggestions = driver.findElements( By.xpath( "//ul[@class='sa_drw']/li/div" ) );        
 		for ( WebElement suggestion : allSuggestions ) {
 			if ( suggestion.getText().contains( match ) ) {
 				matchedPosition = optpos;
