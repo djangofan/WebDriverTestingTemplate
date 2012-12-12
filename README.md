@@ -9,9 +9,9 @@ I am very much interested in others forking my code and showing me how it can be
 # Project Layout
 <br/>
  Root project 'CoreProject'<br/>
-   --- Project ':core'<br/>
-       --- Project ':core:bing'<br/>
-       --- Project ':core:google'<br/>
+ &nbsp;&nbsp;-- Project ':core'<br/>
+ &nbsp;&nbsp;&nbsp;&nbsp;---- Project ':core:bing'<br/>
+ &nbsp;&nbsp;&nbsp;&nbsp;---- Project ':core:google'<br/>
 
 # Implemented Features
 
