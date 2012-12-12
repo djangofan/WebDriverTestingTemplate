@@ -7,11 +7,11 @@ This is a Java project that can be used as a template to start a WebDriver web b
 I am very much interested in others forking my code and showing me how it can be improved.
 
 # Project Layout
-
- Root project 'CoreProject'
-   --- Project ':core'
-       --- Project ':core:bing'
-       --- Project ':core:google'
+<br/>
+ Root project 'CoreProject'<br/>
+   --- Project ':core'<br/>
+       --- Project ':core:bing'<br/>
+       --- Project ':core:google'<br/>
 
 # Implemented Features
 
