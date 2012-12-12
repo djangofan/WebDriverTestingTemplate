@@ -28,6 +28,7 @@ I am very much interested in others forking my code and showing me how it can be
 
 # Configuration Notes
 
+#### Eclipse
 To get it working on a regular Eclipse (Juno), rather than Spring Source Suite, do the following: 
  
 1. Download this file to your hard drive: http://dist.springsource.com/release/TOOLS/composite/e3.7/bookmarks.xml <br/>
@@ -46,6 +47,10 @@ To get it working on a regular Eclipse (Juno), rather than Spring Source Suite, 
 8. Optionally, you can run this project on the command line with "gradle identify clean build core:show <br/>
    core:clean core:build core:google:show core:google:clean core:google:build --info" and it will execute <br/>
    the unit tests.  Also, this project provides a .bat batch script that does this.
+
+#### IntelliJ-IDEA
+Intellij-IDEA has a nice Gradle plugin that is included.  The steps are otherwise similar to the Eclipse steps<br/>
+above.
 
 # Other
 1. I use "GitHub GUI" to sync my local project repo to GitHub.  
