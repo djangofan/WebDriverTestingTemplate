@@ -31,10 +31,8 @@ To get it working on a regular Eclipse (Juno), rather than Spring Source Suite, 
 5. Verify the build.gradle contains the contents matching the build.gradle in this GitHub project. 
 6. Rebuild the dependencies by right clicking on the project and then choose Gradle-->Refresh All Dependencies
 7. Right click on your project and choose "Run As-->Gradle Build".  If you see 2 items called "Gradle Build", choose the second one rather than the first one.  In the dialogue choose "clean" and "build" checkboxes.
-8. Optionally, you can run this project on the command line with "gradle.bat show clean build run --info" and it will execute the unit tests.  Also, this project provides a .bat batch script that does this.
-9. 
-10. 
-11. 
+8. Optionally, you can run this project on the command line with "gradle.bat identify clean build core:show core:clean core:build core:google:show core:google:clean core:google:build --info" and it will execute the unit tests.  Also, this project provides a .bat batch script that does this.
+
 
 # Screenshot
 ![Result Screenshot](https://github.com/djangofan/WebDriverTestingTemplate/blob/master/SampleResult.png)
