@@ -16,7 +16,7 @@ I am very much interested in others forking my code and showing me how it can be
 5. Uses the WebDriver "page object" design pattern.
 6. Implemented multiple project build.  The root project has a subproject called "core" and all subprojects of "core" inherit classes from it.
 7. Will generate reports of JUnit tests results in build/reports/test/index.html
-8. 
+8. Creates an uberJar of all projects and subprojects
 
 
 # Configuration Notes
