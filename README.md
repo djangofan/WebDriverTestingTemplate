@@ -6,6 +6,8 @@ This is a Java project that can be used as a template to start a WebDriver web b
 
 I am very much interested in others forking my code and showing me how it can be improved.
 
+The idea here is to replace your existing automation framework, such as "HP Quality Center", "XStudio", or "Rational Functional Tester", with a scripted Gradle/Java solution.
+
 # Project Layout
 <br/>
  Root project 'CoreProject'<br/>
