@@ -22,4 +22,4 @@
 
 7.  If parameterized data provider can't find input file, default to a non-parameterized test.
 
-8.  N/A
+8.  Improve allJar method to also include test classes and have a Manifest with a Main-Class option.
