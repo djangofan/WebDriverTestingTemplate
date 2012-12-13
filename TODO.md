@@ -14,7 +14,7 @@
 3.  Improve WebDriver code that handles waiting for html page elements.
 
 4.  Improve the Page Object design pattern so that it is type safe and with better separation
-    of script from framework.
+    of script from framework.  Perhaps use a Type-Token design pattern: http://thegreenoak.blogspot.com/2012/11/a-type-token-page-object-design-pattern.html
     
 5.  Convert usage of XPath in WebDriver to using CSS selectors instead.
 
