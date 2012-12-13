@@ -37,12 +37,13 @@ To get it working on a regular Eclipse (Juno), rather than Spring Source Suite, 
     a. "SpringSource Update Site for Eclipse Juno 4.2" - http://dist.springsource.com/release/TOOLS/update/e4.2 <br/>
    If you have Eclipse 3.x, then the Sprint 3.7 update site may work for you.  <br/>
    (http://www.springsource.org/STS-installation-instructions )
-2. Install the new software components called "Gradle Tooling API" and "Gradle IDE". 
-3. Create a new "Other" project of the type "Gradle" and choose type of "Java Quickstart".
+2. Install the new software components called "Gradle Tooling API" and "Gradle IDE". Restart Eclipse. <br/> 
+3. Create a new "Gradle" project of the type "Gradle" and copy in the contents of the repository .zip file <br/>
+   into the workspace directory and replace the existing build.gradle file.  <br/>
 4. Verify the build.gradle contains the contents matching the build.gradle in this GitHub project.   If you <br/>
-   copy in the contents of the repository .zip file into the workspace directory and replace the existing <br/>
-   build.gradle file, that will work also.
-5. Rebuild the dependencies by right clicking on the project and then choose Gradle-->Refresh All Dependencies
+   followed step #3, that should have done it. <br/>
+5. Right click on the project, choose "Configure" and convert to a Gradle project. <br/>
+5. Rebuild the dependencies by right clicking on the project and then choose Gradle-->Refresh All Dependencies <br/>
 6. Right click on your project and choose "Run As-->Gradle Build".  If you see 2 items called "Gradle Build", <br/>
    choose the second one rather than the first one.  In the dialogue choose "clean" and "build" checkboxes <br/>
   (or whatever tasks you want to execute).
