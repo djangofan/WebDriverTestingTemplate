@@ -86,12 +86,13 @@ subprojects {
 
 subprojects.each { subproject -> evaluationDependsOn( subproject.path ) }
 
-task allJar(type: Jar, dependsOn: subprojects.tasks['classes'] ) {
+task allJar(type: Jar, dependsOn: subprojects.tasks['testClasses'] ) {
     baseName = 'allBuild'
     subprojects.each { subproject ->
         from subproject.configurations.archives.allArtifacts.files.collect {
             zipTree(it)
         }
+        from files(subproject.tasks["test"].testClassesDir)
     }
 }
 
