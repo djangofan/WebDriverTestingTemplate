@@ -34,9 +34,8 @@ The idea here is to replace your existing automation framework, such as "HP Qual
 To get it working on a regular Eclipse (Juno), rather than Spring Source Suite, do the following: 
  
 1. Add the following software repositories to your Eclipse software update panel:<br/>
-    a. "SpringSource Update Site for Eclipse 3.7" - http://dist.springsource.com/release/TOOLS/update/e3.7 <br/>
-    b. "SpringSource Update Site for Eclipse 3.7 (Dependencies)" - http://dist.springsource.com/release/TOOLS <br/>
-    c. "Indigo" - http://download.eclipse.org/releases/indigo <br/>
+    a. "SpringSource Update Site for Eclipse Juno 4.2" - http://dist.springsource.com/release/TOOLS/update/e4.2 <br/>
+   If you have Eclipse 3.x, then the Sprint 3.7 update site may work for you.
 2. Install the new software component called "Gradle Tooling API" and anything else associated with it. 
 3. Create a new "Other" project of the type "Gradle" and choose type of "Java Quickstart".
 4. Verify the build.gradle contains the contents matching the build.gradle in this GitHub project.   If you <br/>
