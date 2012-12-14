@@ -65,7 +65,7 @@ The idea here is to replace your existing automation framework, such as "HP Qual
 </table>
 
 
-# Configuration Notes
+# Configuration And Setup
 
 #### Eclipse
 To get it working on a regular Eclipse Juno (rather than Spring Source Suite) then perform <br/>
