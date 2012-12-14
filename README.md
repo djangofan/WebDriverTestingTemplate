@@ -16,9 +16,28 @@ The idea here is to replace your existing automation framework, such as "HP Qual
  &nbsp;&nbsp;&nbsp;&nbsp;---- Project ':core:google'<br/>
 
 # Implemented Features
-|| Test || Table || Third
-| 1 | 2 | 3
-| 1a | 2a | 3a
+<dl>
+  <dt>Definition list</dt>
+  <dd>Is something people use sometimes.</dd>
+
+  <dt>Markdown in HTML</dt>
+  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
+</dl>
+
+<table>
+  <tr>
+    <th>Feature</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <th>Zebra</th>
+    <td>Stripes</td>
+  </tr>
+  <tr>
+    <th>Here</th>
+    <td>Is</td>
+  </tr>
+</table>
 
 1. For use only with JUnit 4.11 or higher.  This dependency is configured.
 2. For use with Sikuli 1.0.1 or higher to test native elements that WebDriver can't control.  This <br/>
@@ -65,6 +84,8 @@ above.
 # Other
 I use "GitHub GUI" to sync my local project repo to GitHub.  If you fork my project, I would recommend doing <br/>
 it this way unless you are a Git expert and prefer another way.<br/>
+
+https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 
 # Screenshot
 ![Result Screenshot](https://github.com/djangofan/WebDriverTestingTemplate/blob/master/SampleResult.png)
