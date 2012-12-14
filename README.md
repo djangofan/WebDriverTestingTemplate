@@ -40,16 +40,18 @@ the following steps:
    If you have Eclipse 3.x, then the Sprint 3.7 update site may work for you.  <br/>
    (http://www.springsource.org/STS-installation-instructions )
 2. Install the new software components called "Gradle Tooling API" and "Gradle IDE". Restart Eclipse. <br/> 
-3. Create a new "Gradle" project of the type "Gradle" and copy in the contents of the repository .zip file <br/>
-   into the workspace directory and replace the existing build.gradle file.  <br/>
-4. Verify the build.gradle contains the contents matching the build.gradle in this GitHub project.   If you <br/>
-   followed step #3, that should have done it. <br/>
-5. Right click on the project, choose "Configure" and convert to a Gradle project. <br/>
-5. Rebuild the dependencies by right clicking on the project and then choose Gradle-->Refresh All Dependencies <br/>
-6. Right click on your project and choose "Run As-->Gradle Build".  If you see 2 items called "Gradle Build", <br/>
+3. Create a new "Gradle" project.  <br/>
+4. Copy in the contents of the repository .zip file into the root of the project (in your workspace <br/>
+   directory) and replace the existing build.gradle file that may have been generated in step #3. <br/>
+5. Verify the build.gradle contains the contents matching the build.gradle in this GitHub project.   If you <br/>
+   followed step #4, that should have done it. <br/>
+6. Right click on the project, choose "Configure" and convert to a Gradle project. Despite step #3, this <br/>
+   may need to be done anyway. <br/>
+7. Rebuild the dependencies by right clicking on the project and then choose Gradle-->Refresh All Dependencies <br/>
+8. Right click on your project and choose "Run As-->Gradle Build".  If you see 2 items called "Gradle Build", <br/>
    choose the second one rather than the first one.  In the dialogue choose "clean" and "build" checkboxes <br/>
   (or whatever tasks you want to execute).
-7. Optionally, you can run this project on the command line with "gradle identify clean build core:show <br/>
+9. Optionally, you can run this project on the command line with "gradle identify clean build core:show <br/>
    core:clean core:build core:google:show core:google:clean core:google:build --info" and it will execute <br/>
    the unit tests.  Also, this project provides a .bat batch script that does this.
 
