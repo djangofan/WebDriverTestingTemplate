@@ -56,11 +56,12 @@ the following steps:
    the unit tests.  Also, this project provides a .bat batch script that does this.
 
 #### IntelliJ-IDEA
-Intellij-IDEA has a nice Gradle plugin that is included.  The steps are otherwise similar to the Eclipse steps<br/>
+Intellij-IDEA has a nice Gradle plugin that is included.  The steps are otherwise similar to the Eclipse steps #3-#7 <br/>
 above.
 
 # Other
-1. I use "GitHub GUI" to sync my local project repo to GitHub.  
+I use "GitHub GUI" to sync my local project repo to GitHub.  If you fork my project, I would recommend doing <br/>
+it this way unless you are a Git expert and prefer another way.<br/>
 
 # Screenshot
 ![Result Screenshot](https://github.com/djangofan/WebDriverTestingTemplate/blob/master/SampleResult.png)
