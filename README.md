@@ -16,22 +16,14 @@ The idea here is to replace your existing automation framework, such as "HP Qual
  &nbsp;&nbsp;&nbsp;&nbsp;---- Project ':core:google'<br/>
 
 # Implemented Features
-<dl>
-  <dt>Definition list</dt>
-  <dd>Is something people use sometimes.</dd>
-
-  <dt>Markdown in HTML</dt>
-  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
-</dl>
-
 <table>
   <tr>
     <th>Feature</th>
     <th>Description</th>
   </tr>
   <tr>
-    <th>Zebra</th>
-    <td>Stripes</td>
+    <th>JUnit Based</th>
+    <td>For use only with JUnit 4.11 or higher.  This dependency is configured by the Gradle build script.</td>
   </tr>
   <tr>
     <th>Here</th>
@@ -39,7 +31,7 @@ The idea here is to replace your existing automation framework, such as "HP Qual
   </tr>
 </table>
 
-1. For use only with JUnit 4.11 or higher.  This dependency is configured.
+1. 
 2. For use with Sikuli 1.0.1 or higher to test native elements that WebDriver can't control.  This <br/>
    dependency is configured.
 3. Unit tests are parameterized from a csv file.
