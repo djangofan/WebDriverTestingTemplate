@@ -32,7 +32,8 @@ The idea here is to replace your existing automation framework, such as "HP Qual
 # Configuration Notes
 
 #### Eclipse
-To get it working on a regular Eclipse (Juno), rather than Spring Source Suite, do the following: 
+To get it working on a regular Eclipse Juno (rather than Spring Source Suite) then perform <br/>
+the following steps: 
  
 1. Add the following software repositories to your Eclipse software update panel:<br/>
     a. "SpringSource Update Site for Eclipse Juno 4.2" - http://dist.springsource.com/release/TOOLS/update/e4.2 <br/>
