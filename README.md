@@ -57,14 +57,12 @@ The idea here is to replace your existing automation framework, such as "HP Qual
        the .jar file.  If you don't have the file association supporting it, we include a <br/>
        jarAssociation.bat file to setup the file association on your Windows system.</td>
   </tr>
+  <tr>
+    <th>Core automation library</th>
+    <td>All projects inherit from a "core" project where you can store your reusable <br/>
+        automation code snippets.</td>
+  </tr>
 </table>
-
-
-4. 
-5. 
-6. 
-7. 
-8. 
 
 
 # Configuration Notes
