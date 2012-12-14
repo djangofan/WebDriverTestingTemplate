@@ -22,11 +22,11 @@ The idea here is to replace your existing automation framework, such as "HP Qual
     <th>Description</th>
   </tr>
   <tr>
-    <th>JUnit Based</th>
+    <th>JUnit based</th>
     <td>For use only with JUnit 4.11 or higher.  This dependency is configured by the Gradle build script.</td>
   </tr>
   <tr>
-    <th>Native Automation Controls</th>
+    <th>Native automation controls</th>
     <td>For use with Sikuli 1.0.1 or higher to test native elements that WebDriver can't control.  This <br/>
    dependency is configured in the Gradle build script.</td>
   </tr>
@@ -35,34 +35,36 @@ The idea here is to replace your existing automation framework, such as "HP Qual
     <td>Unit tests are parameterized from a csv file.</td>
   </tr>
   <tr>
-    <th> </th>
-    <td> </td>
+    <th>Logging</th>
+    <td>Will log output to build/test-output directory in project.</td>
   </tr>
   <tr>
-    <th> </th>
-    <td> </td>
+    <th>Page Object design <br/>pattern</th>
+    <td>Uses the WebDriver "page object" design pattern.</td>
   </tr>
   <tr>
-    <th> </th>
-    <td> </td>
+    <th>Multi-project build<br/>configuration</th>
+    <td>Implemented multiple project build.  The root project has a subproject called "core" and all <br/>
+   subprojects of "core" inherit classes from it.</td>
   </tr>
   <tr>
-    <th> </th>
-    <td> </td>
+    <th>Reporting</th>
+    <td>Will generate reports of JUnit tests results in build/reports/test/index.html</td>
   </tr>
   <tr>
-    <th> </th>
-    <td> </td>
+    <th>Jar executable option</th>
+    <td>Creates an uberJar of all projects and subprojects that can be ran by double clicking<br/>
+       the .jar file.  If you don't have the file association supporting it, we include a <br/>
+       jarAssociation.bat file to setup the file association on your Windows system.</td>
   </tr>
 </table>
 
 
-4. Will log output to build/test-output directory in project.
-5. Uses the WebDriver "page object" design pattern.
-6. Implemented multiple project build.  The root project has a subproject called "core" and all <br/>
-   subprojects of "core" inherit classes from it.
-7. Will generate reports of JUnit tests results in build/reports/test/index.html
-8. Creates an uberJar of all projects and subprojects
+4. 
+5. 
+6. 
+7. 
+8. 
 
 
 # Configuration Notes
