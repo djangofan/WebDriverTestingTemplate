@@ -26,14 +26,14 @@ The idea here is to replace your existing automation framework, such as "HP Qual
     <td>For use only with JUnit 4.11 or higher.  This dependency is configured by the Gradle build script.</td>
   </tr>
   <tr>
-    <th>Here</th>
-    <td>Is</td>
+    <th>Native Automation Controls</th>
+    <td>For use with Sikuli 1.0.1 or higher to test native elements that WebDriver can't control.  This <br/>
+   dependency is configured.</td>
   </tr>
 </table>
 
 1. 
-2. For use with Sikuli 1.0.1 or higher to test native elements that WebDriver can't control.  This <br/>
-   dependency is configured.
+2. 
 3. Unit tests are parameterized from a csv file.
 4. Will log output to build/test-output directory in project.
 5. Uses the WebDriver "page object" design pattern.
