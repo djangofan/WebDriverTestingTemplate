@@ -16,6 +16,9 @@ The idea here is to replace your existing automation framework, such as "HP Qual
  &nbsp;&nbsp;&nbsp;&nbsp;---- Project ':core:google'<br/>
 
 # Implemented Features
+|| Test || Table || Third
+| 1 | 2 | 3
+| 1a | 2a | 3a
 
 1. For use only with JUnit 4.11 or higher.  This dependency is configured.
 2. For use with Sikuli 1.0.1 or higher to test native elements that WebDriver can't control.  This <br/>
