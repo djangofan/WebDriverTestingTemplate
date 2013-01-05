@@ -1,4 +1,4 @@
-diapply plugin: 'java'
+apply plugin: 'java'
 apply plugin: 'groovy'
 group = 'qa.webdriver'
 
@@ -52,9 +52,9 @@ subprojects {
             events "started", "passed", "skipped", "failed", "standardOut", "standardError"
         }
 		
-		//doLast{
-		//	"open $buildDir/reports/tests/index.html".execute()
-		//}
+	// doLast{
+	//	"open $buildDir/reports/tests/index.html".execute()
+	// }
     }
     
     task listClasses << {
