@@ -76,13 +76,16 @@ the following steps:
    If you have Eclipse 3.x, then the Sprint 3.7 update site may work for you.  <br/>
    (http://www.springsource.org/STS-installation-instructions )
 2. Install the new software components called "Gradle Tooling API" and "Gradle IDE". Restart Eclipse. <br/> 
-3. Create a new "Gradle" project.  <br/>
+3. Create a new "Java" project called "WebDriverTestingTemplate" and then make a copy of that project directory.  Don't<br/>
+   create a Gradle project yet because step#6 converts it properly.<br/>
 4. Copy in the contents of the repository .zip file into the root of the project (in your workspace <br/>
-   directory) and replace the existing build.gradle file that may have been generated in step #3. <br/>
+   directory) and replace the existing build.gradle file that may have been generated in step #3.  Alternatively, <br/>
+   you can use Github for Windows to clone the project from this repo.<br/>
 5. Verify the build.gradle contains the contents matching the build.gradle in this GitHub project.   If you <br/>
    followed step #4, that should have done it. <br/>
-6. Right click on the project, choose "Configure" and convert to a Gradle project. Despite step #3, this <br/>
-   may need to be done anyway. <br/>
+6. Right click on the project, choose "Configure" and convert to a Gradle project. This step will properly <br/>
+   convert the project whereas you might see the Gradle subprojects incorrectly appear beside the main project <br/>
+   in the project tree. <br/>
 7. Rebuild the dependencies by right clicking on the project and then choose Gradle-->Refresh All Dependencies <br/>
 8. Right click on your project and choose "Run As-->Gradle Build".  If you see 2 items called "Gradle Build", <br/>
    choose the second one rather than the first one.  In the dialogue choose "clean" and "build" checkboxes <br/>
