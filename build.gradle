@@ -1,4 +1,4 @@
-apply plugin: 'java'
+diapply plugin: 'java'
 apply plugin: 'groovy'
 group = 'qa.webdriver'
 
