@@ -85,7 +85,8 @@ the following steps:
    followed step #4, that should have done it. <br/>
 6. Right click on the project, choose "Configure" and convert to a Gradle project. This step will properly <br/>
    convert the project whereas you might see the Gradle subprojects incorrectly appear beside the main project <br/>
-   in the project tree. <br/>
+   in the project tree.  We don't use the "Import Gradle project" method because the "Build Model" button will<br/>
+   arrange the sub-projects incorrectly in the "Project Explorer" tab.<br/>
 7. Rebuild the dependencies by right clicking on the project and then choose Gradle-->Refresh All Dependencies <br/>
 8. Right click on your project and choose "Run As-->Gradle Build".  If you see 2 items called "Gradle Build", <br/>
    choose the second one rather than the first one.  In the dialogue choose "clean" and "build" checkboxes <br/>
