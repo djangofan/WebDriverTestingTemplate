@@ -6,7 +6,7 @@
 
 1.  Improve unit test logging. Gradle puts results in 'build/reports/test/index.html' but 
     currently this isn't working when launching tests from Eclipse.  It only works when you 
-	  launch from the .bat script I include with this project.
+    launch from the .bat script I include with this project.
 	  
 2.  Unit tests read system properties that are set by Gradle runtime.  This feature could be 
     used to force running only from Gradle runtime only rather than from Eclipse, etc.
@@ -25,3 +25,5 @@
 8.  Improve allJar method to also include test classes and have a Manifest with a Main-Class option.
 
 9.  Add an example of a mouse Action to Bing test.
+
+10.  Improve and convert all System.out.println methods to a SLF4j logging to console and file.
