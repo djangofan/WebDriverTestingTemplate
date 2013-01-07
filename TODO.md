@@ -23,3 +23,5 @@
 7.  If parameterized data provider can't find input file, default to a non-parameterized test.
 
 8.  Improve allJar method to also include test classes and have a Manifest with a Main-Class option.
+
+9.  Add an example of a mouse Action to Bing test.
