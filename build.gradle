@@ -46,15 +46,18 @@ subprojects {
     } 
 
     test {
-        // this enables output in build/test-results directory
+    
         testLogging {
             exceptionFormat "full"
             events "started", "passed", "skipped", "failed", "standardOut", "standardError"
         }
-		
-	// doLast{
-	//	"open $buildDir/reports/tests/index.html".execute()
-	// }
+        
+        task reportit {
+            doLast {
+                "firefox.exe \"$buildDir\\reports\\tests\\index.html\"".execute()
+            }
+        }
+          
     }
     
     task listClasses << {

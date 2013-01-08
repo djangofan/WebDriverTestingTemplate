@@ -58,12 +58,12 @@ IF "%CHOICE%"=="x" (
 ::-------------------------------------------------------------------
 
 IF "%CHOICE%"=="1" (
-  CALL gradle.bat identify clean build core:show core:clean core:build core:google:show core:google:clean core:google:build --info
-  START "%ProgramFiles%\Internet Explorer\iexplore.exe" file:///%CD%/core/google/build/reports/tests/index.html
+  CALL gradle.bat identify core:show core:clean core:build core:google:show core:google:clean core:google:build --info
+  ::START "%ProgramFiles%\Internet Explorer\iexplore.exe" file:///%CD%/core/google/build/reports/tests/index.html
   GOTO :END
 ) ELSE IF "%CHOICE%"=="2" (
-  CALL gradle.bat identify clean build core:show core:clean core:build core:bing:show core:bing:clean core:bing:build --info
-  START "%ProgramFiles%\Internet Explorer\iexplore.exe" file:///%CD%/core/bing/build/reports/tests/index.html
+  CALL gradle.bat identify core:show core:clean core:build core:bing:show core:bing:clean core:bing:build --info
+  ::START "%ProgramFiles%\Internet Explorer\iexplore.exe" file:///%CD%/core/bing/build/reports/tests/index.html
   GOTO :END
 ) ELSE IF "%CHOICE%"=="3" (
   CALL gradle.bat projects
