@@ -39,6 +39,7 @@ IF "%~1"=="" (
   ECHO [5] Display Bing tasks
   ECHO [6] Jar all classes into one jar
   ECHO [7] Create an uberjar with all classes and all dependencies
+  ECHO [8] Gradle GUI
   ECHO [X] EXIT
   ECHO.
 )
@@ -80,7 +81,10 @@ IF "%CHOICE%"=="1" (
 ) ELSE IF "%CHOICE%"=="7" (
   CALL gradle.bat uberJar --stacktrace
   GOTO :PICK
-) ELSE (
+) ELSE IF "%CHOICE%"=="8" (
+  CALL gradle.bat -GUI
+  GOTO :END
+)  ELSE (
   ECHO Unknown option. Try again.
   GOTO :PICK
 )
