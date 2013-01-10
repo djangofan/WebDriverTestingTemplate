@@ -105,9 +105,9 @@ it this way unless you are a Git expert and prefer another way.<br/>
 
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 
-Some related projects:
-https://github.com/sebarmeli/Selenium2-Java-QuickStart-Archetype
-https://github.com/sebarmeli/Selenium2-Java-Demo
+Some related projects:<br/>
+https://github.com/sebarmeli/Selenium2-Java-QuickStart-Archetype<br/>
+https://github.com/sebarmeli/Selenium2-Java-Demo<br/>
 
 # Screenshot
 ![Result Screenshot](https://github.com/djangofan/WebDriverTestingTemplate/blob/master/SampleResult.png)
