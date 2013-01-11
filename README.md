@@ -1,4 +1,3 @@
-######<a href="http://github.com/djangofan/WebDriverTestingTemplate/blob/master/TODO.md">Link: TODO List</a>
 
 # Info
 
