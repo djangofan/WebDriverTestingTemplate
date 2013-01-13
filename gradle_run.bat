@@ -82,7 +82,7 @@ IF "%CHOICE%"=="1" (
   CALL gradle.bat uberJar --stacktrace
   GOTO :PICK
 ) ELSE IF "%CHOICE%"=="8" (
-  CALL gradle.bat -GUI
+  CALL gradle.bat --gui
   GOTO :END
 )  ELSE (
   ECHO Unknown option. Try again.

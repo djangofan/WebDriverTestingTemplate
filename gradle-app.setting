@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root> 
+  <setting name="task-tab"> 
+    <setting name="show-description" value="true"/> 
+  </setting>  
+  <setting name="favorites-tab"> 
+    <setting name="favorites"> 
+      <setting name="favorite"> 
+        <setting name="full-command-line" value="identify core:show core:clean core:build core:google:show core:google:clean core:google:build --info"/>  
+        <setting name="display-name" value="identify core:show core:clean core:build core:google:show core:google:clean core:google:build --info"/>  
+        <setting name="show-output" value="false"/> 
+      </setting> 
+    </setting> 
+  </setting>  
+  <setting name="command_line-tab"/>  
+  <setting name="setup-tab"> 
+    <setting name="setup"> 
+      <setting name="custom-gradle-executor"/>  
+      <setting name="current-directory" value="C:\Eclipse32\workspace\WebDriverTestingTemplate"/>  
+      <setting name="log-level" value="LIFECYCLE"/> 
+    </setting> 
+  </setting>  
+  <setting name="SinglePaneUIInstance_splitter-id"> 
+    <setting name="divider_location" value="516"/> 
+  </setting>  
+  <setting name="main_panel"> 
+    <setting name="current-tab" value="Setup"/> 
+  </setting>  
+  <setting name="Application_window-id"> 
+    <setting name="window_x" value="458"/>  
+    <setting name="window_y" value="72"/>  
+    <setting name="window_width" value="1176"/>  
+    <setting name="window_height" value="916"/>  
+    <setting name="extended-state" value="0"/> 
+  </setting> 
+</root>
