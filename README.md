@@ -41,6 +41,10 @@ The idea here is to replace your existing automation framework, such as "HP Qual
     <th>Page Object design <br/>pattern</th>
     <td>Uses the WebDriver "page object" design pattern.</td>
   </tr>
+    <tr>
+    <th>Fluent API</th>
+    <td>Implements an example of a "Fluent API" design pattern.</td>
+  </tr>
   <tr>
     <th>Multi-project build<br/>configuration</th>
     <td>Implemented multiple project build.  The root project has a subproject called "core" and all <br/>
