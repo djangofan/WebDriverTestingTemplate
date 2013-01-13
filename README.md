@@ -111,7 +111,10 @@ https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 Some related projects:<br/>
 https://github.com/sebarmeli/Selenium2-Java-QuickStart-Archetype<br/>
 https://github.com/sebarmeli/Selenium2-Java-Demo<br/>
-
+<br/>
+Website of this project:<br/>
+http://djangofan.github.com/WebDriverTestingTemplate/<br/>
+<br/>
 # Screenshot
 ![Result Screenshot](https://github.com/djangofan/WebDriverTestingTemplate/blob/master/SampleResult.png)
 
