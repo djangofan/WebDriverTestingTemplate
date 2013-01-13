@@ -25,11 +25,11 @@
     <setting name="divider_location" value="516"/> 
   </setting>  
   <setting name="main_panel"> 
-    <setting name="current-tab" value="Setup"/> 
+    <setting name="current-tab" value="Favorites"/> 
   </setting>  
   <setting name="Application_window-id"> 
-    <setting name="window_x" value="458"/>  
-    <setting name="window_y" value="72"/>  
+    <setting name="window_x" value="1977"/>  
+    <setting name="window_y" value="140"/>  
     <setting name="window_width" value="1176"/>  
     <setting name="window_height" value="916"/>  
     <setting name="extended-state" value="0"/> 

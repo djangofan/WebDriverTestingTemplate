@@ -5,9 +5,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -26,23 +30,10 @@ public class GoogleTest {
 	private String testName, searchString, ddMatch;
 
 	public GoogleTest( String tName, String sString, String dMatch ) {
-		
-		// start: figure out why currentdir is not correct when running with Gradle
-		String current = null;
-		try {
-			current = new File( "." ).getCanonicalPath();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-        System.out.println("Current dir: " + current);
-        String currentDir = System.getProperty("user.dir");
-        System.out.println("System dir:  " +currentDir);
-        // end
-        
 		this.testName = tName;
 		this.searchString = sString;
 		this.ddMatch = dMatch;
-		System.out.println("Running test: " + testName + ", " + searchString + ", " + ddMatch );
+		System.out.println("GoogleTest: " + testName + ", " + searchString + ", " + ddMatch );		
 	}
 	
 	@BeforeClass
@@ -50,16 +41,9 @@ public class GoogleTest {
 		initializeBrowser( "firefox" );  // either firefox or ie
 	}
 	
-	/* @Parameters(name = "{index}: {0}={1}")
-       public static Iterable<Object[]> data() {
-           return Arrays.asList(new Object[][] { { 0, 0 }, { 1, 1 }, { 2, 1 },
-                { 3, 2 }, { 4, 3 }, { 5, 5 }, { 6, 8 } });
-       }
-    */
-	
 	@Parameters(name = "{0}: {1}: {2}")
 	public static Iterable<String[]> loadTestsFromFile() {
-		File tFile = loadTestFile("testdata.csv"); // to handle Gradle vs. JUnit runtime
+		File tFile = loadTestFile("testdata.csv");
 		FileReader fileReader = null;
 		ArrayList<String> lines = new ArrayList<String>();
 		try {
@@ -86,7 +70,8 @@ public class GoogleTest {
 	}  
 
 	@Test
-	public void testWithPageObject() {    	
+	public void testWithPageObject() {
+		logger.info("{} being run...", testName );
 		driver.get("http://www.google.com");
 		GoogleSearchPage gs = new GoogleSearchPage();
 		gs.setSearchString( "iphone app" );
@@ -94,26 +79,29 @@ public class GoogleTest {
 		gs.clickSearchButton();
 		waitTimer(2, 1000);
 		clickElementWithJSE( "gbqlt" ); //click Google logo
-		System.out.println("Done with normal test.");
+		logger.info("Page object test '{}' is done.", testName );
 	}
 
 	@Test
 	public void testFluentPageObject() {    	
-		// inspired by http://randypatterson.com/2007/09/how-to-design-a-fluent-interface/
+		logger.info("{} being run...", testName );
 		driver.get("http://www.google.com");
 		GoogleSearchPage gsp = new GoogleSearchPage();
 		gsp.withFluent().clickSearchField()
 		.setSearchString("iphone app").waitForTime(2, 1000)
 		.selectItem( "development" ).clickSearchButton()
 		.waitForTime(2, 1000).clickLogo( "gbqlt" ); //click Google logo
-		System.out.println("Done with fluent test.");
+		logger.info("Fluent test '{}' is done.", testName );
+	}
+	
+	@After
+	public void cleanUp() {
+		driver.get("about:about");
 	}
 	
 	@AfterClass
 	public static void tearDown() {
-	    driver.get("about:about");
-		waitTimer(6, 1000);
-		driver.close();
+        closeAllBrowserWindows();
 		System.out.println("Finished tearDown.");
 	}
 

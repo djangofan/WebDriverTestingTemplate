@@ -5,6 +5,8 @@ import java.io.FileReader;
 import java.io.FileNotFoundException;
 import java.text.DecimalFormat;
 import java.util.concurrent.TimeUnit;
+import java.util.Set;
+import java.util.Iterator;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -22,51 +24,69 @@ public class UtilityClass {
 	public static WebDriver driver;
 	private static JavascriptExecutor js;
 	private static String pageLoadStatus = null;
-	
+
 	public static void clearAndSetValue(WebElement field, String text) { 
 		field.clear(); 
 		field.sendKeys(Keys.chord(Keys.CONTROL, "a"), text); 
 	}
-	
+
 	public static void clearAndType(WebElement field, String text) { 
 		field.clear(); 
 		field.sendKeys(text); 
 	}
 
 	public static void clickElementWithJSE( String id ) {
-		//Create the object of JavaScript Executor 
-		//click command through Javascript
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		WebElement element= driver.findElement( By.id( id ) );
-		//Use any locator type using to identify the element
 		js.executeScript( "arguments[0].click();", element );
 		js = null;
 	}
-	
+
+	public static void closeAllBrowserWindows() {
+		Set<String> windowSet = driver.getWindowHandles();
+		Iterator<String> windowIterator = windowSet.iterator();
+		while( windowIterator.hasNext() ) { 
+			String windowHandle = windowIterator.next(); 
+			driver.switchTo().window(windowHandle).close();
+		}
+	}
+
+	public static void switchToWindowByName( String name ) {
+		Set<String> windowSet = driver.getWindowHandles();
+		Iterator<String> windowIterator = windowSet.iterator();
+		while(windowIterator.hasNext()) { 
+			String windowHandle = windowIterator.next(); 
+			driver.switchTo().window(windowHandle);
+			if ( driver.getTitle().equals( name ) ) {
+				break;
+			}
+		}
+	}
+
 	public static void initializeBrowser( String type ) {
 		if ( type.equalsIgnoreCase( "firefox" ) ) {
 			driver = new FirefoxDriver();
 		} else if ( type.equalsIgnoreCase( "ie" ) ) {
 			driver = new InternetExplorerDriver();
 		}
-        driver.manage().timeouts().implicitlyWait( 10000, TimeUnit.MILLISECONDS );
-        driver.manage().window().setPosition(new Point(200, 10));
-        driver.manage().window().setSize(new Dimension(1200, 800));
+		driver.manage().timeouts().implicitlyWait( 10000, TimeUnit.MILLISECONDS );
+		driver.manage().window().setPosition(new Point(200, 10));
+		driver.manage().window().setSize(new Dimension(1200, 800));
 	}
-	
+
 	public static File loadTestFile( String fileName ) {
 		FileReader toReturn;
 		File junitFile = new File("build/resources/test/" + fileName );
 		try {
-            toReturn = new FileReader(junitFile);
-            System.out.println( "The file '" + junitFile.getAbsolutePath() + "' can be loaded." );
-        } catch( FileNotFoundException ex ) {
+			toReturn = new FileReader(junitFile);
+			System.out.println( "The file '" + junitFile.getAbsolutePath() + "' is loaded." );
+		} catch( FileNotFoundException ex ) {
 			ex.getLocalizedMessage();
-			System.out.println( "Problem loading test data input file." );
+			System.out.println( "Problem loading test data input file: " + junitFile.getAbsolutePath() );
 		}	
 		return junitFile;
 	}
-	
+
 	public static ExpectedCondition<WebElement> visibilityOfElementLocated(final By locator) {
 		return new ExpectedCondition<WebElement>() {
 			public WebElement apply(WebDriver driver) {

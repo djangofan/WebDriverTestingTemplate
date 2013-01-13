@@ -4,9 +4,14 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import qa.webdriver.core.UtilityClass;
 
 public class GoogleUtilities extends UtilityClass {
+	
+	public static Logger logger = LoggerFactory.getLogger(UtilityClass.class);
 
 	public GoogleUtilities() {
 		super(); // to prevent instantiation as an object
