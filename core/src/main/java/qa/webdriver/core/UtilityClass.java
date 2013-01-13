@@ -49,6 +49,7 @@ public class UtilityClass {
 			String windowHandle = windowIterator.next(); 
 			driver.switchTo().window(windowHandle).close();
 		}
+		driver = null;
 	}
 
 	public static void switchToWindowByName( String name ) {
