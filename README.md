@@ -62,8 +62,8 @@ The idea here is to replace your existing automation framework, such as "HP Qual
   </tr>
   <tr>
     <th>Core automation library</th>
-    <td>All projects inherit from a "core" project where you can store your reusable <br/>
-        automation code snippets.</td>
+    <td>All projects inherit from a "core" project where you can store methods that <br/>
+        all of your projects can share between them.</td>
   </tr>
 </table>
 
