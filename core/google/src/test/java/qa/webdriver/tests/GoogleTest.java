@@ -89,16 +89,29 @@ public class GoogleTest {
 	public void testWithPageObject() {    	
 		driver.get("http://www.google.com");
 		GoogleSearchPage gs = new GoogleSearchPage();
-		gs.setSearchString( searchString );
-		selectInGoogleDropdown( ddMatch );  
+		gs.setSearchString( "iphone app" );
+		gs.selectInGoogleDropdown( "development" );  
 		gs.clickSearchButton();
-		waitTimer(3, 1000);
+		waitTimer(2, 1000);
 		clickElementWithJSE( "gbqlt" ); //click Google logo
-		System.out.println("Done with test.");
+		System.out.println("Done with normal test.");
+	}
+
+	@Test
+	public void testFluentPageObject() {    	
+		// inspired by http://randypatterson.com/2007/09/how-to-design-a-fluent-interface/
+		driver.get("http://www.google.com");
+		GoogleSearchPage gsp = new GoogleSearchPage();
+		gsp.withFluent().clickSearchField()
+		.setSearchString("iphone app").waitForTime(2, 1000)
+		.selectItem( "development" ).clickSearchButton()
+		.waitForTime(2, 1000).clickLogo( "gbqlt" ); //click Google logo
+		System.out.println("Done with fluent test.");
 	}
 	
 	@AfterClass
 	public static void tearDown() {
+	    driver.get("about:about");
 		waitTimer(6, 1000);
 		driver.close();
 		System.out.println("Finished tearDown.");
