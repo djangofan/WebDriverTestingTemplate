@@ -36,15 +36,15 @@ public class BingTest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-        System.out.println("Current dir: " + current);
+        logger.info("Current dir: " + current);
         String currentDir = System.getProperty("user.dir");
-        System.out.println("System dir:  " +currentDir);
+        logger.info("System dir:  " +currentDir);
         // end
         
 		this.testName = tName;
 		this.searchString = sString;
 		this.ddMatch = dMatch;
-		System.out.println("Running test: " + testName + ", " + searchString + ", " + ddMatch );
+		logger.info("Running test: " + testName + ", " + searchString + ", " + ddMatch );
 	}
 	
 	@BeforeClass
@@ -95,9 +95,9 @@ public class BingTest {
 		selectInBingDropdown( ddMatch );  
 		bsp.clickSearchButton();
 		waitTimer(3, 1000);
-		//clickElementWithJSEByCSS( ".hp_sw_logo.hpcLogoWhite" ); //click Google logo
+		//bsp.clickLogo(); //click Bing logo
 		//driver.get("http://bing.com");
-		System.out.println("Done with test.");
+		logger.info("Done with test.");
 	}
 	
 	@Test
@@ -109,8 +109,8 @@ public class BingTest {
 		.clickSearchField()
 		.setSearchString("iphone app").waitForTime(2, 1000)
 		.selectItem( "development" ).clickSearchButton()
-		.waitForTime(2, 1000);
-		//.clickElementWithJSEByCSS( ".hp_sw_logo.hpcLogoWhite" );
+		.waitForTime(2, 1000)
+		.clickLogo();
 		logger.info("Fluent test '{}' is done.", testName );
 	}
 	
@@ -122,7 +122,7 @@ public class BingTest {
 	@AfterClass
 	public static void tearDown() {
         closeAllBrowserWindows();
-		System.out.println("Finished tearDown.");
+		logger.info("Finished tearDown.");
 	}
 
 }

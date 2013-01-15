@@ -31,9 +31,9 @@ public class BingSearchPage extends SlowLoadableComponent<BingSearchPage> {
 			bsp = bingSearchPage;
 		}
 
-		public BSPFluentInterface clickElementByCSS( String clazz ) {
-			System.out.println("Click element by CSS selector using Javascript method.");
-			clickElementWithJSEByCSS( clazz );
+		public BSPFluentInterface clickLogo() {
+			logger.info("Click Bing logo.");
+			clickElementWithJSEByCSS( ".hp_sw_logo.hpcLogoWhite" );
 			return this;
 		}
 
@@ -48,7 +48,7 @@ public class BingSearchPage extends SlowLoadableComponent<BingSearchPage> {
 		}
 
 		public BSPFluentInterface selectItem( String ele ) {
-			System.out.println("Selecting item in list using fluent API.");
+			logger.info("Selecting item in list using fluent API.");
 			selectInBingDropdown( ele );
 			return this;
 		}
@@ -81,7 +81,7 @@ public class BingSearchPage extends SlowLoadableComponent<BingSearchPage> {
 
 	public BingSearchPage() {
 		super( new SystemClock(), timeOutInSeconds);
-		System.out.println("Loaded Bing Search Page");
+		logger.info("Loaded Bing Search Page");
 		bspfi = new BSPFluentInterface( this );
 		this.get();
 		PageFactory.initElements( driver, this ); // initialize page elements
@@ -105,7 +105,7 @@ public class BingSearchPage extends SlowLoadableComponent<BingSearchPage> {
 	 */
 	@Override
 	protected void isLoaded() throws Error {    	
-		System.out.println("BingSearchPage.isLoaded()...");
+		logger.info("BingSearchPage.isLoaded()...");
 		Assert.assertTrue("Bing search page is not yet loaded.", isSearchFieldVisible() );
 	}
 
@@ -129,7 +129,7 @@ public class BingSearchPage extends SlowLoadableComponent<BingSearchPage> {
 	 */
 	@Override
 	protected void load() {
-		System.out.println("BingSearchPage.load()...");
+		logger.info("BingSearchPage.load()...");
 		if ( isSFieldPresent ) {
 			Wait<WebDriver> wait = new WebDriverWait( driver, 3 );        
 			wait.until( visibilityOfElementLocated( By.id("sb_form_q") ) ).click();

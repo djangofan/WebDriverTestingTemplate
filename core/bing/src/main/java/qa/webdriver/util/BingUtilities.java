@@ -33,7 +33,7 @@ public class BingUtilities extends UtilityClass {
 		}
 		for ( int i= 0; i < matchedPosition ; i++ ) {
 			dd.sendKeys( Keys.ARROW_DOWN );
-			System.out.println("...key down");
+			logger.info("...key down");
 			waitTimer(1, 500); // to slow down the arrow key so you can see it
 		}
 		WebElement targetItem = allSuggestions.get( matchedPosition );

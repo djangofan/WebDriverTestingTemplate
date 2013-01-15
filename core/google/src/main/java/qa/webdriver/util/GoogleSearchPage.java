@@ -31,9 +31,9 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
             gsp = googleSearchPage;
         }
 
-        public GSPFluentInterface clickElementById( String id ) {
-        	System.out.println("Click element by id using Javascript method.");
-            clickElementWithJSEById( id );
+        public GSPFluentInterface clickLogo() {
+        	logger.info("Click Google logo.");
+            clickElementWithJSEById( "gbqlt" );
             return this;
         }
 		
@@ -48,7 +48,7 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
         }
 		
         public GSPFluentInterface selectItem( String ele ) {
-            System.out.println("Selecting item in list using fluent API.");
+            logger.info("Selecting item in list using fluent API.");
             selectInGoogleDropdown( ele );
             return this;
         }
@@ -81,7 +81,7 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
 	
     public GoogleSearchPage() {
         super( new SystemClock(), timeOutInSeconds);
-        System.out.println("GoogleSearchPage constructor...");
+        logger.info("GoogleSearchPage constructor...");
         gspfi = new GSPFluentInterface( this );
         this.get(); // if load() fails, calls isLoaded() until page is finished loading
         PageFactory.initElements(driver, this); // initialize WebElements on page 
@@ -105,7 +105,7 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
      */
     @Override
     protected void isLoaded() throws Error {    	
-    	System.out.println("GoogleSearchPage.isLoaded()...");
+    	logger.info("GoogleSearchPage.isLoaded()...");
         Assert.assertTrue("Google search page is not yet loaded.", isSearchFieldVisible() );
     }
 	
@@ -129,7 +129,7 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
      */
     @Override
     protected void load() {
-        System.out.println("GoogleSearchPage.load()...");
+        logger.info("GoogleSearchPage.load()...");
         if ( isSFieldPresent ) {
             Wait<WebDriver> wait = new WebDriverWait( driver, 3 );        
             wait.until( visibilityOfElementLocated( By.id("gbqfq") ) ).click();

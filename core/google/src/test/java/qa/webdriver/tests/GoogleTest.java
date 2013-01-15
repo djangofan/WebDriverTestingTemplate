@@ -33,7 +33,7 @@ public class GoogleTest {
 		this.testName = tName;
 		this.searchString = sString;
 		this.ddMatch = dMatch;
-		System.out.println("GoogleTest: " + testName + ", " + searchString + ", " + ddMatch );		
+		logger.info("GoogleTest: " + testName + ", " + searchString + ", " + ddMatch );		
 	}
 	
 	@BeforeClass
@@ -75,10 +75,10 @@ public class GoogleTest {
 		driver.get("http://www.google.com");
 		GoogleSearchPage gs = new GoogleSearchPage();
 		gs.setSearchString( "iphone app" );
-		gs.selectInGoogleDropdown( "development" );  
+		selectInGoogleDropdown( "development" );  
 		gs.clickSearchButton();
 		waitTimer(2, 1000);
-		clickElementWithJSE( "gbqlt" ); //click Google logo
+		clickElementWithJSEById( "gbqlt" ); //click Google logo
 		logger.info("Page object test '{}' is done.", testName );
 	}
 
@@ -90,7 +90,7 @@ public class GoogleTest {
 		gsp.withFluent().clickSearchField()
 		.setSearchString("iphone app").waitForTime(2, 1000)
 		.selectItem( "development" ).clickSearchButton()
-		.waitForTime(2, 1000).clickLogo( "gbqlt" ); //click Google logo
+		.waitForTime(2, 1000).clickLogo(); //click Google logo
 		logger.info("Fluent test '{}' is done.", testName );
 	}
 	
@@ -102,7 +102,7 @@ public class GoogleTest {
 	@AfterClass
 	public static void tearDown() {
         closeAllBrowserWindows();
-		System.out.println("Finished tearDown.");
+		logger.info("Finished tearDown.");
 	}
 
 }

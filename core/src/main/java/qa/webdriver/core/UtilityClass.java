@@ -26,7 +26,7 @@ public class UtilityClass {
 	public static WebDriver driver;
 	private static JavascriptExecutor js;
 	private static String pageLoadStatus = null;
-	public static Logger logger = LoggerFactory.getLogger( UtilityClass.class );
+	public static Logger logger = LoggerFactory.getLogger( "JUnit" );
 
 	public static void clearAndSetValue(WebElement field, String text) { 
 		field.clear(); 
@@ -90,10 +90,10 @@ public class UtilityClass {
 		File junitFile = new File("build/resources/test/" + fileName );
 		try {
 			toReturn = new FileReader(junitFile);
-			System.out.println( "The file '" + junitFile.getAbsolutePath() + "' is loaded." );
+			logger.info( "The file '" + junitFile.getAbsolutePath() + "' is loaded." );
 		} catch( FileNotFoundException ex ) {
 			ex.getLocalizedMessage();
-			System.out.println( "Problem loading test data input file: " + junitFile.getAbsolutePath() );
+			logger.info( "Problem loading test data input file: " + junitFile.getAbsolutePath() );
 		}	
 		return junitFile;
 	}
@@ -111,28 +111,28 @@ public class UtilityClass {
 	}
 
 	public static void waitForPageToLoad() {
-		System.out.println("Waiting for page to load...");
+		logger.info("Waiting for page to load...");
 		do {
 			js = (JavascriptExecutor) driver;
 			pageLoadStatus = (String)js.executeScript("return document.readyState");
-			System.out.print(".");
+			logger.info(".");
 		} while ( !pageLoadStatus.equals("complete") );
-		System.out.println();
+		    logger.info("Page is loaded.");
 	}
 
 	public static void waitTimer( int units, int mills ) {
 		DecimalFormat df = new DecimalFormat("###.##");
 		double totalSeconds = ((double)units*mills)/1000;
-		System.out.print("Explicit pause for " + df.format(totalSeconds) + " seconds divided by " + units + " units of time: ");
+		logger.info("Explicit pause for " + df.format(totalSeconds) + " seconds divided by " + units + " units of time: ");
 		try {
 			Thread.currentThread();		
 			int x = 0;
 			while( x < units ) {
 				Thread.sleep( mills );
-				System.out.print("." );
+				logger.info("." );
 				x = x + 1;
 			}
-			System.out.print('\n');
+			logger.info("");
 		} catch ( InterruptedException ex ) {
 			ex.printStackTrace();
 		}	

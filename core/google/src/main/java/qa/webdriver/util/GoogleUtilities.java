@@ -18,7 +18,7 @@ public class GoogleUtilities extends UtilityClass {
      * @return	void
      * @throws	null
      */
-    public void selectInGoogleDropdown( String match ) {
+    public static void selectInGoogleDropdown( String match ) {
         WebElement dd = driver.findElement( By.xpath( "//input[@id='gbqfq']" ) );
         waitTimer(4, 500);
         long end = System.currentTimeMillis() + 5000;
@@ -38,7 +38,7 @@ public class GoogleUtilities extends UtilityClass {
         }
         for ( int i= 0; i < matchedPosition ; i++ ) {
             dd.sendKeys( Keys.ARROW_DOWN );
-            System.out.println("...key down");
+            logger.info("...key down");
             waitTimer(1, 500); // to slow down the arrow key so you can see it
         }
         WebElement targetItem = allSuggestions.get( matchedPosition );
