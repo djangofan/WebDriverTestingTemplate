@@ -46,7 +46,7 @@ PATH environment and then download the .zip distribution of this project, unzip 
     <td>Uses the WebDriver "page object" design pattern.</td>
   </tr>
     <tr>
-    <th>Fluent API</th>
+    <th>Fluent API design<br/>pattern</th>
     <td>Implements an example of a "Fluent API" design pattern.</td>
   </tr>
   <tr>
