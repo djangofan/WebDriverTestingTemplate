@@ -12,8 +12,8 @@ public class BingUtilities extends UtilityClass {
 		super(); // to prevent instantiation as an object
 	}
 
-	public static void selectInBingDropdown( String match )
-	{
+	public static void selectInBingDropdown( String match )	{
+		//TODO there may be a problem with this method
 		WebElement dd = driver.findElement( By.xpath( "//input[@id='sb_form_q']" ) );
 		waitTimer(4, 500);
 		long end = System.currentTimeMillis() + 5000;
@@ -25,12 +25,11 @@ public class BingUtilities extends UtilityClass {
 		int optpos = 0;
 		List<WebElement> allSuggestions = driver.findElements( By.xpath( "//ul[@class='sa_drw']/li/div" ) );        
 		for ( WebElement suggestion : allSuggestions ) {
-			if ( suggestion.getText().contains( match ) ) {
-				matchedPosition = optpos;
-			} else {
-				// do nothing
-			}
-			optpos++;
+            if ( suggestion.getText().contains( match ) ) {
+                matchedPosition = optpos;
+            } else {
+                optpos++;
+            }
 		}
 		for ( int i= 0; i < matchedPosition ; i++ ) {
 			dd.sendKeys( Keys.ARROW_DOWN );

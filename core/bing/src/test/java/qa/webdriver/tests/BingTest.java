@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -88,20 +90,38 @@ public class BingTest {
 	@Test
 	public void testWithPageObject() {    	
 		driver.get("http://bing.com");
-		BingSearchPage bs = new BingSearchPage();
-		bs.setSearchString( searchString );
+		BingSearchPage bsp = new BingSearchPage();
+		bsp.setSearchString( searchString );
 		selectInBingDropdown( ddMatch );  
-		bs.clickSearchButton();
+		bsp.clickSearchButton();
 		waitTimer(3, 1000);
-		//clickElementWithJSE( "gbqlt" ); //click Google logo
-		driver.get("http://bing.com");
+		//clickElementWithJSEByCSS( ".hp_sw_logo.hpcLogoWhite" ); //click Google logo
+		//driver.get("http://bing.com");
 		System.out.println("Done with test.");
+	}
+	
+	@Test
+	public void testFluentPageObject() {    	
+		logger.info("{} being run...", testName );
+		driver.get("http://bing.com");
+		BingSearchPage bsp = new BingSearchPage();
+		bsp.withFluent()
+		.clickSearchField()
+		.setSearchString("iphone app").waitForTime(2, 1000)
+		.selectItem( "development" ).clickSearchButton()
+		.waitForTime(2, 1000);
+		//.clickElementWithJSEByCSS( ".hp_sw_logo.hpcLogoWhite" );
+		logger.info("Fluent test '{}' is done.", testName );
+	}
+	
+	@After
+	public void cleanUp() {
+		driver.get("about:about");
 	}
 	
 	@AfterClass
 	public static void tearDown() {
-		waitTimer(6, 1000);
-		driver.close();
+        closeAllBrowserWindows();
 		System.out.println("Finished tearDown.");
 	}
 

@@ -31,9 +31,9 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
             gsp = googleSearchPage;
         }
 
-        public GSPFluentInterface clickLogo( String id ) {
-            System.out.println("Click Google logo using fluent API.");
-            clickElementWithJSE( id );
+        public GSPFluentInterface clickElementById( String id ) {
+        	System.out.println("Click element by id using Javascript method.");
+            clickElementWithJSEById( id );
             return this;
         }
 		
@@ -134,40 +134,6 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
             Wait<WebDriver> wait = new WebDriverWait( driver, 3 );        
             wait.until( visibilityOfElementLocated( By.id("gbqfq") ) ).click();
         }
-    }
-	
-    /**
-     * Method: selectInGoogleDropdown
-     * Selects element in dropdown using keydowns (just for fun).
-     * @return	void
-     * @throws	null
-     */
-    public void selectInGoogleDropdown( String match ) {
-        WebElement dd = driver.findElement( By.xpath( "//input[@id='gbqfq']" ) );
-        waitTimer(4, 500);
-        long end = System.currentTimeMillis() + 5000;
-        while ( System.currentTimeMillis() < end ) {
-            WebElement resultsLi = driver.findElement( By.xpath( "//div[@class='gsq_a']" ) );
-            if ( resultsLi.isDisplayed() ) break;
-        }
-        int matchedPosition = 0;
-        int optpos = 0;
-        List<WebElement> allSuggestions = driver.findElements( By.xpath( "//div[@class='gsq_a']/table/tbody/tr/td/span" ) );        
-        for ( WebElement suggestion : allSuggestions ) {
-            if ( suggestion.getText().contains( match ) ) {
-                matchedPosition = optpos;
-            } else {
-                optpos++;
-            }
-        }
-        for ( int i= 0; i < matchedPosition ; i++ ) {
-            dd.sendKeys( Keys.ARROW_DOWN );
-            System.out.println("...key down");
-            waitTimer(1, 500); // to slow down the arrow key so you can see it
-        }
-        WebElement targetItem = allSuggestions.get( matchedPosition );
-        targetItem.click();
-        waitTimer(1, 500);
     }
 	
     public void setSearchString( String sstr ) {

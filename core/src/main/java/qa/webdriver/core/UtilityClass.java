@@ -18,12 +18,15 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.Keys;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class UtilityClass {
 
 	public static WebDriver driver;
 	private static JavascriptExecutor js;
 	private static String pageLoadStatus = null;
+	public static Logger logger = LoggerFactory.getLogger( UtilityClass.class );
 
 	public static void clearAndSetValue(WebElement field, String text) { 
 		field.clear(); 
@@ -35,9 +38,16 @@ public class UtilityClass {
 		field.sendKeys(text); 
 	}
 
-	public static void clickElementWithJSE( String id ) {
+	public static void clickElementWithJSEById( String id ) {
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		WebElement element= driver.findElement( By.id( id ) );
+		js.executeScript( "arguments[0].click();", element );
+		js = null;
+	}
+	
+	public static void clickElementWithJSEByCSS( String clazz ) {
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		WebElement element= driver.findElement( By.cssSelector( clazz ) );
 		js.executeScript( "arguments[0].click();", element );
 		js = null;
 	}
