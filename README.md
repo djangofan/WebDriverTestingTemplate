@@ -1,6 +1,6 @@
 # Info
 
-This is a Java project that can be used as a template to start a WebDriver web browser testing project.  I chose not to implement most Selenium features and tried to simplify it to just WebDriver and Gradle.
+This is a Java project that can be used as a template (or archetype) to start a WebDriver web browser testing project.  I chose not to implement most Selenium features and tried to simplify it to just WebDriver and Gradle.
 
 I am very much interested in others forking my code and showing me how it can be improved.
 
