@@ -1,4 +1,3 @@
-
 # Info
 
 This is a Java project that can be used as a template to start a WebDriver web browser testing project.  I chose not to implement most Selenium features and tried to simplify it to just WebDriver and Gradle.
@@ -13,6 +12,10 @@ The idea here is to replace your existing automation framework, such as "HP Qual
  &nbsp;&nbsp;-- Project ':core'<br/>
  &nbsp;&nbsp;&nbsp;&nbsp;---- Project ':core:bing'<br/>
  &nbsp;&nbsp;&nbsp;&nbsp;---- Project ':core:google'<br/>
+
+# Quick Start
+To try this project with as little effort as possible, just make sure you download Gradle 1.2 and put it in<br/>
+PATH environment and then download the .zip distribution of this project, unzip it, and run the .bat script.
 
 # Implemented Features
 <table>
