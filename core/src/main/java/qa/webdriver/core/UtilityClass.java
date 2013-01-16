@@ -54,20 +54,17 @@ public class UtilityClass {
 
 	public static void closeAllBrowserWindows() {
 		Set<String> windowSet = driver.getWindowHandles();
-		Iterator<String> windowIterator = windowSet.iterator();
-		while( windowIterator.hasNext() ) { 
-			String windowHandle = windowIterator.next(); 
-			driver.switchTo().window(windowHandle).close();
+		for( String handle: windowSet ) { 
+			logger.info("Closing window: " + handle );
+			driver.switchTo().window( handle ).close();
 		}
 		driver = null;
 	}
 
 	public static void switchToWindowByName( String name ) {
 		Set<String> windowSet = driver.getWindowHandles();
-		Iterator<String> windowIterator = windowSet.iterator();
-		while(windowIterator.hasNext()) { 
-			String windowHandle = windowIterator.next(); 
-			driver.switchTo().window(windowHandle);
+		for( String handle: windowSet ) { 
+			driver.switchTo().window( handle );
 			if ( driver.getTitle().equals( name ) ) {
 				break;
 			}
