@@ -47,6 +47,11 @@ public class BingTest {
 		logger.info("Running test: " + testName + ", " + searchString + ", " + ddMatch );
 	}
 	
+	/**
+	 * prepareBrowser
+	 * Because this method initializes a static WebDriver, between invokations of this class
+	 * the web browser will persist.	 * 
+	 */
 	@BeforeClass
 	public static void prepareBrowser() {
 		initializeBrowser( "firefox" );  // either firefox or ie
@@ -61,7 +66,7 @@ public class BingTest {
 	
 	@Parameters(name = "{0}: {1}: {2}")
 	public static Iterable<String[]> loadTestsFromFile() {
-		File tFile = loadTestFile("testdata.csv"); // to handle Gradle vs. JUnit runtime
+		File tFile = loadTestFile("testdata.csv");
 		FileReader fileReader = null;
 		ArrayList<String> lines = new ArrayList<String>();
 		try {
@@ -95,8 +100,7 @@ public class BingTest {
 		selectInBingDropdown( ddMatch );  
 		bsp.clickSearchButton();
 		waitTimer(3, 1000);
-		//bsp.clickLogo(); //click Bing logo
-		//driver.get("http://bing.com");
+		clickElementWithJSEByCSS( "div#sbox.sw_sform div.hp_sw_logo" ); //click Bing logo
 		logger.info("Done with test.");
 	}
 	
@@ -110,7 +114,7 @@ public class BingTest {
 		.setSearchString("iphone app").waitForTime(2, 1000)
 		.selectItem( "development" ).clickSearchButton()
 		.waitForTime(2, 1000)
-		.clickLogo();
+		.clickLogo(); //click Bing logo
 		logger.info("Fluent test '{}' is done.", testName );
 	}
 	

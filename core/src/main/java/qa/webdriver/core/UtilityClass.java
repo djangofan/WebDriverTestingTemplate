@@ -121,6 +121,7 @@ public class UtilityClass {
 	}
 
 	public static void waitTimer( int units, int mills ) {
+		//TODO Not sure why this method prints to std-out
 		DecimalFormat df = new DecimalFormat("###.##");
 		double totalSeconds = ((double)units*mills)/1000;
 		logger.info("Explicit pause for " + df.format(totalSeconds) + " seconds divided by " + units + " units of time: ");
@@ -129,10 +130,9 @@ public class UtilityClass {
 			int x = 0;
 			while( x < units ) {
 				Thread.sleep( mills );
-				logger.info("." );
+				logger.info(".");
 				x = x + 1;
 			}
-			logger.info("");
 		} catch ( InterruptedException ex ) {
 			ex.printStackTrace();
 		}	
