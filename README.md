@@ -17,7 +17,7 @@ Functional Tester", with a scripted Gradle/Java solution.
  &nbsp;&nbsp;&nbsp;&nbsp;---- Project ':core:google'<br/>
 
 # Quick Start
-To try this project with as little effort as possible, just make sure you download Gradle 1.2 and put it in<br/>
+To try this project with as little effort as possible, just make sure you download Gradle 1.3 and put it in<br/>
 PATH environment and then download the .zip distribution of this project, unzip it, and run the .bat script.
 
 # Implemented Features
