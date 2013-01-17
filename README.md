@@ -111,7 +111,7 @@ above.
 
 #### FAQ
 1.  If the intellisense in Eclipse doesn't work, make sure you have added all the .class directories to<br/>
-    your Eclipse project classpath.
+    your Eclipse project classpath.  (See the included .classpath file.)
 
 #### Notes
 I use "GitHub GUI" to sync my local project repo to GitHub.  If you fork my project, I would recommend doing <br/>
