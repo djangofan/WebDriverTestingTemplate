@@ -52,13 +52,32 @@ public class UtilityClass {
 		js = null;
 	}
 
-	public static void closeAllBrowserWindows() {
-		Set<String> windowSet = driver.getWindowHandles();
-		for( String handle: windowSet ) { 
-			logger.info("Closing window: " + handle );
-			driver.switchTo().window( handle ).close();
+	public static boolean closeAllBrowserWindows() {
+		Set<String> availableWindows = driver.getWindowHandles();
+		if ( !availableWindows.isEmpty() ) {
+			for ( String windowId : availableWindows ) {
+				driver.switchTo().window(windowId).close();
+			}
+			return true;
 		}
-		driver = null;
+		return false;
+	}
+
+	public static boolean closeWindowUsingTitle( String title ) 
+	{
+		String currentWindow = driver.getWindowHandle();
+		Set<String> availableWindows = driver.getWindowHandles();
+		if ( !availableWindows.isEmpty() ) {
+			for ( String windowId : availableWindows ) {
+				if ( driver.switchTo().window(windowId).getTitle().contains(title) ) {
+					driver.close();
+					return true;
+				} else {
+					driver.switchTo().window(currentWindow);
+				}
+			}
+		}
+		return false;
 	}
 
 	public static void switchToWindowByName( String name ) {
