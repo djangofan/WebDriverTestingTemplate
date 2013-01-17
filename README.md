@@ -106,7 +106,11 @@ the following steps:
 Intellij-IDEA has a nice Gradle plugin that is included.  The steps are otherwise similar to the Eclipse steps #3-#7 <br/>
 above.
 
-# Other
+#### FAQ
+1.  If the intellisense in Eclipse doesn't work, make sure you have added all the .class directories to<br/>
+    your project classpath.
+
+#### Notes
 I use "GitHub GUI" to sync my local project repo to GitHub.  If you fork my project, I would recommend doing <br/>
 it this way unless you are a Git expert and prefer another way.<br/>
 

@@ -6,11 +6,16 @@
   </setting>  
   <setting name="favorites-tab"> 
     <setting name="favorites"> 
-      <setting name="favorite"> 
-        <setting name="full-command-line" value="identify core:show core:clean core:build core:google:show core:google:clean core:google:build --info"/>  
-        <setting name="display-name" value="identify core:show core:clean core:build core:google:show core:google:clean core:google:build --info"/>  
-        <setting name="show-output" value="false"/> 
-      </setting> 
+      <setting name="favorite">
+        <setting name="full-command-line" value="identify core:show core:clean core:build core:google:show core:google:clean core:google:build"/>
+        <setting name="display-name" value="Google Test"/>
+        <setting name="show-output" value="true"/>
+      </setting>
+      <setting name="favorite">
+        <setting name="full-command-line" value="identify core:show core:clean core:build core:bing:show core:bing:clean core:bing:build"/>
+        <setting name="display-name" value="Bing Test"/>
+        <setting name="show-output" value="true"/>
+      </setting>
     </setting> 
   </setting>  
   <setting name="command_line-tab"/>  
@@ -18,20 +23,21 @@
     <setting name="setup"> 
       <setting name="custom-gradle-executor"/>  
       <setting name="current-directory" value="C:\Eclipse32\workspace\WebDriverTestingTemplate"/>  
-      <setting name="log-level" value="LIFECYCLE"/> 
+      <setting name="log-level" value="DEBUG"/>  
+      <setting name="stack-trace-level" value="ALWAYS_FULL"/>
     </setting> 
   </setting>  
   <setting name="SinglePaneUIInstance_splitter-id"> 
-    <setting name="divider_location" value="516"/> 
+    <setting name="divider_location" value="349"/> 
   </setting>  
   <setting name="main_panel"> 
-    <setting name="current-tab" value="Favorites"/> 
+    <setting name="current-tab" value="Task Tree"/> 
   </setting>  
   <setting name="Application_window-id"> 
-    <setting name="window_x" value="1977"/>  
-    <setting name="window_y" value="140"/>  
+    <setting name="window_x" value="2139"/>  
+    <setting name="window_y" value="12"/>  
     <setting name="window_width" value="1176"/>  
-    <setting name="window_height" value="916"/>  
+    <setting name="window_height" value="1148"/>  
     <setting name="extended-state" value="0"/> 
   </setting> 
 </root>

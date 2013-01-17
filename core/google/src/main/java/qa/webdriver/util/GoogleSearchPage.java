@@ -33,7 +33,7 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
 
         public GSPFluentInterface clickLogo() {
         	logger.info("Click Google logo.");
-            clickElementWithJSEById( "gbqlt" );
+        	clickByCSSSelector( "div.gbqlca" );
             return this;
         }
 		

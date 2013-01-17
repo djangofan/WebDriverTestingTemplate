@@ -1,4 +1,4 @@
-package qa.webdriver.core;
+package qa.webdriver.util;
 
 import java.io.File;
 import java.io.FileReader;
@@ -6,8 +6,6 @@ import java.io.FileNotFoundException;
 import java.text.DecimalFormat;
 import java.util.concurrent.TimeUnit;
 import java.util.Set;
-import java.util.Iterator;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
@@ -45,22 +43,21 @@ public class UtilityClass {
 		js = null;
 	}
 	
-	public static void clickElementWithJSEByCSS( String clazz ) {
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		WebElement element= driver.findElement( By.cssSelector( clazz ) );
-		js.executeScript( "arguments[0].click();", element );
-		js = null;
+	public static void clickByCSSSelector( String sel ) {
+		driver.findElement( By.cssSelector( sel ) ).click();
 	}
 
-	public static boolean closeAllBrowserWindows() {
+	public static void closeAllBrowserWindows() {
 		Set<String> availableWindows = driver.getWindowHandles();
 		if ( !availableWindows.isEmpty() ) {
+			logger.info("Closing " + availableWindows.size() + " window(s).");
 			for ( String windowId : availableWindows ) {
-				driver.switchTo().window(windowId).close();
+				logger.info("-- Found window named " + windowId );
+				driver.switchTo().window( windowId ).close();
 			}
-			return true;
+		} else {
+			logger.info("There were no window handles to close.");
 		}
-		return false;
 	}
 
 	public static boolean closeWindowUsingTitle( String title ) 

@@ -78,7 +78,7 @@ public class GoogleTest {
 		selectInGoogleDropdown( "development" );  
 		gs.clickSearchButton();
 		waitTimer(2, 1000);
-		clickElementWithJSEById( "gbqlt" ); //click Google logo
+		clickByCSSSelector( "div.gbqlca" ); //click Google logo
 		logger.info("Page object test '{}' is done.", testName );
 	}
 
@@ -96,12 +96,12 @@ public class GoogleTest {
 	
 	@After
 	public void cleanUp() {
-		driver.get("about:about");
+		// driver.get("about:about");
 	}
 	
 	@AfterClass
 	public static void tearDown() {
-        closeAllBrowserWindows();
+        closeAllBrowserWindows();  
 		logger.info("Finished tearDown.");
 	}
 

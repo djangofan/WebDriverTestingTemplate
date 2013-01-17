@@ -100,7 +100,7 @@ public class BingTest {
 		selectInBingDropdown( ddMatch );  
 		bsp.clickSearchButton();
 		waitTimer(3, 1000);
-		clickElementWithJSEByCSS( "div#sbox.sw_sform div.hp_sw_logo" ); //click Bing logo
+		clickByCSSSelector( "a.sw_logo" ); //click Bing logo
 		logger.info("Done with test.");
 	}
 	
@@ -120,7 +120,7 @@ public class BingTest {
 	
 	@After
 	public void cleanUp() {
-		driver.get("about:about");
+		// driver.get("about:about");
 	}
 	
 	@AfterClass
