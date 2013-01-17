@@ -10,6 +10,8 @@ IF NOT DEFINED JAVA_HOME (
 
 IF NOT DEFINED GRADLE_HOME (
   ECHO GRADLE_HOME must be defined as an environment variable.
+  ECHO Also, add GRADLE_HOME\bin to your path.
+  ECHO.
   GOTO :END
 )
 
