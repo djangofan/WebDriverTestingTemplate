@@ -1,10 +1,12 @@
 # Info
 
-This is a Java project that can be used as a template (or archetype) to start a WebDriver web browser testing project.  I chose not to implement most Selenium features and tried to simplify it to just WebDriver and Gradle.
+This is a Java project that can be used as a template (or archetype) to start a WebDriver web browser testing<br/>
+project.  I chose not to implement most Selenium features and tried to simplify it to just WebDriver and Gradle.<br/>
 
 I am very much interested in others forking my code and showing me how it can be improved.
 
-The idea here is to replace your existing automation framework, such as "HP Quality Center", "XStudio", or "Rational Functional Tester", with a scripted Gradle/Java solution.
+The idea here is to replace your existing automation framework, such as "HP Quality Center", "XStudio", or "Rational<br/>
+Functional Tester", with a scripted Gradle/Java solution.
 
 # Project Layout
 <br/>
