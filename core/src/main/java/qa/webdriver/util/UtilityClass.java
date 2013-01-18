@@ -58,6 +58,7 @@ public class UtilityClass {
 		} else {
 			logger.info("There were no window handles to close.");
 		}
+		driver.quit();
 	}
 
 	public static boolean closeWindowUsingTitle( String title ) 
