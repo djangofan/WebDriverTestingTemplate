@@ -120,6 +120,7 @@ it this way unless you are a Git expert and prefer another way.<br/>
 Some related projects:<br/>
 https://github.com/sebarmeli/Selenium2-Java-QuickStart-Archetype<br/>
 https://github.com/sebarmeli/Selenium2-Java-Demo<br/>
+http://code.google.com/p/selenium-ext/source/browse/<br/>
 <br/>
 Website of this project:<br/>
 http://djangofan.github.com/WebDriverTestingTemplate/<br/>
