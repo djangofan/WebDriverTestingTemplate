@@ -37,7 +37,7 @@ public class GoogleTest {
 	}
 	
 	@BeforeClass
-	public static void prepareBrowser() {
+	public static void setUp() {		
 		initializeBrowser( "firefox" );  // either firefox or ie
 	}
 	

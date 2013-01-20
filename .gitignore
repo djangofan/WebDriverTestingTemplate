@@ -167,6 +167,10 @@ pip-log.txt
 cache.*
 .gradle
 
-# To support IntelliJ IDEA
+# To support IntelliJ IDEA , will disable these later when I get IntelliJ working correctly
 .idea
 *.iml
+
+# Don't add logback log4j files to source
+*.log
+

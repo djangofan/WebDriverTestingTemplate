@@ -100,13 +100,10 @@ public class UtilityClass {
 	}
 
 	public static File loadTestFile( String fileName ) {
-		FileReader toReturn;
 		File junitFile = new File("build/resources/test/" + fileName );
-		try {
-			toReturn = new FileReader(junitFile);
+		if ( junitFile.exists() ) {
 			logger.info( "The file '" + junitFile.getAbsolutePath() + "' is loaded." );
-		} catch( FileNotFoundException ex ) {
-			ex.getLocalizedMessage();
+		} else {
 			logger.info( "Problem loading test data input file: " + junitFile.getAbsolutePath() );
 		}	
 		return junitFile;

@@ -28,19 +28,6 @@ public class BingTest {
 	private String testName, searchString, ddMatch;
 
 	public BingTest( String tName, String sString, String dMatch ) {
-		
-		// start: figure out why currentdir is not correct when running with Gradle
-		String current = null;
-		try {
-			current = new File( "." ).getCanonicalPath();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-        logger.info("Current dir: " + current);
-        String currentDir = System.getProperty("user.dir");
-        logger.info("System dir:  " +currentDir);
-        // end
-        
 		this.testName = tName;
 		this.searchString = sString;
 		this.ddMatch = dMatch;
@@ -53,7 +40,7 @@ public class BingTest {
 	 * the web browser will persist.	 * 
 	 */
 	@BeforeClass
-	public static void prepareBrowser() {
+	public static void setUp() {		
 		initializeBrowser( "firefox" );  // either firefox or ie
 	}
 	
