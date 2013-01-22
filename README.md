@@ -39,8 +39,8 @@ PATH environment and then download the .zip distribution of this project, unzip 
     <td>Unit tests are parameterized from a csv file.  Can also load tests from XML, XLS, a database, etc.</td>
   </tr>
   <tr>
-    <th>Logging</th>
-    <td>Will log output to build/test-output directory in project.   Also, logs test output<br/> to console and to a file using SLF4j/LogBack API, and configured by a <b>logback.xml</b> file.</td>
+    <th>Logging and Reporting</th>
+    <td>Logs test output to console and to a file using SLF4j/LogBack API, and configured by<br/> a <b>logback.xml</b> file. Will generate reports of JUnit tests results at<br/> <b>build/reports/test/index.html</b> .  Will place a junit.log file at <b>build/junit.log</b> .</td>
   </tr>
   <tr>
     <th>Page Object design <br/>pattern</th>
@@ -57,9 +57,8 @@ PATH environment and then download the .zip distribution of this project, unzip 
    subprojects of "core" inherit classes from it.</td>
   </tr>
   <tr>
-    <th>Reporting and Logging</th>
-    <td>Will generate reports of JUnit tests results at <b>build/reports/test/index.html</b> .  Will place<br/>
-    a junit.log file at <b>build/junit.log</b> .</td>
+    <th>Unknown</th>
+    <td>.</td>
   </tr>
   <tr>
     <th>Jar executable option</th>
