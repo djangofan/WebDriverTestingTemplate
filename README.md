@@ -40,7 +40,7 @@ PATH environment and then download the .zip distribution of this project, unzip 
   </tr>
   <tr>
     <th>Logging and Reporting</th>
-    <td>Logs test output to console and to a file using SLF4j/LogBack API, and configured by<br/> a <b>logback.xml</b> file. Will generate reports of JUnit tests results at<br/> <b>build/reports/test/index.html</b> .  Will place a junit.log file at <b>build/junit.log</b> .</td>
+    <td>Logs test output to console and to a file using SLF4j/LogBack API, and configured by<br/> a <b>logback.xml</b> file. Will generate reports of JUnit test results at<br/> <b>build/reports/test/index.html</b> .  Will place a junit.log file at <b>build/junit.log</b> .</td>
   </tr>
   <tr>
     <th>Page Object design <br/>pattern</th>
@@ -58,7 +58,10 @@ PATH environment and then download the .zip distribution of this project, unzip 
   </tr>
   <tr>
     <th>Run Options</th>
-    <td>You have three different options for running the tests: via the Gradle GUI, via your IDE<br/>Gradle plugin, via executable .jar, or via Gradle command line. To run with<br/>the JUnit runner in your IDE, you would need to manually export your project <br/>as a normal Java project, because this template does not support that.</td>
+    <td>You have three different options for running the tests: via the Gradle GUI, via your IDE<br/>Gradle
+    plugin, via executable .jar, or via Gradle command line. To run with<br/>the JUnit runner in your IDE, 
+    you would need to manually export your project <br/>as a normal Java project, because this template does
+    not support that.</td>
   </tr>
   <tr>
     <th>Jar executable option</th>
