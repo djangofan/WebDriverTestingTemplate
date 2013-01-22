@@ -44,7 +44,7 @@ PATH environment and then download the .zip distribution of this project, unzip 
   </tr>
   <tr>
     <th>Page Object design <br/>pattern</th>
-    <td>Uses the WebDriver "page object" design pattern, enhanced by the Selenium "LoadableComponent"<br/> extendable class.</td>
+    <td>Uses the WebDriver "page object" design pattern, enhanced by the Selenium<br/> "LoadableComponent" extendable class.</td>
   </tr>
     <tr>
     <th>Fluent API design<br/>pattern</th>
