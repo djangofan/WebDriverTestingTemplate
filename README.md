@@ -32,7 +32,7 @@ PATH environment and then download the .zip distribution of this project, unzip 
   </tr>
   <tr>
     <th>Native automation support</th>
-    <td>For use with Sikuli 1.0.1 or higher to test native elements that WebDriver can't control.  <br/>This dependency is configured in the Gradle build script.  If you implement this however, you<br/> may not be able to use the remote webdriver option in your project.</td>
+    <td>For use with Sikuli 1.0.1 or higher to test native elements that WebDriver "Action" is<br/> unable to control. This dependency is configured in the Gradle build script.  If you implement<br/> this however, you may not be able to use the remote webdriver option in<br/> your project. </td>
   </tr>
   <tr>
     <th>Parameterized data <br/>driven capability</th>
