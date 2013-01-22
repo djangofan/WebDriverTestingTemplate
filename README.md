@@ -77,7 +77,7 @@ PATH environment and then download the .zip distribution of this project, unzip 
 
 #### Eclipse
 To get it working on a regular Eclipse Juno (rather than Spring Source Suite) then perform the following<br/>
-steps.  If you deviate from these steps you risk importing the project incorrectly. 
+steps.  If you deviate from these steps you risk importing the project incorrectly. You know you did it<br/>correctly if your imported project resembles the screenshot I provided called "layout.png".
  
 1. Add the following software repositories to your Eclipse software update panel:<br/>
     a. "SpringSource Update Site for Eclipse Juno 4.2" - http://dist.springsource.com/release/TOOLS/update/e4.2 <br/>
