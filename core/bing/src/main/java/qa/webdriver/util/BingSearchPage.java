@@ -33,7 +33,8 @@ public class BingSearchPage extends SlowLoadableComponent<BingSearchPage> {
 
 		public BSPFluentInterface clickLogo() {
 			logger.info("Click Bing logo with fluent method.");
-			clickByCSSSelector( "a.sw_logo" );
+			//clickByCSSSelector( "a.sw_logo" );
+			mouseClickByCSSLocator( "a.sw_logo" );
 			return this;
 		}
 

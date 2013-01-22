@@ -1,8 +1,6 @@
 package qa.webdriver.util;
 
 import java.io.File;
-import java.io.FileReader;
-import java.io.FileNotFoundException;
 import java.text.DecimalFormat;
 import java.util.concurrent.TimeUnit;
 import java.util.Set;
@@ -14,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.Keys;
 import org.slf4j.Logger;
@@ -36,15 +35,15 @@ public class UtilityClass {
 		field.sendKeys(text); 
 	}
 
+	public static void clickByCSSSelector( String sel ) {
+		driver.findElement( By.cssSelector( sel ) ).click();
+	}
+	
 	public static void clickElementWithJSEById( String id ) {
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		WebElement element= driver.findElement( By.id( id ) );
 		js.executeScript( "arguments[0].click();", element );
 		js = null;
-	}
-	
-	public static void clickByCSSSelector( String sel ) {
-		driver.findElement( By.cssSelector( sel ) ).click();
 	}
 
 	public static void closeAllBrowserWindows() {
@@ -58,7 +57,7 @@ public class UtilityClass {
 		} else {
 			logger.info("There were no window handles to close.");
 		}
-		driver.quit();  // this quit is critical
+		driver.quit();  // this quit is critical, otherwise window will hang open
 	}
 
 	public static boolean closeWindowUsingTitle( String title ) 
@@ -76,16 +75,6 @@ public class UtilityClass {
 			}
 		}
 		return false;
-	}
-
-	public static void switchToWindowByName( String name ) {
-		Set<String> windowSet = driver.getWindowHandles();
-		for( String handle: windowSet ) { 
-			driver.switchTo().window( handle );
-			if ( driver.getTitle().equals( name ) ) {
-				break;
-			}
-		}
 	}
 
 	public static void initializeBrowser( String type ) {
@@ -107,6 +96,24 @@ public class UtilityClass {
 			logger.info( "Problem loading test data input file: " + junitFile.getAbsolutePath() );
 		}	
 		return junitFile;
+	}
+	
+	public static void mouseClickByCSSLocator( String cssLocator ) {
+	     String locator = cssLocator;
+	     WebElement el = driver.findElement( By.cssSelector( locator ) );
+	     Actions builder = new Actions(driver);
+	     builder.moveToElement( el ).click( el );
+	     builder.perform();
+	}
+
+	public static void switchToWindowByName( String name ) {
+		Set<String> windowSet = driver.getWindowHandles();
+		for( String handle: windowSet ) { 
+			driver.switchTo().window( handle );
+			if ( driver.getTitle().equals( name ) ) {
+				break;
+			}
+		}
 	}
 
 	public static ExpectedCondition<WebElement> visibilityOfElementLocated(final By locator) {

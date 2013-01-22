@@ -87,7 +87,8 @@ public class BingTest {
 		selectInBingDropdown( ddMatch );  
 		bsp.clickSearchButton();
 		waitTimer(3, 1000);
-		clickByCSSSelector( "a.sw_logo" ); //click Bing logo
+		// clickByCSSSelector( "a.sw_logo" ); //click Bing logo by element
+		mouseClickByCSSLocator( "a.sw_logo" ); // click Bing logo physically with mouse movement
 		logger.info("Done with test.");
 	}
 	
