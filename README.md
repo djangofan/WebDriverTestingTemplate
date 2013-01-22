@@ -57,8 +57,8 @@ PATH environment and then download the .zip distribution of this project, unzip 
    subprojects of "core" inherit classes from it.</td>
   </tr>
   <tr>
-    <th>Unknown</th>
-    <td>.</td>
+    <th>Run Options</th>
+    <td>You have three different options for running the tests: via the Gradle GUI, via your IDE<br/>Gradle plugin, via executable .jar, or via Gradle command line.</td>
   </tr>
   <tr>
     <th>Jar executable option</th>
