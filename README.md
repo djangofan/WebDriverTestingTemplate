@@ -58,7 +58,7 @@ PATH environment and then download the .zip distribution of this project, unzip 
   </tr>
   <tr>
     <th>Run Options</th>
-    <td>You have three different options for running the tests: via the Gradle GUI, via your IDE<br/>Gradle plugin, via executable .jar, or via Gradle command line. To run with<br/>the JUnit runner in your IDE, you would need to manually export<br/> your project as a normal Java project.</td>
+    <td>You have three different options for running the tests: via the Gradle GUI, via your IDE<br/>Gradle plugin, via executable .jar, or via Gradle command line. To run with<br/>the JUnit runner in your IDE, you would need to manually export your project <br/>as a normal Java project, if you have the skill to do so.</td>
   </tr>
   <tr>
     <th>Jar executable option</th>
