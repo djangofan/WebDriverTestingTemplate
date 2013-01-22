@@ -28,11 +28,11 @@ PATH environment and then download the .zip distribution of this project, unzip 
   </tr>
   <tr>
     <th>JUnit based</th>
-    <td>For use ONLY with JUnit 4.11 or higher because of the usage of Parameterized tests.  This dependency<br/> is configured by the Gradle build script.</td>
+    <td>For use ONLY with JUnit 4.11 or higher because of the usage of the parameterized capability<br/> of JUnit. This dependency is configured by the Gradle build script.</td>
   </tr>
   <tr>
     <th>Native automation support</th>
-    <td>For use with Sikuli 1.0.1 or higher to test native elements that WebDriver can't control.  This <br/> dependency is configured in the Gradle build script.  If you implement this however, you may not be able<br/> to use the remote webdriver option in your project.</td>
+    <td>For use with Sikuli 1.0.1 or higher to test native elements that WebDriver can't control.  <br/>This dependency is configured in the Gradle build script.  If you implement this however, you<br/> may not be able to use the remote webdriver option in your project.</td>
   </tr>
   <tr>
     <th>Parameterized data <br/>driven capability</th>
