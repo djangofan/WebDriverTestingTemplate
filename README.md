@@ -28,29 +28,33 @@ PATH environment and then download the .zip distribution of this project, unzip 
   </tr>
   <tr>
     <th>JUnit based</th>
-    <td>For use only with JUnit 4.11 or higher.  This dependency is configured by the Gradle build script.</td>
+    <td>For use ONLY with JUnit 4.11 or higher because of the usage of Parameterized tests.  This dependency<br/>
+   is configured by the Gradle build script.</td>
   </tr>
   <tr>
-    <th>Native automation controls</th>
+    <th>Native automation support</th>
     <td>For use with Sikuli 1.0.1 or higher to test native elements that WebDriver can't control.  This <br/>
-   dependency is configured in the Gradle build script.</td>
+   dependency is configured in the Gradle build script.  If you implement this however, you may not be able<br/>
+   to use the remote webdriver option in your project.</td>
   </tr>
   <tr>
     <th>Parameterized data <br/>driven capability</th>
-    <td>Unit tests are parameterized from a csv file.</td>
+    <td>Unit tests are parameterized from a csv file.  Can also load tests from XML, XLS, a database, etc.</td>
   </tr>
   <tr>
     <th>Logging</th>
     <td>Will log output to build/test-output directory in project.   Also, logs test output<br/>
-    to console and to a file, configured by a log4j.properties file.</td>
+    to console and to a file using SLF4j/LogBack API, and configured by a logback.xml file.</td>
   </tr>
   <tr>
     <th>Page Object design <br/>pattern</th>
-    <td>Uses the WebDriver "page object" design pattern.</td>
+    <td>Uses the WebDriver "page object" design pattern, enhanced by the Selenium "LoadableComponent"<br/>
+    extendable class.</td>
   </tr>
     <tr>
     <th>Fluent API design<br/>pattern</th>
-    <td>Implements an example of a "Fluent API" design pattern.</td>
+    <td>Implemented examples of the "Fluent API" design pattern while retaining capability of <br/>
+    the traditional page object pattern.</td>
   </tr>
   <tr>
     <th>Multi-project build<br/>configuration</th>
@@ -58,8 +62,9 @@ PATH environment and then download the .zip distribution of this project, unzip 
    subprojects of "core" inherit classes from it.</td>
   </tr>
   <tr>
-    <th>Reporting</th>
-    <td>Will generate reports of JUnit tests results in build/reports/test/index.html</td>
+    <th>Reporting and Logging</th>
+    <td>Will generate reports of JUnit tests results at 'build/reports/test/index.html' .  Will place<br/>
+    a junit.log file at 'build/junit.log' .</td>
   </tr>
   <tr>
     <th>Jar executable option</th>
@@ -68,12 +73,11 @@ PATH environment and then download the .zip distribution of this project, unzip 
        jarAssociation.bat file to setup the file association on your Windows system.</td>
   </tr>
   <tr>
-    <th>Core automation library</th>
-    <td>All projects inherit from a "core" project where you can store methods that <br/>
-        all of your projects can share between them.</td>
+    <th>Core utility package</th>
+    <td>All projects inherit from a "core" project that contains classes where you can store methods<br/>
+        that all of your projects can share between them.</td>
   </tr>
 </table>
-
 
 # Configuration And Setup
 
