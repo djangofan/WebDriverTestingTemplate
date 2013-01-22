@@ -40,7 +40,7 @@ PATH environment and then download the .zip distribution of this project, unzip 
   </tr>
   <tr>
     <th>Logging</th>
-    <td>Will log output to build/test-output directory in project.   Also, logs test output<br/> to console and to a file using SLF4j/LogBack API, and configured by a *logback.xml* file.</td>
+    <td>Will log output to build/test-output directory in project.   Also, logs test output<br/> to console and to a file using SLF4j/LogBack API, and configured by a <b>logback.xml</b> file.</td>
   </tr>
   <tr>
     <th>Page Object design <br/>pattern</th>
