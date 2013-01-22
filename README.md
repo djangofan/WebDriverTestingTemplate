@@ -48,7 +48,7 @@ PATH environment and then download the .zip distribution of this project, unzip 
   </tr>
     <tr>
     <th>Fluent API design<br/>pattern</th>
-    <td>Implemented examples of the *Fluent API* design pattern while retaining capability of <br/>
+    <td>Implemented examples of the **Fluent API** design pattern while retaining capability of <br/>
     the traditional page object pattern.</td>
   </tr>
   <tr>
@@ -58,8 +58,8 @@ PATH environment and then download the .zip distribution of this project, unzip 
   </tr>
   <tr>
     <th>Reporting and Logging</th>
-    <td>Will generate reports of JUnit tests results at *build/reports/test/index.html* .  Will place<br/>
-    a junit.log file at *build/junit.log* .</td>
+    <td>Will generate reports of JUnit tests results at **build/reports/test/index.html** .  Will place<br/>
+    a junit.log file at **build/junit.log** .</td>
   </tr>
   <tr>
     <th>Jar executable option</th>
