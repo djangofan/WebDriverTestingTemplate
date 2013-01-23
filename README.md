@@ -84,7 +84,7 @@ PATH environment and then download the .zip distribution of this project, unzip 
   </tr>
   <tr>
     <th>Gradle Wrapper</th>
-    <td>Did not choose to implement the Gradle wrapper because I believe that downloading<br/>Gradle and
+    <td>Did not choose to implement the Gradle wrapper because I believe that downloading Gradle and<br/>
        configuring GRADLE_HOME and PATH are easy enough.  Also, a manual setup of Gradle gives<br/>us more
        control using a batch script.</td>
   </tr>
