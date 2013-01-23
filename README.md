@@ -149,6 +149,3 @@ http://djangofan.github.com/WebDriverTestingTemplate/<br/>
 Markdown cheatsheet:<br/>
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet<br/>
 <br/>
-# Screenshot
-![Result Screenshot](https://github.com/djangofan/WebDriverTestingTemplate/blob/master/SampleResult.png)
-
