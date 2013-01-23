@@ -17,8 +17,9 @@ Functional Tester", with a pure Java solution managed by the Gradle build system
  &nbsp;&nbsp;&nbsp;&nbsp;---- Project ':core:google'<br/>
 
 # Quick Start
-To try this project with as little effort as possible, just make sure you download Gradle 1.3 and put it in<br/>
-PATH environment and then download the .zip distribution of this project, unzip it, and run the .bat script.
+To try this project with as little effort as possible, just make sure you download Gradle 1.3, configure your<br/>
+GRADLE_HOME environment variable, add %GRADLE_HOME%\bin to your PATH, and then download the .zip distribution<br/>
+of this project, unzip it, and run the included <b>gradle_run.bat</b> script.
 
 # Implemented Features
 <table>
