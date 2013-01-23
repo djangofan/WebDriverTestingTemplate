@@ -17,6 +17,9 @@ Functional Tester", with a pure Java solution managed by the Gradle build system
  &nbsp;&nbsp;&nbsp;&nbsp;---- Project ':core:google'<br/>
 
 # Quick Start
+Normally, this project would be ran through the Gradle plugin for Eclipse IDE, but I have tried to make it easier by<br/>
+including a method to run dynamically and directly from the .zip distribution on the command line.
+
 To try this project without requiring a Java IDE, just make sure you download Gradle 1.3, configure your
 GRADLE_HOME<br/> environment variable, add %GRADLE_HOME%\bin to your PATH, and then download the .zip distribution
 of this<br/> project, unzip it, and run the included <b>gradle_run.bat</b> script.
