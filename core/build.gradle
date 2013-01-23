@@ -1,0 +1,26 @@
+apply plugin: 'java'
+group = 'qa.webdriver'
+project.ext.sourceCompatibility = 1.6
+project.ext.projTitle = 'WebDriver Core On Gradle'
+project.ext.projVersion = '0.99.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "http://maven2.javacpp.googlecode.com/git/"
+    }
+    maven {
+        url "http://maven2.javacv.googlecode.com/git/"
+    }
+}
+
+dependencies {
+    // stored at: %HOMEPATH%/.gradle/caches/artifacts-14/filestore
+    compile group: 'org.sikuli', name: 'sikuli-api', version: '1.0.+'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.+'
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.+'
+    compile group: 'junit', name: 'junit', version: '4.+'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.+'
+    compile group: 'ch.qos.logback', name: 'logback-core', version: '1.0.+'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.0.+'
+}

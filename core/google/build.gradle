@@ -1,0 +1,53 @@
+apply plugin: 'java'
+group = 'qa.webdriver'
+project.ext.sourceCompatibility = 1.6
+evaluationDependsOn(':core')
+dependencies {
+    compile project(':core')
+}
+project.ext.projVersion = '0.99.2'
+project.ext.projTitle = 'WebDriver on Google'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "http://maven2.javacpp.googlecode.com/git/"
+    }
+    maven {
+        url "http://maven2.javacv.googlecode.com/git/"
+    }
+}
+
+dependencies {
+    // stored at: %HOMEPATH%/.gradle/caches/artifacts-14/filestore
+    compile group: 'org.sikuli', name: 'sikuli-api', version: '1.0.+'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.+'
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.+'
+    compile group: 'junit', name: 'junit', version: '4.+'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.+'
+    compile group: 'ch.qos.logback', name: 'logback-core', version: '1.0.+'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.0.+'
+}
+
+task show << {
+    println ""
+    println "-----------------------------------------------"
+    println "Project Name: " + projTitle
+    println "Version: " + projVersion
+    println "Home directory: "
+    println "Build output: " + relativePath(compileJava.destinationDir)
+    println "Resources output: " + relativePath(processResources.destinationDir)
+    println "Test output dir: " + relativePath(sourceSets.test.output.classesDir)
+    println "Test result dir: " + relativePath(testResultsDir)
+    println "Report dir: " + relativePath(testReportDir)
+    println "-----------------------------------------------"
+} 
+
+test {
+
+    testLogging {
+        exceptionFormat "full"
+        events "started", "passed", "skipped", "failed", "standardOut", "standardError"
+    }
+     
+}	
