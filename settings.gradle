@@ -1,1 +1,14 @@
-include 'core', 'core:google', 'core:bing'
+include 'core'
+include 'google'
+include 'bing'
+
+// this sets the customized build file name for each subproject
+rootProject.name = 'gradle'
+rootProject.children.each {project ->
+    String fileBaseName = project.name.replaceAll("\\p{Upper}") { "-${it.toLowerCase()}" }
+    String projectDirName = "subprojects/$fileBaseName"
+    project.projectDir = new File(settingsDir, projectDirName)
+    project.buildFileName = "${fileBaseName}.gradle"
+    assert project.projectDir.isDirectory()
+    assert project.buildFile.isFile()
+}

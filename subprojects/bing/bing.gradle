@@ -1,12 +1,15 @@
 apply plugin: 'java'
 group = 'qa.webdriver'
-project.ext.sourceCompatibility = 1.6
 evaluationDependsOn(':core')
 dependencies {
     compile project(':core')
 }
-project.ext.projVersion = '0.99.2'
-project.ext.projTitle = 'WebDriver on Bing'
+
+ext {
+    sourceCompatibility = 1.6
+    projVersion = '0.99.2'
+    projTitle = 'WebDriver on Bing'
+}
 
 repositories {
     mavenCentral()

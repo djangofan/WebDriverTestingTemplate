@@ -7,12 +7,12 @@
   <setting name="favorites-tab"> 
     <setting name="favorites"> 
       <setting name="favorite">
-        <setting name="full-command-line" value="identify core:show core:clean core:build core:google:show core:google:clean core:google:build"/>
+        <setting name="full-command-line" value="identify core:show core:clean core:build google:show google:clean google:build"/>
         <setting name="display-name" value="Google Test"/>
         <setting name="show-output" value="true"/>
       </setting>
       <setting name="favorite">
-        <setting name="full-command-line" value="identify core:show core:clean core:build core:bing:show core:bing:clean core:bing:build"/>
+        <setting name="full-command-line" value="identify core:show core:clean core:build bing:show bing:clean bing:build"/>
         <setting name="display-name" value="Bing Test"/>
         <setting name="show-output" value="true"/>
       </setting>
@@ -24,18 +24,18 @@
       <setting name="custom-gradle-executor"/>  
       <setting name="current-directory" value="C:\Eclipse32\workspace\WebDriverTestingTemplate"/>  
       <setting name="log-level" value="DEBUG"/>  
-      <setting name="stack-trace-level" value="ALWAYS_FULL"/>
+      <setting name="stack-trace-level" value="ALWAYS_FULL"/> 
     </setting> 
   </setting>  
   <setting name="SinglePaneUIInstance_splitter-id"> 
     <setting name="divider_location" value="349"/> 
   </setting>  
   <setting name="main_panel"> 
-    <setting name="current-tab" value="Task Tree"/> 
+    <setting name="current-tab" value="Favorites"/> 
   </setting>  
   <setting name="Application_window-id"> 
-    <setting name="window_x" value="2139"/>  
-    <setting name="window_y" value="12"/>  
+    <setting name="window_x" value="2393"/>  
+    <setting name="window_y" value="19"/>  
     <setting name="window_width" value="1176"/>  
     <setting name="window_height" value="1148"/>  
     <setting name="extended-state" value="0"/> 

@@ -1,4 +1,6 @@
 @ECHO off
+SET TITLETEXT=Gradle Run Script
+TITLE %TITLETEXT%
 
 :: Uncomment the next line to override JAVA_HOME on your system
 ::set JAVA_HOME=C:\Java\jdk1.6.0_33_x32
@@ -39,7 +41,7 @@ IF "%~1"=="" (
   ECHO [3] List all projects
   ECHO [4] Display Google tasks
   ECHO [5] Display Bing tasks
-  ECHO [6] Jar all classes into one jar
+  ECHO [6] Nothing
   ECHO [7] Create an uberjar with all classes and all dependencies
   ECHO [8] Gradle GUI
   ECHO [X] EXIT
@@ -61,11 +63,11 @@ IF "%CHOICE%"=="x" (
 ::-------------------------------------------------------------------
 
 IF "%CHOICE%"=="1" (
-  CALL gradle.bat identify core:show core:clean core:build core:google:show core:google:clean core:google:build --info
+  CALL gradle.bat identify core:show core:clean core:build google:show google:clean google:build --info
   ::START "%ProgramFiles%\Internet Explorer\iexplore.exe" file:///%CD%/core/google/build/reports/tests/index.html
   GOTO :END
 ) ELSE IF "%CHOICE%"=="2" (
-  CALL gradle.bat identify core:show core:clean core:build core:bing:show core:bing:clean core:bing:build --info
+  CALL gradle.bat identify core:show core:clean core:build bing:show bing:clean bing:build --info
   ::START "%ProgramFiles%\Internet Explorer\iexplore.exe" file:///%CD%/core/bing/build/reports/tests/index.html
   GOTO :END
 ) ELSE IF "%CHOICE%"=="3" (
@@ -78,10 +80,10 @@ IF "%CHOICE%"=="1" (
   CALL gradle.bat core:bing:tasks
   GOTO :PICK
 ) ELSE IF "%CHOICE%"=="6" (
-  CALL gradle.bat allJar --stacktrace
+  ECHO Nothing yet.
   GOTO :PICK
 ) ELSE IF "%CHOICE%"=="7" (
-  CALL gradle.bat uberJar --stacktrace
+  ECHO Nothing yet.
   GOTO :PICK
 ) ELSE IF "%CHOICE%"=="8" (
   CALL gradle.bat --gui
@@ -97,6 +99,6 @@ IF "%CHOICE%"=="1" (
 
 :END
 ECHO Closing gradle_run.bat script
-FOR /l %%a in (3,-1,1) do (TITLE %TITLETEXT% -- closing in %%as&PING.exe -n 2 -w 1 127.0.0.1>nul)
+FOR /l %%a in (30,-1,1) do (TITLE %TITLETEXT% -- closing in %%as&PING.exe -n 2 -w 1 127.0.0.1>nul)
 TITLE Script gradle_run.bat finished
 
