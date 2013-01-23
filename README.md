@@ -88,6 +88,12 @@ PATH environment and then download the .zip distribution of this project, unzip 
        configuring GRADLE_HOME and PATH are easy enough.  Also, a manual setup of Gradle gives<br/>us more
        control using a batch script.</td>
   </tr>
+    <tr>
+    <th>Selenium2 RC</th>
+    <td>Did not choose to implement the Selenium2 remote control API in the template examples but<br/>
+       creating a project with this capability is as easy as instantiating a RemoteWebDriver in <br/>
+       your project.</td>
+  </tr>
 </table>
 
 # Configuration And Setup
