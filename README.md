@@ -76,6 +76,20 @@ PATH environment and then download the .zip distribution of this project, unzip 
   </tr>
 </table>
 
+# Un-implemented Features
+<table>
+  <tr>
+    <th>Feature</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <th>Gradle Wrapper</th>
+    <td>Did not choose to implement the Gradle wrapper because I believe that downloading<br/>Gradle and
+       configuring GRADLE_HOME and PATH are easy enough.  Also, a manual setup of Gradle gives<br/>us more
+       control using a batch script.</td>
+  </tr>
+</table>
+
 # Configuration And Setup
 
 #### Eclipse
