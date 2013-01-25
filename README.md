@@ -63,7 +63,7 @@ of this<br/> project, unzip it, and run the included <b>gradle_run.bat</b> scrip
   <tr>
     <th>Run Options</th>
     <td>You have three different options for running the tests: via the Gradle GUI, via your IDE<br/>Gradle
-    plugin, via executable .jar, or via Gradle command line. To run with<br/>the JUnit runner in your IDE, 
+    plugin, or via Gradle command line. To run with<br/>the JUnit runner in your IDE, 
     you would need to manually export your project <br/>as a normal Java project, because this template does
     not support that.</td>
   </tr>
