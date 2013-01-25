@@ -68,12 +68,6 @@ of this<br/> project, unzip it, and run the included <b>gradle_run.bat</b> scrip
     not support that.</td>
   </tr>
   <tr>
-    <th>Jar executable option</th>
-    <td>Creates an uberJar of all projects and subprojects that can be ran by double clicking<br/>
-       the .jar file.  If you don't have the file association supporting it, we include a <br/>
-       jarAssociation.bat file to setup the file association on your Windows system.</td>
-  </tr>
-  <tr>
     <th>Core utility package</th>
     <td>All projects inherit from a "core" project that contains classes where you can store methods<br/>
         that all of your projects can share between them.</td>
@@ -97,6 +91,12 @@ of this<br/> project, unzip it, and run the included <b>gradle_run.bat</b> scrip
     <td>Did not choose to implement the Selenium2 remote control API in the template examples but<br/>
        creating a project with this capability is as easy as instantiating a RemoteWebDriver in <br/>
        your project.</td>
+  </tr>
+  <tr>
+    <th>Jar executable option</th>
+    <td>Creates an uberJar of all projects and subprojects that can be ran by double clicking<br/>
+       the .jar file.  If you don't have the file association supporting it, we include a <br/>
+       jarAssociation.bat file to setup the file association on your Windows system.</td>
   </tr>
 </table>
 
