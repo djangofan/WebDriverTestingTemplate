@@ -97,7 +97,8 @@ of this<br/> project, unzip it, and run the included <b>gradle_run.bat</b> scrip
     <th>Jar executable option</th>
     <td>Creates an uberJar of all projects and subprojects that can be ran by double clicking<br/>
        the .jar file.  If you don't have the file association supporting it, we include a <br/>
-       jarAssociation.bat file to setup the file association on your Windows system.</td>
+       jarAssociation.bat file to setup the file association on your Windows system.  I was planning<br/>
+       to implement this but currently having trouble getting it to work.</td>
   </tr>
 </table>
 
