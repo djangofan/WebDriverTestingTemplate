@@ -12,9 +12,10 @@ Functional Tester", with a pure Java solution managed by the Gradle build system
 # Project Layout
 <br/>
  Root project 'gradle'<br/>
- &nbsp;&nbsp;-- SubProject ':core'<br/>
- &nbsp;&nbsp;-- SubProject ':bing'<br/>
- &nbsp;&nbsp;-- SubProject ':google'<br/>
+ &nbsp;&nbsp;-- Directory "subprojects"
+ &nbsp;&nbsp;--&nbsp;&nbsp;-- SubProject ':core'<br/>
+ &nbsp;&nbsp;--&nbsp;&nbsp;-- SubProject ':bing'<br/>
+ &nbsp;&nbsp;--&nbsp;&nbsp;-- SubProject ':google'<br/>
 
 # Quick Start
 Normally, this project would be ran through the Gradle plugin for Eclipse IDE, but I have tried to make it easier by<br/>
