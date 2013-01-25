@@ -12,11 +12,11 @@ Functional Tester", with a pure Java solution managed by the Gradle build system
 # Project Layout
 <br/>
  Root project 'gradle'<br/>
- &nbsp;&nbsp;-- Directory "subprojects"
+ &nbsp;&nbsp;-- Directory "subprojects"<br/>
  &nbsp;&nbsp;--&nbsp;&nbsp;-- SubProject ':core'<br/>
  &nbsp;&nbsp;--&nbsp;&nbsp;-- SubProject ':bing'<br/>
  &nbsp;&nbsp;--&nbsp;&nbsp;-- SubProject ':google'<br/>
-
+<br/>
 # Quick Start
 Normally, this project would be ran through the Gradle plugin for Eclipse IDE, but I have tried to make it easier by<br/>
 including a method to run dynamically and directly from the .zip distribution on the command line.
