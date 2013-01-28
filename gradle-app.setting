@@ -34,10 +34,10 @@
     <setting name="current-tab" value="Favorites"/> 
   </setting>  
   <setting name="Application_window-id"> 
-    <setting name="window_x" value="2393"/>  
-    <setting name="window_y" value="19"/>  
+    <setting name="window_x" value="20"/>  
+    <setting name="window_y" value="20"/>  
     <setting name="window_width" value="1176"/>  
-    <setting name="window_height" value="1148"/>  
+    <setting name="window_height" value="800"/>  
     <setting name="extended-state" value="0"/> 
   </setting> 
 </root>
