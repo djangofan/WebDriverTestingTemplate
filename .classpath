@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry exported="true" kind="con" path="org.springsource.ide.eclipse.gradle.classpathcontainer"/>
-	<classpathentry kind="lib" path="subprojects/core/build/classes/main"/>
-	<classpathentry kind="lib" path="subprojects/core/build/resources/main"/>
 	<classpathentry kind="lib" path="subprojects/bing/build/classes/main"/>
 	<classpathentry kind="lib" path="subprojects/bing/build/classes/test"/>
 	<classpathentry kind="lib" path="subprojects/bing/build/resources/test"/>
+	<classpathentry kind="lib" path="subprojects/core/build/classes/main"/>
+	<classpathentry kind="lib" path="subprojects/core/build/resources/main"/>
 	<classpathentry kind="lib" path="subprojects/google/build/classes/main"/>
 	<classpathentry kind="lib" path="subprojects/google/build/classes/test"/>
 	<classpathentry kind="lib" path="subprojects/google/build/resources/test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="org.springsource.ide.eclipse.gradle.classpathcontainer"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

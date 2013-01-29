@@ -3,7 +3,8 @@ include 'google'
 include 'bing'
 
 // this sets the customized build file name for each subproject
-rootProject.name = 'gradle'
+rootProject.name = 'root'
+rootProject.buildFileName = "build.gradle"
 rootProject.children.each {project ->
     String fileBaseName = project.name.replaceAll("\\p{Upper}") { "-${it.toLowerCase()}" }
     String projectDirName = "subprojects/$fileBaseName"
