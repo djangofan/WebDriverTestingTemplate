@@ -7,6 +7,16 @@ ext {
     projVersion = '1.00.0'
 }
 
+usePlugin 'maven'  // Maven plugin to install artifact in local Maven repo.
+
+def localMavenRepo = 'file://' + new File( System.getProperty('user.home'), '.m2/repository' ).absolutePath
+
+// The following line is not necessary. Default the install tasks depends on the
+// jar task, but this means no tests and checks are executed when we use the
+// install task. The following line makes the install tasks depend on the build task
+// and now all tests and checks are done before install is executed.
+install.dependsOn ':build'
+
 repositories {
     mavenCentral()
     maven {
@@ -15,6 +25,10 @@ repositories {
     maven {
         url "http://maven2.javacv.googlecode.com/git/"
     }
+    // Use local Maven repo location. We don't need this if we only want to install
+    // an artifact, but we do need it if we want to use dependencies from the local
+    // repository.
+    mavenRepo urls: localMavenRepo
 }
 
 dependencies {
