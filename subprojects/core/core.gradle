@@ -28,10 +28,6 @@ repositories {
     maven {
         url "http://maven2.javacv.googlecode.com/git/"
     }
-    // Use local Maven repo location. We don't need this if we only want to install
-    // an artifact, but we do need it if we want to use dependencies from the local
-    // repository.
-    mavenRepo urls: localMavenRepo
 }
 
 dependencies {
