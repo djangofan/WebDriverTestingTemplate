@@ -1,6 +1,8 @@
 apply plugin: 'java'
 group = 'qa.webdriver'
 
+def localMavenRepo = 'file://' + new File( System.getProperty('user.home'), '.m2/repository' ).absolutePath
+
 ext {
     sourceCompatibility = 1.6
     projTitle = 'WebDriver Core On Gradle'
@@ -12,7 +14,6 @@ usePlugin 'maven'  // Maven plugin to install artifact in local Maven repo.
 uploadArchives {
     repositories {
         mavenDeployer {
-            def localMavenRepo = 'file://' + new File( System.getProperty('user.home'), '.m2/repository' ).absolutePath
             repository(url: localMavenRepo)
             pom.version = '1.0'
             pom.artifactId = 'core'
