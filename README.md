@@ -11,8 +11,7 @@ Functional Tester", with a pure Java solution managed by the Gradle build system
 
 # Project Layout
 <br/>
- Root project 'gradle'<br/>
- &nbsp;&nbsp;-- Directory "subprojects"<br/>
+ Root project 'root'<br/>
  &nbsp;&nbsp;--&nbsp;&nbsp;-- SubProject ':core'<br/>
  &nbsp;&nbsp;--&nbsp;&nbsp;-- SubProject ':bing'<br/>
  &nbsp;&nbsp;--&nbsp;&nbsp;-- SubProject ':google'<br/>
