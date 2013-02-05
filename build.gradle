@@ -1,8 +1,6 @@
 apply plugin: 'java'
+apply plugin: 'eclipse'
 group = 'qa.webdriver'
-ext {
-    sourceCompatibility = 1.6
-}
 
 task identify {
     println "-----------------------------------"
@@ -18,20 +16,3 @@ task identify {
     //configurations.runtime.each { File f -> println f }
 }
 
-// -- can't figure out what is wrong with this section --
-// task uberJar(type: Jar, dependsOn: subprojects.tasks['testClasses'] ) {
-//     baseName = 'uberJar'
-//     subprojects.each { subproject ->
-//         from subproject.configurations.archives.allArtifacts.files.collect {
-//             zipTree(it)
-//         }
-//         from files(subproject.tasks["test"].testClassesDir)
-//         from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
-//     }
-//     manifest { attributes 'Main-Class': 'qa.webdriver.tests.GoogleTest' }
-// }
-// 
-// 
-// artifacts {
-//     archives uberJar
-// }
