@@ -1,19 +1,20 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
-group = 'qa.webdriver'
+group = 'selenium.webdriver.qa'
 
-evaluationDependsOn(':core')
+//evaluationDependsOn(':core')
 dependencies {
     compile project(':core')
 }
 
 ext {
-    projVersion = '0.99.2'
     projTitle = 'WebDriver on Google'
+    projVersion = '1.0'
 }
 
 repositories {
     mavenCentral()
+	// javacpp and javacv are required by Sikuli
     maven {
         url "http://maven2.javacpp.googlecode.com/git/"
     }

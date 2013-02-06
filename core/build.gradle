@@ -1,10 +1,10 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
-group = 'qa.webdriver'
+group = 'selenium.webdriver.qa'
 
 ext {
-    projTitle = 'WebDriver Core On Gradle'
-    projVersion = '1.00.0'
+    projTitle = 'WebDriver Core Utilities'
+    projVersion = '1.0'
 }
 
 repositories {

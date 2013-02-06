@@ -1,4 +1,2 @@
-includeFlat 'core'
-includeFlat 'google'
-includeFlat 'bing'
 
+include "core", "bing", "google"

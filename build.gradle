@@ -1,18 +1,32 @@
-apply plugin: 'java'
-apply plugin: 'eclipse'
-group = 'qa.webdriver'
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
 
-task identify {
-    println "-----------------------------------"
-    println "   _____               _ _          "
-    println "  / ____|             | | |         "
-    println " | |  __ _ __ __ _  __| | | ___     "
-    println " | | |_ | '__/ _` |/ _` | |/ _ \\    "
-    println " | |__| | | | (_| | (_| | |  __/    "
-    println "  \\_____|_|  \\__,_|\\__,_|_|\\___|    "
-    println ""
-    println "-----------------------------------"
-    println "Using build file '$buildFile.name' in '$buildFile.parentFile.name'."
-    //configurations.runtime.each { File f -> println f }
+    repositories {
+       mavenCentral()
+    }
+
+    dependencies {
+        testCompile 'junit:junit:4.11'
+    }
+
+    version = '1.0'
+
+    jar {
+        manifest.attributes provider: 'Thomson Reuters'
+    }
+	
+	task identify {
+        println "-----------------------------------"
+        println "   _____               _ _          "
+        println "  / ____|             | | |         "
+        println " | |  __ _ __ __ _  __| | | ___     "
+        println " | | |_ | '__/ _` |/ _` | |/ _ \\    "
+        println " | |__| | | | (_| | (_| | |  __/    "
+        println "  \\_____|_|  \\__,_|\\__,_|_|\\___|    "
+        println ""
+        println "-----------------------------------"
+        println "Using build file '$buildFile.name' in '$buildFile.parentFile.name'."
+    }
+
 }
-
