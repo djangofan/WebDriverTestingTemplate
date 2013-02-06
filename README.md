@@ -123,9 +123,9 @@ steps.  If you deviate from these steps you risk importing the project incorrect
 8. Right click on your project and choose "Run As-->Gradle Build".  If you see 2 items called "Gradle Build", <br/>
    choose the second one rather than the first one.  In the dialogue choose "clean" and "build" checkboxes <br/>
   (or whatever tasks you want to execute).
-9. Optionally, you can run this project on the command line with "gradle identify clean build core:show <br/>
-   core:clean core:build core:google:show core:google:clean core:google:build --info" and it will execute <br/>
-   the unit tests.  Also, this project provides a .bat batch script that does this.
+9. Optionally, you can run this project on the command line with "gradle identify google:show google:clean <br/>
+   google:build --info" and it will execute the project unit tests.  Also, this project provides a .bat batch<br/>
+   script that does this and provides a menu of other actions you can execute.
 
 #### IntelliJ-IDEA
 Intellij-IDEA has a nice Gradle plugin that is included.  The steps are otherwise similar to the Eclipse steps #3-#7 <br/>
