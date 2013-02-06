@@ -18,7 +18,7 @@ import org.openqa.selenium.Keys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class UtilityClass {
+public abstract class CoreUtilities {
 
 	public static WebDriver driver;
 	private static JavascriptExecutor js;
@@ -156,7 +156,7 @@ public class UtilityClass {
 		}	
 	}
 
-	protected UtilityClass() {
+	protected CoreUtilities() {
 		throw new AssertionError(); // to prevent instantiation as an object
 	}
 

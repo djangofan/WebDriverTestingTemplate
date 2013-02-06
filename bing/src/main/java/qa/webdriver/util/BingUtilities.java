@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
-public class BingUtilities extends UtilityClass {
+public class BingUtilities extends CoreUtilities {
 
 	public BingUtilities() {
 		super(); // to prevent instantiation as an object

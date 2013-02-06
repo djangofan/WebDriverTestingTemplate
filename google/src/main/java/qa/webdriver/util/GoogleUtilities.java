@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
-public class GoogleUtilities extends UtilityClass {
+public class GoogleUtilities extends CoreUtilities {
 	
 	public GoogleUtilities() {
 		super(); // to prevent instantiation as an object
