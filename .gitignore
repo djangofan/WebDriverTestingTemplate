@@ -15,6 +15,7 @@ local.properties
 #.classpath
 #.settings/
 .loadpath
+ip.txt
 
 # External tool builders
 .externalToolBuilders/

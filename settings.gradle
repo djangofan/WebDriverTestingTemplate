@@ -1,2 +1,2 @@
 
-include "core", "bing", "google"
+include "core", "bing", "google", "whatismyip"
