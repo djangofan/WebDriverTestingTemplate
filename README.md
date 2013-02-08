@@ -117,10 +117,9 @@ steps.  If you deviate from these steps you risk importing the project incorrect
 3. Download the .zip archive of this GitHub project distribution and unzip it to your workspace.  An example<br/>
    might be:  "C:\Eclipse32\workspace\WebDriverTestingTemplate\" .<br/>
 4. Use the Eclipse "Import" function from the Eclipse "File menu" to import a "Project" of type "Gradle".
-5. Browse using the import wizard to your projects root directory described in Step #3 (above).  Then click<br/>
-   the "Build model" button. 
-6. Leave all checkboxes as default except you want to check the box to show projects in "hierarchal"<br/>
-   layout.  You could slso add 'root' to your "working set" if you like but it isn't required.
+5. Browse using the import wizard to your projects "root" sub-directory described in Step #3 (above).  Then click<br/>
+   the "Build model" button.  We do this because of the "includeFlat" Gradle layout.
+6. Check all checkboxes .  You could also choose to add all to your "working set" if you like but it isn't required.<br/>
 7. Rebuild the dependencies by right clicking on the project and then choose Gradle-->Refresh All Dependencies <br/>
 8. Right click on your project and choose "Run As-->Gradle Build".  If you see 2 items called "Gradle Build", <br/>
    choose the second one rather than the first one.  In the dialogue choose "clean" and "build" checkboxes <br/>
