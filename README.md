@@ -43,7 +43,7 @@ of this<br/> project, unzip it, and run the included <b>gradle_run.bat</b> scrip
   </tr>
     <tr>
     <th>Uses RemoteWebDriver JSON<br/>Hub Server</th>
-    <td>I have included an implementation of a WebDriverServer class that starts a RemoteWebDriver JSON Hub server<br/>instance in the BeforeClass method of tests. This server is a static member of the utility class that<br/>the tests extend. </td>
+    <td>I have included an implementation of a WebDriverServer class that starts a RemoteWebDriver<br/> JSON Hub serverinstance in the BeforeClass method of tests. This server is a static member <br/>of the utility class that the tests extend. </td>
   </tr>
   <tr>
     <th>Parameterized data <br/>driven capability</th>
