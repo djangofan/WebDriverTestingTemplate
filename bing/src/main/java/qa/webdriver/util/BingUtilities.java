@@ -9,10 +9,12 @@ public class BingUtilities extends CoreUtilities {
 
 	public BingUtilities() {
 		super(); // to prevent instantiation as an object
+		// this class is meant to have its members statically imported
+		// into a unit test
 	}
 
 	public static void selectInBingDropdown( String match )	{
-		//TODO there may be a problem with this method
+		//TODO there may be a problem with this method, need to research
 		WebElement dd = driver.findElement( By.xpath( "//input[@id='sb_form_q']" ) );
 		waitTimer(4, 500);
 		long end = System.currentTimeMillis() + 5000;

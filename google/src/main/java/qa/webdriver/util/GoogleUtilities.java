@@ -9,6 +9,8 @@ public class GoogleUtilities extends CoreUtilities {
 	
 	public GoogleUtilities() {
 		super(); // to prevent instantiation as an object
+		// this class is meant to have its members statically imported
+		// into a unit test
 	}
 
     /**
