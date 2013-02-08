@@ -3,20 +3,8 @@ apply plugin: 'eclipse'
 group = 'selenium.webdriver.qa'
 
 ext {
-    projTitle = 'WebDriver Core Utilities'
+    projTitle = 'Root Project'
     projVersion = '1.0'
-}
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.+'
-    compile group: 'junit', name: 'junit', version: '4.+'
-    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.+'
-    compile group: 'ch.qos.logback', name: 'logback-core', version: '1.0.+'
-    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.0.+'
 }
 
 task show << {
@@ -30,5 +18,18 @@ task show << {
     println "Report dir: " + relativePath(testReportDir)
     println "-----------------------------------------------"
 } 
+
+task identify {
+    println "-----------------------------------"
+    println "   _____               _ _          "
+    println "  / ____|             | | |         "
+    println " | |  __ _ __ __ _  __| | | ___     "
+    println " | | |_ | '__/ _` |/ _` | |/ _ \\    "
+    println " | |__| | | | (_| | (_| | |  __/    "
+    println "  \\_____|_|  \\__,_|\\__,_|_|\\___|    "
+    println ""
+    println "-----------------------------------"
+    println "Using build file '$buildFile.name' in '$buildFile.parentFile.name'."
+}
 
 	
