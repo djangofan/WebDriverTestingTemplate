@@ -7,29 +7,3 @@ ext {
     projVersion = '1.0'
 }
 
-task show << {
-    println ""
-    println "-----------------------------------------------"
-    println "Project Name: " + projTitle
-    println "Version: " + projVersion
-    println "Home directory: "
-    println "Build output: " + relativePath(compileJava.destinationDir)
-    println "Resources output: " + relativePath(processResources.destinationDir)
-    println "Report dir: " + relativePath(testReportDir)
-    println "-----------------------------------------------"
-} 
-
-task identify {
-    println "-----------------------------------"
-    println "   _____               _ _          "
-    println "  / ____|             | | |         "
-    println " | |  __ _ __ __ _  __| | | ___     "
-    println " | | |_ | '__/ _` |/ _` | |/ _ \\    "
-    println " | |__| | | | (_| | (_| | |  __/    "
-    println "  \\_____|_|  \\__,_|\\__,_|_|\\___|    "
-    println ""
-    println "-----------------------------------"
-    println "Using build file '$buildFile.name' in '$buildFile.parentFile.name'."
-}
-
-	

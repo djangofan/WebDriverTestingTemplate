@@ -25,12 +25,16 @@ IF DEFINED GROOVY_HOME (
 
 SET "PATH=%JAVA_HOME%\bin;%GRADLE_HOME%\bin;%PATH%"
 
+CD root
+
 ::-------------------------------------------------------------------
 ::  Parse first script argument for test action
 ::  If no args are passed then prompt user for test to run
 ::-------------------------------------------------------------------
 
 :PICK
+ECHO Current directory is "%CD%"
+ECHO.
 SET CHOICE=
 ECHO.&ECHO.&ECHO.
 SET CHOICE=%~1
@@ -42,7 +46,7 @@ IF "%~1"=="" (
   ECHO [4] Display Google tasks
   ECHO [5] Display Bing tasks
   ECHO [6] Display Core Utilities tasks
-  ECHO [7] Create an uberjar with all classes and all dependencies
+  ECHO [7] Execute WhatIsMyIP program
   ECHO [8] Gradle GUI
   ECHO [X] EXIT
   ECHO.
@@ -63,12 +67,12 @@ IF "%CHOICE%"=="x" (
 ::-------------------------------------------------------------------
 
 IF "%CHOICE%"=="1" (
-  CALL gradle.bat identify core:show google:show google:clean google:build --info
-  ::START "%ProgramFiles%\Internet Explorer\iexplore.exe" file:///%CD%/core/google/build/reports/tests/index.html
+  CALL gradle.bat commonlib:identify commonlib:show google:show google:clean google:build --info
+  ::START "%ProgramFiles%\Internet Explorer\iexplore.exe" file:///%CD%/google/build/reports/tests/index.html
   GOTO :END
 ) ELSE IF "%CHOICE%"=="2" (
-  CALL gradle.bat identify core:show bing:show bing:clean bing:build --info
-  ::START "%ProgramFiles%\Internet Explorer\iexplore.exe" file:///%CD%/core/bing/build/reports/tests/index.html
+  CALL gradle.bat commonlib:identify commonlib:show bing:show bing:clean bing:build --info
+  ::START "%ProgramFiles%\Internet Explorer\iexplore.exe" file:///%CD%/bing/build/reports/tests/index.html
   GOTO :END
 ) ELSE IF "%CHOICE%"=="3" (
   CALL gradle.bat projects
@@ -80,10 +84,10 @@ IF "%CHOICE%"=="1" (
   CALL gradle.bat bing:tasks
   GOTO :PICK
 ) ELSE IF "%CHOICE%"=="6" (
-  CALL gradle.bat core:tasks
+  CALL gradle.bat commonlib:tasks
   GOTO :PICK
 ) ELSE IF "%CHOICE%"=="7" (
-  ECHO Nothing yet.
+  CALL gradle.bat commonlib:identify commonlib:show whatismyip:runSimple
   GOTO :PICK
 ) ELSE IF "%CHOICE%"=="8" (
   CALL gradle.bat --gui

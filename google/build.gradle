@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 group = 'selenium.webdriver.qa'
 
 dependencies {
-    compile project(':core')
+    compile project(':commonlib')
 }
 
 ext {

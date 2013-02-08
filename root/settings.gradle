@@ -1,2 +1,2 @@
 // settings.gradle
-includeFlat "core", "bing", "google", "whatismyip"
+includeFlat "commonlib", "bing", "google", "whatismyip"

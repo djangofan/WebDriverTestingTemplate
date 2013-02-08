@@ -12,8 +12,8 @@ public class WhatIsMyIP
     public static void main( String[] args ) {
     	
     	// An example of using HtmlUnitDriver
-    	String msg = System.getProperty("simple.message") + "\n";
-    	msg = msg + "My IP Address Is" + "\n";
+    	String msg = "\n\n" + System.getProperty("simple.message") + "\n";
+    	msg = msg + "My External IP Address Is" + "\n";
         HtmlUnitDriver driver = new HtmlUnitDriver(true);
         driver.get("http://checkip.dyndns.com/");        
         String ipstring = driver.findElement( By.cssSelector("html body") ).getText();        

@@ -35,7 +35,7 @@ public class GoogleTest {
 	
 	@BeforeClass
 	public static void setUp() {		
-		initializeBrowser( "firefox" );  // either firefox or ie
+		initializeBrowser( "firefox", "localhost", 4444 );  // either firefox or ie
 	}
 	
 	@Parameters(name = "{0}: {1}: {2}")

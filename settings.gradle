@@ -1,2 +1,0 @@
-// settings.gradle
-include "core", "bing", "google", "whatismyip"

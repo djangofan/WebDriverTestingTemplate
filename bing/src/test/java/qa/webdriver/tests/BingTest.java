@@ -41,7 +41,7 @@ public class BingTest {
 	 */
 	@BeforeClass
 	public static void setUp() {		
-		initializeBrowser( "firefox" );  // either firefox or ie
+		initializeBrowser( "firefox", "localhost", 4444 );  // either firefox or ie
 	}
 	
 	/* @Parameters(name = "{index}: {0}={1}")
