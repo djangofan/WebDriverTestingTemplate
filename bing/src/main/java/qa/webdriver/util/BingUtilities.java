@@ -5,12 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
-public class BingUtilities extends CoreUtilities {
+public abstract class BingUtilities extends CoreUtilities {
 
-	public BingUtilities() {
-		super(); // to prevent instantiation as an object
-		// this class is meant to have its members statically imported
-		// into a unit test
+	public BingUtilities( String tName, String sString, String dMatch ) {
+		super( tName, sString, dMatch );
 	}
 
 	public static void selectInBingDropdown( String match )	{

@@ -15,23 +15,18 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import qa.webdriver.util.BingSearchPage;
-import static qa.webdriver.util.BingUtilities.*;
+import qa.webdriver.util.BingUtilities;
 
 @RunWith(Parameterized.class)
-public class BingTest {
+public class BingTest extends BingUtilities {
 
 	/* BingTest class:
 	   Testing re-use of browser windows in JUnit with WebDriver
 	   Runs parameterized	   
     */
-	
-	private String testName, searchString, ddMatch;
 
 	public BingTest( String tName, String sString, String dMatch ) {
-		this.testName = tName;
-		this.searchString = sString;
-		this.ddMatch = dMatch;
-		logger.info("Running test: " + testName + ", " + searchString + ", " + ddMatch );
+		super( tName, sString, dMatch );
 	}
 	
 	/**
@@ -41,7 +36,8 @@ public class BingTest {
 	 */
 	@BeforeClass
 	public static void setUp() {		
-		initializeBrowser( "firefox", "localhost", 4444 );  // either firefox or ie
+		initializeJSONHub("localhost", 4444, "firefox" );
+		initializeBrowser( "firefox", "localhost", 4444 );
 	}
 	
 	/* @Parameters(name = "{index}: {0}={1}")
@@ -114,6 +110,11 @@ public class BingTest {
 	@AfterClass
 	public static void tearDown() {
         closeAllBrowserWindows();
+        try {
+			wds.shutDownNodeAndHub();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		logger.info("Finished tearDown.");
 	}
 

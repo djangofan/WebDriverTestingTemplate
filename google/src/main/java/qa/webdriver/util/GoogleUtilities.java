@@ -5,12 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
-public class GoogleUtilities extends CoreUtilities {
+public abstract class GoogleUtilities extends CoreUtilities {
 	
-	public GoogleUtilities() {
-		super(); // to prevent instantiation as an object
-		// this class is meant to have its members statically imported
-		// into a unit test
+	public GoogleUtilities( String tName, String sString, String dMatch ) {
+		super( tName, sString, dMatch );
 	}
 
     /**

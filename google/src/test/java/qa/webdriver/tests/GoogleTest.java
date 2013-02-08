@@ -14,28 +14,24 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import qa.webdriver.util.GoogleSearchPage;
-import static qa.webdriver.util.GoogleUtilities.*;
+import qa.webdriver.util.GoogleUtilities;
 
 @RunWith(Parameterized.class)
-public class GoogleTest {
+public class GoogleTest extends GoogleUtilities {
 
 	/* GoogleTest class:
 	   Testing re-use of browser windows in JUnit with WebDriver
 	   Runs parameterized	   
     */
 	
-	private String testName, searchString, ddMatch;
-
 	public GoogleTest( String tName, String sString, String dMatch ) {
-		this.testName = tName;
-		this.searchString = sString;
-		this.ddMatch = dMatch;
-		logger.info("GoogleTest: " + testName + ", " + searchString + ", " + ddMatch );		
+		super( tName, sString, dMatch );	
 	}
 	
 	@BeforeClass
-	public static void setUp() {		
-		initializeBrowser( "firefox", "localhost", 4444 );  // either firefox or ie
+	public static void setUp() {
+		initializeJSONHub("localhost", 4444, "firefox" );
+		initializeBrowser( "firefox", "localhost", 4444 );
 	}
 	
 	@Parameters(name = "{0}: {1}: {2}")
@@ -99,6 +95,11 @@ public class GoogleTest {
 	@AfterClass
 	public static void tearDown() {
         closeAllBrowserWindows();  
+        try {
+			wds.shutDownNodeAndHub();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		logger.info("Finished tearDown.");
 	}
 

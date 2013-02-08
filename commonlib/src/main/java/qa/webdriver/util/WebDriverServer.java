@@ -15,27 +15,37 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class WebDriverServer {
 	
-	String hubHost = "localhost";
-	int hubPort = 4444;
 	Hub myHub = null;
-	SelfRegisteringRemote remoteWebDriverNode = null, remoteRCNode = null;
+	SelfRegisteringRemote remoteWebDriverNode = null;
+	//SelfRegisteringRemote remoteRCNode = null;
 
+	/**
+	 * Starts a default new instance of WebDriver Hub JSON server
+	 */
 	public WebDriverServer () {
-		bringUpHubAndNode();
-		
+		bringUpHubAndNode( "localhost", 4444, "firefox" );		
 	}
 	
+	/**
+	 * Starts a defined new instance of WebDriver Hub JSON server
+	 */
+	public WebDriverServer ( String hostName, int portNumber, String browserType ) {
+		bringUpHubAndNode( hostName, portNumber, browserType );		
+	}
+	
+	/**
+	 * This class can be ran as a standalone server directly.
+	 * @param none
+	 */
 	public static void main(String[] args) {
-
-		new WebDriverServer();
-		
+		new WebDriverServer();		
 	}
 	
-	public void bringUpHubAndNode() {
+	public void bringUpHubAndNode( String hubHost, int hubPort, String browserType ) {
 		GridHubConfiguration gridHubConfig = new GridHubConfiguration();
 		gridHubConfig.setHost(hubHost);
 		gridHubConfig.setPort(hubPort);
-		myHub = new Hub(gridHubConfig);
+		myHub = new Hub( gridHubConfig );
 		try {
 			myHub.start();
 		} catch (Exception e) {
@@ -45,10 +55,10 @@ public class WebDriverServer {
 		DesiredCapabilities chrome = DesiredCapabilities.chrome();
 		chrome.setBrowserName("*googlechrome");
 		try {
-			remoteRCNode = attachNodeToHub(chrome, GridRole.NODE, 5555,
-					SeleniumProtocol.Selenium);
+			//remoteRCNode = attachNodeToHub(chrome, GridRole.NODE, 5555,
+			//		SeleniumProtocol.Selenium);
 			remoteWebDriverNode = attachNodeToHub(DesiredCapabilities.firefox(),
-					GridRole.NODE, 5556, SeleniumProtocol.WebDriver);
+					GridRole.NODE, 5556, SeleniumProtocol.WebDriver );
 		} catch (Exception e) {
 			System.out.println("Error attaching node.");
 			e.printStackTrace();
@@ -69,9 +79,8 @@ public class WebDriverServer {
 		return node;
 	}
 
-	private Map<String, Object> fetchNodeConfiguration(GridRole role,
-			int portToRun, SeleniumProtocol protocol)
-			throws MalformedURLException {
+	private Map<String, Object> fetchNodeConfiguration(GridRole role, int portToRun, 
+			               SeleniumProtocol protocol) throws MalformedURLException {
 		Map<String, Object> nodeConfiguration = new HashMap<String, Object>();
 		nodeConfiguration.put(RegistrationRequest.AUTO_REGISTER, true);
 		nodeConfiguration.put(RegistrationRequest.HUB_HOST, myHub.getHost());
@@ -92,10 +101,10 @@ public class WebDriverServer {
 			remoteWebDriverNode.stopRemoteServer();
 			System.out.println("WebDriver Node shutdown");
 		}
-		if (remoteRCNode != null) {
-			remoteRCNode.stopRemoteServer();
-			System.out.println("RC Node shutdown");
-		}
+		//if (remoteRCNode != null) {
+		//	remoteRCNode.stopRemoteServer();
+		//	System.out.println("RC Node shutdown");
+		//}
 		if ( myHub != null ) {
 			myHub.stop();
 			System.out.println("Local hub shutdown");

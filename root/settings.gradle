@@ -1,2 +1,5 @@
-// settings.gradle
+/**
+ * Because of the 'includeFlat' syntax, as opposed to a regular 'include', this 
+ * file should be located at [eclipse-root]/root/settings.gradle
+ */
 includeFlat "commonlib", "bing", "google", "whatismyip"

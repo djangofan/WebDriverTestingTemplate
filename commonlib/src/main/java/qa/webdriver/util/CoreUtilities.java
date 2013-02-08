@@ -25,9 +25,11 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 public abstract class CoreUtilities {
 
 	public static WebDriver driver;
+	public static WebDriverServer wds;
 	private static JavascriptExecutor js;
 	private static String pageLoadStatus = null;
 	public static Logger logger = LoggerFactory.getLogger( "JUnit" );
+	public static String testName, searchString, ddMatch;
 
 	public static void clearAndSetValue(WebElement field, String text) { 
 		field.clear(); 
@@ -81,6 +83,10 @@ public abstract class CoreUtilities {
 		return false;
 	}
 
+	public static void initializeJSONHub( String host, int port, String type ) {
+		wds = new WebDriverServer( host, port, type );		
+	}
+	
 	public static void initializeBrowser( String type, String host, int port ) {
 		if ( type.equalsIgnoreCase( "firefox" ) ) {
 			try {
@@ -175,8 +181,12 @@ public abstract class CoreUtilities {
 		}	
 	}
 
-	protected CoreUtilities() {
-		throw new AssertionError(); // to prevent instantiation as an object
+	protected CoreUtilities( String tName, String sString, String dMatch ) {
+		//throw new AssertionError(); // to prevent instantiation as an object
+		testName = tName;
+		searchString = sString;
+		ddMatch = dMatch;
+		logger.info("Running test: " + testName + ", " + searchString + ", " + ddMatch );
 	}
 
 }

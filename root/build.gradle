@@ -2,8 +2,11 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 group = 'selenium.webdriver.qa'
 
-ext {
-    projTitle = 'Root Project'
-    projVersion = '1.0'
-}
+/**
+ *  This project is the one you should import from, while using the
+ *  Eclipse Gradle tooling plugins Import Project wizard, rather than
+ *  the root of the main Eclipse project.  This project otherwise
+ *  contains no code and does nothing in particular except host
+ *  the location of the setings.gradle which defines the flat layout.
+ */ 
 
