@@ -14,8 +14,6 @@ repositories {
 dependencies {
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.+'
     compile group: 'org.seleniumhq.selenium', name: 'selenium-server', version: '2.+'
-    compile group: 'jetty', name: 'jetty', version: '6.0.+'
-    compile group: 'javax.servlet', name: 'servlet-api', version: '2.5'
     compile group: 'junit', name: 'junit', version: '4.+'
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.+'
     compile group: 'ch.qos.logback', name: 'logback-core', version: '1.0.+'
