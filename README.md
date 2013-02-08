@@ -121,9 +121,8 @@ steps.  If you deviate from these steps you risk importing the project incorrect
    the "Build model" button.  We do this because of the "includeFlat" Gradle layout.
 6. Check all checkboxes .  You could also choose to add all to your "working set" if you like but it isn't required.<br/>
 7. Rebuild the dependencies by right clicking on the project and then choose Gradle-->Refresh All Dependencies <br/>
-8. Right click on your project and choose "Run As-->Gradle Build".  If you see 2 items called "Gradle Build", <br/>
-   choose the second one rather than the first one.  In the dialogue choose "clean" and "build" checkboxes <br/>
-  (or whatever tasks you want to execute).
+8. Right click on your project and choose "Run As-->External Tools Configuration".  If you see 2 items called<br/>
+   In the dialogue choose "clean" and "build" checkboxes (or whatever tasks you want to execute).<br/>
 9. Optionally, you can run this project on the command line with "gradle identify google:show google:clean <br/>
    google:build --info" and it will execute the project unit tests.  Also, this project provides a .bat batch<br/>
    script that does this and provides a menu of other actions you can execute.
