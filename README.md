@@ -41,6 +41,10 @@ of this<br/> project, unzip it, and run the included <b>gradle_run.bat</b> scrip
     <th>Native automation support</th>
     <td>For use with Sikuli 1.0.1 or higher to test native elements that WebDriver "Action" is<br/> unable to control. This dependency is configured in the Gradle build script.  If you implement<br/> this however, you may not be able to use the remote webdriver option in<br/> your project. </td>
   </tr>
+    <tr>
+    <th>Uses RemoteWebDriver JSON<br/>Hub Server</th>
+    <td>I have included an implementation of a WebDriverServer class that starts a RemoteWebDriver JSON Hub server<br/>instance in the BeforeClass method of tests. This server is a static member of the utility class that<br/>the tests extend. </td>
+  </tr>
   <tr>
     <th>Parameterized data <br/>driven capability</th>
     <td>Unit tests are parameterized from a csv file.  Can also load tests from XML, XLS, a database, etc.</td>
