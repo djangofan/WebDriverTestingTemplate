@@ -93,12 +93,6 @@ of this<br/> project, unzip it, and run the included <b>gradle_run.bat</b> scrip
        configuring GRADLE_HOME and PATH are easy enough.  Also, a manual setup of Gradle gives<br/>us more
        control using a batch script.</td>
   </tr>
-    <tr>
-    <th>Selenium2 RC</th>
-    <td>Did not choose to implement the Selenium2 remote control API in the template examples but<br/>
-       creating a project with this capability is as easy as instantiating a RemoteWebDriver in <br/>
-       your project.</td>
-  </tr>
   <tr>
     <th>Jar executable option</th>
     <td>Creates an uberJar of all projects and subprojects that can be ran by double clicking<br/>
