@@ -11,7 +11,8 @@ Functional Tester", with a pure Java solution managed by the Gradle build system
 
 # Project Layout
 <br/>
-Root project 'root'  (an alias to Eclipse project-root 'WebDriverTestingTemplate')<br/>
+Eclipse Root <br/>
++--- Project ':root' (an alias to Eclipse project-root 'WebDriverTestingTemplate')<br/>
 +--- Project ':bing'<br/>
 +--- Project ':core'<br/>
 +--- Project ':google'<br/>
