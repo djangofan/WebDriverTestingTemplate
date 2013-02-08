@@ -15,7 +15,8 @@ Root project 'root'<br/>
 +--- Project ':bing'<br/>
 +--- Project ':core'<br/>
 +--- Project ':google'<br/>
-\--- Project ':whatismyip'<br/>
++--- Project ':whatismyip'<br/>
+\---
 <br/>
 # Quick Start
 Normally, this project would be ran through the Gradle plugin for Eclipse IDE, but I have tried to make it easier by<br/>
