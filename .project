@@ -17,12 +17,16 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1360116810433</id>
+			<id>1360292270308</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.orFilterMatcher</id>
 				<arguments>
+					<matcher>
+						<id>org.eclipse.ui.ide.multiFilter</id>
+						<arguments>1.0-projectRelativePath-equals-true-false-whatismyip</arguments>
+					</matcher>
 					<matcher>
 						<id>org.eclipse.ui.ide.multiFilter</id>
 						<arguments>1.0-projectRelativePath-equals-true-false-google</arguments>

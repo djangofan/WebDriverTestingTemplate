@@ -15,11 +15,20 @@ dependencies {
     compile group: 'junit', name: 'junit', version: '4.+'
 }
 
+// Executes the main method of a Java application
 task(runSimple, dependsOn: 'classes', type: JavaExec) {
     main = 'what.ismyip.WhatIsMyIP'
     classpath = sourceSets.main.runtimeClasspath
     systemProperty 'simple.message', 'Hello '
 }
-
 defaultTasks 'runSimple'
 
+task show << {
+    println ""
+    println "-----------------------------------------------"
+    println "Project Name: " + projTitle
+    println "Version: " + projVersion
+    println "Build output: " + relativePath(compileJava.destinationDir)
+    println "Resources output: " + relativePath(processResources.destinationDir)
+    println "-----------------------------------------------"
+}

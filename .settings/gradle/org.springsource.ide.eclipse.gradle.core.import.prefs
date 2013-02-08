@@ -1,5 +1,5 @@
 #org.springsource.ide.eclipse.gradle.core.preferences.GradleImportPreferences
-#Tue Feb 05 20:44:56 PST 2013
+#Thu Feb 07 18:57:50 PST 2013
 addResourceFilters=true
 afterTasks=afterEclipseImport;
 beforeTasks=cleanEclipse;eclipse;
@@ -7,4 +7,4 @@ enableAfterTasks=true
 enableBeforeTasks=false
 enableDSLD=false
 enableDependendencyManagement=true
-projects=whatismyip;
+projects=;bing;core;google;whatismyip;

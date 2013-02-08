@@ -9,8 +9,9 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 public class WhatIsMyIP 
 {
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ) {
+    	
+    	// An example of using HtmlUnitDriver
     	String msg = System.getProperty("simple.message") + "\n";
     	msg = msg + "My IP Address Is" + "\n";
         HtmlUnitDriver driver = new HtmlUnitDriver(true);

@@ -2,7 +2,6 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 group = 'selenium.webdriver.qa'
 
-//evaluationDependsOn(':core')
 dependencies {
     compile project(':core')
 }
@@ -30,7 +29,7 @@ dependencies {
     compile group: 'junit', name: 'junit', version: '4.+'
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.+'
 }
-
+	
 task show << {
     println ""
     println "-----------------------------------------------"
@@ -53,3 +52,4 @@ test {
     }
      
 }	
+	

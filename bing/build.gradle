@@ -2,7 +2,6 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 group = 'selenium.webdriver.qa'
 
-//evaluationDependsOn(':core')
 dependencies {
     compile project(':core')
 }
