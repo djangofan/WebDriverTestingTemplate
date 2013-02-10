@@ -29,9 +29,9 @@ public class GoogleTest extends GoogleUtilities {
 	}
 	
 	@BeforeClass
-	public static void setUp() {
-		initializeJSONHub("localhost", 4444, "firefox" );
+	public static void setUpClass() {		
 		initializeRemoteBrowser( "firefox", "localhost", 4444 );
+		logger.info("Finished setUpClass");
 	}
 	
 	@Parameters(name = "{0}: {1}: {2}")
@@ -89,18 +89,13 @@ public class GoogleTest extends GoogleUtilities {
 	
 	@After
 	public void cleanUp() {
+		logger.info("Finished cleanUp");
 		// driver.get("about:about");
 	}
 	
 	@AfterClass
-	public static void tearDown() {
-        closeAllBrowserWindows();  
-        try {
-			wds.shutDownNodeAndHub();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		logger.info("Finished tearDown.");
+	public static void tearDownClass() {
+		logger.info("Finished tearDownClass");
 	}
 
 }

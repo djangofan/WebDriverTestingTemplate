@@ -83,8 +83,12 @@ public abstract class CoreUtilities {
 		return false;
 	}
 
-	public static void initializeJSONHub( String host, int port, String type ) {
-		wds = new GridServer( host, port, type );		
+	public static GridServer initializeJSONHub( String host, int port, String type ) {
+		return new GridServer( host, port, type );		
+	}
+	
+	public static GridServer initializeJSONHub( String configLoc ) {
+		return new GridServer( configLoc );		
 	}
 	
 	public static void initializeRemoteBrowser( String type, String host, int port ) {

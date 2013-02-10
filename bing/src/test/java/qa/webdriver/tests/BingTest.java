@@ -37,7 +37,7 @@ public class BingTest extends BingUtilities {
 	@BeforeClass
 	public static void setUp() {		
 		initializeJSONHub("localhost", 4444, "firefox" );
-		initializeBrowser( "firefox", "localhost", 4444 );
+		initializeRemoteBrowser( "firefox", "localhost", 4444 );
 	}
 	
 	/* @Parameters(name = "{index}: {0}={1}")

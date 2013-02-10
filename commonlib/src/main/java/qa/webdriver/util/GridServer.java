@@ -39,6 +39,13 @@ public class GridServer {
 	}
 	
 	/**
+	 * Starts a defined new instance of WebDriver Hub JSON server
+	 */
+	public GridServer ( String jsonConfigLoc ) {
+		bringUpHubAndNodeFromJSONConfig( jsonConfigLoc );		
+	}
+	
+	/**
 	 * This class can be ran as a standalone server directly.
 	 * @param none
 	 */
@@ -60,9 +67,32 @@ public class GridServer {
 		DesiredCapabilities chrome = DesiredCapabilities.chrome();
 		chrome.setBrowserName("*googlechrome");
 		try {
-			remoteRCNode = attachNodeToHub(chrome, GridRole.NODE, 5555,
-					SeleniumProtocol.Selenium);
-			remoteWebDriverNode = attachNodeToHub(DesiredCapabilities.firefox(),
+			remoteRCNode = attachNodeToHub( chrome, GridRole.NODE, 5555,
+					SeleniumProtocol.Selenium );
+			remoteWebDriverNode = attachNodeToHub( DesiredCapabilities.firefox(),
+					GridRole.NODE, 5556, SeleniumProtocol.WebDriver );
+		} catch (Exception e) {
+			System.out.println("Error attaching node.");
+			e.printStackTrace();
+		}		
+	}
+	
+	public void bringUpHubAndNodeFromJSONConfig( String configFile ) {
+		GridHubConfiguration gridHubConfig = new GridHubConfiguration();
+		gridHubConfig.loadFromJSON( "build/resources/test/WebDriver.json" );
+		myHub = new Hub( gridHubConfig );
+		try {
+			myHub.start();
+		} catch (Exception e) {
+			System.out.println("Error starting hub.");
+			e.printStackTrace();
+		}
+		DesiredCapabilities chrome = DesiredCapabilities.chrome();
+		chrome.setBrowserName("*googlechrome");
+		try {
+			remoteRCNode = attachNodeToHub( chrome, GridRole.NODE, 5555,
+					SeleniumProtocol.Selenium );
+			remoteWebDriverNode = attachNodeToHub( DesiredCapabilities.firefox(),
 					GridRole.NODE, 5556, SeleniumProtocol.WebDriver );
 		} catch (Exception e) {
 			System.out.println("Error attaching node.");
