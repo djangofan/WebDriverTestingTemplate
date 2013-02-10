@@ -1,0 +1,27 @@
+<HTML>
+  <TITLE>Window2 Title</TITLE>
+<HEAD>
+
+<script language="JavaScript">
+
+function wopen(url, name, w, h, wleft, wtop) {
+    scrollb = typeof(scrollb) != 'undefined' ? scrollb : 'no';
+    var win = window.open(url, name,
+    'width=' + w + ', height=' + h + ', ' + 'left=' + wleft + ', top=' + wtop + ', ' +
+    'location=no, menubar=no, ' + 'status=no, toolbar=no, scrollbars=yes, resizable=yes');
+    win.resizeTo(w, h);
+    win.moveTo(wleft, wtop);
+    win.focus();
+}
+
+ </script>
+ 
+ </HEAD>
+ <BODY>
+ <br/>
+ <a id="w3link" href="javascript: wopen('Window3.html', 'Window3', 400, 400, 40, 350);">Open Window3</a><br/><br/>
+ <a id="w4link" href="javascript: wopen('Window4.html', 'Window4', 400, 400, 450, 350);">Open Window4</a><br/>
+ 
+ </BODY>
+ </HTML>
+ 

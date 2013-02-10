@@ -1,0 +1,52 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+group = 'selenium.webdriver.qa'
+
+ext {
+    projTitle = 'Test MultiWindow'
+    projVersion = '1.0'
+}
+
+dependencies {
+    compile project(':commonlib')
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.+'
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.+'
+    compile group: 'junit', name: 'junit', version: '4.+'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.+'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.+'
+}
+	
+task show << {
+    println ""
+    println "-----------------------------------------------"
+    println "Project Name: " + projTitle
+    println "Version: " + projVersion
+    println "Home directory: "
+    println "Build output: " + relativePath(compileJava.destinationDir)
+    println "Resources output: " + relativePath(processResources.destinationDir)
+    println "Test output dir: " + relativePath(sourceSets.test.output.classesDir)
+    println "Test result dir: " + relativePath(testResultsDir)
+    println "Report dir: " + relativePath(testReportDir)
+    println "-----------------------------------------------"
+} 
+
+test {
+    testLogging {
+        exceptionFormat "full"
+        events "started", "passed", "skipped", "failed", "standardOut", "standardError"
+    }     
+}	
+	
+task testCacheSuite(type: Test) {
+   // include '**/*CacheSuite.*'
+   include '**/CacheSuite.class'
+   testReportDir = file("${reporting.baseDir}/CacheSuite")
+   testResultsDir = file("${buildDir}/test-results/CacheSuite")
+}
