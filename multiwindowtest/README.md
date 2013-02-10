@@ -1,4 +1,4 @@
-#WebDriverHandlePopupWindows
+#Sample project for WebDriver handling multiple windows
 ===========================
 
 Example of different methods of handling popup windows with Selenium WebDriver.  If you would like
