@@ -21,7 +21,7 @@ Eclipse Root <br/>
 
 # Birdseye view<br/>
 1. Project "bing" is a basic standalone browser test.<br/>
-2. Project "google" is a RemoteWebDriver test using a local Grid server.<br/>
+2. Project "google" is a RemoteWebDriver JUnit test-suite using a local Grid server that is capable of running<br/>multiple threads of web browser tests.
 3. Project "multiwindowtest" is a test of multi window handling using a static local website.<br/>
 4. Project "whatismyip" is a sample of a HtmlUnitDriver test.<br/>
 
