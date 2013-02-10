@@ -2,6 +2,10 @@ package qa.webdriver.util;
 
 import java.io.*;
 
+/**
+ * Implementation of a simple web server to locally serve project files
+ * for Selenium unit test projects.
+ */
 public class SiteServer extends NanoHTTPD {
 	
 	public SiteServer( int intPort, File rootDir ) throws IOException {
@@ -19,5 +23,5 @@ public class SiteServer extends NanoHTTPD {
 		System.out.println( "Listening on port 8080. Hit Enter to stop.\n" );
 		try { System.in.read(); } catch( Throwable t ) {};
 	}
+	
 }
-

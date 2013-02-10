@@ -32,41 +32,6 @@ import java.io.FileOutputStream;
  * Copyright &copy; 2001,2005-2012 Jarno Elonen (elonen@iki.fi, http://iki.fi/elonen/)
  * and Copyright &copy; 2010 Konstantinos Togias (info@ktogias.gr, http://ktogias.gr)
  *
- * <p><b>Features + limitations: </b><ul>
- *
- *    <li> Only one Java file </li>
- *    <li> Java 1.1 compatible </li>
- *    <li> Released as open source, Modified BSD licence </li>
- *    <li> No fixed config files, logging, authorization etc. (Implement yourself if you need them.) </li>
- *    <li> Supports parameter parsing of GET and POST methods (+ rudimentary PUT support in 1.25) </li>
- *    <li> Supports both dynamic content and file serving </li>
- *    <li> Supports file upload (since version 1.2, 2010) </li>
- *    <li> Supports partial content (streaming)</li>
- *    <li> Supports ETags</li>
- *    <li> Never caches anything </li>
- *    <li> Doesn't limit bandwidth, request time or simultaneous connections </li>
- *    <li> Default code serves files and shows all HTTP parameters and headers</li>
- *    <li> File server supports directory listing, index.html and index.htm</li>
- *    <li> File server supports partial content (streaming)</li>
- *    <li> File server supports ETags</li>
- *    <li> File server does the 301 redirection trick for directories without '/'</li>
- *    <li> File server supports simple skipping for files (continue download) </li>
- *    <li> File server serves also very long files without memory overhead </li>
- *    <li> Contains a built-in list of most common mime types </li>
- *    <li> All header names are converted lowercase so they don't vary between browsers/clients </li>
- *
- * </ul>
- *
- * <p><b>Ways to use: </b><ul>
- *
- *    <li> Run as a standalone app, serves files and shows requests</li>
- *    <li> Subclass serve() and embed to your own program </li>
- *    <li> Call serveFile() from serve() with your own base directory </li>
- *
- * </ul>
- *
- * See the end of the source file for distribution license
- * (Modified BSD licence)
  */
 public class NanoHTTPD
 {

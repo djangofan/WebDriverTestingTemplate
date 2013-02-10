@@ -31,7 +31,7 @@ public class GoogleTest extends GoogleUtilities {
 	@BeforeClass
 	public static void setUp() {
 		initializeJSONHub("localhost", 4444, "firefox" );
-		initializeBrowser( "firefox", "localhost", 4444 );
+		initializeRemoteBrowser( "firefox", "localhost", 4444 );
 	}
 	
 	@Parameters(name = "{0}: {1}: {2}")

@@ -25,7 +25,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 public abstract class CoreUtilities {
 
 	public static WebDriver driver;
-	public static WebDriverServer wds;
+	public static GridServer wds;
 	private static JavascriptExecutor js;
 	private static String pageLoadStatus = null;
 	public static Logger logger = LoggerFactory.getLogger( "JUnit" );
@@ -84,10 +84,10 @@ public abstract class CoreUtilities {
 	}
 
 	public static void initializeJSONHub( String host, int port, String type ) {
-		wds = new WebDriverServer( host, port, type );		
+		wds = new GridServer( host, port, type );		
 	}
 	
-	public static void initializeBrowser( String type, String host, int port ) {
+	public static void initializeRemoteBrowser( String type, String host, int port ) {
 		if ( type.equalsIgnoreCase( "firefox" ) ) {
 			try {
 				driver = new RemoteWebDriver( new URL("http://" + host + ":" + port + "/wd/hub"), DesiredCapabilities.firefox() );

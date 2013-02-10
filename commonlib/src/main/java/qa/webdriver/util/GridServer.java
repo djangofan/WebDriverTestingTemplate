@@ -13,23 +13,28 @@ import org.openqa.grid.internal.utils.SelfRegisteringRemote;
 import org.openqa.grid.web.Hub;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-public class WebDriverServer {
+/**
+ * Runs a Selenium Hub Server for handling RemoteWebDriver browser
+ * remote control requests.  Uses JSON protocol.
+ */
+public class GridServer {
 	
 	Hub myHub = null;
+	// info here: http://code.google.com/p/selenium/wiki/DesiredCapabilities
 	SelfRegisteringRemote remoteWebDriverNode = null;
-	//SelfRegisteringRemote remoteRCNode = null;
+	SelfRegisteringRemote remoteRCNode = null; 
 
 	/**
 	 * Starts a default new instance of WebDriver Hub JSON server
 	 */
-	public WebDriverServer () {
+	public GridServer () {
 		bringUpHubAndNode( "localhost", 4444, "firefox" );		
 	}
 	
 	/**
 	 * Starts a defined new instance of WebDriver Hub JSON server
 	 */
-	public WebDriverServer ( String hostName, int portNumber, String browserType ) {
+	public GridServer ( String hostName, int portNumber, String browserType ) {
 		bringUpHubAndNode( hostName, portNumber, browserType );		
 	}
 	
@@ -38,7 +43,7 @@ public class WebDriverServer {
 	 * @param none
 	 */
 	public static void main(String[] args) {
-		new WebDriverServer();		
+		new GridServer();		
 	}
 	
 	public void bringUpHubAndNode( String hubHost, int hubPort, String browserType ) {
@@ -55,8 +60,8 @@ public class WebDriverServer {
 		DesiredCapabilities chrome = DesiredCapabilities.chrome();
 		chrome.setBrowserName("*googlechrome");
 		try {
-			//remoteRCNode = attachNodeToHub(chrome, GridRole.NODE, 5555,
-			//		SeleniumProtocol.Selenium);
+			remoteRCNode = attachNodeToHub(chrome, GridRole.NODE, 5555,
+					SeleniumProtocol.Selenium);
 			remoteWebDriverNode = attachNodeToHub(DesiredCapabilities.firefox(),
 					GridRole.NODE, 5556, SeleniumProtocol.WebDriver );
 		} catch (Exception e) {
@@ -101,10 +106,10 @@ public class WebDriverServer {
 			remoteWebDriverNode.stopRemoteServer();
 			System.out.println("WebDriver Node shutdown");
 		}
-		//if (remoteRCNode != null) {
-		//	remoteRCNode.stopRemoteServer();
-		//	System.out.println("RC Node shutdown");
-		//}
+		if (remoteRCNode != null) {
+			remoteRCNode.stopRemoteServer();
+			System.out.println("RC Node shutdown");
+		}
 		if ( myHub != null ) {
 			myHub.stop();
 			System.out.println("Local hub shutdown");
