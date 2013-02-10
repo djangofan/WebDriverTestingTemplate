@@ -51,7 +51,7 @@ of this<br/> project, unzip it, and run the included <b>gradle_run.bat</b> scrip
   </tr>
   <tr>
     <th>Logging and Reporting</th>
-    <td>Logs test output to console and to a file using SLF4j/LogBack API, and configured by<br/> a <b>logback.xml</b> file. Will generate reports of JUnit test results at<br/> <b>build/reports/test/index.html</b> .  Will place a junit.log file at <b>build/junit.log</b> .</td>
+    <td>Logs test output to console and to a file using SLF4j/LogBack API, and configured by<br/> a <b>logback.xml</b> file. Will generate reports of JUnit test results at<br/> <b>build/reports/test/index.html</b> .  Will place a junit.log file at <b>build/logs/junit.log</b> .</td>
   </tr>
   <tr>
     <th>Page Object design <br/>pattern</th>
