@@ -17,14 +17,14 @@ Eclipse Root <br/>
 +--- Project ':commonlib'<br/>
 +--- Project ':google'<br/>
 +--- Project ':whatismyip'<br/>
-\---
-<br/>
+\---<br/>
+
 # Birdseye view<br/>
 1. Project "bing" is a basic standalone browser test.<br/>
 2. Project "google" is a RemoteWebDriver test using a local Grid server.<br/>
 3. Project "multiwindowtest" is a test of multi window handling using a static local website.<br/>
 4. Project "whatismyip" is a sample of a HtmlUnitDriver test.<br/>
-<br/>
+
 # Quick Start
 Normally, this project would be ran through the Gradle plugin for Eclipse IDE, but I have tried to make it easier by<br/>
 including a method to run dynamically and directly from the .zip distribution on the command line.
