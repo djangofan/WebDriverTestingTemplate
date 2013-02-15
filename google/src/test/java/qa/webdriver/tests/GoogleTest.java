@@ -30,7 +30,7 @@ public class GoogleTest extends GoogleUtilities {
 	
 	@BeforeClass
 	public static void setUpClass() {		
-		initializeRemoteBrowser( "firefox", "localhost", 4444 );
+
 		logger.info("Finished setUpClass");
 	}
 	

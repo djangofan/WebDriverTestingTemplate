@@ -20,6 +20,7 @@ public class AllTests extends GoogleUtilities {
 	@BeforeClass
 	public static void setUpSuiteOne() {
 		wds = initializeJSONHub( "build/resources/test/DefaultNodeWebDriver.json" );
+		initializeRemoteBrowser( "firefox", "localhost", 4444 );
 		logger.info("Finished setUpSuiteOne");
 	}
 
