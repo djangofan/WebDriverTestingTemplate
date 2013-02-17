@@ -1,0 +1,44 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+group = 'selenium.webdriver.qa'
+
+sourceCompatibility = 1.7
+
+println GradleVersion.current().toString()
+
+ext {
+    projTitle = 'Test Concurrent'
+    projVersion = '1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'junit', name: 'junit', version: '4.+'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.+'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.+'
+}
+	
+task show << {
+    println ""
+    println "-----------------------------------------------"
+    println "Project Name: " + projTitle
+    println "Version: " + projVersion
+    println "Home directory: "
+    println "Build output: " + relativePath(compileJava.destinationDir)
+    println "Resources output: " + relativePath(processResources.destinationDir)
+    println "Test output dir: " + relativePath(sourceSets.test.output.classesDir)
+    println "Test result dir: " + relativePath(testResultsDir)
+    println "Report dir: " + relativePath(testReportDir)
+    println "-----------------------------------------------"
+} 
+
+test {
+    testLogging {
+        exceptionFormat "full"
+        events "started", "passed", "skipped", "failed", "standardOut", "standardError"
+    }   
+}	
+
