@@ -24,6 +24,8 @@ public class HtmlUnitTask extends RecursiveTask<String> {
 
     @Override
     protected String compute() {
+    	
+    	// code a file visitor that searches for .xml files
 	// http://www.ibm.com/developerworks/java/library/j-nio2-2/
 
         logger.info( "compute() has: " + inputValue );
