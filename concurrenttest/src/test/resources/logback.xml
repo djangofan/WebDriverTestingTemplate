@@ -9,7 +9,7 @@
   </appender>
   
   <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-    <file>junitOut.log</file>
+    <file>concurrenttestOut.log</file>
     <append>false</append>
     <!-- encoders are assigned the type
          ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
@@ -18,8 +18,9 @@
     </encoder>
   </appender>
         
-  <root level="DEBUG">
+  <root level="INFO">
     <appender-ref ref="FILE" />
+    <appender-ref ref="STDOUT" />
   </root>
   
   <!-- We want error logging from this logger to go to an extra appender 
