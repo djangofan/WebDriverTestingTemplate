@@ -22,11 +22,13 @@ public class HtmlUnitTask extends RecursiveTask<String> {
         }
     }
 
-	@Override
-	protected String compute() {
+    @Override
+    protected String compute() {
+	// http://www.ibm.com/developerworks/java/library/j-nio2-2/
+
         logger.info( "compute() has: " + inputValue );
         slowTask();
-		return inputValue;
-	}
-	
+	return inputValue;
+    }
+		
 }
