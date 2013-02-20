@@ -43,6 +43,10 @@ of this<br/> project, unzip it, and run the included <b>gradle_run.bat</b> scrip
     <th>JUnit based</th>
     <td>For use ONLY with JUnit 4.11 or higher because of the usage of the parameterized capability<br/> of JUnit. This dependency is configured by the Gradle build script.</td>
   </tr>
+    <tr>
+    <th>Parallel runner<br/>using JUnit</th>
+    <td>A parallel runner using the JUnitCore.runClasses(ParallelComputer.classes(), cls) method.</td>
+  </tr>
   <tr>
     <th>Native automation support</th>
     <td>For use with Sikuli 1.0.1 or higher to test native elements that WebDriver "Action" is<br/> unable to control. This dependency is configured in the Gradle build script.  If you implement<br/> this however, you may not be able to use the remote webdriver option in<br/> your project. </td>
