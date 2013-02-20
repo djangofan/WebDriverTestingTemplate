@@ -157,7 +157,8 @@ public abstract class MultiWinCacheUtils {
 
 	public static void setWindowPosition(String handle, int width, int height, int fleft, int ftop) {
 		driver.switchTo().window( handle ).manage().window().setPosition( new Point(fleft, ftop) );
-		driver.switchTo().window( handle ).manage().window().setSize( new Dimension( width, height) );	
+		driver.switchTo().window( handle ).manage().window().setSize( new Dimension( width, height) );
+		//TODO add a javascript executor to get window focus
 	}
 
 	public static void waitTimer( int units, int mills ) {
