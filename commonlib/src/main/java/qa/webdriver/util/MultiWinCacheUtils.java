@@ -149,7 +149,8 @@ public abstract class MultiWinCacheUtils {
 			throw new IllegalStateException("More than one browser window handle is open.\n" +
 					"Please close all browsers and restart test.");
 		} else {
-			mainHandle = driver.getWindowHandle();
+			mainHandle = driver.switchTo().defaultContent().getWindowHandle();
+			mainWindowTitle = driver.switchTo().defaultContent().getTitle();
 			setWindowPosition( mainHandle, 600, 800, 700, 40 );
 		}
 	}
