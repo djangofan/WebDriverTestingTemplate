@@ -138,7 +138,7 @@ public abstract class MultiWinCacheUtils {
 			// ie driver server .exe needs to be in your system path
 			driver = new InternetExplorerDriver();
 		}
-		driver.manage().timeouts().implicitlyWait( 10000, TimeUnit.MILLISECONDS );
+		driver.manage().timeouts().implicitlyWait( 30, TimeUnit.SECONDS );
 		handleCache = driver.getWindowHandles();
 		if ( handleCache.size() == 0 ) {
 			mainHandle = "";
