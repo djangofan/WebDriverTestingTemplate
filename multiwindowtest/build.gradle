@@ -44,9 +44,16 @@ test {
     }     
 }	
 	
-task testCacheSuite(type: Test) {
-   // include '**/*CacheSuite.*'
-   include '**/CacheSuite.class'
-   testReportDir = file("${reporting.baseDir}/CacheSuite")
-   testResultsDir = file("${buildDir}/test-results/CacheSuite")
+task runAllTests(type: Test) {
+   include '**/AllTests.class'
+   testReportDir = file("${reporting.baseDir}/AllTests")
+   testResultsDir = file("${buildDir}/test-results/AllTests")
 }
+
+task runParallelSuite(type: Test) {
+   include '**/ParallelSuite.class'
+   testReportDir = file("${reporting.baseDir}/ParallelSuite")
+   testResultsDir = file("${buildDir}/test-results/ParallelSuite")
+}
+
+

@@ -22,6 +22,7 @@ public class TestHandleCacheTwo extends MultiWinCacheUtils {
 	 */
 	@BeforeClass
 	public static void setUpTestHandleCacheTwoClass() {
+		initializeStandaloneBrowser( "firefox" );
 		logger.info("Finished setUpTestHandleCacheTwoClass");
 	}
 	
@@ -106,6 +107,7 @@ public class TestHandleCacheTwo extends MultiWinCacheUtils {
 	 */
 	@AfterClass
 	public static void tearDownClass() {
+		closeAllBrowserWindows(); 
 		logger.info("Finished tearDownTestHandleCacheTwoClass");
 	}
 

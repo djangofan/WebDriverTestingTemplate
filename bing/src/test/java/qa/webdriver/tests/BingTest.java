@@ -49,7 +49,7 @@ public class BingTest extends BingUtilities {
 	
 	@Parameters(name = "{0}: {1}: {2}")
 	public static Iterable<String[]> loadTestsFromFile() {
-		File tFile = loadTestFile("testdata.csv");
+		File tFile = loadGradleResource("testdata.csv");
 		FileReader fileReader = null;
 		ArrayList<String> lines = new ArrayList<String>();
 		try {

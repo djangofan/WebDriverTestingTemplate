@@ -1,18 +1,19 @@
 package qa.webdriver.util;
 
 import java.io.PrintStream;
-import java.text.DecimalFormat;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.slf4j.Logger;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.LoggerFactory;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.core.util.StatusPrinter;
@@ -22,11 +23,12 @@ import ch.qos.logback.core.util.StatusPrinter;
  * @author Jon Austen
  *
  */
-public abstract class MultiWinCacheUtils {
+public abstract class MultiWinCacheUtils extends CoreUtils {
 
-	public static WebDriver driver;
-	public static SiteServer fs;
-	public static final Logger logger = LoggerFactory.getLogger( "MultiWinCache" );
+	protected MultiWinCacheUtils() {
+		// do nothing
+	}
+
 	public static String mainHandle = "";
 	public static String mainWindowTitle = "";
 	public static Set<String> handleCache = new HashSet<String>();	
@@ -56,9 +58,10 @@ public abstract class MultiWinCacheUtils {
 		logger.info("Closing window with title \"" + driver.getTitle() + "\"." );
 		driver.close();
 	}
-	
+	/**
+	 * Print internal Logger status
+	 */
 	public static void returnLoggerState() {
-		// print internal state
 	    LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
 	    StatusPrinter.print(lc);
 	}
@@ -129,6 +132,33 @@ public abstract class MultiWinCacheUtils {
 				log.println();
 			}
 		}
+	}	
+	
+	public static void initializeRemoteBrowser( String type, String host, int port ) {
+		if ( type.equalsIgnoreCase( "firefox" ) ) {
+			try {
+				driver = new RemoteWebDriver( new URL("http://" + host + ":" + port + "/wd/hub"), DesiredCapabilities.firefox() );
+			} catch ( MalformedURLException e ) {
+				e.printStackTrace();
+			}
+		} else if ( type.equalsIgnoreCase( "ie" ) ) {
+			driver = new InternetExplorerDriver();
+		}
+		driver.manage().timeouts().implicitlyWait( 10000, TimeUnit.MILLISECONDS );
+		handleCache = driver.getWindowHandles();
+		if ( handleCache.size() == 0 ) {
+			mainHandle = "";
+			throw new IllegalStateException("No browser window handles are open.\n" +
+					"Browser is uninitialized.");
+		} else if ( handleCache.size() > 1 ) {
+			mainHandle = "";
+			throw new IllegalStateException("More than one browser window handle is open.\n" +
+					"Please close all browsers and restart test.");
+		} else {
+			mainHandle = driver.switchTo().defaultContent().getWindowHandle();
+			mainWindowTitle = driver.switchTo().defaultContent().getTitle();
+			setWindowPosition( mainHandle, 600, 800, 700, 40 );
+		}
 	}
 
 	public static void initializeStandaloneBrowser( String type ) {
@@ -159,24 +189,6 @@ public abstract class MultiWinCacheUtils {
 		driver.switchTo().window( handle ).manage().window().setPosition( new Point(fleft, ftop) );
 		driver.switchTo().window( handle ).manage().window().setSize( new Dimension( width, height) );
 		//TODO add a javascript executor to get window focus
-	}
-
-	public static void waitTimer( int units, int mills ) {
-		DecimalFormat df = new DecimalFormat("###.##");
-		double totalSeconds = ((double)units*mills)/1000;
-		log.println("Explicit pause for " + df.format(totalSeconds) + " seconds divided by " + units + " units of time: ");
-		try {
-			Thread.currentThread();		
-			int x = 0;
-			while( x < units ) {
-				Thread.sleep( mills );
-				log.print(".");
-				x = x + 1;
-			}
-		} catch ( InterruptedException ex ) {
-			ex.printStackTrace();
-		}
-		log.println(".");
 	}
 
 }

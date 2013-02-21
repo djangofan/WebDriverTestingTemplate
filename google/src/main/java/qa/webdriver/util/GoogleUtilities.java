@@ -5,10 +5,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
-public abstract class GoogleUtilities extends CoreUtilities {
+public abstract class GoogleUtilities extends MultiWinCacheUtils {
 	
 	public GoogleUtilities( String tName, String sString, String dMatch ) {
-		super( tName, sString, dMatch );
+		super();
+		testName = tName;
+		searchString = sString;
+		ddMatch = dMatch;
+		logger.info("Running test: " + testName + ", " + searchString + ", " + ddMatch );
 	}
 
     /**

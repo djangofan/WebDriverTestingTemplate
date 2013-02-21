@@ -12,11 +12,14 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 /**
- * To run suite you need to pass the Gradle '-Dtest.single=SuiteOne' option to the JVM
+ * To run suite you need to pass the Gradle '-Dtest.single=AllTests' option to the JVM
+ * or you can run the included 'runAllTests' Gradle task.   This is a 'non-parallel' or
+ * what can be called a 'sequential' type of test run; a typical JUnit test suite.
+ * 
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({ TestHandleCacheOne.class, TestHandleCacheThree.class, TestHandleCacheThree.class })
-public class CacheSuite extends MultiWinCacheUtils {
+public class AllTests extends MultiWinCacheUtils {
 
 	@BeforeClass
 	public static void setUpSuiteOne() {

@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
-public abstract class BingUtilities extends CoreUtilities {
+public abstract class BingUtilities extends CoreUtils {
 
 	public BingUtilities( String tName, String sString, String dMatch ) {
 		super( tName, sString, dMatch );
