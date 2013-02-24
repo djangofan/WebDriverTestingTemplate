@@ -44,6 +44,7 @@ tasks.withType(Test) {
         exceptionFormat "full"
         events "started", "passed", "skipped", "failed", "standardOut", "standardError"
     }
+    forkEvery = 0
     
     //systemProperty 'my.property', 'true'
     //System.setProperty("webdriver.chrome.driver", "...\chromedriver.exe");
@@ -58,7 +59,16 @@ tasks.withType(Test) {
 }
 	
 task runAllTests(type: Test) {
+    // this method needs a forkEvery method instead of by classes. Gradle thinks AllTests is one class but it isn't.
     include '**/AllTests.class'
     testReportDir = file("${reporting.baseDir}/AllTests")
     testResultsDir = file("${buildDir}/test-results/AllTests")
 }
+
+task runSkipSuite(type: Test) {
+    // this method works but requires running a separate HTTP server to serve the local html files
+    include '**/TestHandleCache*.class'
+    testReportDir = file("${reporting.baseDir}/TestHandleCache")
+    testResultsDir = file("${buildDir}/test-results/TestHandleCache")
+}
+

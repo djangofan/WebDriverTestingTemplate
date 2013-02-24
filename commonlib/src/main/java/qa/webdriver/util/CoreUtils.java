@@ -14,8 +14,6 @@ import org.openqa.selenium.Keys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import qa.webdriver.util.grid.GridServer;
-
 public abstract class CoreUtils {
 
 	protected static WebDriver driver;
@@ -45,14 +43,6 @@ public abstract class CoreUtils {
 		WebElement element= driver.findElement( By.id( id ) );
 		js.executeScript( "arguments[0].click();", element );
 		js = null;
-	}
-
-	public static GridServer initializeJSONHub( String host, int port, String type ) {
-		return new GridServer( host, port, type );		
-	}
-	
-	public static GridServer initializeJSONHub( String configLoc ) {
-		return new GridServer( configLoc );		
 	}
 
 	/**
