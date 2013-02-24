@@ -17,7 +17,7 @@ Eclipse Root <br/>
 +--- Project ':commonlib'<br/>
 +--- Project ':google'<br/>
 +--- ...<br/>
-\---<br/>
+<br/>
 
 # Birdseye view<br/>
 1. Project "bing" is a basic standalone browser test.<br/>
