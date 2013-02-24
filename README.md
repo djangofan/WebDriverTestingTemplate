@@ -46,7 +46,7 @@ of this<br/> project, unzip it, and run the included <b>gradle_run.bat</b> scrip
   </tr>
     <tr>
     <th>Parallel runner<br/>using JUnit</th>
-    <td>A parallel runner using the JUnitCore.runClasses(ParallelComputer.classes(), [classnameArray]) method.</td>
+    <td>A parallel runner using the Gradle maxParallelForks method.</td>
   </tr>
   <tr>
     <th>Native automation support</th>
