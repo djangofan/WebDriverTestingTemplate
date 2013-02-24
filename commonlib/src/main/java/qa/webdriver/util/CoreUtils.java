@@ -1,6 +1,7 @@
 package qa.webdriver.util;
 
 import java.io.File;
+import java.io.PrintStream;
 import java.text.DecimalFormat;
 import java.util.Set;
 import org.openqa.selenium.By;
@@ -13,15 +14,17 @@ import org.openqa.selenium.Keys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import qa.webdriver.util.grid.GridServer;
+
 public abstract class CoreUtils {
 
-	public static WebDriver driver;
+	protected static WebDriver driver;
 	public static SiteServer fs;
-	public static GridServer wds;
 	private static JavascriptExecutor js;
-	private static String pageLoadStatus = null;
+	protected static String pageLoadStatus = null;
 	public static Logger logger = LoggerFactory.getLogger( "JUnit" );
-	public static String testName, searchString, ddMatch;
+	public static PrintStream log = System.out; // deprecated by use of LogBack 
+	protected static String testName, searchString, ddMatch;
 
 	public static void clearAndSetValue(WebElement field, String text) { 
 		field.clear(); 

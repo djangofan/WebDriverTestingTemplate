@@ -1,4 +1,4 @@
-package qa.webdriver.util;
+package qa.webdriver.util.grid;
 
 import java.net.MalformedURLException;
 import java.net.URL;

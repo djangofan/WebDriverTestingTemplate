@@ -1,6 +1,5 @@
 package qa.webdriver.util;
 
-import java.io.PrintStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashSet;
@@ -29,10 +28,9 @@ public abstract class WebDriverUtils extends CoreUtils {
 		// do nothing
 	}
 
-	public static String mainHandle = "";
-	public static String mainWindowTitle = "";
-	public static Set<String> handleCache = new HashSet<String>();	
-	protected static PrintStream log = System.out; // deprecated by use of LogBack 
+	protected static String mainHandle = "";
+	protected static String mainWindowTitle = "";
+	protected static Set<String> handleCache = new HashSet<String>();	
 
 	public static void clearAndSetValue(WebElement field, String text) { 
 		field.clear(); 

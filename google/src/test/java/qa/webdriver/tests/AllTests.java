@@ -19,7 +19,7 @@ public class AllTests extends GoogleUtilities {
 
 	@BeforeClass
 	public static void setUpSuiteOne() {
-		wds = initializeJSONHub( "build/resources/test/DefaultNodeWebDriver.json" );
+		//wds = initializeJSONHub( "build/resources/test/DefaultNodeWebDriver.json" );
 		initializeRemoteBrowser( "firefox", "localhost", 4444 );
 		logger.info("Finished setUpSuiteOne");
 	}
@@ -27,11 +27,11 @@ public class AllTests extends GoogleUtilities {
 	@AfterClass
 	public static void tearDownSuiteOne() {
 		closeAllBrowserWindows(); 
-		try {
-			wds.shutDownNodeAndHub();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		// try {
+		// 	wds.shutDownNodeAndHub();
+		// } catch (Exception e) {
+		// 	e.printStackTrace();
+		// }
 		logger.info("Finished tearDownSuiteOne");
 	}
 

@@ -38,7 +38,7 @@ public class BingTest extends BingUtilities {
 	 */
 	@BeforeClass
 	public static void setUp() {		
-		initializeJSONHub("localhost", 4444, "firefox" );
+		//initializeJSONHub("localhost", 4444, "firefox" );
 		initializeRemoteBrowser( "firefox", "localhost", 4444 );
 	}
 	
@@ -112,11 +112,11 @@ public class BingTest extends BingUtilities {
 	@AfterClass
 	public static void tearDown() {
         closeAllBrowserWindows();
-        try {
-			wds.shutDownNodeAndHub();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+        // try {
+		// 	wds.shutDownNodeAndHub();
+		// } catch (Exception e) {
+		// 	e.printStackTrace();
+		// }
 		logger.info("Finished tearDown.");
 	}
 

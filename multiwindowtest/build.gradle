@@ -38,21 +38,23 @@ task show << {
 } 
 
 tasks.withType(Test) {
-    //systemProperty 'my.property', 'true'
-    //System.setProperty("webdriver.chrome.driver", "...\chromedriver.exe");
     jvmArgs '-Xms128m', '-Xmx1024m', '-XX:MaxPermSize=128m'
-    maxParallelForks = 2
+    maxParallelForks = 4
     testLogging {
         exceptionFormat "full"
         events "started", "passed", "skipped", "failed", "standardOut", "standardError"
     }
-    testLogging.showStandardStreams = true
+    
+    //systemProperty 'my.property', 'true'
+    //System.setProperty("webdriver.chrome.driver", "...\chromedriver.exe");
+    //testLogging.showStandardStreams = true
     //beforeTest { descriptor ->
     //    logger.lifecycle("Running test: " + descriptor)
     //}
     //onOutput { descriptor, event ->
     //    logger.lifecycle("Test: " + descriptor + " produced standard out/err: " + event.message)
     //}
+    
 }
 	
 task runAllTests(type: Test) {

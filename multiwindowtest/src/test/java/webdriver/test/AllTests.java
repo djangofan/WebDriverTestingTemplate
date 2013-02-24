@@ -24,12 +24,6 @@ public class AllTests extends WebDriverUtils {
 	@BeforeClass
 	public static void setUpSuiteOne() {
 		returnLoggerState();
-
-		// https://code.google.com/p/selenium/source/search?q=GridLauncher&origq=GridLauncher&btnG=Search+Trunk
-		
-		// start a RemoteWebDriver JSON server
-		//wds = initializeJSONHub( "build/resources/test/WebDriver.json" );
-		//wds = initializeJSONHub( "localhost", 4444, "firefox" );
 		
 		// start http server
 		File httpRoot = new File("build/resources/test");
@@ -46,7 +40,6 @@ public class AllTests extends WebDriverUtils {
 	@AfterClass
 	public static void tearDownSuiteOne() {
 		logger.info("Finished tearDownSuiteOne");
-		wds.shutDownNodeAndHub();
 		fs.stop();
 	}
 

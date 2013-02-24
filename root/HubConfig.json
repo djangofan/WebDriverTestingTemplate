@@ -1,0 +1,14 @@
+{
+    "host": ip,
+	"maxSessions": 5,
+	"maxInstance": 5,
+    "port": 4444,
+    "cleanupCycle": 5000,
+    "timeout": 300000,
+    "newSessionWaitTimeout": -1,
+    "servlets": [],
+    "prioritizer": null,
+    "capabilityMatcher": "org.openqa.grid.internal.utils.DefaultCapabilityMatcher",
+    "throwOnCapabilityNotPresent": true,   
+    "nodePolling": 180000        
+}
