@@ -16,7 +16,7 @@ Eclipse Root <br/>
 +--- Project ':bing'<br/>
 +--- Project ':commonlib'<br/>
 +--- Project ':google'<br/>
-+--- Project ':whatismyip'<br/>
++--- ...
 \---<br/>
 
 # Birdseye view<br/>
