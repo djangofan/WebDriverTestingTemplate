@@ -12,7 +12,7 @@ Functional Tester", with a pure Java solution managed by the Gradle build system
 # Project Layout
 <br/>
 Eclipse Root <br/>
-+--- Project ':root' (an 'includeFlat' alias to Eclipse project-root-dir 'WebDriverTestingTemplate')<br/>
++--- Project ':root'<br/>
 +--- Project ':bing'<br/>
 +--- Project ':commonlib'<br/>
 +--- Project ':google'<br/>
@@ -23,7 +23,8 @@ Eclipse Root <br/>
 1. Project "bing" is a basic standalone browser test.<br/>
 2. Project "google" is a RemoteWebDriver JUnit test-suite using a local Grid server that is capable of running<br/>multiple threads of web browser tests.
 3. Project "multiwindowtest" is a test of multi window handling using a static local website.<br/>
-4. Project "whatismyip" is a sample of a HtmlUnitDriver test.<br/>
+4. Project "commonlib" is a sub-project containing methods shared between projects.<br/>
+5. Project "root" is an 'includeFlat' Gradle-layout-alias to Eclipse project-root-dir 'WebDriverTestingTemplate'.
 
 # Quick Start
 Normally, this project would be ran through the Gradle plugin for Eclipse IDE, but I have tried to make it easier by<br/>
