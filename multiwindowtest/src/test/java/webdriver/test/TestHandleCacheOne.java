@@ -38,6 +38,7 @@ public class TestHandleCacheOne extends WebDriverUtils {
 	@Before
 	public void setUpTestHandleCacheOne() {
 		initializeRemoteBrowser( "firefox", "localhost", 4444 );
+		System.out.println("HandleCacheOne thread id = " + Thread.currentThread().getId());
 		logger.info("Finished setUpTestHandleCacheOne");
 	}
 	
