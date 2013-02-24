@@ -23,9 +23,9 @@ import ch.qos.logback.core.util.StatusPrinter;
  * @author Jon Austen
  *
  */
-public abstract class MultiWinCacheUtils extends CoreUtils {
+public abstract class WebDriverUtils extends CoreUtils {
 
-	protected MultiWinCacheUtils() {
+	protected WebDriverUtils() {
 		// do nothing
 	}
 

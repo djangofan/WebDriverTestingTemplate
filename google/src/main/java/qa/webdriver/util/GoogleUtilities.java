@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
-public abstract class GoogleUtilities extends MultiWinCacheUtils {
+public abstract class GoogleUtilities extends WebDriverUtils {
 	
 	public GoogleUtilities( String tName, String sString, String dMatch ) {
 		super();

@@ -1,6 +1,6 @@
 package webdriver.test;
 
-import qa.webdriver.util.MultiWinCacheUtils;
+import qa.webdriver.util.WebDriverUtils;
 import qa.webdriver.util.SiteServer;
 
 import java.io.File;
@@ -18,28 +18,36 @@ import org.junit.runners.Suite;
  * 
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ TestHandleCacheOne.class, TestHandleCacheThree.class, TestHandleCacheThree.class })
-public class AllTests extends MultiWinCacheUtils {
+@Suite.SuiteClasses({ TestHandleCacheOne.class, TestHandleCacheTwo.class })
+public class AllTests extends WebDriverUtils {
 
 	@BeforeClass
 	public static void setUpSuiteOne() {
 		returnLoggerState();
+
+		// https://code.google.com/p/selenium/source/search?q=GridLauncher&origq=GridLauncher&btnG=Search+Trunk
+		
+		// start a RemoteWebDriver JSON server
+		//wds = initializeJSONHub( "build/resources/test/WebDriver.json" );
+		//wds = initializeJSONHub( "localhost", 4444, "firefox" );
+		
+		// start http server
 		File httpRoot = new File("build/resources/test");
-		logger.info("Server root directory is: " + httpRoot.getAbsolutePath() );
 		int httpPort = Integer.parseInt("8080");
 		try {
 			fs = new SiteServer( httpPort , httpRoot );
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		initializeStandaloneBrowser( "firefox" );
+		
 		logger.info("Finished setUpSuiteOne");
 	}
 
 	@AfterClass
 	public static void tearDownSuiteOne() {
-		closeAllBrowserWindows();  
 		logger.info("Finished tearDownSuiteOne");
+		wds.shutDownNodeAndHub();
+		fs.stop();
 	}
 
 }

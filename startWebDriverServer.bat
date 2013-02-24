@@ -11,7 +11,7 @@ ECHO.
 pause>nul
 timeout 10
 
-java -jar selenium-server-standalone-2.28.0.jar
+java -jar selenium-server-standalone-2.28.0.jar maxInstances=5 maxSessions=5
 
 pause
 

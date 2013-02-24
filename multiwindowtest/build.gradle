@@ -37,23 +37,26 @@ task show << {
     println "-----------------------------------------------"
 } 
 
-test {
+tasks.withType(Test) {
+    //systemProperty 'my.property', 'true'
+    //System.setProperty("webdriver.chrome.driver", "...\chromedriver.exe");
+    jvmArgs '-Xms128m', '-Xmx1024m', '-XX:MaxPermSize=128m'
+    maxParallelForks = 2
     testLogging {
         exceptionFormat "full"
         events "started", "passed", "skipped", "failed", "standardOut", "standardError"
-    }     
-}	
+    }
+    testLogging.showStandardStreams = true
+    //beforeTest { descriptor ->
+    //    logger.lifecycle("Running test: " + descriptor)
+    //}
+    //onOutput { descriptor, event ->
+    //    logger.lifecycle("Test: " + descriptor + " produced standard out/err: " + event.message)
+    //}
+}
 	
 task runAllTests(type: Test) {
-   include '**/AllTests.class'
-   testReportDir = file("${reporting.baseDir}/AllTests")
-   testResultsDir = file("${buildDir}/test-results/AllTests")
+    include '**/AllTests.class'
+    testReportDir = file("${reporting.baseDir}/AllTests")
+    testResultsDir = file("${buildDir}/test-results/AllTests")
 }
-
-task runParallelSuite(type: Test) {
-   include '**/ParallelSuite.class'
-   testReportDir = file("${reporting.baseDir}/ParallelSuite")
-   testResultsDir = file("${buildDir}/test-results/ParallelSuite")
-}
-
-

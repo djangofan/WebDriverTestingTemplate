@@ -7,7 +7,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
-import qa.webdriver.util.MultiWinCacheUtils;
+import qa.webdriver.util.WebDriverUtils;
 
 /**
  *  This class tests a multi-window handling method that I call "handle cache"
@@ -15,7 +15,7 @@ import qa.webdriver.util.MultiWinCacheUtils;
  * @author Jon Thor Austen
  *
  */
-public class TestHandleCacheOne extends MultiWinCacheUtils {
+public class TestHandleCacheOne extends WebDriverUtils {
 
 	/**
 	 *  Setup web server before loading class
@@ -37,7 +37,7 @@ public class TestHandleCacheOne extends MultiWinCacheUtils {
 	 */
 	@Before
 	public void setUpTestHandleCacheOne() {
-		initializeStandaloneBrowser( "firefox" );
+		initializeRemoteBrowser( "firefox", "localhost", 4444 );
 		logger.info("Finished setUpTestHandleCacheOne");
 	}
 	

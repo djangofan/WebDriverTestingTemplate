@@ -26,7 +26,9 @@ public class BingTest extends BingUtilities {
     */
 
 	public BingTest( String tName, String sString, String dMatch ) {
-		super( tName, sString, dMatch );
+		testName = tName;
+		searchString = sString;
+		ddMatch = dMatch;
 	}
 	
 	/**
