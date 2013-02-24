@@ -9,7 +9,7 @@ ECHO *********************************************
 ECHO.
 java.exe -version
 ECHO.
-java.exe -jar selenium-server-standalone-2.28.0.jar -role hub -hubConfig HubConfig.json
+java.exe -jar selenium-server-standalone-2.30.0.jar -role hub -hubConfig HubConfig.json
 
 ::pause
 

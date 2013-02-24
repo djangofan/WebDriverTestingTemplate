@@ -19,7 +19,7 @@ ECHO ======================
 ECHO Grid Hub status : & netstat -an | FIND "4444"
 ECHO ======================
 ECHO.
-java.exe -jar selenium-server-standalone-2.28.0.jar -role node -nodeConfig NodeConfig.json -Dwebdriver.chrome.driver=%CHROME_DRIVER_LOC%
+java.exe -jar selenium-server-standalone-2.30.0.jar -role node -nodeConfig NodeConfig.json -Dwebdriver.chrome.driver=%CHROME_DRIVER_LOC%
 
 ::pause
 
