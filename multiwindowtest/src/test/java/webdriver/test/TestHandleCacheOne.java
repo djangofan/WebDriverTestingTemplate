@@ -16,7 +16,7 @@ import qa.webdriver.util.WebDriverUtils;
  *
  */
 public class TestHandleCacheOne extends WebDriverUtils {
-
+	
 	/**
 	 *  Setup web server before loading class
 	 */
@@ -37,6 +37,7 @@ public class TestHandleCacheOne extends WebDriverUtils {
 	 */
 	@Before
 	public void setUpTestHandleCacheOne() {
+		xOffSet = 0;
 		initializeRemoteBrowser( "firefox", "localhost", 4444 );
 		System.out.println("HandleCacheOne thread id = " + Thread.currentThread().getId());
 		logger.info("Finished setUpTestHandleCacheOne");

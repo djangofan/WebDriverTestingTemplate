@@ -30,7 +30,8 @@ public abstract class WebDriverUtils extends CoreUtils {
 
 	protected static String mainHandle = "";
 	protected static String mainWindowTitle = "";
-	protected static Set<String> handleCache = new HashSet<String>();	
+	protected static Set<String> handleCache = new HashSet<String>();
+	protected static int xOffSet;
 
 	public static void clearAndSetValue(WebElement field, String text) { 
 		field.clear(); 
@@ -155,7 +156,7 @@ public abstract class WebDriverUtils extends CoreUtils {
 		} else {
 			mainHandle = driver.switchTo().defaultContent().getWindowHandle();
 			mainWindowTitle = driver.switchTo().defaultContent().getTitle();
-			setWindowPosition( mainHandle, 600, 800, 700, 40 );
+			setWindowPosition( mainHandle, 600, 800, 300 + xOffSet, 40 );
 		}
 	}
 
@@ -179,7 +180,7 @@ public abstract class WebDriverUtils extends CoreUtils {
 		} else {
 			mainHandle = driver.switchTo().defaultContent().getWindowHandle();
 			mainWindowTitle = driver.switchTo().defaultContent().getTitle();
-			setWindowPosition( mainHandle, 600, 800, 700, 40 );
+			setWindowPosition( mainHandle, 600, 600, 100 + xOffSet, 40 );
 		}
 	}
 

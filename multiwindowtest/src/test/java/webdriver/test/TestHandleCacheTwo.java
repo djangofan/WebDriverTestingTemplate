@@ -22,6 +22,7 @@ public class TestHandleCacheTwo extends WebDriverUtils {
 	 */
 	@BeforeClass
 	public static void setUpTestHandleCacheTwoClass() {
+		xOffSet = 800;
 		initializeRemoteBrowser( "firefox", "localhost", 4444 );
 		System.out.println("HandleCacheTwo thread id = " + Thread.currentThread().getId());
 		logger.info("Finished setUpTestHandleCacheTwoClass");

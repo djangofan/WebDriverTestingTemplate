@@ -43,6 +43,7 @@ tasks.withType(Test) {
     testLogging {
         exceptionFormat "full"
         events "started", "passed", "skipped", "failed", "standardOut", "standardError"
+        displayGranularity = 0
     }
     forkEvery = 0
     
