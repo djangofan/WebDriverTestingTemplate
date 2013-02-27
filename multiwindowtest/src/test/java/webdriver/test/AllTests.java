@@ -34,12 +34,12 @@ public class AllTests extends WebDriverUtils {
 			e.printStackTrace();
 		}
 		
-		logger.info("Finished setUpSuiteOne");
+		staticlogger.info("Finished setUpSuiteOne");
 	}
 
 	@AfterClass
 	public static void tearDownSuiteOne() {
-		logger.info("Finished tearDownSuiteOne");
+		staticlogger.info("Finished tearDownSuiteOne");
 		fs.stop();
 	}
 

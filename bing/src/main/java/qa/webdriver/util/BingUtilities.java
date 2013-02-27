@@ -32,7 +32,7 @@ public abstract class BingUtilities extends WebDriverUtils {
 		}
 		for ( int i= 0; i < matchedPosition ; i++ ) {
 			dd.sendKeys( Keys.ARROW_DOWN );
-			logger.info("...key down");
+			staticlogger.info("...key down");
 			waitTimer(1, 500); // to slow down the arrow key so you can see it
 		}
 		WebElement targetItem = allSuggestions.get( matchedPosition );

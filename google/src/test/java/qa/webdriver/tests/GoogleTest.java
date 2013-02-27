@@ -31,7 +31,7 @@ public class GoogleTest extends GoogleUtilities {
 	@BeforeClass
 	public static void setUpClass() {		
 
-		logger.info("Finished setUpClass");
+		staticlogger.info("Finished setUpClass");
 	}
 	
 	@Parameters(name = "{0}: {1}: {2}")
@@ -64,7 +64,7 @@ public class GoogleTest extends GoogleUtilities {
 
 	@Test
 	public void testWithPageObject() {
-		logger.info("{} being run...", testName );
+		staticlogger.info("{} being run...", testName );
 		driver.get("http://www.google.com");
 		GoogleSearchPage gs = new GoogleSearchPage();
 		gs.setSearchString( "iphone app" );
@@ -72,30 +72,30 @@ public class GoogleTest extends GoogleUtilities {
 		gs.clickSearchButton();
 		waitTimer(2, 1000);
 		clickByCSSSelector( "div.gbqlca" ); //click Google logo
-		logger.info("Page object test '{}' is done.", testName );
+		staticlogger.info("Page object test '{}' is done.", testName );
 	}
 
 	@Test
 	public void testFluentPageObject() {    	
-		logger.info("{} being run...", testName );
+		staticlogger.info("{} being run...", testName );
 		driver.get("http://www.google.com");
 		GoogleSearchPage gsp = new GoogleSearchPage();
 		gsp.withFluent().clickSearchField()
 		.setSearchString("iphone app").waitForTime(2, 1000)
 		.selectItem( "development" ).clickSearchButton()
 		.waitForTime(2, 1000).clickLogo(); //click Google logo
-		logger.info("Fluent test '{}' is done.", testName );
+		staticlogger.info("Fluent test '{}' is done.", testName );
 	}
 	
 	@After
 	public void cleanUp() {
-		logger.info("Finished cleanUp");
+		staticlogger.info("Finished cleanUp");
 		// driver.get("about:about");
 	}
 	
 	@AfterClass
 	public static void tearDownClass() {
-		logger.info("Finished tearDownClass");
+		staticlogger.info("Finished tearDownClass");
 	}
 
 }

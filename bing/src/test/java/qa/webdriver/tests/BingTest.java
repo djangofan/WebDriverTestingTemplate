@@ -87,12 +87,12 @@ public class BingTest extends BingUtilities {
 		waitTimer(3, 1000);
 		// clickByCSSSelector( "a.sw_logo" ); //click Bing logo by element
 		mouseClickByCSSLocator( "a.sw_logo" ); // click Bing logo physically with mouse movement
-		logger.info("Done with test.");
+		staticlogger.info("Done with test.");
 	}
 	
 	@Test
 	public void testFluentPageObject() {    	
-		logger.info("{} being run...", testName );
+		staticlogger.info("{} being run...", testName );
 		driver.get("http://bing.com");
 		BingSearchPage bsp = new BingSearchPage();
 		bsp.withFluent()
@@ -101,7 +101,7 @@ public class BingTest extends BingUtilities {
 		.selectItem( "development" ).clickSearchButton()
 		.waitForTime(2, 1000)
 		.clickLogo(); //click Bing logo
-		logger.info("Fluent test '{}' is done.", testName );
+		staticlogger.info("Fluent test '{}' is done.", testName );
 	}
 	
 	@After
@@ -117,7 +117,7 @@ public class BingTest extends BingUtilities {
 		// } catch (Exception e) {
 		// 	e.printStackTrace();
 		// }
-		logger.info("Finished tearDown.");
+		staticlogger.info("Finished tearDown.");
 	}
 
 }

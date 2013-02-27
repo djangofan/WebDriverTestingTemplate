@@ -1,7 +1,6 @@
 package qa.webdriver.util;
 
 import java.io.File;
-import java.io.PrintStream;
 import java.text.DecimalFormat;
 import java.util.Set;
 import org.openqa.selenium.By;
@@ -9,6 +8,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.Keys;
 import org.slf4j.Logger;
@@ -16,12 +16,12 @@ import org.slf4j.LoggerFactory;
 
 public abstract class CoreUtils {
 
-	protected static WebDriver driver;
+	protected static RemoteWebDriver driver;
 	public static SiteServer fs;
-	private static JavascriptExecutor js;
+	protected static JavascriptExecutor js;
 	protected static String pageLoadStatus = null;
-	public static Logger logger = LoggerFactory.getLogger( "JUnit" );
-	public static PrintStream log = System.out; // deprecated by use of LogBack 
+	public static Logger staticlogger = LoggerFactory.getLogger( "StaticLogger" );
+	protected Logger classlogger = LoggerFactory.getLogger( getClass() );
 	protected static String testName, searchString, ddMatch;
 
 	public static void clearAndSetValue(WebElement field, String text) { 
@@ -54,9 +54,9 @@ public abstract class CoreUtils {
 	public static File loadGradleResource( String fileName ) {
 		File junitFile = new File("build/resources/test/" + fileName );
 		if ( junitFile.exists() ) {
-			logger.info( "The file '" + junitFile.getAbsolutePath() + "' exists." );
+			staticlogger.info( "The file '" + junitFile.getAbsolutePath() + "' exists." );
 		} else {
-			logger.info( "Problem loading Gradle resource: " + junitFile.getAbsolutePath() );
+			staticlogger.info( "Problem loading Gradle resource: " + junitFile.getAbsolutePath() );
 		}	
 		return junitFile;
 	}
@@ -92,25 +92,25 @@ public abstract class CoreUtils {
 	}
 
 	public static void waitForPageToLoad() {
-		logger.info("Waiting for page to load...");
+		staticlogger.info("Waiting for page to load...");
 		do {
 			js = (JavascriptExecutor) driver;
 			pageLoadStatus = (String)js.executeScript("return document.readyState");
-			logger.info(".");
+			staticlogger.info(".");
 		} while ( !pageLoadStatus.equals("complete") );
-		    logger.info("Page is loaded.");
+		    staticlogger.info("Page is loaded.");
 	}
 
 	public static void waitTimer( int units, int mills ) {
     	DecimalFormat df = new DecimalFormat("###.##");
 		double totalSeconds = ((double)units*mills)/1000;
-		logger.info("Explicit pause for " + df.format(totalSeconds) + " seconds divided by " + units + " units of time: ");
+		staticlogger.info("Explicit pause for " + df.format(totalSeconds) + " seconds divided by " + units + " units of time: ");
 		try {
 			Thread.currentThread();		
 			int x = 0;
 			while( x < units ) {
 				Thread.sleep( mills );
-				logger.info(".");
+				staticlogger.info(".");
 				x = x + 1;
 			}
 		} catch ( InterruptedException ex ) {

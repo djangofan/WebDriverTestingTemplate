@@ -25,14 +25,14 @@ public class TestHandleCacheTwo extends WebDriverUtils {
 		xOffSet = 800;
 		initializeRemoteBrowser( "firefox", "localhost", 4444 );
 		System.out.println("HandleCacheTwo thread id = " + Thread.currentThread().getId());
-		logger.info("Finished setUpTestHandleCacheTwoClass");
+		staticlogger.info("Finished setUpTestHandleCacheTwoClass");
 	}
 	
 	/**
 	 *  Load main window handle before tests
 	 */
 	public TestHandleCacheTwo() {
-		logger.info("Constructed TestHandleCacheTwo");
+		classlogger.info("Constructed TestHandleCacheTwo");
 	}
 	
 	/**
@@ -40,7 +40,7 @@ public class TestHandleCacheTwo extends WebDriverUtils {
 	 */
 	@Before
 	public void setUpTestHandleCacheTwo() {
-		logger.info("Finished setUpTestHandleCacheTwo");
+		classlogger.info("Finished setUpTestHandleCacheTwo");
 	}
 	
 	/**
@@ -48,26 +48,26 @@ public class TestHandleCacheTwo extends WebDriverUtils {
 	 */
 	@Test
 	public void testHandleCacheTwo() {
-		logger.info("Starting test testHandleCacheTwo" );
-		logger.info("Loading Window1 contents");
+		classlogger.info("Starting test testHandleCacheTwo" );
+		classlogger.info("Loading Window1 contents");
 		driver.get("http://localhost:8080/httproot/index.html");
 		waitTimer(2, 500);
 
 		// Open Window2 via Window1
-		logger.info("Opening Window2");
+		classlogger.info("Opening Window2");
 		driver.findElement( By.id("btnNewNamelessWindow") ).click();        
 		String h2 = handleNewWindow();
 		waitTimer(2, 500);
 
 		// Open Window3 and Window4 via Window2
 		//driver.findElement( By.cssSelector("html body a:first-child") ).click();
-		logger.info("Opening Window3");
+		classlogger.info("Opening Window3");
 		driver.findElement(By.id("w3link")).click();
 		String h3 = handleNewWindow();
 		waitTimer(2, 500);
 		driver.switchTo().window( h2 );
 		//driver.findElement( By.cssSelector("html body a:last-child") ).click();
-		logger.info("Opening Window4");
+		classlogger.info("Opening Window4");
 		driver.findElement(By.id("w4link")).click();
 		waitTimer(2, 500);
 		String h4 = handleNewWindow();
@@ -88,7 +88,7 @@ public class TestHandleCacheTwo extends WebDriverUtils {
 		updateHandleCache();        
 		waitTimer(2, 500);         
 
-		logger.info( "Finished testHandleCacheTwo" );
+		classlogger.info( "Finished testHandleCacheTwo" );
 	}	
 
 	/**
@@ -101,7 +101,7 @@ public class TestHandleCacheTwo extends WebDriverUtils {
 		driver.get("about:about");
 		updateHandleCache();  
 		waitTimer(6, 500);
-		logger.info("Finished tearDownTestHandleCacheTwo");
+		classlogger.info("Finished tearDownTestHandleCacheTwo");
 	}
 
 	/**
@@ -110,7 +110,7 @@ public class TestHandleCacheTwo extends WebDriverUtils {
 	@AfterClass
 	public static void tearDownClass() {
 		closeAllBrowserWindows(); 
-		logger.info("Finished tearDownTestHandleCacheTwoClass");
+		staticlogger.info("Finished tearDownTestHandleCacheTwoClass");
 	}
 
 }

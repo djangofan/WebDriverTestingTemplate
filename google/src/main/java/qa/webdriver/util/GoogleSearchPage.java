@@ -29,7 +29,7 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
         }
 
         public GSPFluentInterface clickLogo() {
-        	logger.info("Click Google logo.");
+        	staticlogger.info("Click Google logo.");
         	clickByCSSSelector( "div.gbqlca" );
             return this;
         }
@@ -45,7 +45,7 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
         }
 		
         public GSPFluentInterface selectItem( String ele ) {
-            logger.info("Selecting item in list using fluent API.");
+            staticlogger.info("Selecting item in list using fluent API.");
             selectInGoogleDropdown( ele );
             return this;
         }
@@ -78,7 +78,7 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
 	
     public GoogleSearchPage() {
         super( new SystemClock(), timeOutInSeconds);
-        logger.info("GoogleSearchPage constructor...");
+        staticlogger.info("GoogleSearchPage constructor...");
         gspfi = new GSPFluentInterface( this );
         this.get(); // if load() fails, calls isLoaded() until page is finished loading
         PageFactory.initElements(driver, this); // initialize WebElements on page 
@@ -102,7 +102,7 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
      */
     @Override
     protected void isLoaded() throws Error {    	
-    	logger.info("GoogleSearchPage.isLoaded()...");
+    	staticlogger.info("GoogleSearchPage.isLoaded()...");
         Assert.assertTrue("Google search page is not yet loaded.", isSearchFieldVisible() );
     }
 	
@@ -126,7 +126,7 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
      */
     @Override
     protected void load() {
-        logger.info("GoogleSearchPage.load()...");
+        staticlogger.info("GoogleSearchPage.load()...");
         if ( isSFieldPresent ) {
             Wait<WebDriver> wait = new WebDriverWait( driver, 3 );        
             wait.until( visibilityOfElementLocated( By.id("gbqfq") ) ).click();

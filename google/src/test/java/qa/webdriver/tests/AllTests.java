@@ -21,7 +21,7 @@ public class AllTests extends GoogleUtilities {
 	public static void setUpSuiteOne() {
 		//wds = initializeJSONHub( "build/resources/test/DefaultNodeWebDriver.json" );
 		initializeRemoteBrowser( "firefox", "localhost", 4444 );
-		logger.info("Finished setUpSuiteOne");
+		staticlogger.info("Finished setUpSuiteOne");
 	}
 
 	@AfterClass
@@ -32,7 +32,7 @@ public class AllTests extends GoogleUtilities {
 		// } catch (Exception e) {
 		// 	e.printStackTrace();
 		// }
-		logger.info("Finished tearDownSuiteOne");
+		staticlogger.info("Finished tearDownSuiteOne");
 	}
 
 }

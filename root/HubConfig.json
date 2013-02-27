@@ -1,4 +1,5 @@
 {
+    "_comment" : "Configuration for Hub",
     "host": ip,
 	  "maxSessions": 5,
     "port": 4444,
@@ -9,5 +10,6 @@
     "prioritizer": null,
     "capabilityMatcher": "org.openqa.grid.internal.utils.DefaultCapabilityMatcher",
     "throwOnCapabilityNotPresent": true,   
-    "nodePolling": 180000        
+    "nodePolling": 180000,
+    "platform": "WINDOWS"
 }

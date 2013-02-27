@@ -16,6 +16,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.LoggerFactory;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.core.util.StatusPrinter;
+import qa.webdriver.util.CoreUtils;
 
 /**
  *  
@@ -41,20 +42,20 @@ public abstract class WebDriverUtils extends CoreUtils {
 	public static void closeAllBrowserWindows() {
 		Set<String> handles = driver.getWindowHandles();
 		if ( !handles.isEmpty() ) {
-			logger.info("Closing " + handles.size() + " window(s).");
+			staticlogger.info("Closing " + handles.size() + " window(s).");
 			for ( String windowId : handles ) {
-				logger.info("-- Closing window handle: " + windowId );
+				staticlogger.info("-- Closing window handle: " + windowId );
 				driver.switchTo().window( windowId ).close();
 			}
 		} else {
-			logger.info("There were no window handles to close.");
+			staticlogger.info("There were no window handles to close.");
 		}
 		driver.quit();  // this quit is critical, otherwise window will hang open
 	}
 	
 	public static void closeWindowByHandle( String windowHandle ) {  
 		driver.switchTo().window( windowHandle );
-		logger.info("Closing window with title \"" + driver.getTitle() + "\"." );
+		staticlogger.info("Closing window with title \"" + driver.getTitle() + "\"." );
 		driver.close();
 	}
 	/**
@@ -86,12 +87,12 @@ public abstract class WebDriverUtils extends CoreUtils {
 					if ( !windowId.equals( mainHandle ) ) { // for all windows except main window
 						if ( !handleCache.contains( windowId) ) { // for child windows not in allHandles cache
 							newHandle = windowId; // set value of newly found window handle						
-							log.println("-- Open window handle: " + newHandle + " (new window)" );
+							staticlogger.info("-- Open window handle: " + newHandle + " (new window)" );
 						}
 					}
 				}
 				if ( !newHandle.equals("") ) { // outside loop so it catches latest window handle if there are multiple
-					log.println("Switch to new window.");
+					staticlogger.info("Switch to new window.");
 					driver.switchTo().window( newHandle ); // switch to new window handle
 				}
 			} else {
@@ -108,11 +109,11 @@ public abstract class WebDriverUtils extends CoreUtils {
 		Set<String> updatedHandles = driver.getWindowHandles();
 		if ( !updatedHandles.isEmpty() ) {
 			if ( updatedHandles.size() > handleCache.size() ) {
-				log.println( "Window handle number increased to: " + updatedHandles.size() );
+				staticlogger.info( "Window handle number increased to: " + updatedHandles.size() );
 			} else if ( updatedHandles.size() == handleCache.size() ) {
-				log.println( "Window handle number is unchanged from: " + updatedHandles.size() );
+				staticlogger.info( "Window handle number is unchanged from: " + updatedHandles.size() );
 			} else {
-				log.println( "Window handle number decreased to: " + updatedHandles.size() );
+				staticlogger.info( "Window handle number decreased to: " + updatedHandles.size() );
 			}			
 		} else {
 			mainHandle = null;
@@ -122,13 +123,11 @@ public abstract class WebDriverUtils extends CoreUtils {
 	}
 
 	public static void printHandles() {
-		log.println( "Open windows:" );
+		staticlogger.info( "Open windows:" );
 		for ( String windowId : handleCache ) {
-			log.print( "-- Open window handle: " + windowId );
+			staticlogger.info( "-- Open window handle: " + windowId );
 			if ( windowId.equals( mainHandle ) ) {
-				log.println(" (main handle)");
-			} else {
-				log.println();
+				staticlogger.info(" (main handle)");
 			}
 		}
 	}	
