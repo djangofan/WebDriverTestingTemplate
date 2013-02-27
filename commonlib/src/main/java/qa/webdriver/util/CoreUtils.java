@@ -5,6 +5,7 @@ import java.text.DecimalFormat;
 import java.util.Set;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -100,7 +101,7 @@ public abstract class CoreUtils {
 		} while ( !pageLoadStatus.equals("complete") );
 		    staticlogger.info("Page is loaded.");
 	}
-
+	
 	public static void waitTimer( int units, int mills ) {
     	DecimalFormat df = new DecimalFormat("###.##");
 		double totalSeconds = ((double)units*mills)/1000;

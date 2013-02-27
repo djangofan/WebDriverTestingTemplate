@@ -5,8 +5,11 @@ import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,7 +22,6 @@ import ch.qos.logback.core.util.StatusPrinter;
 import qa.webdriver.util.CoreUtils;
 
 /**
- *  
  * @author Jon Austen
  *
  */
@@ -187,6 +189,34 @@ public abstract class WebDriverUtils extends CoreUtils {
 		driver.switchTo().window( handle ).manage().window().setPosition( new Point(fleft, ftop) );
 		driver.switchTo().window( handle ).manage().window().setSize( new Dimension( width, height) );
 		//TODO add a javascript executor to get window focus
+	}
+	
+	public static boolean waitForElementBy( By cssLocator ) {
+		long t= System.currentTimeMillis();
+		long end = t + 30000; // 30 seconds long-wait
+		int num = 0;
+		int theSize;
+		boolean visible = false; // default to false
+		while( System.currentTimeMillis() < end ) {
+			theSize = driver.findElements( cssLocator ).size();
+			if ( theSize > 1 ) staticlogger.info("WARNING: More than one element found for: " + cssLocator.toString() );
+			while ( theSize == 0 ) {				
+				num +=1;
+				staticlogger.info( "WARNING: No element found yet for: " + cssLocator.toString() );
+				staticlogger.info( "Attempt number: " + num );
+				waitTimer(2, 1000); // slow down loop
+			}
+			if ( theSize == 1 ) staticlogger.info("Found at least one element after waiting: " + cssLocator.toString() );
+			try {
+				driver.findElement( cssLocator );
+				visible = true;
+			} catch ( NoSuchElementException nse ) {
+				staticlogger.info( nse.toString() );
+			}
+			return visible;
+		}
+		staticlogger.info("Failed to find element.  Timeout was reached.");
+		return visible; // default return value
 	}
 
 }
