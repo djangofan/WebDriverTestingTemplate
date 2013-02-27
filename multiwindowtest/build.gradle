@@ -67,7 +67,9 @@ task runAllTests(type: Test) {
 }
 
 task runSkipSuite(type: Test) {
-    // this method works but requires running a separate HTTP server to serve the local html files
+    // this method works but requires running a separate HTTP server using
+    // resources\test\SimpleWebServer.groovy from the included
+    // startWebServer.bat script
     include '**/TestHandleCache*.class'
     testReportDir = file("${reporting.baseDir}/TestHandleCache")
     testResultsDir = file("${buildDir}/test-results/TestHandleCache")

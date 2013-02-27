@@ -12,5 +12,6 @@ ECHO.
 java.exe -jar selenium-server-standalone-2.30.0.jar -role hub -hubConfig HubConfig.json -debug
 
 ::java.exe -jar selenium-server-standalone-2.30.0.jar -role hub -browser "browserName=firefox,version=19,firefox_binary=C:\Program Files (x86)\Mozilla Firefox\firefox.exe ,maxInstances=5, platform=WINDOWS" -debug
+
 ::pause
 
