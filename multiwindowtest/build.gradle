@@ -60,7 +60,8 @@ tasks.withType(Test) {
 }
 	
 task runAllTests(type: Test) {
-    // this method needs a forkEvery method instead of by classes. Gradle thinks AllTests is one class but it isn't.
+    // this method is not forking the test process with 2 workers
+    // requires pre-launch of Hub and Node first
     include '**/AllTests.class'
     testReportDir = file("${reporting.baseDir}/AllTests")
     testResultsDir = file("${buildDir}/test-results/AllTests")
@@ -70,8 +71,9 @@ task runSkipSuite(type: Test) {
     // this method works but requires running a separate HTTP server using
     // resources\test\SimpleWebServer.groovy from the included
     // startWebServer.bat script
+    // requires pre-launch of Hub and Node first
     include '**/TestHandleCache*.class'
-    testReportDir = file("${reporting.baseDir}/TestHandleCache")
-    testResultsDir = file("${buildDir}/test-results/TestHandleCache")
+    testReportDir = file("${reporting.baseDir}/SkipSuite")
+    testResultsDir = file("${buildDir}/test-results/SkipSuite")
 }
 

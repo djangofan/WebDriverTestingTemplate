@@ -1,23 +1,23 @@
 /**
  * Simple web server
- * @author <a href="mailto:jeremy.rayner@gmail.com">Jeremy Rayner</a>
+ * @author Jon Austen
  * 
- * invoke using
- *    groovy -l 80 SimpleWebServer.groovy
+ * invoke using:
+ *    groovy -l 8080 SimpleWebServer.groovy
  * 
- *       (where 80 is the port to listen for requests upon)
  */
 import java.io.File
 
 if (init) { 
     headers = [:] 
-    binaryTypes = ["gif","jpg","png"]          
+    binaryTypes = ["gif","jpg","png","ico"]          
     mimeTypes = [
         "css" : "text/css",         
         "gif" : "image/gif",
         "htm" : "text/html",         
         "html": "text/html",         
-        "jpg" : "image/jpeg",         
+        "jpg" : "image/jpeg",   
+        "ico" : "image/ico",		
         "png" : "image/png"
     ]                                 
 }
