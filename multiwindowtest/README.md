@@ -6,13 +6,14 @@ to add your own method, fork my code and then send me a "pull request" and I wil
 add it.
 
 ##Running this project
-1. You need to first start the web HTTP server, the Grid Hub, and the Grid Node 
-   that are contained in the 'root' project of this GitHub repo.  NOTE: If  you are 
-   running the 'runAllTests' task, you don't need to start the HTTP server because
+1. You need to first start the web HTTP server located at:
+  https://github.com/djangofan/WebDriverTestingTemplate/blob/master/multiwindowtest/src/test/resources/startWebServer.bat
+2.  Then, start the Grid Hub and the Grid Node that are contained at:
+   https://github.com/djangofan/WebDriverTestingTemplate/blob/master/root  
+
+NOTE: If  you are running the 'runAllTests' task, you don't need to start the HTTP server because
    the test code starts one for you in the static AllTests suite class.
 
 ##Methods Implemented So Far
 ===========================
-1. A window "Handle Cache" method using "TestHandleCache" class.
-2. 
-3. 
+
