@@ -25,10 +25,13 @@ public class BingTest extends BingUtilities {
 	   Runs parameterized	   
     */
 
+	protected static String testName, searchString, ddMatch;
+	
 	public BingTest( String tName, String sString, String dMatch ) {
 		testName = tName;
 		searchString = sString;
 		ddMatch = dMatch;
+		staticlogger.info("Running test: " + testName + ", " + searchString + ", " + ddMatch );
 	}
 	
 	/**

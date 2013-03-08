@@ -46,7 +46,7 @@ IF "%~1"=="" (
   ECHO [4] Display Google tasks
   ECHO [5] Display Bing tasks
   ECHO [6] Display Core Utilities tasks
-  ECHO [7] Execute MultiWindowTest tests
+  ECHO [7] Execute Parallel WebDriver tests
   ECHO [8] Gradle GUI
   ECHO [X] EXIT
   ECHO.
@@ -87,7 +87,7 @@ IF "%CHOICE%"=="1" (
   CALL gradle.bat commonlib:tasks
   GOTO :PICK
 ) ELSE IF "%CHOICE%"=="7" (
-  CALL gradle.bat commonlib:identify commonlib:show multiwindowtest:runAllTests
+  CALL gradle.bat commonlib:identify commonlib:show parallelwebdriver:runParallelTests
   GOTO :PICK
 ) ELSE IF "%CHOICE%"=="8" (
   CALL gradle.bat --gui

@@ -7,12 +7,8 @@ import org.openqa.selenium.WebElement;
 
 public abstract class GoogleUtilities extends WebDriverUtils {
 	
-	public GoogleUtilities( String tName, String sString, String dMatch ) {
-		super();
-		testName = tName;
-		searchString = sString;
-		ddMatch = dMatch;
-		staticlogger.info("Running test: " + testName + ", " + searchString + ", " + ddMatch );
+	public GoogleUtilities() {
+        // do nothing
 	}
 
     /**

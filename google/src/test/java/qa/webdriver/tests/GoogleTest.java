@@ -24,8 +24,13 @@ public class GoogleTest extends GoogleUtilities {
 	   Runs parameterized	   
     */
 	
+	protected static String testName, searchString, ddMatch;
+	
 	public GoogleTest( String tName, String sString, String dMatch ) {
-		super( tName, sString, dMatch );	
+		testName = tName;
+		searchString = sString;
+		ddMatch = dMatch;
+		staticlogger.info("Running test: " + testName + ", " + searchString + ", " + ddMatch );	
 	}
 	
 	@BeforeClass

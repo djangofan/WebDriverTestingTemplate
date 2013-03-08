@@ -6,7 +6,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 public abstract class BingUtilities extends WebDriverUtils {
-
+	
 	public BingUtilities() {
         // do nothing
 	}

@@ -15,42 +15,43 @@ import qa.webdriver.util.WebDriverUtils;
  * @author Jon Thor Austen
  *
  */
-public class TestHandleCacheOne extends WebDriverUtils {
-	
+public class TestHandleCacheTwo extends WebDriverUtils {
+
 	/**
 	 *  Setup web server before loading class
 	 */
 	@BeforeClass
-	public static void setUpTestHandleCacheOneClass() {
-		staticlogger.info("Finished TestHandleCacheOneClass");
+	public static void setUpTestHandleCacheTwoClass() {
+		staticlogger.info("Finished setUpTestHandleCacheTwoClass");
 	}
 	
 	/**
 	 *  Load main window handle before tests
 	 */
-	public TestHandleCacheOne() {
-		classlogger.info("Constructed TestHandleCacheOne");
+	public TestHandleCacheTwo() {
+		classlogger.info("Constructed TestHandleCacheTwo");
 	}
 	
 	/**
 	 *  Start main window handle for tests
 	 */
 	@Before
-	public void setUpTestHandleCacheOne() {
-		xOffSet = 0;
+	public void setUpTestHandleCacheTwo() {
+		testXOffset = 550;
 		initializeRemoteBrowser( "firefox", "localhost", 4444 );
-		System.out.println("HandleCacheOne thread id = " + Thread.currentThread().getId());
-		classlogger.info("Finished setUpTestHandleCacheOne");
+		System.out.println("HandleCacheTwo thread id = " + Thread.currentThread().getId());
+		classlogger.info("Finished setUpTestHandleCacheTwo");
 	}
 	
 	/**
 	 *  Tests opening a few windows and then closing them
 	 */
 	@Test
-	public void testHandleCacheOne() {
-		classlogger.info("Starting test testHandleCacheOne" );
+	public void testHandleCacheTwo() {
+		classlogger.info("Starting test testHandleCacheTwo" );
 		classlogger.info("Loading Window1 contents");
-		driver.get("http://localhost:8080/httproot/index.html");
+		driver.get( System.getProperty("testProtocol") + "://" + System.getProperty("testDomain") + ":" +
+		        System.getProperty("testPort") + System.getProperty("testUri") );
 		waitTimer(2, 500);
 
 		// Open Window2 via Window1
@@ -88,29 +89,29 @@ public class TestHandleCacheOne extends WebDriverUtils {
 		updateHandleCache();        
 		waitTimer(2, 500);         
 
-		classlogger.info( "Finished testHandleCacheOne" );
+		classlogger.info( "Finished testHandleCacheTwo" );
 	}	
 
 	/**
 	 *  Close main window handle after tests finish
 	 */
 	@After
-	public void tearDownTestHandleCacheOne() {
+	public void tearDown() {
 		// close main window handle
 		driver.switchTo().window( mainHandle );
 		driver.get("about:about");
 		updateHandleCache();  
 		waitTimer(6, 500);
-		classlogger.info("Finished tearDownTestHandleCacheOne");
+		classlogger.info("Finished tearDownTestHandleCacheTwo");
 	}
 
 	/**
 	 *  Cleanup any remaining objects after unloading class
 	 */
 	@AfterClass
-	public static void tearDownTestHandleCacheOneClass() {
+	public static void tearDownClass() {
 		closeAllBrowserWindows(); 
-		staticlogger.info("Finished tearDownTestHandleCacheOneClass");
+		staticlogger.info("Finished tearDownTestHandleCacheTwoClass");
 	}
 
 }

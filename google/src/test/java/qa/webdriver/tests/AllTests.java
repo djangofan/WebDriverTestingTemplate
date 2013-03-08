@@ -13,8 +13,8 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({ GoogleTest.class })
 public class AllTests extends GoogleUtilities {
 
-	public AllTests(String tName, String sString, String dMatch) {
-		super(tName, sString, dMatch);
+	public AllTests() {
+		// do nothing
 	}
 
 	@BeforeClass

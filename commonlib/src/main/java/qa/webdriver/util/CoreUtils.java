@@ -5,7 +5,6 @@ import java.text.DecimalFormat;
 import java.util.Set;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -18,12 +17,10 @@ import org.slf4j.LoggerFactory;
 public abstract class CoreUtils {
 
 	protected static RemoteWebDriver driver;
-	public static SiteServer fs;
 	protected static JavascriptExecutor js;
 	protected static String pageLoadStatus = null;
 	public static Logger staticlogger = LoggerFactory.getLogger( "StaticLogger" );
 	protected Logger classlogger = LoggerFactory.getLogger( getClass() );
-	protected static String testName, searchString, ddMatch;
 
 	public static void clearAndSetValue(WebElement field, String text) { 
 		field.clear(); 
