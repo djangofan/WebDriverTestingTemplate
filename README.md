@@ -146,9 +146,10 @@ above.
 I use "GitHub GUI" to sync my local project repo to GitHub.  If you fork my project, I would recommend doing <br/>
 it this way unless you are a Git expert and prefer another way.<br/>
 
-Some related projects:<br/>
+Some similar and related projects:<br/>
 https://github.com/sebarmeli/Selenium2-Java-QuickStart-Archetype<br/>
 https://github.com/sebarmeli/Selenium2-Java-Demo<br/>
+https://github.com/djangofan/vanq-java<br/>
 http://code.google.com/p/selenium-ext/source/browse/<br/>
 <br/>
 Website of this project:<br/>
