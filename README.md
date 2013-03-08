@@ -32,7 +32,7 @@ including a method to run dynamically and directly from the .zip distribution on
 
 To try this project without requiring a Java IDE, just make sure you download Gradle 1.3, configure your
 GRADLE_HOME<br/> environment variable, add %GRADLE_HOME%\bin to your PATH, and then download the .zip distribution
-of this<br/> project, unzip it, and run the included <b>gradle_run.bat</b> script.
+of this<br/> project, unzip it, and run the included <b>root/runProjectMenu.bat</b> script.
 
 # Implemented Features
 <table>
