@@ -16,13 +16,14 @@ Eclipse Root <br/>
 +--- Project ':bing'<br/>
 +--- Project ':commonlib'<br/>
 +--- Project ':google'<br/>
++--- Project ':parallelwebdriver'<br/>
 +--- ...<br/>
 <br/>
 
 # Birdseye view<br/>
 1. Project "bing" is a basic standalone browser test.<br/>
 2. Project "google" is a RemoteWebDriver JUnit test-suite using a local Grid server that is capable of running<br/>multiple threads of web browser tests.
-3. Project "multiwindowtest" is a test of multi window handling using a static local website.<br/>
+3. Project "parallelwebdriver" is a test of a  multi-window multi-threaded run using a static local website.<br/>
 4. Project "commonlib" is a sub-project containing methods shared between projects.<br/>
 5. Project "root" is an 'includeFlat' Gradle-layout-alias to Eclipse project-root-dir 'WebDriverTestingTemplate'.
 
