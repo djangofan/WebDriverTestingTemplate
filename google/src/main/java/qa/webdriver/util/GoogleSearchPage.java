@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.SlowLoadableComponent;
 import org.openqa.selenium.support.ui.SystemClock;
 import org.openqa.selenium.support.ui.Wait;
@@ -30,7 +31,10 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
 
         public GSPFluentInterface clickLogo() {
         	staticlogger.info("Click Google logo.");
-        	clickByCSSSelector( "div.gbqlca" );
+        	WebElement logo = null;
+        	By locator = By.cssSelector( "div.gbqlca" );
+        	logo = getElementByLocator( locator );
+        	logo.click();
             return this;
         }
 		
@@ -81,7 +85,7 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
         staticlogger.info("GoogleSearchPage constructor...");
         gspfi = new GSPFluentInterface( this );
         this.get(); // if load() fails, calls isLoaded() until page is finished loading
-        PageFactory.initElements(driver, this); // initialize WebElements on page 
+        PageFactory.initElements( driver, this ); // initialize WebElements on page 
     }
     
     public void clickSearchButton() {
@@ -129,7 +133,7 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
         staticlogger.info("GoogleSearchPage.load()...");
         if ( isSFieldPresent ) {
             Wait<WebDriver> wait = new WebDriverWait( driver, 3 );        
-            wait.until( visibilityOfElementLocated( By.id("gbqfq") ) ).click();
+            wait.until( ExpectedConditions.visibilityOfElementLocated( By.id("gbqfq") ) ).click();
         }
     }
 	

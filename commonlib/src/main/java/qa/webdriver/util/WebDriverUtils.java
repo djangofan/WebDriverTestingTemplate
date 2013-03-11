@@ -1,19 +1,22 @@
 package qa.webdriver.util;
 
+import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.LoggerFactory;
@@ -31,14 +34,47 @@ public abstract class WebDriverUtils extends CoreUtils {
 		// do nothing
 	}
 
+	protected static RemoteWebDriver driver;
+	public static int DEFAULT_IMPLICIT_WAIT = 30;
 	protected static String mainHandle = "";
 	protected static String mainWindowTitle = "";
 	protected static Set<String> handleCache = new HashSet<String>();
-	protected static int testXOffset = 100;
+	public static int testXOffset = 100;
+	protected static File reportFile;
+	protected static long startTime;
 
 	public static void clearAndSetValue(WebElement field, String text) { 
 		field.clear(); 
 		field.sendKeys(Keys.chord(Keys.CONTROL, "a"), text); 
+	}
+
+	public static void clearAndType(WebElement field, String text) { 
+		field.clear(); 
+		field.sendKeys(text); 
+	}
+
+	public static void mouseClickByLocator( By locator ) {
+		WebElement el = driver.findElement( locator );
+		Actions builder = new Actions( driver );
+		builder.moveToElement( el ).click( el );
+		builder.perform();
+	}
+
+	public static void switchToWindowByName( String name ) {
+		Set<String> windowSet = driver.getWindowHandles();
+		for( String handle: windowSet ) { 
+			driver.switchTo().window( handle );
+			if ( driver.getTitle().equals( name ) ) {
+				break;
+			}
+		}
+	}
+
+	public static void clickByIdWithJavascript( String id ) {
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		WebElement element= driver.findElement( By.id( id ) );
+		js.executeScript( "arguments[0].click();", element );
+		js = null;
 	}
 
 	public static void closeAllBrowserWindows() {
@@ -54,7 +90,7 @@ public abstract class WebDriverUtils extends CoreUtils {
 		}
 		driver.quit();  // this quit is critical, otherwise window will hang open
 	}
-	
+
 	public static void closeWindowByHandle( String windowHandle ) {  
 		driver.switchTo().window( windowHandle );
 		staticlogger.info("Closing window with title \"" + driver.getTitle() + "\"." );
@@ -64,8 +100,8 @@ public abstract class WebDriverUtils extends CoreUtils {
 	 * Print internal Logger status
 	 */
 	public static void returnLoggerState() {
-	    LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
-	    StatusPrinter.print(lc);
+		LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
+		StatusPrinter.print(lc);
 	}
 
 	/**
@@ -133,7 +169,7 @@ public abstract class WebDriverUtils extends CoreUtils {
 			}
 		}
 	}	
-	
+
 	public static void initializeRemoteBrowser( String type, String host, int port ) {
 		if ( type.equalsIgnoreCase( "firefox" ) ) {
 			try {
@@ -144,7 +180,7 @@ public abstract class WebDriverUtils extends CoreUtils {
 		} else if ( type.equalsIgnoreCase( "ie" ) ) {
 			driver = new InternetExplorerDriver();
 		}
-		driver.manage().timeouts().implicitlyWait( 10000, TimeUnit.MILLISECONDS );
+		driver.manage().timeouts().implicitlyWait( DEFAULT_IMPLICIT_WAIT, TimeUnit.MILLISECONDS );
 		handleCache = driver.getWindowHandles();
 		if ( handleCache.size() == 0 ) {
 			mainHandle = "";
@@ -158,31 +194,10 @@ public abstract class WebDriverUtils extends CoreUtils {
 			mainHandle = driver.switchTo().defaultContent().getWindowHandle();
 			mainWindowTitle = driver.switchTo().defaultContent().getTitle();
 			int fromLeft = Integer.parseInt( System.getProperty("windowXPosition") );
-			setWindowPosition( mainHandle, 400, 600, fromLeft + testXOffset, 40 );
-		}
-	}
-
-	public static void initializeStandaloneBrowser( String type ) {
-		if ( type.equalsIgnoreCase( "firefox" ) ) {
-			driver = new FirefoxDriver();
-		} else if ( type.equalsIgnoreCase( "ie" ) ) {
-			// ie driver server .exe needs to be in your system path
-			driver = new InternetExplorerDriver();
-		}
-		driver.manage().timeouts().implicitlyWait( 30, TimeUnit.SECONDS );
-		handleCache = driver.getWindowHandles();
-		if ( handleCache.size() == 0 ) {
-			mainHandle = "";
-			throw new IllegalStateException("No browser window handles are open.\n" +
-					"Browser is uninitialized.");
-		} else if ( handleCache.size() > 1 ) {
-			mainHandle = "";
-			throw new IllegalStateException("More than one browser window handle is open.\n" +
-					"Please close all browsers and restart test.");
-		} else {
-			mainHandle = driver.switchTo().defaultContent().getWindowHandle();
-			mainWindowTitle = driver.switchTo().defaultContent().getTitle();
-			setWindowPosition( mainHandle, 400, 600, 100 + testXOffset, 40 );
+			int fromTop = Integer.parseInt( System.getProperty("windowYPosition") );
+			int width = Integer.parseInt( System.getProperty("windowWidth") );
+			int height = Integer.parseInt( System.getProperty("windowHeight") );
+			setWindowPosition( mainHandle, width, height, fromLeft + testXOffset, fromTop );
 		}
 	}
 
@@ -191,33 +206,34 @@ public abstract class WebDriverUtils extends CoreUtils {
 		driver.switchTo().window( handle ).manage().window().setSize( new Dimension( width, height) );
 		//TODO add a javascript executor to get window focus
 	}
-	
-	public static boolean waitForElementBy( By cssLocator ) {
-		long t= System.currentTimeMillis();
-		long end = t + 30000; // 30 seconds long-wait
-		int num = 0;
-		int theSize;
-		boolean visible = false; // default to false
-		while( System.currentTimeMillis() < end ) {
-			theSize = driver.findElements( cssLocator ).size();
-			if ( theSize > 1 ) staticlogger.info("WARNING: More than one element found for: " + cssLocator.toString() );
-			while ( theSize == 0 ) {				
-				num +=1;
-				staticlogger.info( "WARNING: No element found yet for: " + cssLocator.toString() );
-				staticlogger.info( "Attempt number: " + num );
-				waitTimer(2, 1000); // slow down loop
-			}
-			if ( theSize == 1 ) staticlogger.info("Found at least one element after waiting: " + cssLocator.toString() );
-			try {
-				driver.findElement( cssLocator );
-				visible = true;
-			} catch ( NoSuchElementException nse ) {
-				staticlogger.info( nse.toString() );
-			}
-			return visible;
+
+	public static WebElement getElementByLocator( By locator ) {		
+		int weWait = DEFAULT_IMPLICIT_WAIT;
+		int cycle = 1;
+		WebElement we = null;
+		List<WebElement> weList = driver.findElements( locator );
+		while ( weList.size() == 0 && cycle <= 3 ) { // 3 cycles equals 180 seconds of wait		
+			staticlogger.info("DOM not ready.  Trying again for " + weWait + " more seconds...");
+			driver.manage().timeouts().implicitlyWait( weWait, TimeUnit.SECONDS );
+			weList = driver.findElements( locator ); 
+			weWait +=30;
+			cycle +=1;
 		}
-		staticlogger.info("Failed to find element.  Timeout was reached.");
-		return visible; // default return value
+        // if list not 0 then try getting the element directly
+		try {
+			we = driver.findElement( locator );
+		} catch ( StaleElementReferenceException sere ) {
+			staticlogger.info( "Element not ready.\n" + sere.getMessage() );
+		}
+		// as a safety measure, if the element is still null then try getting it from the previous element list
+        if ( we == null ) {
+		try {
+			we = weList.get(0);
+		} catch ( Exception e ) {
+			staticlogger.info( e.getMessage() );
+		}
+        }
+		return we;
 	}
 
 }

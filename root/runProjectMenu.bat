@@ -41,10 +41,10 @@ SET CHOICE=%~1
 IF "%~1"=="" (
   ECHO.
   ECHO [1] Run Google tests
-  ECHO [2] Run Bing tests
+  ECHO [2] Nothing
   ECHO [3] List all projects
   ECHO [4] Display Google tasks
-  ECHO [5] Display Bing tasks
+  ECHO [5] Nothing
   ECHO [6] Display Core Utilities tasks
   ECHO [7] Execute Parallel WebDriver tests
   ECHO [8] Gradle GUI
@@ -67,12 +67,11 @@ IF "%CHOICE%"=="x" (
 ::-------------------------------------------------------------------
 
 IF "%CHOICE%"=="1" (
-  CALL gradle.bat commonlib:identify commonlib:show google:show google:clean google:build --info
+  CALL gradle.bat commonlib:identify commonlib:show google:show google:clean google:runAllTests --info
   ::START "%ProgramFiles%\Internet Explorer\iexplore.exe" file:///%CD%/google/build/reports/tests/index.html
   GOTO :END
 ) ELSE IF "%CHOICE%"=="2" (
-  CALL gradle.bat commonlib:identify commonlib:show bing:show bing:clean bing:build --info
-  ::START "%ProgramFiles%\Internet Explorer\iexplore.exe" file:///%CD%/bing/build/reports/tests/index.html
+  ECHO Does nothing.
   GOTO :END
 ) ELSE IF "%CHOICE%"=="3" (
   CALL gradle.bat projects
@@ -81,7 +80,7 @@ IF "%CHOICE%"=="1" (
   CALL gradle.bat google:tasks
   GOTO :PICK
 ) ELSE IF "%CHOICE%"=="5" (
-  CALL gradle.bat bing:tasks
+  ECHO Does nothing.
   GOTO :PICK
 ) ELSE IF "%CHOICE%"=="6" (
   CALL gradle.bat commonlib:tasks

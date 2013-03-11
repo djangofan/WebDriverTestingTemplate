@@ -13,7 +13,7 @@ ext {
 
 repositories {
     mavenCentral()
-	// javacpp and javacv are required by Sikuli
+	  // javacpp and javacv are required by Sikuli
     maven {
         url "http://maven2.javacpp.googlecode.com/git/"
     }
@@ -44,17 +44,31 @@ task show << {
     println "-----------------------------------------------"
 } 
 
-test {
+tasks.withType(Test) {
+
+    jvmArgs '-Xms128m', '-Xmx1024m', '-XX:MaxPermSize=128m'
+    maxParallelForks = 4
     testLogging {
         exceptionFormat "full"
         events "started", "passed", "skipped", "failed", "standardOut", "standardError"
-    }     
-}	
+        displayGranularity = 0
+        showStandardStreams = false
+    }    
+    beforeTest { descriptor ->
+        logger.lifecycle("Running test: " + descriptor)
+    }    
+   
+    // initial browser size and position
+    systemProperties['windowXPosition'] = '40'
+    systemProperties['windowYPosition'] = '40'
+    systemProperties['windowWidth'] = '900'
+    systemProperties['windowHeight'] = '600'
+    
+}
 
 task runAllTests(type: Test) {
-   // include '**/*AllTests.*'
-   include '**/AllTests.class'
-   testReportDir = file("${reporting.baseDir}/AllTests")
-   testResultsDir = file("${buildDir}/test-results/AllTests")
+   include '**/GoogleTest*.class'
+   testReportDir = file("${reporting.baseDir}/GoogleTest")
+   testResultsDir = file("${buildDir}/test-results/GoogleTest")
 }
 	
