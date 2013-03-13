@@ -13,7 +13,7 @@ and run them.
 <br/>
 Eclipse Root <br/>
 +--- Project ':root'<br/>
-+--- Project ':bing'<br/>
++--- Project ':sub-project'<br/>
 +--- Project ':commonlib'<br/>
 +--- Project ':google'<br/>
 +--- Project ':parallelwebdriver'<br/>
