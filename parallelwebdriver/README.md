@@ -6,8 +6,11 @@ to add your own method, fork my code and then send me a "pull request" and I wil
 add it.
 
 ##Running this project
+
 1. You need to first start the web HTTP server located at:
-  https://github.com/djangofan/WebDriverTestingTemplate/blob/master/multiwindowtest/src/test/resources/startWebServer.bat
+  https://github.com/djangofan/WebDriverTestingTemplate/blob/master/parallelewebdriver/startWeb.bat
+   In the future I will add a Gradle task that starts this server.
+
 2.  Then, start the Grid Hub and the Grid Node that are contained at:
    https://github.com/djangofan/WebDriverTestingTemplate/blob/master/root  
 
