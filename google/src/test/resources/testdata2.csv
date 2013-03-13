@@ -1,5 +1,4 @@
-test5,gradle,development
-test6,groovy,development
-test7,xtend,tutorial
-test8,scala,tutorial
-
+test5,gradle user,guide
+test6,groovy script,parameters
+test7,xtend language,documentation
+test8,scala java,conversions

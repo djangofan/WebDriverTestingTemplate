@@ -6,8 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
-
 import org.junit.Before;
 import org.junit.After;
 import org.junit.Test;
@@ -29,9 +27,6 @@ public class GoogleTest1 extends GoogleUtilities {
 		searchString = sString;
 		ddMatch = dMatch;
 		testXOffset = 0;
-		reportFile = new File("build/test-results/GoogleTest/TEST-qa.webdriver.tests." + 
-		         this.getClass().getName() + ".xml");
-		startTime = new Date().getTime();
 	}
 
 	@Before
@@ -42,7 +37,8 @@ public class GoogleTest1 extends GoogleUtilities {
 
 	@Parameters(name = "{0}: {1}: {2}")
 	public static Iterable<String[]> loadTestsFromFile1() {
-		File tFile = loadGradleResource("testdata1.csv");
+		File tFile = loadGradleResource( System.getProperty("user.dir") + separator +  "build" +
+		        separator + "resources" + separator +  "test" + separator + "testdata1.csv" );
 		FileReader fileReader = null;
 		ArrayList<String> lines = new ArrayList<String>();
 		try {
@@ -78,8 +74,8 @@ public class GoogleTest1 extends GoogleUtilities {
 		staticlogger.info("{} being run...", testName );
 		driver.get("http://www.google.com");
 		GoogleSearchPage gs = new GoogleSearchPage();
-		gs.setSearchString( "iphone app" );
-		selectInGoogleDropdown( "development" );  
+		gs.setSearchString( searchString );
+		selectInGoogleDropdown( ddMatch );  
 		gs.clickSearchButton();
 		waitTimer(2, 1000);
 		getElementByLocator( By.cssSelector( "div.gbqlca" ) ).click(); // click Google logo
@@ -89,11 +85,11 @@ public class GoogleTest1 extends GoogleUtilities {
 	@Test
 	public void testFluentPageObject() {    	
 		staticlogger.info("{} being run...", testName );
-		driver.get("http://www.google.com");
+		driver.get("https://www.google.com/webhp?hl=en&tab=ww");
 		GoogleSearchPage gsp = new GoogleSearchPage();
 		gsp.withFluent().clickSearchField()
-		.setSearchString("iphone app").waitForTime(2, 1000)
-		.selectItem( "development" ).clickSearchButton()
+		.setSearchString( searchString ).waitForTime(2, 1000)
+		.selectItem( ddMatch ).clickSearchButton()
 		.waitForTime(2, 1000).clickLogo(); //click Google logo
 		staticlogger.info("Fluent test '{}' is done.", testName );
 	}
@@ -102,12 +98,7 @@ public class GoogleTest1 extends GoogleUtilities {
 	public void cleanUp() {
 		staticlogger.info("Finished cleanUpGoogleTest1");
 		driver.get("about:about");
-		if ( reportFile.exists() ) {
-			long lastModified = reportFile.lastModified();
-            if ( ( lastModified - startTime ) < 1000 ) {
-            	closeAllBrowserWindows();
-            }
-		}
+		// remaining open browser window will garbage collect within 30 seconds
 	}
 
 }

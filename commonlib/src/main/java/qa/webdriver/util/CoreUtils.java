@@ -9,6 +9,7 @@ public abstract class CoreUtils {
 
 	public static Logger staticlogger = LoggerFactory.getLogger( "StaticLogger" );
 	protected Logger classlogger = LoggerFactory.getLogger( getClass() );
+	public static String separator = System.getProperty("file.separator");
 
 	/**
 	 * This can load a gradle resource, such as a .properties file.
@@ -17,7 +18,7 @@ public abstract class CoreUtils {
 	 * @return
 	 */
 	public static File loadGradleResource( String fileName ) {
-		File junitFile = new File("build/resources/test/" + fileName );
+		File junitFile = new File( fileName );
 		if ( junitFile.exists() ) {
 			staticlogger.info( "The file '" + junitFile.getAbsolutePath() + "' exists." );
 		} else {

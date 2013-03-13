@@ -9,6 +9,7 @@ dependencies {
 ext {
     projTitle = 'WebDriver on Google'
     projVersion = '1.0'
+    buildDirectory = '$buildDir'
 }
 
 repositories {
@@ -56,13 +57,15 @@ tasks.withType(Test) {
     }    
     beforeTest { descriptor ->
         logger.lifecycle("Running test: " + descriptor)
-    }    
+    }
    
     // initial browser size and position
     systemProperties['windowXPosition'] = '40'
     systemProperties['windowYPosition'] = '40'
     systemProperties['windowWidth'] = '900'
     systemProperties['windowHeight'] = '600'
+    
+    systemProperties['buildDirectory'] = buildDirectory
     
 }
 

@@ -1,6 +1,5 @@
 package qa.webdriver.util;
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashSet;
@@ -39,9 +38,7 @@ public abstract class WebDriverUtils extends CoreUtils {
 	protected static String mainHandle = "";
 	protected static String mainWindowTitle = "";
 	protected static Set<String> handleCache = new HashSet<String>();
-	public static int testXOffset = 100;
-	protected static File reportFile;
-	protected static long startTime;
+	public static int testXOffset = 0; //default value
 
 	public static void clearAndSetValue(WebElement field, String text) { 
 		field.clear(); 

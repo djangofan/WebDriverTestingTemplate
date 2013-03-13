@@ -53,6 +53,13 @@ tasks.withType(Test) {
    
 }
 
+// this task is still broken
+task(runWeb, dependsOn: 'classes', type: Exec) {
+    // Runs in new cmd.exe shell window using cmd START feature
+    // Script determines its own run directory and classpath
+    commandLine 'cmd.exe', '/k', 'START', 'startWeb.bat'
+}
+
 task runParallelTests(type: Test) {
     description = 'Runs all JUnit test classes in parallel threads.'
     include '**/TestHandleCache*.class'
