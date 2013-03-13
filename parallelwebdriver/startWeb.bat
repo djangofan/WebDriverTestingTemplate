@@ -13,11 +13,14 @@ IF %ERRORLEVEL%==1 (
 SET "SCRIPT_HOME=%~dp0"
 SET "BUILD_HOME=%SCRIPT_HOME%build"
 SET HTTPLIB=httpcore-4.2.2.jar
-SET "HTTPROOT=%BUILD_HOME%\resources\test"
+SET "HTTPROOT=%SCRIPT_HOME%src\test\resources"
 
 IF NOT EXIST "%BUILD_HOME%\classes\main\webdriver\test\GradleHttpServer.class" (
   ECHO You need to compile GradleHttpServer.java before this will run.
   ECHO Expecting it at: ^"%BUILD_HOME%\classes\main\webdriver\test\GradleHttpServer.class^"
+  CD "%SCRIPT_HOME%\..\root"
+  gradle.bat commonlib:compileJava parallelwebdriver:compileJava
+  ECHO Finished compiling.  Try script again.
   GOTO :ERROR
 )
 

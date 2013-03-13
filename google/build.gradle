@@ -29,6 +29,7 @@ dependencies {
     compile group: 'commons-io', name: 'commons-io', version: '1.3.+'
     compile group: 'junit', name: 'junit', version: '4.+'
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.+'
+    compile group: 'net.sf.opencsv', name: 'opencsv', version: '2.+'
 }
 	
 task show << {
@@ -74,4 +75,9 @@ task runAllTests(type: Test) {
    testReportDir = file("${reporting.baseDir}/GoogleTest")
    testResultsDir = file("${buildDir}/test-results/GoogleTest")
 }
+
+task runParameterizedExample(type: Test) {
+   include '**/DataProviderTest.class'
+}
+
 	

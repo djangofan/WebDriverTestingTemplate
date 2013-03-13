@@ -1,11 +1,11 @@
 package qa.webdriver.tests;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.After;
 import org.junit.Test;
@@ -14,13 +14,15 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import org.openqa.selenium.By;
 
+import au.com.bytecode.opencsv.CSVReader;
+
 import qa.webdriver.util.GoogleSearchPage;
 import qa.webdriver.util.GoogleUtilities;
 
 @RunWith(Parameterized.class)
 public class GoogleTest2 extends GoogleUtilities {
 
-	protected static String testName, searchString, ddMatch;
+	private static String testName, searchString, ddMatch;
 
 	public GoogleTest2( String tName, String sString, String dMatch ) {
 		testName = tName;
@@ -31,41 +33,28 @@ public class GoogleTest2 extends GoogleUtilities {
 
 	@Before
 	public void setUp() {	
-		if ( driver == null) initializeRemoteBrowser( "firefox", "localhost", 4444 );
+		if ( driver == null ) initializeRemoteBrowser( "firefox", "localhost", 4444 );
 		staticlogger.info("Finished setUpGoogleTest2");
 	}
 
 	@Parameters(name = "{0}: {1}: {2}")
 	public static Iterable<String[]> loadTestsFromFile2() {
 		File tFile = loadGradleResource( System.getProperty("user.dir") + separator +  "build" +
-	        separator + "resources" + separator +  "test" + separator + "testdata2.csv" );
-		FileReader fileReader = null;
-		ArrayList<String> lines = new ArrayList<String>();
-		try {
-			String line = null;
-			fileReader = new FileReader( tFile );
-			BufferedReader bufferedReader = new BufferedReader( fileReader );
-			while ( !( line = bufferedReader.readLine() ).isEmpty() ) { // make sure line is not empty
-				if ( !line.startsWith("#") ) { // skip lines commented out with a # char
-					if ( line.contains(",") ) { // make sure line contains commas
-						lines.add(line); 
-					} else {
-						staticlogger.info("Test input contained invalid entry.");
-					}
-				}
-			}
-			bufferedReader.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+				separator + "resources" + separator +  "test" + separator + "testdata2.csv" );
+		List<String[]> rows = null;
+		if ( tFile.exists() ) {
+			CSVReader reader = null;
+			try {
+				reader = new CSVReader( new FileReader( tFile ), ',' );
+				rows = reader.readAll();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}	
 		}
-		ArrayList<String[]> data = new ArrayList<String[]>();
-		for ( String lin : lines ) {
-			String[] stritems = lin.split( "\\," ); // split on commas rather than Tokenizer 
-			data.add( stritems );
-		}
-		return data;
+		staticlogger.info("Finished loadTestsFromFile2()");
+		return rows;
 	}  
 
 	@Test

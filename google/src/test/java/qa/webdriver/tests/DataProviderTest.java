@@ -1,0 +1,71 @@
+package qa.webdriver.tests;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.List;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+import au.com.bytecode.opencsv.CSVReader;
+
+import qa.webdriver.util.GoogleUtilities;
+
+@RunWith(Parameterized.class)
+public class DataProviderTest extends GoogleUtilities {
+
+	private static String testName, searchString, ddMatch;
+
+	public DataProviderTest( String tName, String sString, String dMatch ) {
+		testName = tName;
+		searchString = sString;
+		ddMatch = dMatch;
+		testXOffset = 700;
+	}
+
+	@Before
+	public void setUp() {	
+		staticlogger.info("setUp");
+	}
+
+	@Parameters(name = "{0}: {1}: {2}")
+	public static List<String[]> loadParams() {
+		File tFile = loadGradleResource( System.getProperty("user.dir") + separator +  "build" +
+				separator + "resources" + separator +  "test" + separator + "testdata2.csv" );
+		List<String[]> rows = null;
+		if ( tFile.exists() ) {
+			CSVReader reader = null;
+			try {
+				reader = new CSVReader( new FileReader( tFile ), ',' );
+				rows = reader.readAll();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}	
+		}
+		//String[][] csvMatrix = rows.toArray(new String[rows.size()][]);
+		staticlogger.info("Finished loadParams()");
+		return rows;
+	}  
+
+	@Test
+	public void testParams() {
+		staticlogger.info("Param '{}' being run...", testName );
+		staticlogger.info("Search string: " + searchString );
+		staticlogger.info("ddMatch: " + ddMatch );
+		staticlogger.info("Test '{}' is done.", testName );
+	}
+
+	@After
+	public void cleanUp() {
+		staticlogger.info("Finished cleanUp");
+	}
+
+
+}
