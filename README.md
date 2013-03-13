@@ -151,6 +151,7 @@ https://github.com/sebarmeli/Selenium2-Java-QuickStart-Archetype<br/>
 https://github.com/sebarmeli/Selenium2-Java-Demo<br/>
 https://github.com/djangofan/vanq-java<br/>
 http://code.google.com/p/selenium-ext/source/browse/<br/>
+https://github.com/codeborne/selenide_examples<br/>
 <br/>
 Website of this project:<br/>
 http://djangofan.github.com/WebDriverTestingTemplate/<br/>
