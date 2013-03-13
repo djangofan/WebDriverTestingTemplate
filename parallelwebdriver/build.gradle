@@ -57,7 +57,7 @@ tasks.withType(Test) {
 task(runWeb, dependsOn: 'classes', type: Exec) {
     // Runs in new cmd.exe shell window using cmd START feature
     // Script determines its own run directory and classpath
-    commandLine 'cmd.exe', '/k', 'START', 'startWeb.bat'
+    commandLine 'cmd.exe', '/c', 'START', 'startWeb.bat'
 }
 
 task runParallelTests(type: Test) {
