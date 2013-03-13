@@ -8,7 +8,7 @@ add it.
 ##Running this project
 
 1. You need to first start the web HTTP server located at:
-  https://github.com/djangofan/WebDriverTestingTemplate/blob/master/parallelewebdriver/startWeb.bat
+  https://github.com/djangofan/WebDriverTestingTemplate/blob/master/parallelwebdriver/startWeb.bat
    In the future I will add a Gradle task that starts this server.
 
 2.  Then, start the Grid Hub and the Grid Node that are contained at:
