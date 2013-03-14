@@ -1,5 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'application'
+// apply plugin: 'idea'
 group = 'selenium.webdriver.examples'
 
 ext {
@@ -22,6 +24,10 @@ dependencies {
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.+'
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.+'
 }
+
+// running the task distZip creates a .zip archive of this project.
+// to run it, unzip it and run the embedded bin/project.bat script.
+mainClassName = "webdriver.test.GradleHttpServer"
 	
 task show << {
     println ""

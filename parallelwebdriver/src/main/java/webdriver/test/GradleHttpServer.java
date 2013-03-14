@@ -81,7 +81,8 @@ public class GradleHttpServer {
 
     public static void main(String[] args) throws Exception {
     	if (args.length < 1) {
-    		   System.err.println("Please specify document root directory");
+    		   System.err.println("Please specify HTTP document root directory as a quoted argument.");
+			   Thread.sleep(10);
     		   System.exit(1);
     	}
         Thread t = new RequestListenerThread( 8080, args[0] );
