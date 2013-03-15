@@ -30,7 +30,7 @@ ECHO ======================
 ECHO Grid Hub status : & netstat -an | FIND "4444"
 ECHO ======================
 ECHO.
-java.exe -jar %JAR% -role node -nodeConfig Node1Config.json -Dwebdriver.chrome.driver=%CHROME_DRIVER_LOC%
+java.exe -jar %JAR% -role node -nodeConfig NodeConfig.json -Dwebdriver.chrome.driver=%CHROME_DRIVER_LOC%
 
 GOTO :END
 :ERROR
