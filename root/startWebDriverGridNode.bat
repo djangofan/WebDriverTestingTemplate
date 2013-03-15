@@ -1,9 +1,12 @@
 @ECHO off
 SETLOCAL ENABLEDELAYEDEXPANSION
-TITLE WebDriver Grid Node
+SET TITLETEXT=WebDriver Grid Node
+TITLE %TITLETEXT%
 
 set CHROME_DRIVER_LOC=chromedriver.exe
 SET JAR=selenium-server-standalone-2.31.0.jar
+SET IEDRIVERZIP=IEDriverServer_Win32_2.31.0.zip
+SET IEDRIVER=IEDriverServer.exe
 
 ECHO *********************************************
 ECHO *
@@ -23,6 +26,12 @@ IF NOT EXIST %JAR% (
   "C:\Program Files (x86)\GnuWin32\bin\wget.exe" --dot-style=binary http://selenium.googlecode.com/files/%JAR%
 )
 
+IF NOT EXIST %IEDRIVER% (
+  "C:\Program Files (x86)\GnuWin32\bin\wget.exe" --dot-style=binary http://selenium.googlecode.com/files/%IEDRIVERZIP%
+  jar.exe xvf %IEDRIVERZIP%
+  DEL /Q %IEDRIVERZIP%
+)
+
 java.exe -version
 ECHO.
 ECHO.
@@ -30,7 +39,9 @@ ECHO ======================
 ECHO Grid Hub status : & netstat -an | FIND "4444"
 ECHO ======================
 ECHO.
-java.exe -jar %JAR% -role node -nodeConfig NodeConfig.json -Dwebdriver.chrome.driver=%CHROME_DRIVER_LOC%
+
+TITLE %TITLETEXT%
+java.exe -jar %JAR% -role node -nodeConfig Node1Config.json -Dwebdriver.chrome.driver=%CHROME_DRIVER_LOC%
 
 GOTO :END
 :ERROR
