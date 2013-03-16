@@ -9,6 +9,11 @@ The idea here is to replace your existing automation framework, such as "HP Qual
 Functional Tester", with a pure Java solution managed by the Gradle build system.   I use Jenkins to schedule my tests<br/>
 and run them.
 
+# Versions
+
+Version 1.0 - March 16, 2013
+
+
 # Project Layout
 <br/>
 Eclipse Root <br/>
