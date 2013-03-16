@@ -2,6 +2,12 @@
 SETLOCAL ENABLEDELAYEDEXPANSION
 TITLE GradleHttpServer
 
+IF NOT DEFINED JAVA_HOME (
+  ECHO You must define a valid JAVA_HOME environment variable before you run this script.
+  GOTO :ERROR
+)
+SET "PATH=.;%JAVA_HOME%\bin;%PATH%"
+
 netstat -an | FIND "8080"
 IF %ERRORLEVEL%==1 (
   ECHO ALL CLEAR FOR START

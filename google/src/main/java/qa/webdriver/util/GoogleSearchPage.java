@@ -55,7 +55,8 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
         }
 		
         public GSPFluentInterface setSearchString( String sstr ) {
-            clearAndType( gsp.searchField, sstr );
+        	By locator = By.id( gsp.searchField.getAttribute("id") );
+            clearAndType( locator, sstr );
             return this;
         }		
         
@@ -137,8 +138,14 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
         }
     }
 	
+    /**
+     * Because of how the page object is initialized, we are using getAttribute here
+     * @param	sstr
+     * @return	void
+     */
     public void setSearchString( String sstr ) {
-        clearAndType( searchField, sstr );
+    	By locator = By.id(searchField.getAttribute("id") );
+        clearAndType( locator, sstr );
     }
 	
     /**

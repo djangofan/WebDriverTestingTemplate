@@ -41,16 +41,16 @@ public abstract class WebDriverUtils extends CoreUtils {
 	public static int testXOffset = 0; //default value
 
 	public static void clearAndSetValue( By locator, String text ) { 
-            WebElement field = driver.findElement( locator );
-            field.clear(); 
-            field.sendKeys( Keys.chord(Keys.CONTROL, "a" ), text ); 
+        WebElement field = driver.findElement( locator );
+        field.clear(); 
+        field.sendKeys( Keys.chord(Keys.CONTROL, "a" ), text ); 
 	}
 	
 	public static void clearAndType( By locator, String text ) {
-            WebElement field = driver.findElement( locator );
-            field.clear(); 
+        WebElement field = driver.findElement( locator );
+        field.clear(); 
 	    field.sendKeys( text ); 
-        }
+    }
 
 	public static void mouseClickByLocator( By locator ) {
 		WebElement el = driver.findElement( locator );
