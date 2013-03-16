@@ -25,7 +25,7 @@ Eclipse Root <br/>
 +--- ...<br/>
 <br/>
 
-# Birdseye view<br/>
+# Overview<br/>
 1. Project "sub-project" is a project you add yourself, if you want.<br/>
 2. Project "google" is a RemoteWebDriver JUnit test-suite using a local Grid server that is capable of running<br/>multiple threads of web browser tests.
 3. Project "parallelwebdriver" is a test of a  multi-window multi-threaded run using a static local website.<br/>
