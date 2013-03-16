@@ -14,10 +14,10 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import au.com.bytecode.opencsv.CSVReader;
 
-import qa.webdriver.util.GoogleUtilities;
+import qa.webdriver.util.WebDriverUtils;
 
 @RunWith(Parameterized.class)
-public class DataProviderTest extends GoogleUtilities {
+public class DataProviderTest extends WebDriverUtils {
 
 	private static String testName, searchString, ddMatch;
 

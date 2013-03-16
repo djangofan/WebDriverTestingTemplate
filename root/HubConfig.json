@@ -1,7 +1,7 @@
 {
     "_comment" : "Configuration for Hub",
     "host": ip,
-	"maxSessions": 5,
+	  "maxSessions": 5,
     "port": 4444,
     "cleanupCycle": 5000,
     "timeout": 300000,

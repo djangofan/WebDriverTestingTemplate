@@ -46,10 +46,11 @@ task show << {
     println "-----------------------------------------------"
 } 
 
+// run tests with -info or -debug option to get logging
 tasks.withType(Test) {
 
     jvmArgs '-Xms128m', '-Xmx1024m', '-XX:MaxPermSize=128m'
-    maxParallelForks = 4
+    
     testLogging {
         exceptionFormat "full"
         events "started", "passed", "skipped", "failed", "standardOut", "standardError"
@@ -60,24 +61,45 @@ tasks.withType(Test) {
         logger.lifecycle("Running test: " + descriptor)
     }
    
+    systemProperties['hubIP'] = '127.0.0.1'
+    systemProperties['hubPort'] = '4444'
+    systemProperties['testURL'] = 'http://www.google.com/'
+    
     // initial browser size and position
     systemProperties['windowXPosition'] = '40'
     systemProperties['windowYPosition'] = '40'
     systemProperties['windowWidth'] = '900'
     systemProperties['windowHeight'] = '600'
     
-    systemProperties['buildDirectory'] = buildDirectory
-    
 }
 
-task runAllTests(type: Test) {
-   include '**/GoogleTest*.class'
-   testReportDir = file("${reporting.baseDir}/GoogleTest")
-   testResultsDir = file("${buildDir}/test-results/GoogleTest")
+task runAllTestsInFirefox(type: Test) {
+    maxParallelForks = 2
+    systemProperties['browser'] = 'firefox'
+    include '**/GoogleTest*.class'
+    testReportDir = file("${reporting.baseDir}/GoogleTestFF")
+    testResultsDir = file("${buildDir}/test-results/GoogleTestFF")
+}
+
+task runAllTestsInIE(type: Test) {
+    maxParallelForks = 1
+    systemProperties['browser'] = 'ie'
+    include '**/GoogleTest*.class'
+    testReportDir = file("${reporting.baseDir}/GoogleTestIE")
+    testResultsDir = file("${buildDir}/test-results/GoogleTestIE")
+}
+
+task runAllTestsInChrome(type: Test) {
+    maxParallelForks = 2
+    systemProperties['browser'] = 'chrome'
+    include '**/GoogleTest*.class'
+    testReportDir = file("${reporting.baseDir}/GoogleTestC")
+    testResultsDir = file("${buildDir}/test-results/GoogleTestC")
 }
 
 task runParameterizedExample(type: Test) {
    include '**/DataProviderTest.class'
+   // test output goes to default location
 }
 
 	

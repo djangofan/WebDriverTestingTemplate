@@ -14,7 +14,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -35,22 +34,23 @@ public abstract class WebDriverUtils extends CoreUtils {
 
 	protected static RemoteWebDriver driver;
 	public static int DEFAULT_IMPLICIT_WAIT = 30;
+    public static int DEFAULT_EXPLICIT_WAIT = 10; // seconds that LoadableComponent get() will try to load
 	protected static String mainHandle = "";
 	protected static String mainWindowTitle = "";
 	protected static Set<String> handleCache = new HashSet<String>();
 	public static int testXOffset = 0; //default value
 
 	public static void clearAndSetValue( By locator, String text ) { 
-        WebElement field = driver.findElement( locator );
-        field.clear(); 
-        field.sendKeys( Keys.chord(Keys.CONTROL, "a" ), text ); 
+		WebElement field = driver.findElement( locator );
+		field.clear(); 
+		field.sendKeys( Keys.chord(Keys.CONTROL, "a" ), text ); 
 	}
-	
+
 	public static void clearAndType( By locator, String text ) {
-        WebElement field = driver.findElement( locator );
-        field.clear(); 
-	    field.sendKeys( text ); 
-    }
+		WebElement field = driver.findElement( locator );
+		field.clear(); 
+		field.sendKeys( text ); 
+	}
 
 	public static void mouseClickByLocator( By locator ) {
 		WebElement el = driver.findElement( locator );
@@ -170,14 +170,20 @@ public abstract class WebDriverUtils extends CoreUtils {
 	}	
 
 	public static void initializeRemoteBrowser( String type, String host, int port ) {
-		if ( type.equalsIgnoreCase( "firefox" ) ) {
-			try {
+		try {
+			if ( type.equalsIgnoreCase( "firefox" ) ) {
 				driver = new RemoteWebDriver( new URL("http://" + host + ":" + port + "/wd/hub"), DesiredCapabilities.firefox() );
-			} catch ( MalformedURLException e ) {
-				e.printStackTrace();
+
+			} else if ( type.equalsIgnoreCase( "ie" ) ) {
+				driver = new RemoteWebDriver( new URL("http://" + host + ":" + port + "/wd/hub"), DesiredCapabilities.internetExplorer() );
 			}
-		} else if ( type.equalsIgnoreCase( "ie" ) ) {
-			driver = new InternetExplorerDriver();
+			else if ( type.equalsIgnoreCase( "chrome" ) ) {
+				driver = new RemoteWebDriver( new URL("http://" + host + ":" + port + "/wd/hub"), DesiredCapabilities.chrome() );
+			} else {
+				staticlogger.info( "Invalid browser type. Cannot initialize." );
+			}
+		} catch ( MalformedURLException e ) {
+			e.printStackTrace();
 		}
 		driver.manage().timeouts().implicitlyWait( DEFAULT_IMPLICIT_WAIT, TimeUnit.MILLISECONDS );
 		handleCache = driver.getWindowHandles();
@@ -218,20 +224,20 @@ public abstract class WebDriverUtils extends CoreUtils {
 			weWait +=30;
 			cycle +=1;
 		}
-        // if list not 0 then try getting the element directly
+		// if list not 0 then try getting the element directly
 		try {
 			we = driver.findElement( locator );
 		} catch ( StaleElementReferenceException sere ) {
 			staticlogger.info( "Element not ready.\n" + sere.getMessage() );
 		}
 		// as a safety measure, if the element is still null then try getting it from the previous element list
-        if ( we == null ) {
-		try {
-			we = weList.get(0);
-		} catch ( Exception e ) {
-			staticlogger.info( e.getMessage() );
+		if ( we == null ) {
+			try {
+				we = weList.get(0);
+			} catch ( Exception e ) {
+				staticlogger.info( e.getMessage() );
+			}
 		}
-        }
 		return we;
 	}
 

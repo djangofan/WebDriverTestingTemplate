@@ -17,10 +17,10 @@ import org.openqa.selenium.By;
 import au.com.bytecode.opencsv.CSVReader;
 
 import qa.webdriver.util.GoogleSearchPage;
-import qa.webdriver.util.GoogleUtilities;
+import qa.webdriver.util.WebDriverUtils;
 
 @RunWith(Parameterized.class)
-public class GoogleTest1 extends GoogleUtilities {
+public class GoogleTest1 extends WebDriverUtils {
 
 	private static String testName, searchString, ddMatch;
 
@@ -33,8 +33,9 @@ public class GoogleTest1 extends GoogleUtilities {
 
 	@Before
 	public void setUp() {	
-		if ( driver == null ) initializeRemoteBrowser( "firefox", "localhost", 4444 );
-		staticlogger.info("Finished setUpGoogleTest1");
+		if ( driver == null ) initializeRemoteBrowser( System.getProperty("browser"), 
+				  System.getProperty("hubIP"), Integer.parseInt( System.getProperty("hubPort") ) );
+		classlogger.info("Finished setUpGoogleTest1");
 	}
 
 	@Parameters(name = "{0}: {1}: {2}")
@@ -59,32 +60,32 @@ public class GoogleTest1 extends GoogleUtilities {
 
 	@Test
 	public void testWithPageObject() {
-		staticlogger.info("{} being run...", testName );
-		driver.get("http://www.google.com");
+		classlogger.info("{} being run...", testName );
+		driver.get( System.getProperty("testURL") );
 		GoogleSearchPage gs = new GoogleSearchPage();
 		gs.setSearchString( searchString );
-		selectInGoogleDropdown( ddMatch );  
+		gs.selectInGoogleDropdown( ddMatch );  
 		gs.clickSearchButton();
 		waitTimer(2, 1000);
 		getElementByLocator( By.cssSelector( "div.gbqlca" ) ).click(); // click Google logo
-		staticlogger.info("Page object test '{}' is done.", testName );
+		classlogger.info("Page object test '{}' is done.", testName );
 	}
 
 	@Test
 	public void testFluentPageObject() {    	
-		staticlogger.info("{} being run...", testName );
-		driver.get("https://www.google.com/webhp?hl=en&tab=ww");
+		classlogger.info("{} being run...", testName );
+		driver.get( System.getProperty("testURL") + "webhp?hl=en&tab=ww" );
 		GoogleSearchPage gsp = new GoogleSearchPage();
 		gsp.withFluent().clickSearchField()
 		.setSearchString( searchString ).waitForTime(2, 1000)
 		.selectItem( ddMatch ).clickSearchButton()
 		.waitForTime(2, 1000).clickLogo(); //click Google logo
-		staticlogger.info("Fluent test '{}' is done.", testName );
+		classlogger.info("Fluent test '{}' is done.", testName );
 	}
 
 	@After
 	public void cleanUp() {
-		staticlogger.info("Finished cleanUpGoogleTest1");
+		classlogger.info("Finished cleanUpGoogleTest1");
 		driver.get("about:about");
 		// remaining open browser window will garbage collect within 30 seconds
 	}
