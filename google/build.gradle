@@ -92,6 +92,7 @@ task runAllTestsInIE(type: Test) {
 task runAllTestsInChrome(type: Test) {
     maxParallelForks = 2
     systemProperties['browser'] = 'chrome'
+	systemProperties['webdriver.chrome.driver'] = 'chromedriver.exe'
     include '**/GoogleTest*.class'
     testReportDir = file("${reporting.baseDir}/GoogleTestC")
     testResultsDir = file("${buildDir}/test-results/GoogleTestC")

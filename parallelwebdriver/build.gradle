@@ -59,7 +59,7 @@ tasks.withType(Test) {
    
 }
 
-// this task is still broken
+// this task is still broken.  trying to figure out why it fails.
 task(runWeb, dependsOn: 'classes', type: Exec) {
     // Runs in new cmd.exe shell window using cmd START feature
     // Script determines its own run directory and classpath
