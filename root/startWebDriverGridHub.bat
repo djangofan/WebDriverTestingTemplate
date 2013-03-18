@@ -6,6 +6,8 @@ ECHO *********************************************
 ECHO *
 ECHO * WebDriver grid Hub instance.
 ECHO *
+ECHO *  http://localhost:4444/grid/console
+ECHO *
 ECHO *********************************************
 ECHO.
  
