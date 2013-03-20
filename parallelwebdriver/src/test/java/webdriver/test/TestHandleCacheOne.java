@@ -91,6 +91,34 @@ public class TestHandleCacheOne extends WebDriverUtils {
 
 		classlogger.info( "Finished testHandleCacheOne" );
 	}	
+  
+  /**
+	 *  Tests opening one window and clicking a button in an iframe
+	 */
+	@Test
+	public void testIFrame() {
+		classlogger.info("Starting test testMultiWindows" );
+		classlogger.info("Loading Window1 contents");
+		getDriver().get( System.getProperty("testDomainURL") + System.getProperty("testURI") );
+		waitTimer(5, 1000);
+		
+		// test iFrame here
+		getDriver().switchTo().defaultContent();		
+		WebElement iframe = getDriver().findElement( By.name("BodyFrame") );		
+		staticlogger.info( "iFrame Location: " + iframe.getLocation() );		
+		getDriver().switchTo().frame( iframe );		
+		WebElement we = getDriver().findElement( By.id( "buttonId" ) );
+		try {
+			//getDriver().manage().timeouts().implicitlyWait( DEFAULT_IMPLICIT_WAIT, TimeUnit.SECONDS );
+			we.click();
+		} catch ( WebDriverException wde ) {
+			staticlogger.info("ERROR: WebDriverException " + wde.getLocalizedMessage() + "\n\n" + wde.getCause() + "\n\n" );
+		}	
+		getDriver().switchTo().defaultContent();
+		waitTimer( 10, 1000);
+		
+		classlogger.info( "Finished testMultiWindows" );
+	}	
 
 	/**
 	 *  Close main window handle after tests finish
@@ -102,6 +130,7 @@ public class TestHandleCacheOne extends WebDriverUtils {
 		driver.get("about:about");
 		updateHandleCache();  
 		waitTimer(6, 500);
+    closeAllBrowserWindows(); 
 		classlogger.info("Finished tearDownTestHandleCacheOne");
 	}
 
@@ -110,7 +139,6 @@ public class TestHandleCacheOne extends WebDriverUtils {
 	 */
 	@AfterClass
 	public static void tearDownTestHandleCacheOneClass() {
-		closeAllBrowserWindows(); 
 		staticlogger.info("Finished tearDownTestHandleCacheOneClass");
 	}
 

@@ -1,0 +1,32 @@
+<html>
+
+<title>Inner HTML Frame</title>
+<head>
+<script language="javascript" type="text/javascript">
+function change() {
+    var elem = document.getElementById( "buttonId" );
+    if (elem.value=="Closed") elem.value = "Open";
+    else elem.value = "Closed";
+}
+</script>
+</head>
+<body>
+Inner iFrame<br/><br/>
+<table height="300" border="1">
+<tr>
+<td>row 1, cell 1</td>
+<td>row 1, cell 2</td>
+</tr>
+<tr>
+<td>row 2, cell 1</td>
+<td>row 2, cell 2</td>
+</tr>
+<tr>
+<td> <input onclick="change()" type="button" value="Open" id="buttonId"></input> </td>
+<td><div id="content">Content</div></td>
+</tr>
+</table>
+
+</body>
+
+</html>

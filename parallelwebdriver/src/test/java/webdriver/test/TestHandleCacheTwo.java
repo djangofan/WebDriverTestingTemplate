@@ -102,6 +102,7 @@ public class TestHandleCacheTwo extends WebDriverUtils {
 		driver.get("about:about");
 		updateHandleCache();  
 		waitTimer(6, 500);
+    closeAllBrowserWindows();
 		classlogger.info("Finished tearDownTestHandleCacheTwo");
 	}
 
@@ -110,7 +111,6 @@ public class TestHandleCacheTwo extends WebDriverUtils {
 	 */
 	@AfterClass
 	public static void tearDownClass() {
-		closeAllBrowserWindows(); 
 		staticlogger.info("Finished tearDownTestHandleCacheTwoClass");
 	}
 
