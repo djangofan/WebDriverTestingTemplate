@@ -6,6 +6,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
 
 import qa.webdriver.util.WebDriverUtils;
 
@@ -93,29 +95,30 @@ public class TestHandleCacheOne extends WebDriverUtils {
 	}	
   
   /**
-	 *  Tests opening one window and clicking a button in an iframe
+	 *  Tests opening one window and clicking a button in an iframe.
+	 *  Switching to an iframe is similar to switching windows.
 	 */
 	@Test
 	public void testIFrame() {
 		classlogger.info("Starting test testMultiWindows" );
 		classlogger.info("Loading Window1 contents");
-		getDriver().get( System.getProperty("testDomainURL") + System.getProperty("testURI") );
-		waitTimer(5, 1000);
+		driver.get( System.getProperty("testProtocol") + "://" + System.getProperty("testDomain") + ":" +
+		        System.getProperty("testPort") + System.getProperty("testUri") );
 		
 		// test iFrame here
-		getDriver().switchTo().defaultContent();		
-		WebElement iframe = getDriver().findElement( By.name("BodyFrame") );		
+		driver.switchTo().defaultContent();		
+		WebElement iframe = driver.findElement( By.name("BodyFrame") );		
 		staticlogger.info( "iFrame Location: " + iframe.getLocation() );		
-		getDriver().switchTo().frame( iframe );		
-		WebElement we = getDriver().findElement( By.id( "buttonId" ) );
+		driver.switchTo().frame( iframe );		
+		WebElement we = driver.findElement( By.id( "buttonId" ) );
 		try {
-			//getDriver().manage().timeouts().implicitlyWait( DEFAULT_IMPLICIT_WAIT, TimeUnit.SECONDS );
 			we.click();
 		} catch ( WebDriverException wde ) {
-			staticlogger.info("ERROR: WebDriverException " + wde.getLocalizedMessage() + "\n\n" + wde.getCause() + "\n\n" );
+			staticlogger.info("ERROR: Problem with click in iframe. " + wde.getLocalizedMessage() 
+					+ "\n\n" + wde.getCause() + "\n\n" );
 		}	
-		getDriver().switchTo().defaultContent();
-		waitTimer( 10, 1000);
+		driver.switchTo().defaultContent();
+		waitTimer( 3, 1000);
 		
 		classlogger.info( "Finished testMultiWindows" );
 	}	

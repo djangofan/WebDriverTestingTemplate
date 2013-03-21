@@ -14,6 +14,10 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -168,17 +172,41 @@ public abstract class WebDriverUtils extends CoreUtils {
 			}
 		}
 	}	
+	
+	public static void initializeLocalBrowser( String type ) {  	
+		if ( type.equalsIgnoreCase( "firefox" ) ) {
+			FirefoxProfile profile = new FirefoxProfile();
+			profile.setPreference("network.proxy.http", "localhost");
+			profile.setPreference("network.proxy.http_port", "3128");
+			driver = new FirefoxDriver( profile );
+		} else if ( type.equalsIgnoreCase( "internetExplorer" ) ) {
+			driver = new InternetExplorerDriver();
+		}
+		else if ( type.equalsIgnoreCase( "chrome" ) ) {
+			driver = new ChromeDriver();
+		} else {
+			staticlogger.info( "Invalid browser type. Cannot initialize." );
+		}
+		driver.manage().timeouts().implicitlyWait( DEFAULT_IMPLICIT_WAIT, TimeUnit.MILLISECONDS );
+		positionMainHandle();		
+	}
 
 	public static void initializeRemoteBrowser( String type, String host, int port ) {
+		DesiredCapabilities dc = new DesiredCapabilities();
+		dc.setCapability( "takesScreenshot", false );
+		dc.setCapability( "webdriver.remote.quietExceptions", false );
 		try {
 			if ( type.equalsIgnoreCase( "firefox" ) ) {
-				driver = new RemoteWebDriver( new URL("http://" + host + ":" + port + "/wd/hub"), DesiredCapabilities.firefox() );
+				dc.setBrowserName("firefox");
+				driver = new RemoteWebDriver( new URL("http://" + host + ":" + port + "/wd/hub"), dc );
 
 			} else if ( type.equalsIgnoreCase( "ie" ) ) {
-				driver = new RemoteWebDriver( new URL("http://" + host + ":" + port + "/wd/hub"), DesiredCapabilities.internetExplorer() );
+				dc.setBrowserName("internetExplorer");
+				driver = new RemoteWebDriver( new URL("http://" + host + ":" + port + "/wd/hub"), dc );
 			}
 			else if ( type.equalsIgnoreCase( "chrome" ) ) {
-				driver = new RemoteWebDriver( new URL("http://" + host + ":" + port + "/wd/hub"), DesiredCapabilities.chrome() );
+				dc.setBrowserName("chrome");
+				driver = new RemoteWebDriver( new URL("http://" + host + ":" + port + "/wd/hub"), dc );
 			} else {
 				staticlogger.info( "Invalid browser type. Cannot initialize." );
 			}
@@ -186,6 +214,10 @@ public abstract class WebDriverUtils extends CoreUtils {
 			e.printStackTrace();
 		}
 		driver.manage().timeouts().implicitlyWait( DEFAULT_IMPLICIT_WAIT, TimeUnit.MILLISECONDS );
+		positionMainHandle();
+	}
+	
+	private static void positionMainHandle() {
 		handleCache = driver.getWindowHandles();
 		if ( handleCache.size() == 0 ) {
 			mainHandle = "";
