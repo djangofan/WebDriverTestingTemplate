@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <script type="text/javascript">
+      function processiFrameTextInput()
+      {
+          document.getElementById("iFrameTextFieldTestOutputControlID").value=document.getElementById("iFrameTextFieldTestInputControlID").value;
+		  var bgcolorlist=new Array("#DFDFFF", "#FFFFBF", "#80FF80", "#EAEAFF", "#C9FFA8", "#F7F7F7", "#FFFFFF", "#DDDD00");
+		  document.body.style.background=bgcolorlist[Math.floor(Math.random()*bgcolorlist.length)]
+      }
+     </script>  
+    <title>webdriver unit test iframe page title</title>
+  </head>
+  <body>
+    <form id="webDriverUnitiFrameTestFormID" name="webDriverUnitiFrameTestFormName">
+    <h1>UI Automation Test Page iFrame</h1>
+    <hr />
+      <table width="600">
+        <tr>
+          <td>
+            <p id="iFrameTextFieldTestDescriptionTextID" name="iFrameTextFieldTestDescriptionTextName"><b>iFrame Text Field Input Control Test</b></p>
+          </td>
+          <td>
+            <table width="200">
+              <tr>
+                <td>
+                  <p id="iFrameTextFieldTestInputTextID" name="iFrameTextFieldTestInputTextName">iFrame Text Field Test Input</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="text" id="iFrameTextFieldTestInputControlID"  name="iFrameTextFieldTestInputControlName" size="30" maxlength="50" value="" class="inputField">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button type="button" id="iFrameTextFieldTestProcessButtonID" name="iFrameTextFieldTestProcessButtonName" onclick="processiFrameTextInput()">Process</button>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td>
+            <table>
+              <tr>
+                <td>
+                  <p id="iFrameTextFieldTestOutputTextID" name="iFrameTextFieldTestOutputTextName">iFrame Text Field Test Output</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="text" id="iFrameTextFieldTestOutputControlID"  name="iFrameTextFieldTestOutputControlName" size="30" maxlength="50" class="inputField">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <br>
+                </td>
+               </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
