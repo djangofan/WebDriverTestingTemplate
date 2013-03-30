@@ -149,18 +149,13 @@ Intellij-IDEA has a nice Gradle plugin that is included.  The steps are otherwis
 above but I believe Eclipse is easier to use.
 
 #### Notes
-I use "GitHub GUI" to sync my local project repo to GitHub.  If you fork my project, I would recommend doing <br/>
-it this way unless you are a Git expert and prefer another way.<br/>
-
 Website of this project:<br/>
 http://djangofan.github.com/WebDriverTestingTemplate/<br/>
 <br/>
-
 
 # FAQ
 <ol>
 <li>If the intellisense in Eclipse doesn't work, make sure you have added all the .class directories to<br/>
     your Eclipse project classpath.  (See the included .classpath file.)</li>
-<li>I use "GitHub GUI" to sync my local project repo to GitHub.  If you fork my project, I would recommend<br/> doing <br/>
-it this way unless you are a Git expert and prefer another way.</li>
+<li>I use "GitHub GUI" to sync my local project repo to GitHub.  If you fork my project, I would<br/>recommend doing it this way unless you are a Git expert and prefer another way.</li>
 </ol>
