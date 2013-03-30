@@ -13,7 +13,7 @@ SET "WGET=C:\Program Files (x86)\GnuWin32\bin\wget.exe"
 ECHO *********************************************
 ECHO *
 ECHO * WebDriver Grid Node
-ECHO * It requires that a WebDriver JSON Hub is already running, usually on port 4444.
+ECHO * It requires that a WebDriver JSON Hub is already running, usually on port 5555.
 ECHO * You can run more than one of these if each has its own JSON config file.
 ECHO *
 ECHO *********************************************
@@ -55,7 +55,7 @@ ECHO Wget.exe is missing. & GOTO :ERROR
  
 ECHO.
 ECHO ======================
-ECHO Grid Hub status : & netstat -an | FIND "4444"
+ECHO Grid Hub status : & netstat -an | FIND "5555"
 ECHO ======================
 ECHO.
  

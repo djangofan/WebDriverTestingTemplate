@@ -36,7 +36,8 @@ public class TestFrames extends WebDriverUtils {
 	@Before
 	public void setUpTestFrames() {
 		testXOffset = 0;
-		initializeRemoteBrowser( "firefox", System.getProperty("hubUrl") , Integer.parseInt( System.getProperty("hubPort") ) );
+		initializeRemoteBrowser( System.getProperty("browserType"), System.getProperty("hubUrl") ,
+                Integer.parseInt( System.getProperty("hubPort") ) );
 		System.out.println("TestFrames thread id = " + Thread.currentThread().getId());
 		classlogger.info("Finished setUpTestFrames");
 	}
@@ -47,17 +48,15 @@ public class TestFrames extends WebDriverUtils {
 		driver.get( System.getProperty("testProtocol") + "://" + System.getProperty("testDomain") + ":" +
 		        System.getProperty("testPort") + System.getProperty("testUri") );
 		
-		MainPage mp = new MainPage( driver ).get();
-		mp.setControlInputField( "Test input" );
-		mp.clickControlButton();
-		
+		MainPage mp1 = new MainPage( driver ).get();
+		mp1.setControlInputField( "Test input" );
+		mp1.clickControlButton();		
 		IFrame1 if1 = new IFrame1( driver ).get();
 		if1.setInputField("Iframe1 test." );
-		if1.clickControlButton();
-		driver.switchTo().defaultContent();
-		mp.clickControlButton();
-		waitTimer( 20, 1000);
-		
+		if1.clickCopyButton();
+		if1.exitFrame();
+		mp1.clickControlButton();
+		waitTimer( 20, 1000);		
 	
 		classlogger.info( "Finished testIFrame1" );
 	}	
@@ -68,17 +67,15 @@ public class TestFrames extends WebDriverUtils {
 		driver.get( System.getProperty("testProtocol") + "://" + System.getProperty("testDomain") + ":" +
 		        System.getProperty("testPort") + System.getProperty("testUri") );
 		
-		MainPage mp = new MainPage( driver ).get();
-		mp.setControlInputField( "Test input" );
-		mp.clickControlButton();
-		
-		IFrame2 if1 = new IFrame2( driver ).get();
-		if1.setInputField("Iframe2 test." );
-		if1.clickControlButton();
-		driver.switchTo().defaultContent();
-		mp.clickControlButton();
-		waitTimer( 20, 1000);
-		
+		MainPage mp2 = new MainPage( driver ).get();
+		mp2.setControlInputField( "Test input" );
+		mp2.clickControlButton();		
+		IFrame2 if2 = new IFrame2( driver ).get();
+		if2.setInputField("Iframe2 test." );
+		if2.clickCopyButton();
+		if2.exitFrame();
+		mp2.clickControlButton();
+		waitTimer( 20, 1000);		
 		
 		classlogger.info( "Finished testIFrame2" );
 	}	

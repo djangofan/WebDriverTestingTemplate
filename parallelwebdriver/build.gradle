@@ -80,11 +80,11 @@ task runParallelTests(type: Test) {
     systemProperties['windowWidth'] = '400'
     systemProperties['windowHeight'] = '600'
     
-    
 }
 
-task runFrameTest(type: Test) {
+task runFrameTestInIE(type: Test) {
     description = 'Runs a test of handling iframes.'
+    maxParallelForks = 1
     include '**/TestFrames.class'
     testReportDir = file("${reporting.baseDir}/FrameTest")
     testResultsDir = file("${buildDir}/test-results/FrameTest")
@@ -96,13 +96,13 @@ task runFrameTest(type: Test) {
     systemProperties['testUri'] = '/index.html'
     systemProperties['hubUrl'] = 'localhost'
     systemProperties['hubPort'] = '4444'
+    systemProperties['browserType'] = 'ie'
     
     // initial browser size and position
     systemProperties['windowXPosition'] = '100'
     systemProperties['windowYPosition'] = '40'
     systemProperties['windowWidth'] = '400'
-    systemProperties['windowHeight'] = '600'
-    
+    systemProperties['windowHeight'] = '600'    
     
 }
 

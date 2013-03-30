@@ -1,7 +1,9 @@
 package webdriver.test;
 
 import static org.junit.Assert.*;
+
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -19,8 +21,8 @@ public class IFrame2 extends LoadableComponent<IFrame2> {
 	public IFrame2( RemoteWebDriver drv ) {
 		super();
 		this.driver = drv;
+		this.driver.switchTo().defaultContent();
 		this.driver.switchTo().frame("BodyFrame2");
-		PageFactory.initElements( driver, this );
 		LOGGER.info("IFrame1 constructor...");
 	}
 
@@ -41,7 +43,14 @@ public class IFrame2 extends LoadableComponent<IFrame2> {
 	@Override
 	protected void isLoaded() throws Error {    	
 		LOGGER.info("IFrame2.isLoaded()...");
-		assertTrue( "Title is not yet available.", driver.getTitle().equals("iframe2.html") );
+		PageFactory.initElements( driver, this );
+		try {
+			assertTrue( "Title is not yet available.", 
+					driver.findElementByCssSelector("body form#webDriverUnitiFrame2TestFormID h1")
+					.getText().equals("iFrame2 Test") );
+		} catch ( NoSuchElementException e) {
+			LOGGER.info("No such element." );
+		}
 	}
 
 	/**
@@ -61,8 +70,12 @@ public class IFrame2 extends LoadableComponent<IFrame2> {
 	 * @param	sstr
 	 * @return	void
 	 */
-	public void clickControlButton() {
+	public void clickCopyButton() {
 		copyButton.click();
+	}
+	
+	public void exitFrame() {
+		this.driver.switchTo().defaultContent();
 	}
 
 }

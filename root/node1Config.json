@@ -17,9 +17,9 @@
             "platform": "WINDOWS"
         },
         {
-            "browserName": "internet explorer",
+            "browserName": "internetExplorer",
             "maxInstances": 1,
-            "platform": "WIN8"
+            "platform": "WINDOWS"
         }
     ],
     "configuration":

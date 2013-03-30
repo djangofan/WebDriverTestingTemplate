@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
@@ -13,13 +14,18 @@ public class MainPage extends LoadableComponent<MainPage> {
 
 	private RemoteWebDriver driver;
 
-	@FindBy(id = "textFieldTestInputControlID" ) public WebElement inputControlTextField;
-	@FindBy(id = "textFieldTestProcessButtonID" ) public WebElement controlButton;
+	@FindBy(id = "textFieldTestInputControlID" )
+	@CacheLookup
+	public WebElement inputControlTextField;
+	
+	@FindBy(id = "textFieldTestProcessButtonID" )
+	@CacheLookup
+	public WebElement controlButton;
 
 	public MainPage( RemoteWebDriver drv ) {
 		super();
 		this.driver = drv;
-		PageFactory.initElements( driver, this );
+		driver.switchTo().defaultContent();
 		LOGGER.info("MainPage constructor...");
 	}
 
@@ -38,8 +44,9 @@ public class MainPage extends LoadableComponent<MainPage> {
 	}
 
 	@Override
-	protected void isLoaded() throws Error {    	
+	protected void isLoaded() {    	
 		LOGGER.info("MainPage.isLoaded()...");
+		PageFactory.initElements( driver, this );
 		assertTrue( "Title is not yet available.", driver.getTitle().equals("w1.html") );
 	}
 
