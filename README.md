@@ -146,27 +146,21 @@ steps.  If you deviate from these steps you risk importing the project incorrect
 
 #### IntelliJ-IDEA
 Intellij-IDEA has a nice Gradle plugin that is included.  The steps are otherwise similar to the Eclipse steps #3-#7 <br/>
-above.
+above but I believe Eclipse is easier to use.
 
 #### Notes
 I use "GitHub GUI" to sync my local project repo to GitHub.  If you fork my project, I would recommend doing <br/>
 it this way unless you are a Git expert and prefer another way.<br/>
 
-Some similar and related projects:<br/>
-https://github.com/sebarmeli/Selenium2-Java-QuickStart-Archetype<br/>
-https://github.com/sebarmeli/Selenium2-Java-Demo<br/>
-https://github.com/djangofan/vanq-java<br/>
-http://code.google.com/p/selenium-ext/source/browse/<br/>
-https://github.com/codeborne/selenide_examples<br/>
-<br/>
 Website of this project:<br/>
 http://djangofan.github.com/WebDriverTestingTemplate/<br/>
-<br/>
-Markdown cheatsheet:<br/>
-https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet<br/>
 <br/>
 
 
 # FAQ
-1.  If the intellisense in Eclipse doesn't work, make sure you have added all the .class directories to<br/>
-    your Eclipse project classpath.  (See the included .classpath file.)
+<ol>
+<li>If the intellisense in Eclipse doesn't work, make sure you have added all the .class directories to<br/>
+    your Eclipse project classpath.  (See the included .classpath file.)</li>
+<li>I use "GitHub GUI" to sync my local project repo to GitHub.  If you fork my project, I would recommend<br/> doing <br/>
+it this way unless you are a Git expert and prefer another way.</li>
+</ol>
