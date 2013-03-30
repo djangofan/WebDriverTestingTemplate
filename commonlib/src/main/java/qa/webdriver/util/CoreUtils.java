@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 
 public abstract class CoreUtils {
 
-	public static Logger staticlogger = LoggerFactory.getLogger( "StaticLogger" );
+	public static Logger LOGGER = LoggerFactory.getLogger( "StaticLogger" );
 	protected Logger classlogger = LoggerFactory.getLogger( getClass() );
 	public static String separator = System.getProperty("file.separator");
 
@@ -20,9 +20,9 @@ public abstract class CoreUtils {
 	public static File loadGradleResource( String fileName ) {
 		File junitFile = new File( fileName );
 		if ( junitFile.exists() ) {
-			staticlogger.info( "The file '" + junitFile.getAbsolutePath() + "' exists." );
+			LOGGER.info( "The file '" + junitFile.getAbsolutePath() + "' exists." );
 		} else {
-			staticlogger.info( "Problem loading Gradle resource: " + junitFile.getAbsolutePath() );
+			LOGGER.info( "Problem loading Gradle resource: " + junitFile.getAbsolutePath() );
 		}	
 		return junitFile;
 	}
@@ -30,13 +30,13 @@ public abstract class CoreUtils {
 	public static void waitTimer( int units, int mills ) {
     	DecimalFormat df = new DecimalFormat("###.##");
 		double totalSeconds = ((double)units*mills)/1000;
-		staticlogger.info("Explicit pause for " + df.format(totalSeconds) + " seconds divided by " + units + " units of time: ");
+		LOGGER.info("Explicit pause for " + df.format(totalSeconds) + " seconds divided by " + units + " units of time: ");
 		try {
 			Thread.currentThread();		
 			int x = 0;
 			while( x < units ) {
 				Thread.sleep( mills );
-				staticlogger.info(".");
+				LOGGER.info(".");
 				x = x + 1;
 			}
 		} catch ( InterruptedException ex ) {

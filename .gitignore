@@ -167,6 +167,8 @@ pip-log.txt
 *.bin
 cache.*
 .gradle
+*.jar
+*.exe
 
 # To support IntelliJ IDEA , will disable these later when I get IntelliJ working correctly
 .idea

@@ -22,7 +22,7 @@ public class TestHandleCacheTwo extends WebDriverUtils {
 	 */
 	@BeforeClass
 	public static void setUpTestHandleCacheTwoClass() {
-		staticlogger.info("Finished setUpTestHandleCacheTwoClass");
+		LOGGER.info("Finished setUpTestHandleCacheTwoClass");
 	}
 	
 	/**
@@ -111,7 +111,7 @@ public class TestHandleCacheTwo extends WebDriverUtils {
 	 */
 	@AfterClass
 	public static void tearDownClass() {
-		staticlogger.info("Finished tearDownTestHandleCacheTwoClass");
+		LOGGER.info("Finished tearDownTestHandleCacheTwoClass");
 	}
 
 }

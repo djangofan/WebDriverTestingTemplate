@@ -54,7 +54,7 @@ public class GoogleTest2 extends WebDriverUtils {
 				e.printStackTrace();
 			}	
 		}
-		staticlogger.info("Finished loadTestsFromFile2()");
+		LOGGER.info("Finished loadTestsFromFile2()");
 		return rows;
 	}  
 

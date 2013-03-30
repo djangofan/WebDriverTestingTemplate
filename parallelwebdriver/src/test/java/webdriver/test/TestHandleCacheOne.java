@@ -6,9 +6,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
-
 import qa.webdriver.util.WebDriverUtils;
 
 /**
@@ -24,7 +21,7 @@ public class TestHandleCacheOne extends WebDriverUtils {
 	 */
 	@BeforeClass
 	public static void setUpTestHandleCacheOneClass() {
-		staticlogger.info("Finished TestHandleCacheOneClass");
+		LOGGER.info("Finished TestHandleCacheOneClass");
 	}
 	
 	/**
@@ -94,35 +91,6 @@ public class TestHandleCacheOne extends WebDriverUtils {
 		classlogger.info( "Finished testHandleCacheOne" );
 	}	
   
-  /**
-	 *  Tests opening one window and clicking a button in an iframe.
-	 *  Switching to an iframe is similar to switching windows.
-	 */
-	@Test
-	public void testIFrame() {
-		classlogger.info("Starting test testMultiWindows" );
-		classlogger.info("Loading Window1 contents");
-		driver.get( System.getProperty("testProtocol") + "://" + System.getProperty("testDomain") + ":" +
-		        System.getProperty("testPort") + System.getProperty("testUri") );
-		
-		// test iFrame here
-		driver.switchTo().defaultContent();		
-		WebElement iframe = driver.findElement( By.name("BodyFrame") );		
-		staticlogger.info( "iFrame Location: " + iframe.getLocation() );		
-		driver.switchTo().frame( iframe );		
-		WebElement we = driver.findElement( By.id( "buttonId" ) );
-		try {
-			we.click();
-		} catch ( WebDriverException wde ) {
-			staticlogger.info("ERROR: Problem with click in iframe. " + wde.getLocalizedMessage() 
-					+ "\n\n" + wde.getCause() + "\n\n" );
-		}	
-		driver.switchTo().defaultContent();
-		waitTimer( 3, 1000);
-		
-		classlogger.info( "Finished testMultiWindows" );
-	}	
-
 	/**
 	 *  Close main window handle after tests finish
 	 */
@@ -142,7 +110,7 @@ public class TestHandleCacheOne extends WebDriverUtils {
 	 */
 	@AfterClass
 	public static void tearDownTestHandleCacheOneClass() {
-		staticlogger.info("Finished tearDownTestHandleCacheOneClass");
+		LOGGER.info("Finished tearDownTestHandleCacheOneClass");
 	}
 
 }

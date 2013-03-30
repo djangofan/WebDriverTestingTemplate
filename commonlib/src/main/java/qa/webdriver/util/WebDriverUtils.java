@@ -3,7 +3,6 @@ package qa.webdriver.util;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -13,6 +12,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -21,6 +21,9 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.slf4j.LoggerFactory;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.core.util.StatusPrinter;
@@ -38,7 +41,7 @@ public abstract class WebDriverUtils extends CoreUtils {
 
 	protected static RemoteWebDriver driver;
 	public static int DEFAULT_IMPLICIT_WAIT = 30;
-    public static int DEFAULT_EXPLICIT_WAIT = 10; // seconds that LoadableComponent get() will try to load
+	public static int DEFAULT_EXPLICIT_WAIT = 10; // seconds that LoadableComponent get() will try to load
 	protected static String mainHandle = "";
 	protected static String mainWindowTitle = "";
 	protected static Set<String> handleCache = new HashSet<String>();
@@ -83,20 +86,20 @@ public abstract class WebDriverUtils extends CoreUtils {
 	public static void closeAllBrowserWindows() {
 		Set<String> handles = driver.getWindowHandles();
 		if ( !handles.isEmpty() ) {
-			staticlogger.info("Closing " + handles.size() + " window(s).");
+			LOGGER.info("Closing " + handles.size() + " window(s).");
 			for ( String windowId : handles ) {
-				staticlogger.info("-- Closing window handle: " + windowId );
+				LOGGER.info("-- Closing window handle: " + windowId );
 				driver.switchTo().window( windowId ).close();
 			}
 		} else {
-			staticlogger.info("There were no window handles to close.");
+			LOGGER.info("There were no window handles to close.");
 		}
 		driver.quit();  // this quit is critical, otherwise window will hang open
 	}
 
 	public static void closeWindowByHandle( String windowHandle ) {  
 		driver.switchTo().window( windowHandle );
-		staticlogger.info("Closing window with title \"" + driver.getTitle() + "\"." );
+		LOGGER.info("Closing window with title \"" + driver.getTitle() + "\"." );
 		driver.close();
 	}
 	/**
@@ -128,12 +131,12 @@ public abstract class WebDriverUtils extends CoreUtils {
 					if ( !windowId.equals( mainHandle ) ) { // for all windows except main window
 						if ( !handleCache.contains( windowId) ) { // for child windows not in allHandles cache
 							newHandle = windowId; // set value of newly found window handle						
-							staticlogger.info("-- Open window handle: " + newHandle + " (new window)" );
+							LOGGER.info("-- Open window handle: " + newHandle + " (new window)" );
 						}
 					}
 				}
 				if ( !newHandle.equals("") ) { // outside loop so it catches latest window handle if there are multiple
-					staticlogger.info("Switch to new window.");
+					LOGGER.info("Switch to new window.");
 					driver.switchTo().window( newHandle ); // switch to new window handle
 				}
 			} else {
@@ -150,11 +153,11 @@ public abstract class WebDriverUtils extends CoreUtils {
 		Set<String> updatedHandles = driver.getWindowHandles();
 		if ( !updatedHandles.isEmpty() ) {
 			if ( updatedHandles.size() > handleCache.size() ) {
-				staticlogger.info( "Window handle number increased to: " + updatedHandles.size() );
+				LOGGER.info( "Window handle number increased to: " + updatedHandles.size() );
 			} else if ( updatedHandles.size() == handleCache.size() ) {
-				staticlogger.info( "Window handle number is unchanged from: " + updatedHandles.size() );
+				LOGGER.info( "Window handle number is unchanged from: " + updatedHandles.size() );
 			} else {
-				staticlogger.info( "Window handle number decreased to: " + updatedHandles.size() );
+				LOGGER.info( "Window handle number decreased to: " + updatedHandles.size() );
 			}			
 		} else {
 			mainHandle = null;
@@ -164,15 +167,15 @@ public abstract class WebDriverUtils extends CoreUtils {
 	}
 
 	public static void printHandles() {
-		staticlogger.info( "Open windows:" );
+		LOGGER.info( "Open windows:" );
 		for ( String windowId : handleCache ) {
-			staticlogger.info( "-- Open window handle: " + windowId );
+			LOGGER.info( "-- Open window handle: " + windowId );
 			if ( windowId.equals( mainHandle ) ) {
-				staticlogger.info(" (main handle)");
+				LOGGER.info(" (main handle)");
 			}
 		}
 	}	
-	
+
 	public static void initializeLocalBrowser( String type ) {  	
 		if ( type.equalsIgnoreCase( "firefox" ) ) {
 			FirefoxProfile profile = new FirefoxProfile();
@@ -185,7 +188,7 @@ public abstract class WebDriverUtils extends CoreUtils {
 		else if ( type.equalsIgnoreCase( "chrome" ) ) {
 			driver = new ChromeDriver();
 		} else {
-			staticlogger.info( "Invalid browser type. Cannot initialize." );
+			LOGGER.info( "Invalid browser type. Cannot initialize." );
 		}
 		driver.manage().timeouts().implicitlyWait( DEFAULT_IMPLICIT_WAIT, TimeUnit.MILLISECONDS );
 		positionMainHandle();		
@@ -208,7 +211,7 @@ public abstract class WebDriverUtils extends CoreUtils {
 				dc.setBrowserName("chrome");
 				driver = new RemoteWebDriver( new URL("http://" + host + ":" + port + "/wd/hub"), dc );
 			} else {
-				staticlogger.info( "Invalid browser type. Cannot initialize." );
+				LOGGER.info( "Invalid browser type. Cannot initialize." );
 			}
 		} catch ( MalformedURLException e ) {
 			e.printStackTrace();
@@ -216,7 +219,7 @@ public abstract class WebDriverUtils extends CoreUtils {
 		driver.manage().timeouts().implicitlyWait( DEFAULT_IMPLICIT_WAIT, TimeUnit.MILLISECONDS );
 		positionMainHandle();
 	}
-	
+
 	private static void positionMainHandle() {
 		handleCache = driver.getWindowHandles();
 		if ( handleCache.size() == 0 ) {
@@ -244,33 +247,34 @@ public abstract class WebDriverUtils extends CoreUtils {
 		//TODO add a javascript executor to get window focus
 	}
 
-	public static WebElement getElementByLocator( By locator ) {		
-		int weWait = DEFAULT_IMPLICIT_WAIT;
-		int cycle = 1;
+	public static WebElement getElementByLocator( final By locator ) {
+		LOGGER.info( "Get element by locator: " + locator.toString() );		
+		final long startTime = System.currentTimeMillis();
+		Wait<WebDriver> wait = new FluentWait<WebDriver>( driver )
+				.withTimeout(30, TimeUnit.SECONDS)
+				.pollingEvery(5, TimeUnit.SECONDS)
+				.ignoring( StaleElementReferenceException.class ) ;
+		int tries = 0;
+		boolean found = false;
 		WebElement we = null;
-		List<WebElement> weList = driver.findElements( locator );
-		while ( weList.size() == 0 && cycle <= 3 ) { // 3 cycles equals 180 seconds of wait		
-			staticlogger.info("DOM not ready.  Trying again for " + weWait + " more seconds...");
-			driver.manage().timeouts().implicitlyWait( weWait, TimeUnit.SECONDS );
-			weList = driver.findElements( locator ); 
-			weWait +=30;
-			cycle +=1;
-		}
-		// if list not 0 then try getting the element directly
-		try {
-			we = driver.findElement( locator );
-		} catch ( StaleElementReferenceException sere ) {
-			staticlogger.info( "Element not ready.\n" + sere.getMessage() );
-		}
-		// as a safety measure, if the element is still null then try getting it from the previous element list
-		if ( we == null ) {
+		while ( (System.currentTimeMillis() - startTime) < 91000 ) {
+		    LOGGER.info( "Searching for element. Try number " + (tries++) );  
 			try {
-				we = weList.get(0);
-			} catch ( Exception e ) {
-				staticlogger.info( e.getMessage() );
+				we = wait.until( ExpectedConditions.visibilityOfElementLocated( locator ) );
+				found = true;
+			} catch ( StaleElementReferenceException e ) {						
+				LOGGER.info( "Stale element: \n" + e.getMessage() + "\n");
 			}
+		}
+		long endTime   = System.currentTimeMillis();
+		long totalTime = endTime - startTime;
+		if ( found ) {
+			LOGGER.info("Found element after waiting for " + totalTime + " milliseconds." );
+		} else {
+			LOGGER.info( "Failed to find element after " + totalTime + " milliseconds." );
 		}
 		return we;
 	}
+
 
 }

@@ -30,7 +30,7 @@ public class DataProviderTest extends WebDriverUtils {
 
 	@Before
 	public void setUp() {	
-		staticlogger.info("setUp");
+		LOGGER.info("setUp");
 	}
 
 	@Parameters(name = "{0}: {1}: {2}")
@@ -50,21 +50,21 @@ public class DataProviderTest extends WebDriverUtils {
 			}	
 		}
 		//String[][] csvMatrix = rows.toArray(new String[rows.size()][]);
-		staticlogger.info("Finished loadParams()");
+		LOGGER.info("Finished loadParams()");
 		return rows;
 	}  
 
 	@Test
 	public void testParams() {
-		staticlogger.info("Param '{}' being run...", testName );
-		staticlogger.info("Search string: " + searchString );
-		staticlogger.info("ddMatch: " + ddMatch );
-		staticlogger.info("Test '{}' is done.", testName );
+		LOGGER.info("Param '{}' being run...", testName );
+		LOGGER.info("Search string: " + searchString );
+		LOGGER.info("ddMatch: " + ddMatch );
+		LOGGER.info("Test '{}' is done.", testName );
 	}
 
 	@After
 	public void cleanUp() {
-		staticlogger.info("Finished cleanUp");
+		LOGGER.info("Finished cleanUp");
 	}
 
 

@@ -23,11 +23,11 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
 	public class GSPFluentInterface {
 
 		public GSPFluentInterface(GoogleSearchPage googleSearchPage) {
-			staticlogger.info("Initialized fluent interface.");
+			LOGGER.info("Initialized fluent interface.");
 		}
 
 		public GSPFluentInterface clickLogo() {
-			staticlogger.info("Click Google logo.");
+			LOGGER.info("Click Google logo.");
 			WebElement logo = null;
 			By locator = By.cssSelector( "div.gbqlca" );
 			logo = getElementByLocator( locator );
@@ -46,7 +46,7 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
 		}
 
 		public GSPFluentInterface selectItem( String match ) {
-			staticlogger.info("Selecting item in list using fluent API.");
+			LOGGER.info("Selecting item in list using fluent API.");
 			selectInGoogleDropdown( match );
 			return this;
 		}
@@ -85,7 +85,7 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
 	public GoogleSearchPage() {
 		super( new SystemClock(), DEFAULT_EXPLICIT_WAIT);
 		this.get(); // SlowLoadableComponent.get()
-		staticlogger.info("GoogleSearchPage constructor...");
+		LOGGER.info("GoogleSearchPage constructor...");
 		gspfi = new GSPFluentInterface( this ); // use this only if you want to
 	}
 
@@ -96,10 +96,10 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
 		    try {
 				searchButton.click();
 			} catch ( ElementNotVisibleException e ) {
-				staticlogger.info( "Element not visible exception clicking search button.\n" + e.getMessage() );
+				LOGGER.info( "Element not visible exception clicking search button.\n" + e.getMessage() );
 				e.printStackTrace();
 			} catch ( Exception e ) {
-				staticlogger.info( "Exception clicking search button.\n" + e.getMessage() );
+				LOGGER.info( "Exception clicking search button.\n" + e.getMessage() );
 				e.printStackTrace();
 			}
 		}
@@ -112,7 +112,7 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
 		    try {
 				searchField.click();
 			} catch ( Exception e ) {
-				staticlogger.info( "Error clicking search field.\n" + e.getMessage() );
+				LOGGER.info( "Error clicking search field.\n" + e.getMessage() );
 				e.printStackTrace();
 			}
 		}
@@ -128,7 +128,7 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
 	 */
 	@Override
 	protected void isLoaded() throws Error {    	
-		staticlogger.info("GoogleSearchPage.isLoaded()...");
+		LOGGER.info("GoogleSearchPage.isLoaded()...");
 		boolean loaded = false;
 		if ( !(searchField == null ) ) {
 			try {
@@ -136,7 +136,7 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
 					loaded = true;
 				}
 			} catch ( ElementNotVisibleException e ) {
-				staticlogger.info( "Element may not be displayed yet." );
+				LOGGER.info( "Element may not be displayed yet." );
 			}
 		}
 		Assert.assertTrue( "Google search field is not yet displayed.", loaded );
@@ -150,7 +150,7 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
 	 */
 	@Override
 	protected void load() {
-		staticlogger.info("GoogleSearchPage.load()...");
+		LOGGER.info("GoogleSearchPage.load()...");
 		PageFactory.initElements( driver, this ); // initialize WebElements on page
 		waitTimer(3, 1000);
 	}
@@ -183,7 +183,7 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
 	 * @throws	null
 	 */
 	public void selectInGoogleDropdown( String match ) {
-		staticlogger.info("Selecting \"" + match + "\" from Google dropdown.");
+		LOGGER.info("Selecting \"" + match + "\" from Google dropdown.");
 		List<WebElement> allSuggestions = driver.findElements( By.cssSelector( suggestCSSLocator ) );  
 		boolean operate = true;
 		int tries = 0;
@@ -194,19 +194,19 @@ public class GoogleSearchPage extends SlowLoadableComponent<GoogleSearchPage> {
 				for ( WebElement suggestion : allSuggestions ) {
 					if ( suggestion.getText().contains( match ) ) {
 						suggestion.click();
-						staticlogger.info("Found item and clicked it.");
+						LOGGER.info("Found item and clicked it.");
 						Thread.sleep(2); // just to slow it down so human eyes can see it
 					}
 				}
 				operate = false;
 			} catch ( StaleElementReferenceException e ) {
-				staticlogger.info("Error while iterating dropdown list:\n" + e.getMessage() );
+				LOGGER.info("Error while iterating dropdown list:\n" + e.getMessage() );
 				//e.printStackTrace();
 			} catch ( InterruptedException ie ) {
 				// do nothing
 			}
 		}
-		staticlogger.info("Finished select in Google dropdown.");
+		LOGGER.info("Finished select in Google dropdown.");
 	}
 
 }
