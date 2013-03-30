@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Webdrivertestingtemplate by djangofan</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Webdrivertestingtemplate</h1>
+        <p>A Gradle template for JUnit Selenium WebDriver tests</p>
+
+        <p class="view"><a href="https://github.com/djangofan/WebDriverTestingTemplate">View the Project on GitHub <small>djangofan/WebDriverTestingTemplate</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/djangofan/WebDriverTestingTemplate/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/djangofan/WebDriverTestingTemplate/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/djangofan/WebDriverTestingTemplate">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Info</h1>
+
+<p>This is a Java project that can be used as a template (or archetype) to start a WebDriver web browser testing<br>
+project.  I chose to simplify and and implement using simply WebDriver and Gradle.<br></p>
+
+<p>I am very much interested in others forking my code and/or letting me know how it can be improved.</p>
+
+<p>The idea here is to replace your existing automation framework, such as "HP Quality Center", "XStudio", or "Rational<br>
+Functional Tester", with a pure Java solution managed by the Gradle build system.   I use Jenkins to schedule my tests<br>
+and run them.</p>
+
+<h1>Versions</h1>
+
+<p>Version 1.0 - March 16, 2013</p>
+
+<h1>Project Layout</h1>
+
+<p><br>
+Eclipse Root <br>
++--- Project ':root'<br>
++--- Project ':sub-project'<br>
++--- Project ':commonlib'<br>
++--- Project ':google'<br>
++--- Project ':parallelwebdriver'<br>
++--- ...<br><br></p>
+
+<h1>Overview<br>
+</h1>
+
+<ol>
+<li>Project "sub-project" is a project you add yourself, if you want.<br>
+</li>
+<li>Project "google" is a RemoteWebDriver JUnit test-suite using a local Grid server that is capable of running<br>multiple threads of web browser tests.</li>
+<li>Project "parallelwebdriver" is a test of a  multi-window multi-threaded run using a static local website.<br>
+</li>
+<li>Project "commonlib" is a sub-project containing methods shared between projects.<br>
+</li>
+<li>Project "root" is an 'includeFlat' Gradle-layout-alias to Eclipse project-root-dir 'WebDriverTestingTemplate'.</li>
+</ol><h1>Quick Start</h1>
+
+<p>Normally, this project would be ran through the Gradle plugin for Eclipse IDE, but I have tried to make it easier by<br>
+including a method to run dynamically and directly from the .zip distribution on the command line.</p>
+
+<p>To try this project without requiring a Java IDE, just make sure you download Gradle 1.4, configure your
+GRADLE_HOME<br> environment variable, add %GRADLE_HOME%\bin to your PATH, and then download the .zip distribution
+of this<br> project, unzip it, and run the included <b>root/runProjectMenu.bat</b> script.</p>
+
+<h1>Implemented Features</h1>
+
+<table>
+<tr>
+<th>Feature</th>
+    <th>Description</th>
+  </tr>
+<tr>
+<th>JUnit based</th>
+    <td>For use ONLY with JUnit 4.11 or higher because of the usage of the parameterized capability<br> of JUnit. This dependency is configured by the Gradle build script.</td>
+  </tr>
+<tr>
+<th>Parallel runner<br>using JUnit</th>
+    <td>A parallel runner using the Gradle maxParallelForks method.</td>
+  </tr>
+<tr>
+<th>Native automation support</th>
+    <td>For use with Sikuli 1.0.1 or higher to test native elements that WebDriver "Action" is<br> unable to control. This dependency is configured in the Gradle build script.  If you implement<br> this however, you may not be able to use the remote webdriver option in<br> your project. </td>
+  </tr>
+<tr>
+<th>Uses RemoteWebDriver<br>JSON Hub Server</th>
+    <td>I have included an implementation of a WebDriverServer class that starts a RemoteWebDriver<br> JSON Hub server instance in the BeforeClass method of tests. This server is a static member <br>of the utility class that the tests extend. </td>
+  </tr>
+<tr>
+<th>Parameterized data <br>driven capability</th>
+    <td>Unit tests are parameterized from a csv file.  Can also load tests from XML, XLS, a database, etc.</td>
+  </tr>
+<tr>
+<th>Logging and Reporting</th>
+    <td>Logs test output to console and to a file using SLF4j/LogBack API, and configured by<br> a <b>logback.xml</b> file. Will generate reports of JUnit test results at<br><b>build/reports/test/index.html</b> .  Will place a junit.log file at <b>build/logs/junit.log</b> .</td>
+  </tr>
+<tr>
+<th>Page Object design <br>pattern</th>
+    <td>Uses the WebDriver "page object" design pattern, enhanced by the Selenium<br> "LoadableComponent" extendable class.</td>
+  </tr>
+<tr>
+<th>Fluent API design<br>pattern</th>
+    <td>Implemented examples of the <i>Fluent API</i> design pattern while retaining capability of <br>
+    the traditional page object pattern.</td>
+  </tr>
+<tr>
+<th>Multi-project build<br>configuration</th>
+    <td>Implemented multiple project build.  The root project has a subproject called "core" and all <br>
+   subprojects of "core" inherit classes from it.</td>
+  </tr>
+<tr>
+<th>Run Options</th>
+    <td>You have three different options for running the tests: via the Gradle GUI, via your IDE<br>Gradle
+    plugin, or via Gradle command line. To run with<br>the JUnit runner in your IDE, 
+    you would need to manually export your project <br>as a normal Java project, because this template does
+    not support that.</td>
+  </tr>
+<tr>
+<th>Core utility package</th>
+    <td>All projects inherit from a "core" project that contains classes where you can store methods<br>
+        that all of your projects can share between them.</td>
+  </tr>
+</table><h1>Un-implemented Features</h1>
+
+<table>
+<tr>
+<th>Feature</th>
+    <th>Description</th>
+  </tr>
+<tr>
+<th>Gradle Wrapper</th>
+    <td>Did not choose to implement the Gradle wrapper because I believe that downloading Gradle and<br>
+       configuring GRADLE_HOME and PATH are easy enough.  Also, a manual setup of Gradle gives<br>us more
+       control using a batch script.  Also, the development IDE can be configured to use the <br>
+       statically defined Gradle home.</td>
+  </tr>
+<tr>
+<th>Jar executable option</th>
+    <td>Creates an uberJar of all projects and subprojects that can be ran by double clicking<br>
+       the .jar file.  If you don't have the file association supporting it, we include a <br>
+       jarAssociation.bat file to setup the file association on your Windows system.  I was planning<br>
+       to implement this but currently having trouble getting it to work.</td>
+  </tr>
+</table><h1>Configuration And Setup</h1>
+
+<h4>Eclipse</h4>
+
+<p>To get it working on a regular Eclipse Juno (rather than Spring Source Suite) then perform the following<br>
+steps.  If you deviate from these steps you risk importing the project incorrectly. You know you did it<br>correctly if your imported project resembles the screenshot I provided called "layout.png".</p>
+
+<ol>
+<li>Add the following software repositories to your Eclipse software update panel:<br>
+a. "SpringSource Update Site for Eclipse Juno 4.2" - <a href="http://dist.springsource.com/release/TOOLS/update/e4.2">http://dist.springsource.com/release/TOOLS/update/e4.2</a> <br>
+If you have Eclipse 3.x, then the Sprint 3.7 update site may work for you.  <br>
+(<a href="http://www.springsource.org/STS-installation-instructions">http://www.springsource.org/STS-installation-instructions</a> )</li>
+<li>Install the new software components called "Gradle Tooling API" and "Gradle IDE". Restart Eclipse. <br>
+</li>
+<li>Download the .zip archive of this GitHub project distribution and unzip it to your workspace.  An example<br>
+might be:  "C:\Eclipse32\workspace\WebDriverTestingTemplate\" .<br>
+</li>
+<li>Use the Eclipse "Import" function from the Eclipse "File menu" to import a "Project" of type "Gradle".</li>
+<li>Browse using the import wizard to your projects "root" sub-directory described in Step #3 (above).  Then click<br>
+the "Build model" button.  We do this because of the "includeFlat" Gradle layout.</li>
+<li>Check all checkboxes .  You could also choose to add all to your "working set" if you like but it isn't required.<br>
+</li>
+<li>Rebuild the dependencies by right clicking on the project and then choose Gradle--&gt;Refresh All Dependencies <br>
+</li>
+<li>Right click on your project and choose "Run As--&gt;External Tools Configuration".  Configure a new "clean" and "build"<br>
+configuration for running a sub-project (or whatever tasks you want to execute).<br>
+</li>
+<li>Optionally, you can run this project on the command line with "gradle identify google:show google:clean <br>
+google:build --info" and it will execute the project unit tests.  Also, this project provides a .bat batch<br>
+script that does this and provides a menu of other actions you can execute.</li>
+</ol><h4>IntelliJ-IDEA</h4>
+
+<p>Intellij-IDEA has a nice Gradle plugin that is included.  The steps are otherwise similar to the Eclipse steps #3-#7 <br>
+above.</p>
+
+<h4>Notes</h4>
+
+<p>I use "GitHub GUI" to sync my local project repo to GitHub.  If you fork my project, I would recommend doing <br>
+it this way unless you are a Git expert and prefer another way.<br></p>
+
+<p>Some similar and related projects:<br><a href="https://github.com/sebarmeli/Selenium2-Java-QuickStart-Archetype">https://github.com/sebarmeli/Selenium2-Java-QuickStart-Archetype</a><br><a href="https://github.com/sebarmeli/Selenium2-Java-Demo">https://github.com/sebarmeli/Selenium2-Java-Demo</a><br><a href="https://github.com/djangofan/vanq-java">https://github.com/djangofan/vanq-java</a><br><a href="http://code.google.com/p/selenium-ext/source/browse/">http://code.google.com/p/selenium-ext/source/browse/</a><br><a href="https://github.com/codeborne/selenide_examples">https://github.com/codeborne/selenide_examples</a><br><br>
+Website of this project:<br><a href="http://djangofan.github.com/WebDriverTestingTemplate/">http://djangofan.github.com/WebDriverTestingTemplate/</a><br><br>
+Markdown cheatsheet:<br><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet</a><br><br></p>
+
+<h1>FAQ</h1>
+
+<ol>
+<li> If the intellisense in Eclipse doesn't work, make sure you have added all the .class directories to<br>
+your Eclipse project classpath.  (See the included .classpath file.)</li>
+</ol>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/djangofan">djangofan</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
