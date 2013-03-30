@@ -8,17 +8,9 @@ add it.
 ##Running this project
 
 1. You need to first start the web HTTP server located at:
-  https://github.com/djangofan/WebDriverTestingTemplate/blob/master/parallelwebdriver/startWeb.bat
-   In the future I will add a Gradle task that starts this server.  The startWeb.bat won't start
-   unless you first run this:
-  gradle.bat commonlib:compileJava parallelwebdriver:compileJava 
+  [http://djangofan.github.com/html-test-site/](http://djangofan.github.com/html-test-site/)
 
 2.  Then, start the Grid Hub and the Grid Node that are contained at:
    https://github.com/djangofan/WebDriverTestingTemplate/blob/master/root  
 
-NOTE: If  you are running the 'runAllTests' task, you don't need to start the HTTP server because
-   the test code starts one for you in the static AllTests suite class.
-
-##Methods Implemented So Far
-===========================
 
