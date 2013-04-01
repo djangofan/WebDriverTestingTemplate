@@ -262,6 +262,7 @@ public abstract class WebDriverUtils extends CoreUtils {
 			try {
 				we = wait.until( ExpectedConditions.visibilityOfElementLocated( locator ) );
 				found = true;
+				break;
 			} catch ( StaleElementReferenceException e ) {						
 				LOGGER.info( "Stale element: \n" + e.getMessage() + "\n");
 			}
