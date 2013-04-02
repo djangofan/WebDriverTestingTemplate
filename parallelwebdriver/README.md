@@ -10,6 +10,9 @@ add it.
 1. You need to first start the web HTTP server located at:
   [http://djangofan.github.com/html-test-site/](http://djangofan.github.com/html-test-site/)
 
+  NOTE: You could instead configure the build.gradle to point to the direct GitHub URL at: <br/>
+  http://djangofan.github.com/html-test-site/site/index.html
+
 2.  Then, start the Grid Hub and the Grid Node that are contained at:
    https://github.com/djangofan/WebDriverTestingTemplate/blob/master/root  
 
