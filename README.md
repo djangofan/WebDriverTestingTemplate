@@ -30,6 +30,13 @@ Version 1.0 - March 16, 2013
     4. Project "commonlib" is a sub-project containing methods shared between projects.
     5. Project "root" is an 'includeFlat' Gradle-layout-alias to Eclipse project-root-dir 'WebDriverTestingTemplate'.
 
+# SubProjects
+Links to sub-projects that belong to this project:
+
+[ParallelWebDriver](https://github.com/djangofan/WebDriverTestingTemplate/blob/master/parallelwebdriver/README.md)
+
+
+
 # Quick Start
 Normally, this project would be ran through the Gradle plugin for Eclipse IDE, but I have tried to make it easier by<br/>
 including a method to run dynamically and directly from the .zip distribution on the command line.
