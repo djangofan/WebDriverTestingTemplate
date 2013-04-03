@@ -42,12 +42,12 @@ Links to sub-projects that belong to this project:
 [Google Example Tests](https://github.com/djangofan/WebDriverTestingTemplate/tree/master/google)
 
 # Quick Start
-Normally, this project would be ran through the Gradle plugin for Eclipse IDE, but I have tried to make it easier by<br/>
-including a method to run dynamically and directly from the .zip distribution on the command line.
+Normally, this project would be ran through the Gradle plugin for Eclipse IDE, but I have tried to make it easier 
+by including a method to run dynamically and directly from the .zip distribution on the command line.
 
-To try this project without requiring a Java IDE, just make sure you download Gradle 1.4, configure your
-GRADLE_HOME<br/> environment variable, add %GRADLE_HOME%\bin to your PATH, and then download the .zip distribution
-of this<br/> project, unzip it, and run the included <b>root/runProjectMenu.bat</b> script.
+To try this project without requiring a Java IDE, just make sure you download Gradle 1.4, configure your 
+GRADLE_HOME environment variable, add %GRADLE_HOME%\bin to your PATH, and then download the .zip distribution
+of this project, unzip it, and run the included <b>root/runProjectMenu.bat</b> script.
 
 # Implemented Features
 <table>
@@ -171,9 +171,11 @@ http://djangofan.github.com/WebDriverTestingTemplate/<br/>
 
 # FAQ
 
-    1. If the intellisense in Eclipse doesn't work, make sure you have added all the .class directories to
-       your Eclipse project classpath.  (See the included .classpath file.)
-    2. I use "GitHub GUI" to sync my local project repo to GitHub.  If you fork my project, I would recommend
-       doing it this way unless you are a Git expert and prefer another way.
+    1. If the intellisense in Eclipse doesn't work, make sure you 
+       have added all the .class directories to your Eclipse project
+       classpath.  (See the included .classpath file.)
+    2. I use "GitHub GUI" to sync my local project repo to GitHub. 
+       If you fork my project, I would recommend doing it this way
+       unless you are a Git expert and prefer another way.
     3.
 
