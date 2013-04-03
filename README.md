@@ -23,16 +23,17 @@ Version 1.0 - March 16, 2013
 
 # Overview
 
-    1. Project "sub-project" is a project you add yourself, if you want.
-    2. Project "google" is a RemoteWebDriver JUnit test-suite using a 
-       local Grid server that is capable of running multiple threads 
-       of web browser tests.
-    3. Project "parallelwebdriver" is a test of a  multi-window multi-
-       threaded run using a static local website.
-    4. Project "commonlib" is a sub-project containing methods shared
-       between projects.
-    5. Project "root" is an 'includeFlat' Gradle-layout-alias to Eclipse
-       project-root-dir 'WebDriverTestingTemplate'.
+    1. Project "sub-project" is a project you add yourself, if you 
+       want.
+    2. Project "google" is a RemoteWebDriver JUnit test-suite using
+       a local Grid server that is capable of running multiple 
+       threads of web browser tests.
+    3. Project "parallelwebdriver" is a test of a  multi-window 
+       multi-threaded run using a static local website.
+    4. Project "commonlib" is a sub-project containing methods 
+       shared between projects.
+    5. Project "root" is an 'includeFlat' Gradle-layout-alias to
+       Eclipse project-root-dir 'WebDriverTestingTemplate'.
 
 # SubProjects
 Links to sub-projects that belong to this project:
@@ -134,31 +135,32 @@ of this project, unzip it, and run the included <b>root/runProjectMenu.bat</b> s
 #### Eclipse
 To get it working on a regular Eclipse 4.2.1 or later, follow these steps:
  
-    1. Using the "Eclipse Marketplace" settings panel under the Eclipse
-       "Help" menu, install the Gradle tooling functionality.  You can
-       do it through the "Install New Software" menu, but it isn't 
-       recommended.
-    2. Download the .zip archive of this GitHub project distribution 
-       and unzip it to your workspace.  An example might be:  
+    1. Using the "Eclipse Marketplace" settings panel under the 
+       Eclipse "Help" menu, install the Gradle tooling 
+       functionality.  You can do it through the "Install New
+       Software" menu, but it isn't recommended.
+    2. Download the .zip archive of this GitHub project 
+       distribution and unzip it to your workspace.  An example:
        "C:\Eclipse32\workspace\WebDriverTestingTemplate\" .
-    3. Use the Eclipse "Import" function from the Eclipse "File menu" 
-       to import a "Project" of type "Gradle".
-    4. Browse using the import wizard to your projects "root" sub-
-       directory described in Step #3 (above).  Then click the "Build
-       model" button.  We do this because of the "includeFlat" Gradle
-       layout.
-    5. Check all checkboxes .  You could also choose to add all to your
-       "working set" if you like but it isn't required.
-    6. Rebuild the dependencies by right clicking on the project and 
-       then choose Gradle-->Refresh All Dependencies
-    7. Right click on your project and choose "Run As-->External Tools
-       Configuration".  Configure a new "clean" and "build" configuration
-       for running a sub-project (or whatever tasks you want to execute).
-    8. Optionally, you can run this project on the command line with 
-       "gradle identify google:show google:clean google:build --info" 
-       and it will execute the project unit tests.  Also, this project 
-       provides a .bat batch script that does this and provides a menu
-       of other actions you can execute.
+    3. Use the Eclipse "Import" function from the Eclipse "File
+       menu" to import a "Project" of type "Gradle".
+    4. Browse using the import wizard to your projects "root" 
+       sub-directory described in Step #3 (above).  Then click
+       the "Build model" button.  We do this because of the 
+       "includeFlat" Gradle layout.
+    5. Check all checkboxes .  You could also choose to add all 
+       to your "working set" if you like but it isn't required.
+    6. Rebuild the dependencies by right clicking on the project
+       and then choose Gradle-->Refresh All Dependencies
+    7. Right click on your project and choose "Run As-->External
+       Tools Configuration".  Configure a new "clean" and "build"
+       configuration for running a sub-project (or whatever tasks
+       you want to execute).
+    8. Optionally, you can run this project on the command line
+       with "gradle google:show google:clean google:build --info" 
+       and it will execute the project unit tests.  Also, this 
+       project provides a .bat batch script that does this and
+       provides a menu of other actions you can execute.
 
 #### IntelliJ-IDEA
 The required Gradle functionality is already built into IntelliJ-IDEA 12.1+ .  I think using IDEA is more difficult
