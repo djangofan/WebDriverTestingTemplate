@@ -1,33 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Selenium WebDriver Gradle Template by djangofan</title>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Selenium WebDriver Gradle Template : A Gradle template for JUnit Selenium WebDriver tests" />
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Selenium WebDriver Gradle Template</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Selenium WebDriver Gradle Template</h1>
-        <p>A Gradle template for JUnit Selenium WebDriver tests</p>
 
-        <p class="view"><a href="https://github.com/djangofan/WebDriverTestingTemplate">View the Project on GitHub <small>djangofan/WebDriverTestingTemplate</small></a></p>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/djangofan/WebDriverTestingTemplate">View on GitHub</a>
 
+          <h1 id="project_title">Selenium WebDriver Gradle Template</h1>
+          <h2 id="project_tagline">A Gradle template for JUnit Selenium WebDriver tests</h2>
 
-        <ul>
-          <li><a href="https://github.com/djangofan/WebDriverTestingTemplate/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/djangofan/WebDriverTestingTemplate/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/djangofan/WebDriverTestingTemplate">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/djangofan/WebDriverTestingTemplate/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/djangofan/WebDriverTestingTemplate/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h1>Info</h1>
 
 <p>This is a Java project that can be used as a template (or archetype) to start a WebDriver web browser testing<br>
@@ -45,28 +48,26 @@ and run them.</p>
 
 <h1>Project Layout</h1>
 
-<p><br>
-Eclipse Root <br>
-+--- Project ':root'<br>
-+--- Project ':sub-project'<br>
-+--- Project ':commonlib'<br>
-+--- Project ':google'<br>
-+--- Project ':parallelwebdriver'<br>
-+--- ...<br><br></p>
+<pre><code>Eclipse Root
++--- Project ':root'
++--- Project ':sub-project'
++--- Project ':commonlib'
++--- Project ':google'
++--- Project ':parallelwebdriver'
++--- ...
+</code></pre>
 
-<h1>Overview<br>
-</h1>
+<h1>Overview</h1>
 
-<ol>
-<li>Project "sub-project" is a project you add yourself, if you want.<br>
-</li>
-<li>Project "google" is a RemoteWebDriver JUnit test-suite using a local Grid server that is capable of running<br>multiple threads of web browser tests.</li>
-<li>Project "parallelwebdriver" is a test of a  multi-window multi-threaded run using a static local website.<br>
-</li>
-<li>Project "commonlib" is a sub-project containing methods shared between projects.<br>
-</li>
-<li>Project "root" is an 'includeFlat' Gradle-layout-alias to Eclipse project-root-dir 'WebDriverTestingTemplate'.</li>
-</ol><h1>Quick Start</h1>
+<pre><code>1. Project "sub-project" is a project you add yourself, if you want.
+2. Project "google" is a RemoteWebDriver JUnit test-suite using a local Grid server that is capable of running
+   multiple threads of web browser tests.
+3. Project "parallelwebdriver" is a test of a  multi-window multi-threaded run using a static local website.
+4. Project "commonlib" is a sub-project containing methods shared between projects.
+5. Project "root" is an 'includeFlat' Gradle-layout-alias to Eclipse project-root-dir 'WebDriverTestingTemplate'.
+</code></pre>
+
+<h1>Quick Start</h1>
 
 <p>Normally, this project would be ran through the Gradle plugin for Eclipse IDE, but I have tried to make it easier by<br>
 including a method to run dynamically and directly from the .zip distribution on the command line.</p>
@@ -143,7 +144,7 @@ of this<br> project, unzip it, and run the included <b>root/runProjectMenu.bat</
 <th>Gradle Wrapper</th>
     <td>Did not choose to implement the Gradle wrapper because I believe that downloading Gradle and<br>
        configuring GRADLE_HOME and PATH are easy enough.  Also, a manual setup of Gradle gives<br>us more
-       control using a batch script.  Also, the development IDE can be configured to use the <br>
+       control using a batch script.  Also, the development IDE is usually configured to use the <br>
        statically defined Gradle home.</td>
   </tr>
 <tr>
@@ -157,36 +158,29 @@ of this<br> project, unzip it, and run the included <b>root/runProjectMenu.bat</
 
 <h4>Eclipse</h4>
 
-<p>To get it working on a regular Eclipse Juno (rather than Spring Source Suite) then perform the following<br>
-steps.  If you deviate from these steps you risk importing the project incorrectly. You know you did it<br>correctly if your imported project resembles the screenshot I provided called "layout.png".</p>
+<p>To get it working on a regular Eclipse 4.2.1 or later, follow these steps:</p>
 
-<ol>
-<li>Add the following software repositories to your Eclipse software update panel:<br>
-a. "SpringSource Update Site for Eclipse Juno 4.2" - <a href="http://dist.springsource.com/release/TOOLS/update/e4.2">http://dist.springsource.com/release/TOOLS/update/e4.2</a> <br>
-If you have Eclipse 3.x, then the Sprint 3.7 update site may work for you.  <br>
-(<a href="http://www.springsource.org/STS-installation-instructions">http://www.springsource.org/STS-installation-instructions</a> )</li>
-<li>Install the new software components called "Gradle Tooling API" and "Gradle IDE". Restart Eclipse. <br>
-</li>
-<li>Download the .zip archive of this GitHub project distribution and unzip it to your workspace.  An example<br>
-might be:  "C:\Eclipse32\workspace\WebDriverTestingTemplate\" .<br>
-</li>
-<li>Use the Eclipse "Import" function from the Eclipse "File menu" to import a "Project" of type "Gradle".</li>
-<li>Browse using the import wizard to your projects "root" sub-directory described in Step #3 (above).  Then click<br>
-the "Build model" button.  We do this because of the "includeFlat" Gradle layout.</li>
-<li>Check all checkboxes .  You could also choose to add all to your "working set" if you like but it isn't required.<br>
-</li>
-<li>Rebuild the dependencies by right clicking on the project and then choose Gradle--&gt;Refresh All Dependencies <br>
-</li>
-<li>Right click on your project and choose "Run As--&gt;External Tools Configuration".  Configure a new "clean" and "build"<br>
-configuration for running a sub-project (or whatever tasks you want to execute).<br>
-</li>
-<li>Optionally, you can run this project on the command line with "gradle identify google:show google:clean <br>
-google:build --info" and it will execute the project unit tests.  Also, this project provides a .bat batch<br>
-script that does this and provides a menu of other actions you can execute.</li>
-</ol><h4>IntelliJ-IDEA</h4>
+<pre><code>1. Using the "Eclipse Marketplace" settings panel under the Eclipse "Help" menu, install the Gradle tooling
+   functionality.  You can do it through the "Install New Software" menu, but it isn't recommended.
+2. Download the .zip archive of this GitHub project distribution and unzip it to your workspace.  An example
+   might be:  "C:\Eclipse32\workspace\WebDriverTestingTemplate\" .
+3. Use the Eclipse "Import" function from the Eclipse "File menu" to import a "Project" of type "Gradle".
+4. Browse using the import wizard to your projects "root" sub-directory described in Step #3 (above).  Then 
+  click the "Build model" button.  We do this because of the "includeFlat" Gradle layout.
+5. Check all checkboxes .  You could also choose to add all to your "working set" if you like but it isn't 
+   required.
+6. Rebuild the dependencies by right clicking on the project and then choose Gradle--&gt;Refresh All Dependencies
+7. Right click on your project and choose "Run As--&gt;External Tools Configuration".  Configure a new "clean" 
+   and "build" configuration for running a sub-project (or whatever tasks you want to execute).
+8. Optionally, you can run this project on the command line with "gradle identify google:show google:clean
+   google:build --info" and it will execute the project unit tests.  Also, this project provides a .bat batch
+   script that does this and provides a menu of other actions you can execute.
+</code></pre>
 
-<p>Intellij-IDEA has a nice Gradle plugin that is included.  The steps are otherwise similar to the Eclipse steps #3-#7 <br>
-above but I believe Eclipse is easier to use.</p>
+<h4>IntelliJ-IDEA</h4>
+
+<p>The required Gradle functionality is already built into IntelliJ-IDEA 12.1+ .  I think using IDEA is more difficult
+but go ahead if you are familiar with it.</p>
 
 <h4>Notes</h4>
 
@@ -194,18 +188,24 @@ above but I believe Eclipse is easier to use.</p>
 
 <h1>FAQ</h1>
 
-<ol>
-<li>If the intellisense in Eclipse doesn't work, make sure you have added all the .class directories to<br>
-    your Eclipse project classpath.  (See the included .classpath file.)</li>
-<li>I use "GitHub GUI" to sync my local project repo to GitHub.  If you fork my project, I would<br>recommend doing it this way unless you are a Git expert and prefer another way.</li>
-</ol>
+<pre><code>1. If the intellisense in Eclipse doesn't work, make sure you have added all the .class directories to
+   your Eclipse project classpath.  (See the included .classpath file.)
+2. I use "GitHub GUI" to sync my local project repo to GitHub.  If you fork my project, I would recommend
+   doing it this way unless you are a Git expert and prefer another way.
+3.
+</code></pre>
       </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/djangofan">djangofan</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Selenium WebDriver Gradle Template maintained by <a href="https://github.com/djangofan">djangofan</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
+
     
+
   </body>
 </html>
