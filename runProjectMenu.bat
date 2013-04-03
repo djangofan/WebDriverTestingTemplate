@@ -40,14 +40,14 @@ ECHO.&ECHO.&ECHO.
 SET CHOICE=%~1
 IF "%~1"=="" (
   ECHO.
-  ECHO [1] Run Google tests
-  ECHO [2] Nothing
+  ECHO [1] Run ^"Google^" tests
+  ECHO [2] Run ^"ParallelWebDriver^" tests
   ECHO [3] List all projects
-  ECHO [4] Display Google tasks
-  ECHO [5] Nothing
-  ECHO [6] Display Core Utilities tasks
-  ECHO [7] Execute Parallel WebDriver tests
-  ECHO [8] Gradle GUI
+  ECHO [4] Display ^"Google^" tasks
+  ECHO [5] Display ^"ParallelWebDriver^" tasks
+  ECHO [6] Display ^"CommonLib^" tasks
+  ECHO [7] Run a custom task
+  ECHO [8] Run Gradle GUI
   ECHO [X] EXIT
   ECHO.
 )
@@ -67,11 +67,11 @@ IF "%CHOICE%"=="x" (
 ::-------------------------------------------------------------------
 
 IF "%CHOICE%"=="1" (
-  CALL gradle.bat commonlib:identify commonlib:show google:show google:clean google:runAllTests --info
-  ::START "%ProgramFiles%\Internet Explorer\iexplore.exe" file:///%CD%/google/build/reports/tests/index.html
+  CALL gradle.bat commonlib:show commonLib:compileJava google:show google:clean google:runAllTestsInFirefox google:runAllTestsInIE -info
   GOTO :END
 ) ELSE IF "%CHOICE%"=="2" (
-  ECHO Does nothing.
+  CALL gradle.bat commonlib:show commonLib:compileJava parallelwebdriver:show parallelwebdriver:clean parallelwebdriver:runParallelTests parallelwebdriver:runFrameTestInIE -info
+  GOTO :PICK
   GOTO :END
 ) ELSE IF "%CHOICE%"=="3" (
   CALL gradle.bat projects
@@ -80,13 +80,18 @@ IF "%CHOICE%"=="1" (
   CALL gradle.bat google:tasks
   GOTO :PICK
 ) ELSE IF "%CHOICE%"=="5" (
-  ECHO Does nothing.
+  CALL gradle.bat parallelwebdriver:tasks
+  GOTO :PICK
   GOTO :PICK
 ) ELSE IF "%CHOICE%"=="6" (
   CALL gradle.bat commonlib:tasks
   GOTO :PICK
 ) ELSE IF "%CHOICE%"=="7" (
-  CALL gradle.bat commonlib:identify commonlib:show parallelwebdriver:runParallelTests
+  ECHO.
+  SET /P COMMANDS=Enter a space separated set of Gradle tasks: 
+  ECHO.
+  CALL gradle.bat "%COMMANDS%" -info
+  ECHO.
   GOTO :PICK
 ) ELSE IF "%CHOICE%"=="8" (
   CALL gradle.bat --gui
