@@ -123,23 +123,19 @@ of this<br/> project, unzip it, and run the included <b>root/runProjectMenu.bat<
 # Configuration And Setup
 
 #### Eclipse
-To get it working on a regular Eclipse Juno (rather than Spring Source Suite) then perform the following<br/>
-steps.  If you deviate from these steps you risk importing the project incorrectly. You know you did it<br/>correctly if your imported project resembles the screenshot I provided called "layout.png".
+To get it working on a regular Eclipse 4.2.1 or later, follow these steps:
  
-1. Using the "Eclipse Marketplace" settings panel under the Eclipse "Help" menu, install the Gradle tooling<br/> 
-   functionality.  You can do it through the "Install New Software" menu, but it isn't recommended.<br/>
-2. Download the .zip archive of this GitHub project distribution and unzip it to your workspace.  An example<br/>
-   might be:  "C:\Eclipse32\workspace\WebDriverTestingTemplate\" .<br/>
-3. Use the Eclipse "Import" function from the Eclipse "File menu" to import a "Project" of type "Gradle".
-4. Browse using the import wizard to your projects "root" sub-directory described in Step #3 (above).  Then click<br/>
-   the "Build model" button.  We do this because of the "includeFlat" Gradle layout.
-5. Check all checkboxes .  You could also choose to add all to your "working set" if you like but it isn't required.<br/>
-6. Rebuild the dependencies by right clicking on the project and then choose Gradle-->Refresh All Dependencies <br/>
-7. Right click on your project and choose "Run As-->External Tools Configuration".  Configure a new "clean" and "build"<br/>
-   configuration for running a sub-project (or whatever tasks you want to execute).<br/>
-8. Optionally, you can run this project on the command line with "gradle identify google:show google:clean <br/>
-   google:build --info" and it will execute the project unit tests.  Also, this project provides a .bat batch<br/>
-   script that does this and provides a menu of other actions you can execute.
+    1. Using the "Eclipse Marketplace" settings panel under the Eclipse "Help" menu, install the Gradle tooling functionality.  You can do it through the "Install New Software" menu, but it isn't recommended.<br/>
+    2. Download the .zip archive of this GitHub project distribution and unzip it to your workspace.  An example might be:  "C:\Eclipse32\workspace\WebDriverTestingTemplate\" .<br/>
+    3. Use the Eclipse "Import" function from the Eclipse "File menu" to import a "Project" of type "Gradle".
+    4. Browse using the import wizard to your projects "root" sub-directory described in Step #3 (above).  Then click the "Build model" button.  We do this because of the "includeFlat" Gradle layout.
+    5. Check all checkboxes .  You could also choose to add all to your "working set" if you like but it isn't required.
+    6. Rebuild the dependencies by right clicking on the project and then choose Gradle-->Refresh All Dependencies
+    7. Right click on your project and choose "Run As-->External Tools Configuration".  Configure a new "clean" and "build"
+       configuration for running a sub-project (or whatever tasks you want to execute).
+    8. Optionally, you can run this project on the command line with "gradle identify google:show google:clean
+       google:build --info" and it will execute the project unit tests.  Also, this project provides a .bat batch
+       script that does this and provides a menu of other actions you can execute.
 
 #### IntelliJ-IDEA
 The required Gradle functionality is already built into IntelliJ-IDEA 12.1+ .
