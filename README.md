@@ -143,7 +143,8 @@ To get it working on a regular Eclipse 4.2.1 or later, follow these steps:
        script that does this and provides a menu of other actions you can execute.
 
 #### IntelliJ-IDEA
-The required Gradle functionality is already built into IntelliJ-IDEA 12.1+ .
+The required Gradle functionality is already built into IntelliJ-IDEA 12.1+ .  I think using IDEA is more difficult
+but go ahead if you are familiar with it.
 
 #### Notes
 Website of this project:<br/>
