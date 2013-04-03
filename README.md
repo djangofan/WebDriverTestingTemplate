@@ -126,27 +126,23 @@ of this<br/> project, unzip it, and run the included <b>root/runProjectMenu.bat<
 To get it working on a regular Eclipse Juno (rather than Spring Source Suite) then perform the following<br/>
 steps.  If you deviate from these steps you risk importing the project incorrectly. You know you did it<br/>correctly if your imported project resembles the screenshot I provided called "layout.png".
  
-1. Add the following software repositories to your Eclipse software update panel:<br/>
-    a. "SpringSource Update Site for Eclipse Juno 4.2" - http://dist.springsource.com/release/TOOLS/update/e4.2 <br/>
-   If you have Eclipse 3.x, then the Sprint 3.7 update site may work for you.  <br/>
-   (http://www.springsource.org/STS-installation-instructions )
-2. Install the new software components called "Gradle Tooling API" and "Gradle IDE". Restart Eclipse. <br/> 
-3. Download the .zip archive of this GitHub project distribution and unzip it to your workspace.  An example<br/>
+1. Using the "Eclipse Marketplace" settings panel under the Eclipse "Help" menu, install the Gradle tooling<br/> 
+   functionality.  You can do it through the "Install New Software" menu, but it isn't recommended.<br/>
+2. Download the .zip archive of this GitHub project distribution and unzip it to your workspace.  An example<br/>
    might be:  "C:\Eclipse32\workspace\WebDriverTestingTemplate\" .<br/>
-4. Use the Eclipse "Import" function from the Eclipse "File menu" to import a "Project" of type "Gradle".
-5. Browse using the import wizard to your projects "root" sub-directory described in Step #3 (above).  Then click<br/>
+3. Use the Eclipse "Import" function from the Eclipse "File menu" to import a "Project" of type "Gradle".
+4. Browse using the import wizard to your projects "root" sub-directory described in Step #3 (above).  Then click<br/>
    the "Build model" button.  We do this because of the "includeFlat" Gradle layout.
-6. Check all checkboxes .  You could also choose to add all to your "working set" if you like but it isn't required.<br/>
-7. Rebuild the dependencies by right clicking on the project and then choose Gradle-->Refresh All Dependencies <br/>
-8. Right click on your project and choose "Run As-->External Tools Configuration".  Configure a new "clean" and "build"<br/>
+5. Check all checkboxes .  You could also choose to add all to your "working set" if you like but it isn't required.<br/>
+6. Rebuild the dependencies by right clicking on the project and then choose Gradle-->Refresh All Dependencies <br/>
+7. Right click on your project and choose "Run As-->External Tools Configuration".  Configure a new "clean" and "build"<br/>
    configuration for running a sub-project (or whatever tasks you want to execute).<br/>
-9. Optionally, you can run this project on the command line with "gradle identify google:show google:clean <br/>
+8. Optionally, you can run this project on the command line with "gradle identify google:show google:clean <br/>
    google:build --info" and it will execute the project unit tests.  Also, this project provides a .bat batch<br/>
    script that does this and provides a menu of other actions you can execute.
 
 #### IntelliJ-IDEA
-Intellij-IDEA has a nice Gradle plugin that is included.  The steps are otherwise similar to the Eclipse steps #3-#7 <br/>
-above but I believe Eclipse is easier to use.
+The required Gradle functionality is already built into IntelliJ-IDEA 12.1+ .
 
 #### Notes
 Website of this project:<br/>
