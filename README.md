@@ -109,7 +109,7 @@ of this<br/> project, unzip it, and run the included <b>root/runProjectMenu.bat<
     <th>Gradle Wrapper</th>
     <td>Did not choose to implement the Gradle wrapper because I believe that downloading Gradle and<br/>
        configuring GRADLE_HOME and PATH are easy enough.  Also, a manual setup of Gradle gives<br/>us more
-       control using a batch script.  Also, the development IDE can be configured to use the <br/>
+       control using a batch script.  Also, the development IDE is usually configured to use the <br/>
        statically defined Gradle home.</td>
   </tr>
   <tr>
