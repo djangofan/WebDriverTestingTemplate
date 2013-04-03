@@ -15,15 +15,14 @@ Version 1.0 - March 16, 2013
 
 
 # Project Layout
-<br/>
-Eclipse Root <br/>
-+--- Project ':root'<br/>
-+--- Project ':sub-project'<br/>
-+--- Project ':commonlib'<br/>
-+--- Project ':google'<br/>
-+--- Project ':parallelwebdriver'<br/>
-+--- ...<br/>
-<br/>
+
+    Eclipse Root
+    +--- Project ':root'
+    +--- Project ':sub-project'
+    +--- Project ':commonlib'
+    +--- Project ':google'
+    +--- Project ':parallelwebdriver'
+    +--- ...
 
 # Overview<br/>
 1. Project "sub-project" is a project you add yourself, if you want.<br/>
