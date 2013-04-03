@@ -33,9 +33,9 @@ Version 1.0 - March 16, 2013
 # SubProjects
 Links to sub-projects that belong to this project:
 
-    [ParallelWebDriver](https://github.com/djangofan/WebDriverTestingTemplate/blob/master/parallelwebdriver/README.md)
-    [Google Example Tests](https://github.com/djangofan/WebDriverTestingTemplate/tree/master/google)
+[ParallelWebDriver](https://github.com/djangofan/WebDriverTestingTemplate/blob/master/parallelwebdriver/README.md)
 
+[Google Example Tests](https://github.com/djangofan/WebDriverTestingTemplate/tree/master/google)
 
 # Quick Start
 Normally, this project would be ran through the Gradle plugin for Eclipse IDE, but I have tried to make it easier by<br/>
