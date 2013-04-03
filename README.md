@@ -58,7 +58,8 @@ of this project, unzip it, and run the included <b>root/runProjectMenu.bat</b> s
   </tr>
   <tr>
     <th>JUnit based</th>
-    <td>For use ONLY with JUnit 4.11 or higher because of the usage of the parameterized capability<br/> of JUnit. This dependency is configured by the Gradle build script.</td>
+    <td>For use ONLY with JUnit 4.11 or higher because of the usage of the parameterized capability of JUnit. 
+    This dependency is configured by the Gradle build script.</td>
   </tr>
     <tr>
     <th>Parallel runner<br/>using JUnit</th>
@@ -66,11 +67,15 @@ of this project, unzip it, and run the included <b>root/runProjectMenu.bat</b> s
   </tr>
   <tr>
     <th>Native automation support</th>
-    <td>For use with Sikuli 1.0.1 or higher to test native elements that WebDriver "Action" is<br/> unable to control. This dependency is configured in the Gradle build script.  If you implement<br/> this however, you may not be able to use the remote webdriver option in<br/> your project. </td>
+    <td>For use with Sikuli 1.0.1 or higher to test native elements that WebDriver "Action" is unable to 
+    control. This dependency is configured in the Gradle build script.  If you implement this however, you
+    may not be able to use the remote webdriver option in your project.</td>
   </tr>
     <tr>
     <th>Uses RemoteWebDriver<br/>JSON Hub Server</th>
-    <td>I have included an implementation of a WebDriverServer class that starts a RemoteWebDriver<br/> JSON Hub server instance in the BeforeClass method of tests. This server is a static member <br/>of the utility class that the tests extend. </td>
+    <td>I have included an implementation of a WebDriverServer class that starts a RemoteWebDriver JSON 
+    Hub server instance in the BeforeClass method of tests. This server is a static member of the utility
+    class that the tests extend.</td>
   </tr>
   <tr>
     <th>Parameterized data <br/>driven capability</th>
@@ -78,32 +83,34 @@ of this project, unzip it, and run the included <b>root/runProjectMenu.bat</b> s
   </tr>
   <tr>
     <th>Logging and Reporting</th>
-    <td>Logs test output to console and to a file using SLF4j/LogBack API, and configured by<br/> a <b>logback.xml</b> file. Will generate reports of JUnit test results at<br/> <b>build/reports/test/index.html</b> .  Will place a junit.log file at <b>build/logs/junit.log</b> .</td>
+    <td>Logs test output to console and to a file using SLF4j/LogBack API, and configured by a <b>logback.xml</b>
+    file. Will generate reports of JUnit test results at <b>build/reports/test/index.html</b> .  Will place a
+    junit.log file at <b>build/logs/junit.log</b> .</td>
   </tr>
   <tr>
     <th>Page Object design <br/>pattern</th>
-    <td>Uses the WebDriver "page object" design pattern, enhanced by the Selenium<br/> "LoadableComponent" extendable class.</td>
+    <td>Uses the WebDriver "page object" design pattern, enhanced by the Selenium "LoadableComponent" 
+    extendable class.</td>
   </tr>
     <tr>
     <th>Fluent API design<br/>pattern</th>
-    <td>Implemented examples of the <i>Fluent API</i> design pattern while retaining capability of <br/>
+    <td>Implemented examples of the <i>Fluent API</i> design pattern while retaining capability of 
     the traditional page object pattern.</td>
   </tr>
   <tr>
     <th>Multi-project build<br/>configuration</th>
-    <td>Implemented multiple project build.  The root project has a subproject called "core" and all <br/>
+    <td>Implemented multiple project build.  The root project has a subproject called "core" and all 
    subprojects of "core" inherit classes from it.</td>
   </tr>
   <tr>
     <th>Run Options</th>
-    <td>You have three different options for running the tests: via the Gradle GUI, via your IDE<br/>Gradle
-    plugin, or via Gradle command line. To run with<br/>the JUnit runner in your IDE, 
-    you would need to manually export your project <br/>as a normal Java project, because this template does
-    not support that.</td>
+    <td>You have three different options for running the tests: via the Gradle GUI, via your IDE Gradle
+    plugin, or via Gradle command line. To run with the JUnit runner in your IDE, you would need to manually
+    export your project as a normal Java project, because this template does not support that.</td>
   </tr>
   <tr>
     <th>Core utility package</th>
-    <td>All projects inherit from a "core" project that contains classes where you can store methods<br/>
+    <td>All projects inherit from a "core" project that contains classes where you can store methods
         that all of your projects can share between them.</td>
   </tr>
 </table>
@@ -116,16 +123,16 @@ of this project, unzip it, and run the included <b>root/runProjectMenu.bat</b> s
   </tr>
   <tr>
     <th>Gradle Wrapper</th>
-    <td>Did not choose to implement the Gradle wrapper because I believe that downloading Gradle and<br/>
-       configuring GRADLE_HOME and PATH are easy enough.  Also, a manual setup of Gradle gives<br/>us more
-       control using a batch script.  Also, the development IDE is usually configured to use the <br/>
+    <td>Did not choose to implement the Gradle wrapper because I believe that downloading Gradle and
+       configuring GRADLE_HOME and PATH are easy enough.  Also, a manual setup of Gradle gives us more
+       control using a batch script.  Also, the development IDE is usually configured to use the 
        statically defined Gradle home.</td>
   </tr>
   <tr>
     <th>Jar executable option</th>
-    <td>Creates an uberJar of all projects and subprojects that can be ran by double clicking<br/>
-       the .jar file.  If you don't have the file association supporting it, we include a <br/>
-       jarAssociation.bat file to setup the file association on your Windows system.  I was planning<br/>
+    <td>Creates an uberJar of all projects and subprojects that can be ran by double clicking
+       the .jar file.  If you don't have the file association supporting it, we include a 
+       jarAssociation.bat file to setup the file association on your Windows system.  I was planning
        to implement this but currently having trouble getting it to work.</td>
   </tr>
 </table>
