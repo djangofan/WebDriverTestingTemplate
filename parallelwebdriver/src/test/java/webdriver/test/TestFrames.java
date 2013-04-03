@@ -47,7 +47,7 @@ public class TestFrames extends WebDriverUtils {
 		classlogger.info("Starting test testIFrame1" );
 		driver.get( System.getProperty("testProtocol") + "://" + System.getProperty("testDomain") + ":" +
 		        System.getProperty("testPort") + System.getProperty("testUri") );
-		
+		waitTimer( 4, 1000);		
 		MainPage mp1 = new MainPage( driver ).get();
 		mp1.setControlInputField( "Test input" );
 		mp1.clickControlButton();		
@@ -56,7 +56,7 @@ public class TestFrames extends WebDriverUtils {
 		if1.clickCopyButton();
 		if1.exitFrame();
 		mp1.clickControlButton();
-		waitTimer( 20, 1000);		
+		waitTimer( 4, 1000);		
 	
 		classlogger.info( "Finished testIFrame1" );
 	}	
@@ -66,7 +66,7 @@ public class TestFrames extends WebDriverUtils {
 		classlogger.info("Starting test testIFrame2" );
 		driver.get( System.getProperty("testProtocol") + "://" + System.getProperty("testDomain") + ":" +
 		        System.getProperty("testPort") + System.getProperty("testUri") );
-		
+		waitTimer( 4, 1000);
 		MainPage mp2 = new MainPage( driver ).get();
 		mp2.setControlInputField( "Test input" );
 		mp2.clickControlButton();		
@@ -75,7 +75,7 @@ public class TestFrames extends WebDriverUtils {
 		if2.clickCopyButton();
 		if2.exitFrame();
 		mp2.clickControlButton();
-		waitTimer( 20, 1000);		
+		waitTimer( 4, 1000);		
 		
 		classlogger.info( "Finished testIFrame2" );
 	}	

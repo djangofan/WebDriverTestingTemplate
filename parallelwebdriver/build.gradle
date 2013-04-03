@@ -48,60 +48,58 @@ tasks.withType(Test) {
 
     jvmArgs '-Xms128m', '-Xmx1024m', '-XX:MaxPermSize=128m'
     maxParallelForks = 4
+	
+	// System properties passed to tests (if not http://localhost:8001/index.html)
+	systemProperties['testProtocol'] = 'http'
+	systemProperties['testDomain'] = 'djangofan.github.com'
+	systemProperties['testPort'] = 80
+	systemProperties['testUri'] = '/html-test-site/site/index.html'
+	systemProperties['hubUrl'] = 'localhost'
+	systemProperties['hubPort'] = '4444'
+	
     testLogging {
         exceptionFormat "full"
         events "started", "passed", "skipped", "failed", "standardOut", "standardError"
         displayGranularity = 0
         showStandardStreams = false
-    }    
+    }
+	
     beforeTest { descriptor ->
         logger.lifecycle("Running test: " + descriptor)
     }    
    
 }
 
-task runParallelTests(type: Test) {
+task runParallelTestsInFirefox(type: Test) {
     description = 'Runs all JUnit test classes in parallel threads.'
     include '**/TestHandleCache*.class'
-    testReportDir = file("${reporting.baseDir}/ParallelTests")
-    testResultsDir = file("${buildDir}/test-results/ParallelTests")
+    testReportDir = file("${reporting.baseDir}/ParallelTestsFF")
+    testResultsDir = file("${buildDir}/test-results/ParallelTestsFF")
     
-    // System properties passed to tests (if not http://localhost:8001/index.html)
-    systemProperties['testProtocol'] = 'http'
-    systemProperties['testDomain'] = 'djangofan.github.com'
-    systemProperties['testPort'] = 80
-    systemProperties['testUri'] = '/html-test-site/site/index.html'
-    systemProperties['hubUrl'] = 'localhost'
-    systemProperties['hubPort'] = '4444'
-    
+	// System properties passed to tests
+	systemProperties['browserType'] = 'firefox'
+	
     // initial browser size and position
     systemProperties['windowXPosition'] = '100'
     systemProperties['windowYPosition'] = '40'
     systemProperties['windowWidth'] = '400'
-    systemProperties['windowHeight'] = '600'
-    
+    systemProperties['windowHeight'] = '600'    
 }
 
 task runFrameTestInIE(type: Test) {
     description = 'Runs a test of handling iframes.'
     maxParallelForks = 1
     include '**/TestFrames.class'
-    testReportDir = file("${reporting.baseDir}/FrameTest")
-    testResultsDir = file("${buildDir}/test-results/FrameTest")
+    testReportDir = file("${reporting.baseDir}/FrameTestIE")
+    testResultsDir = file("${buildDir}/test-results/FrameTestIE")
     
     // System properties passed to tests
-    systemProperties['testProtocol'] = 'http'
-    systemProperties['testDomain'] = 'localhost'
-    systemProperties['testPort'] = 8001
-    systemProperties['testUri'] = '/index.html'
-    systemProperties['hubUrl'] = 'localhost'
-    systemProperties['hubPort'] = '4444'
     systemProperties['browserType'] = 'ie'
     
     // initial browser size and position
     systemProperties['windowXPosition'] = '100'
     systemProperties['windowYPosition'] = '40'
-    systemProperties['windowWidth'] = '400'
+    systemProperties['windowWidth'] = '800'
     systemProperties['windowHeight'] = '600'    
     
 }
