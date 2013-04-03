@@ -12,7 +12,7 @@ import qa.webdriver.util.WebDriverUtils;
 /**
  *  This class tests a multi-window handling method that I call "handle cache"
  *  
- * @author Jon Thor Austen
+ *  @author Jon Thor Austen
  *
  */
 public class TestHandleCacheTwo extends WebDriverUtils {
@@ -24,14 +24,14 @@ public class TestHandleCacheTwo extends WebDriverUtils {
 	public static void setUpTestHandleCacheTwoClass() {
 		LOGGER.info("Finished setUpTestHandleCacheTwoClass");
 	}
-	
+
 	/**
 	 *  Load main window handle before tests
 	 */
 	public TestHandleCacheTwo() {
 		classlogger.info("Constructed TestHandleCacheTwo");
 	}
-	
+
 	/**
 	 *  Start main window handle for tests
 	 */
@@ -42,7 +42,7 @@ public class TestHandleCacheTwo extends WebDriverUtils {
 		System.out.println("HandleCacheTwo thread id = " + Thread.currentThread().getId());
 		classlogger.info("Finished setUpTestHandleCacheTwo");
 	}
-	
+
 	/**
 	 *  Tests opening a few windows and then closing them
 	 */
@@ -51,12 +51,12 @@ public class TestHandleCacheTwo extends WebDriverUtils {
 		classlogger.info("Starting test testHandleCacheTwo" );
 		classlogger.info("Loading Window1 contents");
 		driver.get( System.getProperty("testProtocol") + "://" + System.getProperty("testDomain") + ":" +
-		        System.getProperty("testPort") + System.getProperty("testUri") );
-		waitTimer(2, 500);
+				System.getProperty("testPort") + System.getProperty("testUri") );
+		waitTimer(4, 500);
 
 		// Open Window2 via Window1
 		classlogger.info("Opening Window2");
-		driver.findElement( By.id("btnNewNamelessWindow") ).click();        
+		driver.findElement( By.id("btnNewWindow") ).click();        
 		String h2 = handleNewWindow();
 		waitTimer(2, 500);
 
@@ -102,7 +102,7 @@ public class TestHandleCacheTwo extends WebDriverUtils {
 		driver.get("about:about");
 		updateHandleCache();  
 		waitTimer(6, 500);
-    closeAllBrowserWindows();
+		closeAllBrowserWindows();
 		classlogger.info("Finished tearDownTestHandleCacheTwo");
 	}
 

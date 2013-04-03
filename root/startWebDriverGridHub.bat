@@ -24,11 +24,13 @@ IF NOT EXIST %JAR% (
   ECHO Selenium standalone server .jar is missing.
   IF EXIST "%WGET%" (
     ECHO Hit any key to download Selenium standalone .jar file.
-	PAUSE >nul
+    ECHO.
+	  PAUSE >nul
     "%WGET%" --dot-style=binary http://selenium.googlecode.com/files/%JAR%
   ) ELSE (
     ECHO Wget.exe is missing. Install GNU Utils.
-	GOTO :ERROR
+    ECHO.
+	  GOTO :ERROR
   )
 )
 ECHO.

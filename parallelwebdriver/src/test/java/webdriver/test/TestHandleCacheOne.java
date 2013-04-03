@@ -11,11 +11,11 @@ import qa.webdriver.util.WebDriverUtils;
 /**
  *  This class tests a multi-window handling method that I call "handle cache"
  *  
- * @author Jon Thor Austen
+ *  @author Jon Thor Austen
  *
  */
 public class TestHandleCacheOne extends WebDriverUtils {
-	
+
 	/**
 	 *  Setup web server before loading class
 	 */
@@ -23,14 +23,14 @@ public class TestHandleCacheOne extends WebDriverUtils {
 	public static void setUpTestHandleCacheOneClass() {
 		LOGGER.info("Finished TestHandleCacheOneClass");
 	}
-	
+
 	/**
 	 *  Load main window handle before tests
 	 */
 	public TestHandleCacheOne() {
 		classlogger.info("Constructed TestHandleCacheOne");
 	}
-	
+
 	/**
 	 *  Start main window handle for tests
 	 */
@@ -41,7 +41,7 @@ public class TestHandleCacheOne extends WebDriverUtils {
 		System.out.println("HandleCacheOne thread id = " + Thread.currentThread().getId());
 		classlogger.info("Finished setUpTestHandleCacheOne");
 	}
-	
+
 	/**
 	 *  Tests opening a few windows and then closing them
 	 */
@@ -50,12 +50,12 @@ public class TestHandleCacheOne extends WebDriverUtils {
 		classlogger.info("Starting test testHandleCacheOne" );
 		classlogger.info("Loading Window1 contents");
 		driver.get( System.getProperty("testProtocol") + "://" + System.getProperty("testDomain") + ":" +
-		        System.getProperty("testPort") + System.getProperty("testUri") );
-		waitTimer(2, 500);
+				System.getProperty("testPort") + System.getProperty("testUri") );
+		waitTimer(4, 500);
 
 		// Open Window2 via Window1
 		classlogger.info("Opening Window2");
-		driver.findElement( By.id("btnNewNamelessWindow") ).click();        
+		driver.findElement( By.id("btnNewWindow") ).click();        
 		String h2 = handleNewWindow();
 		waitTimer(2, 500);
 
@@ -90,7 +90,7 @@ public class TestHandleCacheOne extends WebDriverUtils {
 
 		classlogger.info( "Finished testHandleCacheOne" );
 	}	
-  
+
 	/**
 	 *  Close main window handle after tests finish
 	 */
@@ -101,7 +101,7 @@ public class TestHandleCacheOne extends WebDriverUtils {
 		driver.get("about:about");
 		updateHandleCache();  
 		waitTimer(6, 500);
-    closeAllBrowserWindows(); 
+		closeAllBrowserWindows(); 
 		classlogger.info("Finished tearDownTestHandleCacheOne");
 	}
 

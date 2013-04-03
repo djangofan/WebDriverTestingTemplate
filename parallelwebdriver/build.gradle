@@ -66,11 +66,11 @@ task runParallelTests(type: Test) {
     testReportDir = file("${reporting.baseDir}/ParallelTests")
     testResultsDir = file("${buildDir}/test-results/ParallelTests")
     
-    // System properties passed to tests
+    // System properties passed to tests (if not http://localhost:8001/index.html)
     systemProperties['testProtocol'] = 'http'
-    systemProperties['testDomain'] = 'localhost'
-    systemProperties['testPort'] = 8001
-    systemProperties['testUri'] = '/index.html'
+    systemProperties['testDomain'] = 'djangofan.github.com'
+    systemProperties['testPort'] = 80
+    systemProperties['testUri'] = '/html-test-site/site/index.html'
     systemProperties['hubUrl'] = 'localhost'
     systemProperties['hubPort'] = '4444'
     
