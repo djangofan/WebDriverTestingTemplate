@@ -151,8 +151,10 @@ http://djangofan.github.com/WebDriverTestingTemplate/<br/>
 <br/>
 
 # FAQ
-<ol>
-<li>If the intellisense in Eclipse doesn't work, make sure you have added all the .class directories to<br/>
-    your Eclipse project classpath.  (See the included .classpath file.)</li>
-<li>I use "GitHub GUI" to sync my local project repo to GitHub.  If you fork my project, I would<br/>recommend doing it this way unless you are a Git expert and prefer another way.</li>
-</ol>
+
+    1. If the intellisense in Eclipse doesn't work, make sure you have added all the .class directories to
+       your Eclipse project classpath.  (See the included .classpath file.)
+    2. I use "GitHub GUI" to sync my local project repo to GitHub.  If you fork my project, I would recommend
+       doing it this way unless you are a Git expert and prefer another way.
+    3.
+
