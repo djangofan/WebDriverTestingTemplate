@@ -155,9 +155,7 @@ To get it working on a regular Eclipse 4.2.1 or later, follow these steps:
     3. Use the Eclipse "Import" function from the Eclipse "File
        menu" to import a "Project" of type "Gradle".
     4. Browse using the import wizard to your projects "root" 
-       sub-directory described in Step #3 (above).  Then click
-       the "Build model" button.  We do this because of the 
-       "includeFlat" Gradle layout.
+       directory.  Then click the "Build model" button.
     5. Check all checkboxes .  You could also choose to add all 
        to your "working set" if you like but it isn't required.
     6. Rebuild the dependencies by right clicking on the project
