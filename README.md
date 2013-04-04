@@ -145,7 +145,10 @@ To get it working on a regular Eclipse 4.2.1 or later, follow these steps:
     1. Using the "Eclipse Marketplace" settings panel under the 
        Eclipse "Help" menu, install the Gradle tooling 
        functionality.  You can do it through the "Install New
-       Software" menu, but it isn't recommended.
+       Software" menu, but it isn't recommended.  If Market is
+       missing from your Eclipse, then add the repo:
+       http://download.eclipse.org/releases/juno
+       and then install the "market" and restart Eclipse.
     2. Download the .zip archive of this GitHub project 
        distribution and unzip it to your workspace.  An example:
        "C:\Eclipse32\workspace\WebDriverTestingTemplate\" .
