@@ -7,7 +7,6 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -76,8 +75,8 @@ public class IFrame2 extends LoadableComponent<IFrame2> {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>( driver )
 			    .withTimeout(30, TimeUnit.SECONDS)
 			    .pollingEvery(5, TimeUnit.SECONDS)
-			    .ignoring( NoSuchElementException.class ) 
-			    .ignoring( StaleElementReferenceException.class ) ;
+			    .ignoring( NoSuchElementException.class ) ;
+			    //.ignoring( StaleElementReferenceException.class ) ;
 		wait.until( ExpectedConditions.presenceOfElementLocated( 
 				By.cssSelector("body form#webDriverUnitiFrame2TestFormID h1") ) );
 	}
