@@ -18,14 +18,9 @@
     </encoder>
   </appender>
         
-  <root level="DEBUG">
+  <root level="INFO">
     <appender-ref ref="FILE" />
+    <appender-ref ref="STDOUT" />
   </root>
-  
-  <!-- We want error logging from this logger to go to an extra appender 
-       It still inherits CONSOLE STDOUT from the root logger -->
-  <logger name="junit" level="INFO">
-      <appender-ref ref="STDOUT" />
-  </logger>  
   
 </configuration>

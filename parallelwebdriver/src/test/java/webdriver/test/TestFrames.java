@@ -46,18 +46,17 @@ public class TestFrames extends WebDriverUtils {
 	public void testIFrame1() {
 		classlogger.info("Starting test testIFrame1" );
 		driver.get( System.getProperty("testProtocol") + "://" + System.getProperty("testDomain") + ":" +
-		        System.getProperty("testPort") + System.getProperty("testUri") );
-		waitTimer( 4, 1000);		
-		MainPage mp1 = new MainPage( driver ).get();
-		mp1.setControlInputField( "Test input" );
-		mp1.clickControlButton();		
+		        System.getProperty("testPort") + System.getProperty("testUri") + "/w1.html#iFrame1" );
+		//MainPage mp1 = new MainPage( driver ).get();		
 		IFrame1 if1 = new IFrame1( driver ).get();
+		waitTimer( 2, 1000);
 		if1.setInputField("Iframe1 test." );
 		if1.clickCopyButton();
 		if1.exitFrame();
-		mp1.clickControlButton();
-		waitTimer( 4, 1000);		
-	
+		//mp1.setControlInputField( "Test input" );
+		//mp1.clickControlButton();
+		//mp1.clickControlButton();
+		waitTimer( 2, 1000);	
 		classlogger.info( "Finished testIFrame1" );
 	}	
 	
@@ -65,18 +64,17 @@ public class TestFrames extends WebDriverUtils {
 	public void testIFrame2() {
 		classlogger.info("Starting test testIFrame2" );
 		driver.get( System.getProperty("testProtocol") + "://" + System.getProperty("testDomain") + ":" +
-		        System.getProperty("testPort") + System.getProperty("testUri") );
-		waitTimer( 4, 1000);
-		MainPage mp2 = new MainPage( driver ).get();
-		mp2.setControlInputField( "Test input" );
-		mp2.clickControlButton();		
+		        System.getProperty("testPort") + System.getProperty("testUri") + "/w1.html#iFrame2" );
+		//MainPage mp2 = new MainPage( driver ).get();		
 		IFrame2 if2 = new IFrame2( driver ).get();
+		waitTimer( 2, 1000);
 		if2.setInputField("Iframe2 test." );
 		if2.clickCopyButton();
 		if2.exitFrame();
-		mp2.clickControlButton();
-		waitTimer( 4, 1000);		
-		
+		//mp2.setControlInputField( "Test input" );
+		//mp2.clickControlButton();
+		//mp2.clickControlButton();
+		waitTimer( 2, 1000);		
 		classlogger.info( "Finished testIFrame2" );
 	}	
 
@@ -85,12 +83,11 @@ public class TestFrames extends WebDriverUtils {
 	 */
 	@After
 	public void cleanUpTestFrames() {
-		// close main window handle
 		driver.switchTo().window( mainHandle );
-		driver.get("about:about");
+		showMessageInBrowser("Test finished.");
 		updateHandleCache();  
 		waitTimer(6, 500);
-    closeAllBrowserWindows(); 
+        closeAllBrowserWindows(); 
 		classlogger.info("Finished cleanUpTestFrames");
 	}
 

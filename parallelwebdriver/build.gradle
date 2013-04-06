@@ -51,9 +51,9 @@ tasks.withType(Test) {
 	
 	// System properties passed to tests (if not http://localhost:8001/index.html)
 	systemProperties['testProtocol'] = 'http'
-	systemProperties['testDomain'] = 'djangofan.github.com'
+	systemProperties['testDomain'] = 'djangofan.github.io'
 	systemProperties['testPort'] = 80
-	systemProperties['testUri'] = '/html-test-site/site/index.html'
+	systemProperties['testUri'] = '/html-test-site/site'
 	systemProperties['hubUrl'] = 'localhost'
 	systemProperties['hubPort'] = '4444'
 	
@@ -99,7 +99,7 @@ task runFrameTestInIE(type: Test) {
     // initial browser size and position
     systemProperties['windowXPosition'] = '100'
     systemProperties['windowYPosition'] = '40'
-    systemProperties['windowWidth'] = '800'
+    systemProperties['windowWidth'] = '900'
     systemProperties['windowHeight'] = '600'    
     
 }

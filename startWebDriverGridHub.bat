@@ -1,6 +1,7 @@
 @ECHO off
 SETLOCAL ENABLEDELAYEDEXPANSION
-TITLE WebDriver Grid Hub on 4444
+SET TITLETEXT=WebDriver Grid Hub on 4444
+TITLE %TITLETEXT%
  
 ECHO *********************************************
 ECHO *
@@ -25,12 +26,13 @@ IF NOT EXIST %JAR% (
   IF EXIST "%WGET%" (
     ECHO Hit any key to download Selenium standalone .jar file.
     ECHO.
-	  PAUSE >nul
+	PAUSE >nul
     "%WGET%" --dot-style=binary http://selenium.googlecode.com/files/%JAR%
+	TITLE %TITLETEXT%
   ) ELSE (
     ECHO Wget.exe is missing. Install GNU Utils.
     ECHO.
-	  GOTO :ERROR
+	GOTO :ERROR
   )
 )
 ECHO.

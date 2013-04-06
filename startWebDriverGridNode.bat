@@ -55,7 +55,13 @@ ECHO Wget.exe is missing. & GOTO :ERROR
  
 ECHO.
 ECHO ======================
-ECHO Grid Hub status : & netstat -an | FIND "5555"
+ECHO Grid Hub status : & netstat -an | FIND "4444"
+IF NOT %ERRORLEVEL%==0 (
+  ECHO Hub is required to run first.
+  :: You can disable this check if you need to run a Node on a different computer.
+  ECHO.
+  GOTO :ERROR
+)
 ECHO ======================
 ECHO.
  

@@ -85,16 +85,19 @@ public abstract class WebDriverUtils extends CoreUtils {
 
 	public static void closeAllBrowserWindows() {
 		Set<String> handles = driver.getWindowHandles();
-		if ( !handles.isEmpty() ) {
+		if ( handles.size() > 1 ) {
 			LOGGER.info("Closing " + handles.size() + " window(s).");
 			for ( String windowId : handles ) {
 				LOGGER.info("-- Closing window handle: " + windowId );
+				// this can hang if you replaced the DOM with a document.write before calling this
 				driver.switchTo().window( windowId ).close();
 			}
+		} else if ( handles.size()==1 ) {
+			LOGGER.info("Closing last open window.");
 		} else {
 			LOGGER.info("There were no window handles to close.");
 		}
-		driver.quit();  // this quit is critical, otherwise window will hang open
+		driver.quit();  // this quit is critical, otherwise last window will hang open
 	}
 
 	public static void closeWindowByHandle( String windowHandle ) {  
@@ -149,6 +152,7 @@ public abstract class WebDriverUtils extends CoreUtils {
 	}
 
 	public static void updateHandleCache() {
+		LOGGER.info("Updating cache of window handles...");
 		printHandles();
 		Set<String> updatedHandles = driver.getWindowHandles();
 		if ( !updatedHandles.isEmpty() ) {
@@ -275,6 +279,12 @@ public abstract class WebDriverUtils extends CoreUtils {
 			LOGGER.info( "Failed to find element after " + totalTime + " milliseconds." );
 		}
 		return we;
+	}
+	
+	public void showMessageInBrowser( String message ) {
+		message = "<HTML><HEAD><TITLE>Message</TITLE></HEAD><BODY>" + message + "</BODY></HTML>";
+		String script = "document.write( '" + message + "' );";
+		((JavascriptExecutor)driver).executeScript( script );
 	}
 
 
