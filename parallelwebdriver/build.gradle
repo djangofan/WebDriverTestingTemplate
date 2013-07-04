@@ -1,6 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'idea'
+//apply plugin: 'idea'
 group = 'selenium.webdriver.examples'
 
 // This project will work with the --offline arg if you don't have internet access.
@@ -20,6 +20,7 @@ repositories {
 }
 
 dependencies {
+    // use testCompile instead?
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.+'
     compile group: 'commons-collections', name: 'commons-collections', version: '3.+'
     compile group: 'junit', name: 'junit', version: '4.+'
