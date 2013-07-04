@@ -5,7 +5,7 @@ TITLE %TITLETEXT%
  
 SET CHROMEDRIVERZIP=chromedriver_win_26.0.1383.0.zip
 SET CHROMEDRIVER=chromedriver.exe
-SET JAR=selenium-server-standalone-2.31.0.jar
+SET JAR=selenium-server-standalone-2.33.0.jar
 SET IEDRIVERZIP=IEDriverServer_Win32_2.31.0.zip
 SET IEDRIVER=IEDriverServer.exe
 SET "WGET=C:\Program Files (x86)\GnuWin32\bin\wget.exe"

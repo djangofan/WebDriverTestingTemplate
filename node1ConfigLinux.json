@@ -1,0 +1,32 @@
+{
+    "capabilities":
+    [
+        {
+            "browserName": "firefox",
+            "acceptSslCerts": true,
+            "javascriptEnabled": true,
+            "takesScreenshot": false,
+            "firefox_profile": "",
+            "browser-version": "22.0",  
+            "platform": "LINUX",                     
+            "maxInstances": 5
+        },
+        {
+            "browserName": "chrome",
+            "maxInstances": 5,
+            "platform": "LINUX"
+        }
+    ],
+    "configuration":
+    {
+        "_comment" : "Configuration for Node on Linux",
+        "cleanUpCycle": 2000,
+        "timeout": 30000,
+        "port": 5555,
+        "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
+        "host": ip,
+        "register": true,
+        "hubPort": 4444,
+        "maxSessions": 5
+    }
+}
