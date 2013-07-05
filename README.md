@@ -4,8 +4,6 @@ This is a Java project that can be used as a template (or archetype) to start a 
 
 I am very much interested in others forking my code and/or letting me know how it can be improved.
 
-The idea here is to replace your existing automation framework, such as "HP Quality Center", "XStudio", or "Rational Functional Tester", with a pure Java solution managed by the Gradle build system.   I use Jenkins to schedule my tests and run them.
-
 # Versions
 
 Version 1.0 - March 16, 2013
