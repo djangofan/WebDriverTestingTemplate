@@ -14,6 +14,6 @@ add it.
   http://djangofan.github.com/html-test-site/site/index.html
 
 2.  Then, start the Grid Hub and the Grid Node that are contained at:
-   https://github.com/djangofan/WebDriverTestingTemplate/blob/master/root  
+   https://github.com/djangofan/WebDriverTestingTemplate/
 
 
