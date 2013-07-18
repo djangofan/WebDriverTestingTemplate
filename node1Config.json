@@ -7,7 +7,7 @@
             "javascriptEnabled": true,
             "takesScreenshot": false,
             "firefox_profile": "",
-            "browser-version": "19.0",  
+            "browser-version": "22.0",  
             "platform": "WINDOWS",                     
             "maxInstances": 5
         },
