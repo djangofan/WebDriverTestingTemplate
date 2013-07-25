@@ -24,10 +24,10 @@
     ],
     "configuration":
     {
-        "_comment" : "Configuration for Node",
+        "_comment" : "This is configuration for the grid node 1.",
         "cleanUpCycle": 2000,
         "timeout": 30000,
-        "proxy": "org.openqa.grid.selenium.proxy.WebDriverRemoteProxy",
+        "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
         "port": 5555,
         "host": ip,
         "register": true,

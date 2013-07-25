@@ -12,7 +12,7 @@ ECHO *
 ECHO *********************************************
 ECHO.
  
-SET JAR=selenium-server-standalone-2.31.0.jar
+SET JAR=selenium-server-standalone-2.33.0.jar
 SET "WGET=C:\Program Files (x86)\GnuWin32\bin\wget.exe"
  
 IF NOT DEFINED JAVA_HOME (
@@ -24,9 +24,6 @@ SET "PATH=%JAVA_HOME%\bin;%PATH%"
 IF NOT EXIST %JAR% (
   ECHO Selenium standalone server .jar is missing.
   IF EXIST "%WGET%" (
-    ECHO Hit any key to download Selenium standalone .jar file.
-    ECHO.
-	PAUSE >nul
     "%WGET%" --dot-style=binary http://selenium.googlecode.com/files/%JAR%
 	TITLE %TITLETEXT%
   ) ELSE (

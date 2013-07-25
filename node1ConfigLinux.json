@@ -19,7 +19,7 @@
     ],
     "configuration":
     {
-        "_comment" : "Configuration for Node on Linux",
+        "_comment" : "This is configuration for the grid node 1 on Linux.",
         "cleanUpCycle": 2000,
         "timeout": 30000,
         "port": 5555,

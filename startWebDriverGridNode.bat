@@ -2,11 +2,13 @@
 SETLOCAL ENABLEDELAYEDEXPANSION
 SET TITLETEXT=WebDriver Grid Node
 TITLE %TITLETEXT%
- 
+
+SET PROXY_TO_FIDDLER=false
+
 SET CHROMEDRIVERZIP=chromedriver_win_26.0.1383.0.zip
 SET CHROMEDRIVER=chromedriver.exe
 SET JAR=selenium-server-standalone-2.33.0.jar
-SET IEDRIVERZIP=IEDriverServer_Win32_2.31.0.zip
+SET IEDRIVERZIP=IEDriverServer_Win32_2.33.0.zip
 SET IEDRIVER=IEDriverServer.exe
 SET "WGET=C:\Program Files (x86)\GnuWin32\bin\wget.exe"
  
@@ -64,9 +66,13 @@ IF NOT %ERRORLEVEL%==0 (
 )
 ECHO ======================
 ECHO.
- 
+
+:: Set JAVA_OPTS java options to JVM
+SET "JAVA_OPTS=-Dwebdriver.chrome.driver=%CHROMEDRIVER%"
+IF "%PROXY_TO_FIDDLER%"=="true" SET "JAVA_OPTS=%JAVA_OPTS% -DproxySet=true -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=8888"
+
 TITLE %TITLETEXT%
-java.exe -jar %JAR% -role node -nodeConfig node1Config.json -Dwebdriver.chrome.driver=%CHROMEDRIVER%
+java.exe -jar %JAR% -role node -nodeConfig node1Config.json %JAVA_OPTS%
  
 GOTO :END
 :ERROR

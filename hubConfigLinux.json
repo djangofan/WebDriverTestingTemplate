@@ -1,7 +1,7 @@
 {
-    "_comment" : "Configuration for Hub on Linux",
+    "_comment" : "This is configuration for the grid hub on Linux.",
     "host": ip,
-    "maxSessions": 10,
+    "maxSessions": 11,
     "port": 4444,
     "cleanupCycle": 5000,
     "timeout": 300000,

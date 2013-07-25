@@ -1,0 +1,15 @@
+<?xml version = "1.0" ?>
+<proxies>
+  <serviceProxy name="Selenium Grid on 2000"
+                 port="2000">
+    <localHost>127.0.0.1</localHost>
+    <target host="localhost"
+             port="4444" />
+  </serviceProxy>
+  <global>
+    <router adjustHostHeader="true"
+             adjustContentLength="true" />
+    <monitor-gui indentMessage="true"
+                  autoTrack="true" />
+  </global>
+</proxies>

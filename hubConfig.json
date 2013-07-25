@@ -1,7 +1,7 @@
 {
-    "_comment" : "Configuration for Hub",
+    "_comment" : "This is the configuration for grid hub.",
     "host": ip,
-	  "maxSessions": 5,
+    "maxSessions": 11,
     "port": 4444,
     "cleanupCycle": 5000,
     "timeout": 300000,
