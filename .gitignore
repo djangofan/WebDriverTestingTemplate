@@ -173,6 +173,7 @@ cache.*
 # To support IntelliJ IDEA , will disable these later when I get IntelliJ working correctly
 .idea
 *.iml
+*.ipr
 
 # Don't add logback log4j files to source
 *.log
