@@ -1,6 +1,6 @@
 apply plugin: 'java'
-apply plugin: 'idea'
-//apply plugin: 'eclipse'
+//apply plugin: 'idea'
+apply plugin: 'eclipse'
 group = 'selenium.webdriver.qa'
 
 /**
@@ -8,7 +8,7 @@ group = 'selenium.webdriver.qa'
  *  Eclipse Gradle tooling plugins Import Project wizard, rather than
  *  the root of the main Eclipse project.  This project otherwise
  *  contains no code and does nothing in particular except host
- *  the location of the setings.gradle which defines the flat layout.
+ *  the location of the settings.gradle which defines the flat layout.
  */
 
 task identify {
@@ -22,14 +22,7 @@ task identify {
     println ""
     println "-----------------------------------"
     println "Using build file '$buildFile.name' in '$buildFile.parentFile.name'."
-    println ""
-    println "-----------------------------------------------"
-    println "Project Name: " + projTitle
-    println "Version: " + projVersion
-    println "Home directory: "
     println "Build output: " + relativePath(compileJava.destinationDir)
     println "Resources output: " + relativePath(processResources.destinationDir)
-    println "Test result dir: " + relativePath(getReports().getJunitXml().getDestination())
-    println "Report dir: " + relativePath(getReports().getHtml().getDestination())
     println "-----------------------------------------------"
 }

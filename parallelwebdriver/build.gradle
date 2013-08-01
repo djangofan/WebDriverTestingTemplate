@@ -1,18 +1,11 @@
 apply plugin: 'java'
-apply plugin: 'idea'
-//apply plugin: 'eclipse'
-group = 'selenium.webdriver.examples'
-
-// This project will work with the --offline arg if you don't have internet access.
-// The initial run (of course) requires internet to download the libs.
+//apply plugin: 'idea'
+apply plugin: 'eclipse'
+group = 'selenium.webdriver.qa'
 
 ext {
     projTitle = 'Test Parallel MultiWindow'
     projVersion = '1.0'
-}
-
-dependencies {
-    compile project(':commonlib')
 }
 
 repositories {
@@ -20,6 +13,7 @@ repositories {
 }
 
 dependencies {
+    compile project(':commonlib')
     // use testCompile instead?
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.+'
     compile group: 'commons-collections', name: 'commons-collections', version: '3.+'

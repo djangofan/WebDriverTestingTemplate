@@ -1,11 +1,7 @@
 apply plugin: 'java'
-apply plugin: 'idea'
-//apply plugin: 'eclipse'
+//apply plugin: 'idea'
+apply plugin: 'eclipse'
 group = 'selenium.webdriver.qa'
-
-dependencies {
-    compile project(':commonlib')
-}
 
 ext {
     projTitle = 'WebDriver on Google'
@@ -25,6 +21,7 @@ repositories {
 }
 
 dependencies {
+    compile project(':commonlib')
     compile group: 'org.sikuli', name: 'sikuli-api', version: '1.0.+'
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.+'
     compile group: 'commons-io', name: 'commons-io', version: '1.3.+'
