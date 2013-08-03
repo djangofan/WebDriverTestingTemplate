@@ -14,7 +14,6 @@ repositories {
 
 dependencies {
     compile project(':commonlib')
-    // use testCompile instead?
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.+'
     compile group: 'commons-collections', name: 'commons-collections', version: '3.+'
     compile group: 'junit', name: 'junit', version: '4.+'
@@ -22,32 +21,17 @@ dependencies {
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.+'
 }
 
-// running the task distZip creates a .zip archive of this project.
-// to run it, unzip it and run the embedded bin/project.bat script.
-
 tasks.withType(Test) {
 
     jvmArgs '-Xms128m', '-Xmx1024m', '-XX:MaxPermSize=128m'
     maxParallelForks = 4
 	
-	// System properties passed to tests (if not http://localhost:8001/index.html)
 	systemProperties['testProtocol'] = 'http'
 	systemProperties['testDomain'] = 'djangofan.github.io'
 	systemProperties['testPort'] = 80
 	systemProperties['testUri'] = '/html-test-site/site'
 	systemProperties['hubUrl'] = 'localhost'
 	systemProperties['hubPort'] = '4444'
-	
-    testLogging {
-        exceptionFormat "full"
-        events "started", "passed", "skipped", "failed", "standardOut", "standardError"
-        displayGranularity = 0
-        showStandardStreams = false
-    }
-	
-    beforeTest { descriptor ->
-        logger.lifecycle("Running test: " + descriptor)
-    }    
    
 }
 
