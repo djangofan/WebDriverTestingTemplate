@@ -41,8 +41,8 @@ task runParallelTestsInFirefox(type: Test) {
     testReportDir = file("${reporting.baseDir}/ParallelTestsFF")
     testResultsDir = file("${buildDir}/test-results/ParallelTestsFF")
     
-	// System properties passed to tests
-	systemProperties['browserType'] = 'firefox'
+    // System properties passed to tests
+    systemProperties['browserType'] = 'firefox'
 	
     // initial browser size and position
     systemProperties['windowXPosition'] = '100'
