@@ -25,13 +25,13 @@ tasks.withType(Test) {
 
     jvmArgs '-Xms128m', '-Xmx1024m', '-XX:MaxPermSize=128m'
     maxParallelForks = 4
-	
-	systemProperties['testProtocol'] = 'http'
-	systemProperties['testDomain'] = 'djangofan.github.io'
-	systemProperties['testPort'] = 80
-	systemProperties['testUri'] = '/html-test-site/site'
-	systemProperties['hubUrl'] = 'localhost'
-	systemProperties['hubPort'] = '4444'
+    testLogging.showStandardStreams = true
+    systemProperties['testProtocol'] = 'http'
+    systemProperties['testDomain'] = 'djangofan.github.io'
+    systemProperties['testPort'] = 80
+    systemProperties['testUri'] = '/html-test-site/site'
+    systemProperties['hubUrl'] = 'localhost'
+    systemProperties['hubPort'] = '4444'
    
 }
 
