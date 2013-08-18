@@ -38,8 +38,8 @@ tasks.withType(Test) {
 task runParallelTestsInFirefox(type: Test) {
     description = 'Runs all JUnit test classes in parallel threads.'
     include '**/TestHandleCache*.class'
-    testReportDir = file("${reporting.baseDir}/ParallelTestsFF")
-    testResultsDir = file("${buildDir}/test-results/ParallelTestsFF")
+    reports.junitXml.destination = "$buildDir/test-results/ParallelTestsFF"  
+    reports.html.destination = "$buildDir/test-results/ParallelTestsFF"
     
     // System properties passed to tests
     systemProperties['browserType'] = 'firefox'
@@ -55,8 +55,8 @@ task runFrameTestInIE(type: Test) {
     description = 'Runs a test of handling iframes.'
     maxParallelForks = 1
     include '**/TestFrames.class'
-    testReportDir = file("${reporting.baseDir}/FrameTestIE")
-    testResultsDir = file("${buildDir}/test-results/FrameTestIE")
+    reports.junitXml.destination = "$buildDir/test-results/ParallelTestsIE"  
+    reports.html.destination = "$buildDir/test-results/ParallelTestsIE"
     
     // System properties passed to tests
     systemProperties['browserType'] = 'ie'

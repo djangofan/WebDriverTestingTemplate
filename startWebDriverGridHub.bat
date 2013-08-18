@@ -12,7 +12,7 @@ ECHO *
 ECHO *********************************************
 ECHO.
  
-SET JAR=selenium-server-standalone-2.33.0.jar
+SET JAR=selenium-server-standalone-2.35.0.jar
 SET "WGET=C:\Program Files (x86)\GnuWin32\bin\wget.exe"
  
 IF NOT DEFINED JAVA_HOME (

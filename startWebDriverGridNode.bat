@@ -6,10 +6,10 @@ TITLE %TITLETEXT%
 :: Proxy for Fiddler or for BrowserMob
 SET PROXY=false
 
-SET CHROMEDRIVERZIP=chromedriver_win_26.0.1383.0.zip
+SET CHROMEDRIVERZIP=chromedriver_win32_2.2.zip
 SET CHROMEDRIVER=chromedriver.exe
-SET JAR=selenium-server-standalone-2.33.0.jar
-SET IEDRIVERZIP=IEDriverServer_Win32_2.33.0.zip
+SET JAR=selenium-server-standalone-2.35.0.jar
+SET IEDRIVERZIP=IEDriverServer_Win32_2.35.1.zip
 SET IEDRIVER=IEDriverServer.exe
 SET "WGET=C:\Program Files (x86)\GnuWin32\bin\wget.exe"
  

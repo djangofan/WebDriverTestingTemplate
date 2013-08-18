@@ -7,7 +7,7 @@
             "javascriptEnabled": true,
             "takesScreenshot": false,
             "firefox_profile": "",
-            "browser-version": "22.0",  
+            "browser-version": "23.0.1",  
             "platform": "LINUX",                     
             "maxInstances": 5
         },

@@ -12,7 +12,7 @@ echo "*"
 echo "*********************************************"
 echo ""
  
-jarfile="selenium-server-standalone-2.33.0.jar"
+jarfile="selenium-server-standalone-2.35.0.jar"
 wgetbin="/usr/bin/wget"
 
 if [ -z "${JAVA_HOME+xxx}" ]; then

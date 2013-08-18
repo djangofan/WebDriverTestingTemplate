@@ -61,16 +61,16 @@ task runAllTestsInFirefox(type: Test) {
     maxParallelForks = 2
     systemProperties['browser'] = 'firefox'
     include '**/GoogleTest*.class'
-    testReportDir = file("${reporting.baseDir}/GoogleTestFF")
-    testResultsDir = file("${buildDir}/test-results/GoogleTestFF")
+    reports.junitXml.destination = "$buildDir/test-results/GoogleTestFF"  
+    reports.html.destination = "$buildDir/test-results/GoogleTestFF"
 }
 
 task runAllTestsInIE(type: Test) {
     maxParallelForks = 1
     systemProperties['browser'] = 'ie'
     include '**/GoogleTest*.class'
-    testReportDir = file("${reporting.baseDir}/GoogleTestIE")
-    testResultsDir = file("${buildDir}/test-results/GoogleTestIE")
+    reports.junitXml.destination = "$buildDir/test-results/GoogleTestIE"  
+    reports.html.destination = "$buildDir/test-results/GoogleTestIE"
 }
 
 task runAllTestsInChrome(type: Test) {
@@ -78,8 +78,8 @@ task runAllTestsInChrome(type: Test) {
     systemProperties['browser'] = 'chrome'
 	systemProperties['webdriver.chrome.driver'] = 'chromedriver.exe'
     include '**/GoogleTest*.class'
-    testReportDir = file("${reporting.baseDir}/GoogleTestC")
-    testResultsDir = file("${buildDir}/test-results/GoogleTestC")
+    reports.junitXml.destination = "$buildDir/test-results/GoogleTestCH"  
+    reports.html.destination = "$buildDir/test-results/GoogleTestCH"
 }
 
 task runParameterizedExample(type: Test) {
