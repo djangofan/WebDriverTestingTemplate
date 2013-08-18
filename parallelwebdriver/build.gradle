@@ -37,6 +37,7 @@ tasks.withType(Test) {
 
 task runParallelTestsInFirefox(type: Test) {
     description = 'Runs all JUnit test classes in parallel threads.'
+    //include '**/TestFrames.class'
     include '**/TestHandleCache*.class'
     reports.junitXml.destination = "$buildDir/test-results/ParallelTestsFF"  
     reports.html.destination = "$buildDir/test-results/ParallelTestsFF"
@@ -53,8 +54,9 @@ task runParallelTestsInFirefox(type: Test) {
 
 task runFrameTestInIE(type: Test) {
     description = 'Runs a test of handling iframes.'
-    maxParallelForks = 1
-    include '**/TestFrames.class'
+    maxParallelForks = 2
+    //include '**/TestFrames.class'
+    include '**/TestHandleCache*.class'
     reports.junitXml.destination = "$buildDir/test-results/ParallelTestsIE"  
     reports.html.destination = "$buildDir/test-results/ParallelTestsIE"
     
