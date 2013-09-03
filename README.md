@@ -1,3 +1,7 @@
+#IMPORTANT
+This project is no longer maintained.  Now, please see this GitHub repo instead:
+[selenium-gradle-example](https://github.com/djangofan/selenium-gradle-example)
+
 # Info
 
 This is a Java project that can be used as a template (or archetype) to start a WebDriver web browser testing project.  I chose to simplify and and implement using simply WebDriver and Gradle.<br/>
